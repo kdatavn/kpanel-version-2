@@ -1,6 +1,6 @@
 ### Lệnh Cài Đặt KPANEL Trên Centos 6 & 7 & 8:
 ```
-bash <( curl -k https://raw.githubusercontent.com/itvn9online/vpssim-free/master/install )
+bash <( curl -k https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/install )
 ```
 
 ----------------------------------------------

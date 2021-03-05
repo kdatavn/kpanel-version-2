@@ -19,7 +19,7 @@ cd ~ ; cd /opt/echbay_vpssim && git pull ; cd ~
 #git merge origin master
 # or clone new
 else
-git clone https://github.com/kdatavn/kpanel-version-2 /opt/echbay_vpssim
+git clone https://github.com/kdatavn/kpanel-version-2.git /opt/echbay_vpssim
 fi
 
 cd ~
