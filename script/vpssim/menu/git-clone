@@ -13,13 +13,13 @@ sudo yum -y install git > /dev/null 2>&1
 # update code
 if [ -d /opt/echbay_vpssim ]; then
 cd ~ ; cd /opt/echbay_vpssim && git pull ; cd ~
-#git commit -m "ECHBAY-VPSSIM commit"
+#git commit -m "KPANEL commit"
 #git pull origin master
 #git pull origin
 #git merge origin master
 # or clone new
 else
-git clone https://github.com/itvn9online/vpssim-free /opt/echbay_vpssim
+git clone https://github.com/kdatavn/kpanel-version-2 /opt/echbay_vpssim
 fi
 
 cd ~
@@ -29,7 +29,7 @@ sleep 5
 find /opt/echbay_vpssim/script/vpssim/menu -type f -exec chmod 755 {} \;
 /opt/echbay_vpssim/script/vpssim/menu/git-clone-done
 
-echo "update ECHBAY-VPSSIM menu"
+echo "update KPANEL menu"
 mkdir -p /etc/vpssim/menu ; chmod 755 /etc/vpssim/menu
 rm -rf /etc/vpssim/menu/*
 yes | cp -rf /opt/echbay_vpssim/script/vpssim/menu/. /etc/vpssim/menu/

@@ -6,28 +6,28 @@ if [ $(id -u) != "0" ]; then
 fi
 
 if [ -f /var/cpanel/cpanel.config ]; then
-echo "Server cua ban da cai san WHM/Cpanel, neu ban muon dung ECHBAY-VPSSIM"
+echo "Server cua ban da cai san WHM/Cpanel, neu ban muon dung KPANEL"
 echo "Hay cai moi lai he dieu hanh, khuyen dung centos6 - 64bit"
 echo "Chao tam biet !"
 exit
 fi
 
 if [ -f /etc/psa/.psa.shadow ]; then
-echo "Server cua ban da cai san Plesk, neu ban muon dung ECHBAY-VPSSIM"
+echo "Server cua ban da cai san Plesk, neu ban muon dung KPANEL"
 echo "Hay cai moi lai he dieu hanh, khuyen dung centos6 - 64bit"
 echo "Chao tam biet !"
 exit
 fi
 
 if [ -f /etc/init.d/directadmin ]; then
-echo "Server cua ban da cai san DirectAdmin, neu ban muon dung ECHBAY-VPSSIM"
+echo "Server cua ban da cai san DirectAdmin, neu ban muon dung KPANEL"
 echo "Hay cai moi lai he dieu hanh, khuyen dung centos6 - 64bit"
 echo "Chao tam biet !"
 exit
 fi
 
 if [ -f /etc/init.d/webmin ]; then
-echo "Server cua ban da cai san webmin, neu ban muon dung ECHBAY-VPSSIM"
+echo "Server cua ban da cai san webmin, neu ban muon dung KPANEL"
 echo "Hay cai moi lai he dieu hanh, khuyen dung centos6 - 64bit"
 echo "Chao tam biet !"
 exit
@@ -37,8 +37,8 @@ if [ -f /home/vpssim.conf ]; then
 clear
 echo "========================================================================="
 echo "========================================================================="
-echo "Server/VPS cua ban da cai san ECHBAY-VPSSIM"
-echo "Hay su dung lenh ECHBAY-VPSSIM de truy cap ECHBAY-VPSSIM menu"
+echo "Server/VPS cua ban da cai san KPANEL"
+echo "Hay su dung lenh KPANEL de truy cap KPANEL menu"
 echo "Chao tam biet !"
 echo "========================================================================="
 echo "========================================================================="
@@ -51,7 +51,7 @@ if [ ! "$arch" = "x86_64" ]; then
 clear
 echo "========================================================================="
 echo "========================================================================="
-echo "Hien tai! ECHBAY-VPSSIM chi ho tro phien ban x64 bit"
+echo "Hien tai! KPANEL chi ho tro phien ban x64 bit"
 echo "Vui long cai dat phien ban he dieu hanh x86_64 roi thu lai"
 echo "Chao tam biet !"
 echo "========================================================================="
@@ -72,17 +72,17 @@ rm -rf /root/vpssim*
 #prompt="Nhap lua chon cua ban: "
 #options=("Tieng Viet" "Tieng Anh" "Huy Bo")
 echo "========================================================================="
-echo "ECHBAY-VPSSIM Ho Tro Centos 6 & Centos 7 & Centos 8 x64"
+echo "KPANEL Ho Tro Centos 6 & Centos 7 & Centos 8 x64"
 echo "-------------------------------------------------------------------------"
 echo "Ban nen su dung Centos 7 x64 de Server co hieu suat tot nhat."
 echo "-------------------------------------------------------------------------"
-#echo "ECHBAY-VPSSIM ho tro 2 ngon ngu: Tieng Anh va Tieng Viet. "
+#echo "KPANEL ho tro 2 ngon ngu: Tieng Anh va Tieng Viet. "
 #echo "-------------------------------------------------------------------------"
 #echo "Trong qua trinh su dung, ban co the thay doi ngon ngu ngon ngu bang chuc "
 #echo "-------------------------------------------------------------------------"
-#echo "nang [ Change ECHBAY-VPSSIM Language ] trong [ Update System ]."
+#echo "nang [ Change KPANEL Language ] trong [ Update System ]."
 #echo "========================================================================="
-#echo "                   Chon Ngon Ngu Cho ECHBAY-VPSSIM"
+#echo "                   Chon Ngon Ngu Cho KPANEL"
 echo "========================================================================="
 
 #PS3="$prompt"
