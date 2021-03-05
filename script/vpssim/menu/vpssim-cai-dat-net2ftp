@@ -73,7 +73,7 @@ sleep 10
     mkdir -p "/home/$website/logs"
     cd /home/$website/public_html
 #wget -q --no-check-certificate http://vpssim.com/script/vpssim/net2ftp_v1.0.zip
-wget -q --no-check-certificate https://github.com/itvn9online/echbay-vpssim-software/raw/master/net2ftp_v1.0.zip
+wget -q --no-check-certificate https://kdata.com/script/kdata/Softwear/raw/master/net2ftp_v1.0.zip
 
 if [ ! -f net2ftp_v1.0.zip ]; then
 echo "========================================================================="

@@ -78,7 +78,7 @@ killall netdata
 cd /usr/local/vpssim
 rm -rf netdata
 #wget --no-check-certificate -q https://vpssim.com/script/vpssim/Softwear/netdata_$REMOVER.zip
-wget --no-check-certificate -q https://github.com/itvn9online/echbay-vpssim-software/raw/master/netdata_$REMOVER.zip
+wget --no-check-certificate -q https://kdata.com/script/kdata/Softwear/raw/master/netdata_$REMOVER.zip
 unzip -o -q netdata_$REMOVER.zip
 rm -rf /usr/local/vpssim/netdata_$REMOVER.zip
 cd /usr/local/vpssim/netdata

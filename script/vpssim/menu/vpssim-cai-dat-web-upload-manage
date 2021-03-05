@@ -126,7 +126,7 @@ sleep 10
     mkdir -p "/home/$website/logs"
     cd /home/$website/public_html
 #wget --no-check-certificate -q https://hostingaz.vn/script/vpssim/eXtplorer/eXtplorer_2.1.9.zip
-wget --no-check-certificate -q https://github.com/itvn9online/echbay-vpssim-software/raw/master/eXtplorer_2.1.9.zip
+wget --no-check-certificate -q https://kdata.com/script/kdata/Softwear/raw/master/eXtplorer_2.1.9.zip
 
 if [ ! -f eXtplorer_2.1.9.zip ]; then
 echo "========================================================================="

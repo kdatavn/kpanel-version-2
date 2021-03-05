@@ -8,7 +8,7 @@ if [ "$ioncubestatus" = "1" ]; then
 mkdir -p /usr/local/ioncube
 #fi
 
-#wget --no-check-certificate -q -O - https://github.com/itvn9online/echbay-vpssim-software/raw/master/ioncube_loaders_lin_x86-64_BETA.tar.gz | tar -xzf - -C /usr/local/ioncube
+#wget --no-check-certificate -q -O - https://kdata.com/script/kdata/Softwear/raw/master/ioncube_loaders_lin_x86-64_BETA.tar.gz | tar -xzf - -C /usr/local/ioncube
 #rm -r -f /root/ioncube_loaders_lin_x86-64_BETA.tar.gz
 
 echo "Download ioncube..."
