@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 random=`date |md5sum |cut -c '1-10'`
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
@@ -12,7 +12,7 @@ minimumsize=1024000
 	clear
 	echo "========================================================================= "
 	echo "Khong co du lieu trong PHP-FPM Error log file"
-	/etc/vpssim/menu/vpssim-eroor-menu
+	/etc/kpanel/menu/kpanel-eroor-menu
 	fi
 	
 	if [ $checksize -ge $minimumsize ]; then
@@ -31,7 +31,7 @@ minimumsize=1024000
 	echo "Link download PHP-FPM Error Log:"
 	echo "-------------------------------------------------------------------------"
 	echo "http://$serverip:$priport/server-log/php-fpm-error.log-$random.zip"
-	/etc/vpssim/menu/vpssim-eroor-menu
+	/etc/kpanel/menu/kpanel-eroor-menu
   else
     rm -rf /home/$mainsite/private_html/server-log/php-fpm-error.log*
 	\cp -uf /home/$mainsite/logs/php-fpm-error.log /home/$mainsite/private_html/server-log/
@@ -47,12 +47,12 @@ minimumsize=1024000
 	echo "Link Xem PHP-FPM Error Log:"
 	echo "-------------------------------------------------------------------------"
 	echo "http://$serverip:$priport/server-log/php-fpm-error.log-$random.txt"
-	/etc/vpssim/menu/vpssim-eroor-menu
+	/etc/kpanel/menu/kpanel-eroor-menu
   fi 
   
 else
 clear
 echo "========================================================================= "
 echo "File log khong ton tai hoac ban Disable chuc nang ghi log"
-/etc/vpssim/menu/vpssim-eroor-menu
+/etc/kpanel/menu/kpanel-eroor-menu
 fi 

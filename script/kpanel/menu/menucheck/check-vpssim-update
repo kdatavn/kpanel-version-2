@@ -4,27 +4,27 @@ curTime=$(date +%d)
 #echo "curTime: "$curTime
 
 
-if [ ! -f /tmp/vpssim.newversion ]; then
-touch -a -m -t 201602180130.09 /tmp/vpssim.newversion  
+if [ ! -f /tmp/kpanel.newversion ]; then
+touch -a -m -t 201602180130.09 /tmp/kpanel.newversion  
 fi
 
-fileTime2=$(date -r /tmp/vpssim.newversion +%d)
+fileTime2=$(date -r /tmp/kpanel.newversion +%d)
 #echo "fileTime2: "$fileTime2
 
 if [ ! "$fileTime2" == "$curTime" ]; then
-rm -rf /tmp/vpssim.newversion
-#wget -q https://vpssim.echbay.com/script/vpssim/vpssim.newversion -O /tmp/vpssim.newversion
-wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/vpssim-free/master/version -O /tmp/vpssim.newversion
-touch /tmp/vpssim.newversion
-LOCALVER=`cat /etc/vpssim/vpssim.version`
-checksize=$(du -sb /tmp/vpssim.newversion | awk 'NR==1 {print $1}')
+rm -rf /tmp/kpanel.newversion
+#wget -q https://kpanel.echbay.com/script/kpanel/kpanel.newversion -O /tmp/kpanel.newversion
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/version -O /tmp/kpanel.newversion
+touch /tmp/kpanel.newversion
+LOCALVER=`cat /etc/kpanel/kpanel.version`
+checksize=$(du -sb /tmp/kpanel.newversion | awk 'NR==1 {print $1}')
 ###
 	if [ $checksize -gt 2 ]; then
-	REMOVER=`cat /tmp/vpssim.newversion`
-	cat >> "/tmp/vpssim_check_vpssim_version" <<END
+	REMOVER=`cat /tmp/kpanel.newversion`
+	cat >> "/tmp/kpanel_check_kpanel_version" <<END
 		if [ ! "$LOCALVER" == "$REMOVER" ]; then
 			echo "========================================================================="
-			echo "Update for VPSSIM found !  "
+			echo "Update for KPANEL found !  "
 			echo "-------------------------------------------------------------------------"
 			echo "Your Version: $LOCALVER   |   Newest version: $REMOVER"
 			echo "-------------------------------------------------------------------------"
@@ -32,9 +32,9 @@ checksize=$(du -sb /tmp/vpssim.newversion | awk 'NR==1 {print $1}')
 			
 		fi
 END
-	chmod +x /tmp/vpssim_check_vpssim_version
-	/tmp/vpssim_check_vpssim_version
-	rm -rf /tmp/vpssim_check_vpssim_version
+	chmod +x /tmp/kpanel_check_kpanel_version
+	/tmp/kpanel_check_kpanel_version
+	rm -rf /tmp/kpanel_check_kpanel_version
 	fi
 fi
 

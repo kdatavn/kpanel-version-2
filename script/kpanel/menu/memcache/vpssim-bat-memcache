@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 echo "-------------------------------------------------------------------------"
@@ -17,4 +17,4 @@ fi
 clear
 echo "========================================================================= "
 echo "Bat Memcached thanh cong."
-/etc/vpssim/menu/memcache/vpssim-before-memcache-menu
+/etc/kpanel/menu/memcache/kpanel-before-memcache-menu

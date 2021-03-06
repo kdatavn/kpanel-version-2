@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "-------------------------------------------------------------------------"
 echo "Please wait...."
 sleep 1
@@ -7,12 +7,12 @@ if [ "$(ls -1 /home/$mainsite/private_html/server-log | wc -l)" == "0" ]; then
 clear
 echo "========================================================================= "
 echo "Khong ton tai ban download cua cac file log."
-/etc/vpssim/menu/vpssim-eroor-menu
+/etc/kpanel/menu/kpanel-eroor-menu
 fi
 rm -rf /home/$mainsite/private_html/server-log/*.*
 clear
 echo "========================================================================= "
 echo "Xoa tat ca link download file Log thanh cong"
-/etc/vpssim/menu/vpssim-eroor-menu
+/etc/kpanel/menu/kpanel-eroor-menu
 
 

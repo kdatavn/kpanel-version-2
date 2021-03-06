@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 prompt="Type in your choice:"
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 if [ "$(/sbin/service memcached status | awk 'NR==1 {print $5}')" == "running..." ]; then
@@ -19,7 +19,7 @@ options=("Enable" "Restart" "Config Memcached" )
 fi
 fi
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                VPSSIM - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                           Memcached Manage \n"
 printf "=========================================================================\n"
@@ -31,12 +31,12 @@ select opt in "${options[@]}" "Thoat"; do
 
     case "$REPLY" in
 
-    1 ) /etc/vpssim/menu/memcache/vpssim-before-bat-tat-memcache;;
-    2 ) /etc/vpssim/menu/memcache/vpssim-memcache-restart;;
-    3 ) /etc/vpssim/menu/memcache/vpssim-memcache-change-size;;
+    1 ) /etc/kpanel/menu/memcache/kpanel-before-bat-tat-memcache;;
+    2 ) /etc/kpanel/menu/memcache/kpanel-memcache-restart;;
+    3 ) /etc/kpanel/menu/memcache/kpanel-memcache-change-size;;
        
   
-$(( ${#options[@]}+1 )) ) echo "";  clear && /bin/vpssim;;
+$(( ${#options[@]}+1 )) ) echo "";  clear && /bin/kpanel;;
      *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
     esac

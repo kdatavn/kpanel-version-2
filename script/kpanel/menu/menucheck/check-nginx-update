@@ -13,14 +13,14 @@ fileTime=$(date -r /tmp/00-all-nginx-version.txt +%d)
 
 if [ ! "$fileTime" == "$curTime" ]; then
 rm -rf /tmp/00-all-nginx-version.txt
-#wget -q https://vpssim.echbay.com/script/vpssim/00-all-nginx-version.txt -O /tmp/00-all-nginx-version.txt
-wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/vpssim-free/master/script/vpssim/00-all-nginx-version.txt -O /tmp/00-all-nginx-version.txt
+#wget -q https://kpanel.echbay.com/script/kpanel/00-all-nginx-version.txt -O /tmp/00-all-nginx-version.txt
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/script/kpanel/00-all-nginx-version.txt -O /tmp/00-all-nginx-version.txt
 touch /tmp/00-all-nginx-version.txt
-Nginx1=`cat /etc/vpssim/nginx.version`
+Nginx1=`cat /etc/kpanel/nginx.version`
 checksize=$(du -sb /tmp/00-all-nginx-version.txt | awk 'NR==1 {print $1}')
 if [ $checksize -gt 14 ]; then
 Nginx3=`cat /tmp/00-all-nginx-version.txt | awk 'NR==2 {print $1}' | sed 's/|//' | sed 's/|//'`
-cat >> "/tmp/vpssim_check_nginx" <<END
+cat >> "/tmp/kpanel_check_nginx" <<END
 		if [  "$(grep $Nginx1 /tmp/00-all-nginx-version.txt | sed 's/|//' | sed 's/|//')" == "$Nginx1" ]; then
 			if [ ! "$Nginx1" == "$Nginx3" ]; then
 			echo "========================================================================="
@@ -33,9 +33,9 @@ cat >> "/tmp/vpssim_check_nginx" <<END
 			fi
 		fi
 END
-chmod +x /tmp/vpssim_check_nginx
-/tmp/vpssim_check_nginx
-rm -rf /tmp/vpssim_check_nginx
+chmod +x /tmp/kpanel_check_nginx
+/tmp/kpanel_check_nginx
+rm -rf /tmp/kpanel_check_nginx
 fi
 fi
 

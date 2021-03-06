@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -d /home/$mainsite/private_html/server-log ]; then
 mkdir -p /home/$mainsite/private_html/server-log
 fi
@@ -9,7 +9,7 @@ options=( "Nginx Log" "PHP-FPM Log" "MySQL Log" "PHP-FPM Error Log" "Secure Log"
 echo "========================================================================="
 echo "Neu file log co dung luong nho hon hoac bang 1 MB"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se tu dong convert thanh file text de ban xem tren trinh duyet"
+echo "KPANEL se tu dong convert thanh file text de ban xem tren trinh duyet"
 echo "========================================================================="
 echo "CHON FILE LOG BAN MUON DOWNLOAD"
 echo "========================================================================="
@@ -31,21 +31,21 @@ select opt in "${options[@]}"; do
 done
 
 if [ "$downloadcase" = "NginxLog" ]; then
-/etc/vpssim/menu/downloadlog/vpssim-download-log-nginx
+/etc/kpanel/menu/downloadlog/kpanel-download-log-nginx
 elif [ "$downloadcase" = "phpfpmlog" ]; then
-/etc/vpssim/menu/downloadlog/vpssim-download-log-php-fpm
+/etc/kpanel/menu/downloadlog/kpanel-download-log-php-fpm
 elif [ "$downloadcase" = "phpfpmslowlog" ]; then
-/etc/vpssim/menu/downloadlog/vpssim-download-log-php-fpm-slow
+/etc/kpanel/menu/downloadlog/kpanel-download-log-php-fpm-slow
 elif [ "$downloadcase" = "phpfpmerrorlog" ]; then
-/etc/vpssim/menu/downloadlog/vpssim-download-log-php-fpm-error
+/etc/kpanel/menu/downloadlog/kpanel-download-log-php-fpm-error
 elif [ "$downloadcase" = "mysqllog" ]; then
-/etc/vpssim/menu/downloadlog/vpssim-download-log-mysql
+/etc/kpanel/menu/downloadlog/kpanel-download-log-mysql
 elif [ "$downloadcase" = "mysqlslowlog" ]; then
-/etc/vpssim/menu/downloadlog/vpssim-download-log-mysql-slow
+/etc/kpanel/menu/downloadlog/kpanel-download-log-mysql-slow
 elif [ "$downloadcase" = "securelog" ]; then
-/etc/vpssim/menu/downloadlog/vpssim-download-log-secure
+/etc/kpanel/menu/downloadlog/kpanel-download-log-secure
 elif [ "$downloadcase" = "eximlog" ]; then
-/etc/vpssim/menu/downloadlog/vpssim-download-log-exim
+/etc/kpanel/menu/downloadlog/kpanel-download-log-exim
 else 
-clear && /etc/vpssim/menu/vpssim-eroor-menu
+clear && /etc/kpanel/menu/kpanel-eroor-menu
 fi

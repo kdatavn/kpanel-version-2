@@ -1,14 +1,14 @@
 #!/bin/sh
 
-if [ ! -f /etc/vpssim/minfreedisc.info ]; then
-echo "1000" > /etc/vpssim/minfreedisc.info
+if [ ! -f /etc/kpanel/minfreedisc.info ]; then
+echo "1000" > /etc/kpanel/minfreedisc.info
 fi
 
-minfreedisc=`cat /etc/vpssim/minfreedisc.info`
+minfreedisc=`cat /etc/kpanel/minfreedisc.info`
 #echo "minfreedisc: "$minfreedisc
 
 if ! [[ $minfreedisc =~ $checktruenumber ]] ; then
-echo "1000" > /etc/vpssim/minfreedisc.info
+echo "1000" > /etc/kpanel/minfreedisc.info
 fi 
 if [ ! -f /tmp/checkdiscsize ]; then
 touch -a -m -t 201602180130.09 /tmp/checkdiscsize 

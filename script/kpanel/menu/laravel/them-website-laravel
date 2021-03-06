@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 #
 cd ~
@@ -10,7 +10,7 @@ echo $dir_install
 if [ ! -d $dir_install ]; then
 echo "dir not exist: "$dir_install
 
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 
 exit
 fi
@@ -70,4 +70,4 @@ chmod -R 777 $laravel_storage/*
 #chmod -R 777 $laravel_storage/*.*
 
 #
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu

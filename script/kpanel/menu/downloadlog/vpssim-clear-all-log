@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 3
@@ -35,7 +35,7 @@ clear
 rm -rf /tmp/*check*
 echo "========================================================================= "
 echo "Khong co du lieu trong cac file log"
-/etc/vpssim/menu/vpssim-eroor-menu
+/etc/kpanel/menu/kpanel-eroor-menu
 exit
 fi
 
@@ -81,6 +81,6 @@ clear
 rm -rf /tmp/*check*
 echo "========================================================================= "
 echo "Clear Tat Ca Logs Thanh Cong"
-/etc/vpssim/menu/vpssim-eroor-menu
+/etc/kpanel/menu/kpanel-eroor-menu
 
 

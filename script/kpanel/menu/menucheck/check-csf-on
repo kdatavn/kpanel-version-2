@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ ! -f /etc/vpssim/tatthongbao.csf ]; then
+if [ ! -f /etc/kpanel/tatthongbao.csf ]; then
 if [ ! -f /etc/csf/csf.conf ]; then
 echo "========================================================================="
 echo "NGUY HIEM ! BAN CHUA CAI DAT CSF FIREWALL DE BAO VE VPS/SERVER !"
@@ -28,16 +28,16 @@ echo "Dia chi IP hien tai cua ban:  $checkip"
 echo "-------------------------------------------------------------------------"
 echo "Dia chi IP nay khong co trong whitelist cua CSF Firewwall"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM da them IP nay vao CSF whitelist de khong bi CSF Firewall Block"
+echo "KPANEL da them IP nay vao CSF whitelist de khong bi CSF Firewall Block"
 echo "-------------------------------------------------------------------------"
 echo "De thay doi co hieu luc, CSF Firewall can khoi dong lai"
 echo "========================================================================="
-read -p "Nhan [Enter] de khoi dong lai CSF Firewall va Truy cap VPSSIM ..."
+read -p "Nhan [Enter] de khoi dong lai CSF Firewall va Truy cap KPANEL ..."
 #iptables -I INPUT -p tcp --dport $priport -j ACCEPT
 #iptables -A INPUT -p tcp -s $checkip --dport $priport -j ACCEPT
 #service iptables save
 #service iptables restart
-/etc/vpssim/menu/CSF-Fiwall/vpssim-re-start-khoi-dong-lai-csf-lfd
+/etc/kpanel/menu/CSF-Fiwall/kpanel-re-start-khoi-dong-lai-csf-lfd
 clear
 echo "========================================================================="
 echo "IP: $checkip da duoc them vao CSF Firewall's Whitelist"
