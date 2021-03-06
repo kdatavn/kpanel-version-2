@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 clear
 echo "========================================================================="
 echo "Ban khong the tai files boi mot trong cac nguyen nhan sau:"
@@ -18,4 +18,4 @@ echo "Hoac them IP cua ban vao Csf.allow bang chuc nang [Add IP to CSF.Allow]"
 echo "========================================================================="
 read -p "Nhan [Enter] de thoat ..."
 clear
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database

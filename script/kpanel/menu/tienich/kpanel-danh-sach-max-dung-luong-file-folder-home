@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
     rm -rf /tmp/*list*
     echo "-------------------------------------------------------------------------"
     echo "Please wait ..."
@@ -18,4 +18,4 @@ echo "-------------------------------------------------------------------------"
 echo "5 Folder Lon Nhat Trong /home:"
 cat /tmp/listfolder
 rm -rf /tmp/*list*
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich

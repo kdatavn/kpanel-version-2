@@ -1,7 +1,7 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 clear
 echo "========================================================================="
-echo "Cai dat VPSSIM phien ban tieng ANH tai VPSSIM.COM"
-vpssim
+echo "Cai dat kpanel phien ban tieng ANH tai kpanel.COM"
+kpanel

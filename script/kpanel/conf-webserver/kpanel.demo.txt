@@ -24,7 +24,7 @@ include /etc/nginx/conf/all.conf;
 #Uncomment 3 lines and set your rules here!
 #} 
 
-#security, sql injection Propeller ....(uncoment if you want to use). Because some website plugins do not run with this config, so vpssim to turn off default
+#security, sql injection Propeller ....(uncoment if you want to use). Because some website plugins do not run with this config, so kpanel to turn off default
 #include /etc/nginx/conf/block.conf;
 
 # Error Page

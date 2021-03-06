@@ -3,8 +3,8 @@
 # Download init & config file for nginx
 rm -f /etc/init.d/nginx
 download_initd_nginx () {
-#wget --no-check-certificate -q https://vpssim.echbay.com/script/vpssim/nginx -O /etc/init.d/nginx && chmod +x /etc/init.d/nginx
-yes | cp -rf /opt/echbay_vpssim/script/vpssim/nginx /etc/init.d/nginx && chmod +x /etc/init.d/nginx
+#wget --no-check-certificate -q https://kpanel.echbay.com/script/kpanel/nginx -O /etc/init.d/nginx && chmod +x /etc/init.d/nginx
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/nginx /etc/init.d/nginx && chmod +x /etc/init.d/nginx
 }
 download_initd_nginx
 checkdownload_initd_nginx=`cat /etc/init.d/nginx`

@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 prompt="Lua chon cua ban : "
 options=( "Them Redirect Domain" "Them Park Domain" "Thoat")
@@ -16,9 +16,9 @@ select opt in "${options[@]}"; do
     esac  
 done
 if [ "$choose" = "redirect" ]; then
-/etc/vpssim/menu/vpssim-redirect-domain
+/etc/kpanel/menu/kpanel-redirect-domain
 elif [ "$choose" = "park" ]; then
-/etc/vpssim/menu/vpssim-park-domain
+/etc/kpanel/menu/kpanel-park-domain
 else 
-clear && /etc/vpssim/menu/vpssim-them-website-menu
+clear && /etc/kpanel/menu/kpanel-them-website-menu
 fi

@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 
 echo "Chuan bi phuc hoi Database..."
@@ -27,4 +27,4 @@ echo "-------------------------------------------------------------------------"
 echo "Danh sach cac database tren VPS:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/listdata/$listdata-listdata.txt"
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-tat-ca-database-menu
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-tat-ca-database-menu

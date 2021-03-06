@@ -1,19 +1,19 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 rm -rf /tmp/*hostingaz*
 mkdir -p /tmp/saoluuwebsitethanhconghostingaz
 mkdir -p /tmp/saoluuwebsitethatbaihostingaz
-ls /etc/nginx/conf.d > /tmp/vpssim-websitelist
-sed -i 's/\.conf//g' /tmp/vpssim-websitelist 
- cat > "/tmp/vpssim-replace" <<END
-sed -i '/$mainsite/d' /tmp/vpssim-websitelist
+ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
+sed -i 's/\.conf//g' /tmp/kpanel-websitelist 
+ cat > "/tmp/kpanel-replace" <<END
+sed -i '/$mainsite/d' /tmp/kpanel-websitelist
 END
-chmod +x /tmp/vpssim-replace
-/tmp/vpssim-replace
-rm -rf /tmp/vpssim-replace
+chmod +x /tmp/kpanel-replace
+/tmp/kpanel-replace
+rm -rf /tmp/kpanel-replace
 rm -rf /tmp/checksite-list
-sowebsitetrenserver=$(cat /tmp/vpssim-websitelist | wc -l)
-listwebsite=$(cat /tmp/vpssim-websitelist)
+sowebsitetrenserver=$(cat /tmp/kpanel-websitelist | wc -l)
+listwebsite=$(cat /tmp/kpanel-websitelist)
 rm -rf /tmp/checksite-list
 for checksite in $listwebsite 
 do
@@ -23,12 +23,12 @@ fi
  done
 
 if [ ! -f /tmp/checksite-list ]; then
-rm -rf /tmp/*vpssim*
+rm -rf /tmp/*kpanel*
 rm -rf /tmp/*hostingaz*
 clear
 echo "========================================================================="
 echo "Khong tim thay website co du lieu tren server"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 fi
 prompt="Nhap lua chon cua ban :"
 options=("BAT/TAT Tu Dong Backup Website" "List Website BAT Tu Dong Backup")
@@ -37,9 +37,9 @@ PS3="$prompt"
 select opt in "${options[@]}" "Thoat"; do 
 
     case "$REPLY" in
-    1 ) /etc/vpssim/menu/vpssim-befor-chon-tat-bat-tu-dong-sao-luu-code;;
-    2 ) /etc/vpssim/menu/vpssim-danh-sach-website-tu-dong-sao-luu-code;;
-    $(( ${#options[@]}+1 )) ) echo "";  clear && /etc/vpssim/menu/vpssim-sao-luu;;
+    1 ) /etc/kpanel/menu/kpanel-befor-chon-tat-bat-tu-dong-sao-luu-code;;
+    2 ) /etc/kpanel/menu/kpanel-danh-sach-website-tu-dong-sao-luu-code;;
+    $(( ${#options[@]}+1 )) ) echo "";  clear && /etc/kpanel/menu/kpanel-sao-luu;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;
 
     esac

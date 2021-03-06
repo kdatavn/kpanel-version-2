@@ -1,8 +1,8 @@
 #!/bin/sh
-. /home/vpssim.conf
-if [ -f /etc/cron.d/vpssim-auto-start-mysql.cron ]; then
-/etc/vpssim/menu/tienich/vpssim-tat-auto-start-mysql
+. /home/kpanel.conf
+if [ -f /etc/cron.d/kpanel-auto-start-mysql.cron ]; then
+/etc/kpanel/menu/tienich/kpanel-tat-auto-start-mysql
 else
-/etc/vpssim/menu/tienich/vpssim-bat-auto-start-mysql
+/etc/kpanel/menu/tienich/kpanel-bat-auto-start-mysql
 fi
 

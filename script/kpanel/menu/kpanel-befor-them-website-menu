@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -f /home/DBinfo.txt ]; then
 echo "========================================================================="  > /home/DBinfo.txt
 echo "THONG TIN DATABASE TREN VPS"  >> /home/DBinfo.txt
@@ -12,13 +12,13 @@ check_nginx_service () {
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "$(/sbin/service nginx status | awk 'NR==1 {print $5}')" == "running..." ]; then
 clear
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 	else
 clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -31,16 +31,16 @@ echo "please wait ..."
 sleep 5 ; clear
 		if [ "$(/sbin/service nginx status | awk 'NR==1 {print $5}')" == "running..." ]; then
 clear
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 		else
 				clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -49,13 +49,13 @@ fi
 if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "`systemctl is-active nginx.service`" == "active" ]; then
 clear
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 	else
 clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -68,16 +68,16 @@ echo "please wait ..."
 sleep 5 ; clear
 	if [ "`systemctl is-active nginx.service`" == "active" ]; then
 clear
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 		else
 				clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -90,7 +90,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -107,13 +107,13 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start PHP-FPM Service"
+echo "kpanel can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	#echo "Sorry, PHP-FPM stopped. Start it before use this function!"
 	echo "Sorry, PHP-FPM dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -127,7 +127,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -144,13 +144,13 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start PHP-FPM Service"
+echo "kpanel can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	#echo "Sorry, PHP-FPM stopped. Start it before use this function!"
 	echo "Sorry, PHP-FPM dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi

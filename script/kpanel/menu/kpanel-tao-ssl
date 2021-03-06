@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================= "
 echo -n "Nhap ten website ban muon cai dat SSL [ENTER]: " 
 read domainssl
@@ -7,7 +7,7 @@ if [ "$domainssl" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai !"
-/etc/vpssim/menu/vpssim-tao-ssl-menu
+/etc/kpanel/menu/kpanel-tao-ssl-menu
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,12}$";
@@ -18,7 +18,7 @@ echo "========================================================================="
 echo "$domainssl co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/vpssim/menu/vpssim-tao-ssl-menu
+/etc/kpanel/menu/kpanel-tao-ssl-menu
 exit
 fi 
 
@@ -28,7 +28,7 @@ echo "========================================================================="
 echo "$domainssl khong ton tai tren he thong!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai "
-/etc/vpssim/menu/vpssim-tao-ssl-menu
+/etc/kpanel/menu/kpanel-tao-ssl-menu
 exit
 fi
 
@@ -42,7 +42,7 @@ echo "-------------------------------------------------------------------------"
 echo "Neu ban muon tao lai, hay xoa $domainssl trong /etc/nginx/ssl/ "
 echo "-------------------------------------------------------------------------"
 echo "Va dung chuc nang nay lan nua!"
-/etc/vpssim/menu/vpssim-tao-ssl-menu
+/etc/kpanel/menu/kpanel-tao-ssl-menu
 exit
 fi
 
@@ -203,9 +203,9 @@ echo "http://$serverip:$priport/$domainssl.csr"
 echo "-------------------------------------------------------------------------"
 echo "Xem huong dan tren HostingAZ.VN"
 echo "========================================================================= "
-read -p "Press [Enter] de quay tro lai VPSSIM ..."
+read -p "Press [Enter] de quay tro lai kpanel ..."
 clear
-vpssim
+kpanel
 exit
 fi
 

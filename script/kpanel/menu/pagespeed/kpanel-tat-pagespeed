@@ -32,7 +32,7 @@ if [ "$(grep "include /etc/nginx/ngx_pagespeed.conf;" /etc/nginx/conf.d/www.$dom
 clear
 echo "========================================================================="
 echo "$domain da TAT disable Nginx Pagespeed tu truoc"
-/etc/vpssim/menu/pagespeed/vpssim-pagespeed-menu
+/etc/kpanel/menu/pagespeed/kpanel-pagespeed-menu
 exit
 fi
 fi
@@ -41,7 +41,7 @@ if [ "$(grep "include /etc/nginx/ngx_pagespeed.conf;" /etc/nginx/conf.d/$domain.
 clear
 echo "========================================================================="
 echo "$domain da tat TAT Nginx Pagespeed tu truoc!"
-/etc/vpssim/menu/pagespeed/vpssim-pagespeed-menu
+/etc/kpanel/menu/pagespeed/kpanel-pagespeed-menu
 exit
 fi
 fi
@@ -73,13 +73,13 @@ fi
 clear
 echo "========================================================================= "
 echo "TAT Nginx Pagespeed cho $domain thanh cong!"
-/etc/vpssim/menu/pagespeed/vpssim-pagespeed-menu
+/etc/kpanel/menu/pagespeed/kpanel-pagespeed-menu
         ;;
     *)
         clear
 echo "========================================================================= "
 echo "Huy TAT Nginx Pagespeed cho $domain"
-/etc/vpssim/menu/pagespeed/vpssim-pagespeed-menu
+/etc/kpanel/menu/pagespeed/kpanel-pagespeed-menu
         ;;
 esac
 }

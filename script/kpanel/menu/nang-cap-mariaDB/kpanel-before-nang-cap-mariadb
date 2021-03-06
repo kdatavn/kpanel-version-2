@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ -f /etc/yum.repos.d/MariaDB.repo ]; then
  if [ ! "`grep 5.5 /etc/yum.repos.d/MariaDB.repo`" = "" ]; then
  mariadbversion=5.5
@@ -16,11 +16,11 @@ mariadbversion=5.5
 fi
 fi
 if [ "$mariadbversion" = "5.5" ]; then
-/etc/vpssim/menu/nang-cap-mariaDB/vpssim-nang-cap-mariadb-to-10-version
+/etc/kpanel/menu/nang-cap-mariaDB/kpanel-nang-cap-mariadb-to-10-version
 else
 clear
 echo "========================================================================="
 echo "Ban dang su dung MariaDB phien ban 10.0 !"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi

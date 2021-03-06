@@ -1,11 +1,11 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 echo "========================================================================="
 echo "Su dung chuc nang nay de update Wordpress code len phien ban moi nhat"  
 echo "-------------------------------------------------------------------------"
-echo "Truoc khi update, VPSSIM tien hanh sao luu database cho website"
+echo "Truoc khi update, kpanel tien hanh sao luu database cho website"
 echo "========================================================================="
 #prompt="Nhap lua chon cua ban: "
 prompt="Lua chon cua ban: "
@@ -27,15 +27,15 @@ done
 #Update 1 website
 ###################################
 if [ "$luachonupdate" = "update1site" ]; then
-/etc/vpssim/menu/vpssim-update-wordpresss-code-for-website
+/etc/kpanel/menu/kpanel-update-wordpresss-code-for-website
 ###################################
 #Update tat ca cac website
 ###################################
 elif [ "$luachonupdate" = "updateall" ]; then
-/etc/vpssim/menu/vpssim-update-wp-code-tat-ca-vps-website-wordpress
+/etc/kpanel/menu/kpanel-update-wp-code-tat-ca-vps-website-wordpress
 ###################################
 #Huy bo update
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-wordpress-tools-menu
+clear && /etc/kpanel/menu/kpanel-wordpress-tools-menu
 fi

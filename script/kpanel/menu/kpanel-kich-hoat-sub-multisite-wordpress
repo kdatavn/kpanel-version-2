@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Chuc nang nay se tao Vhost cho subdomain tren server sau khi ban da "
 echo "-------------------------------------------------------------------------"
@@ -12,7 +12,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai "
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 
@@ -24,7 +24,7 @@ echo "========================================================================="
 echo "$website co the khong dung dinh dang domain!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 
@@ -34,7 +34,7 @@ echo "========================================================================="
 echo "$website khong ton tai tren he thong!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 
@@ -45,7 +45,7 @@ echo "========================================================================="
 echo "$website co code wordpress nhung chua cai dat !"
 echo "-------------------------------------------------------------------------"
 echo "Vu long cai dat wordpress va thu lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 fi
@@ -56,7 +56,7 @@ echo "========================================================================="
 echo "$website khong phai wordpress blog !"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai."
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 
@@ -67,7 +67,7 @@ echo "========================================================================="
 echo "$website cai dat Wordpress Multisite dang Sub-directories"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong the tao Subdomain cho $website"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 
@@ -78,11 +78,11 @@ echo "========================================================================="
 echo "$website chua cai dat Wordpress Multisite"
 echo "-------------------------------------------------------------------------"
 echo "Ban phai cai dat Multisite truoc !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM dang check ... "
+echo "kpanel dang check ... "
 sleep 1;
 echo "========================================================================="
 echo "Tim thay $website tren he thong"
@@ -93,7 +93,7 @@ echo "TAO VHOST CHO SUBDOMAIN"
 echo "========================================================================="
 echo "Nhap sub ban da tao trong $website wp-admin. Chi nhap ten SUB ! "
 echo "-------------------------------------------------------------------------"
-echo "Vi du: Ten sub ban tao la vpssim.hostingaz.vn, Nhap: vpssim"
+echo "Vi du: Ten sub ban tao la kpanel.hostingaz.vn, Nhap: kpanel"
 echo "========================================================================="
 echo -n "Nhap ten sub: " 
 read subdomain
@@ -101,7 +101,7 @@ if [ "$subdomain" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai "
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 
@@ -113,7 +113,7 @@ echo "========================================================================="
 echo "$subdomain khong hop le ! "
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi 
 
@@ -122,12 +122,12 @@ if [ -f /etc/nginx/conf.d/$subdomain.$website.conf ]; then
 clear
 echo "========================================================================="
 echo "$subdomain.$website da duoc kich hoat tren VPS "
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 websiteto=`echo $website | tr '[A-Z]' '[a-z]'`
 echo "========================================================================="
-echo "VPSSIM se cau hinh Vhost tuy thuoc vao loai cache $website su dung"
+echo "kpanel se cau hinh Vhost tuy thuoc vao loai cache $website su dung"
 echo "-------------------------------------------------------------------------"
 echo "Ban phai lua chon dung, neu khong Subdomain se hoat dong khong chinh xac"
 echo "========================================================================="
@@ -187,8 +187,8 @@ include /etc/nginx/conf/all.conf;
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;  
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
  
@@ -254,8 +254,8 @@ include /etc/nginx/conf/supercache.conf;
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;  
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
  
@@ -320,8 +320,8 @@ include /etc/nginx/conf/w3total.conf;
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;  
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
  
@@ -384,8 +384,8 @@ include /etc/nginx/conf/all.conf;
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;  
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
  
@@ -426,5 +426,5 @@ echo "-------------------------------------------------------------------------"
 echo "Xoa $subdomain.$website.conf trong /etc/nginx/conf.d"
 echo "-------------------------------------------------------------------------"
 echo "va lam lai theo cac buoc tren!"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 

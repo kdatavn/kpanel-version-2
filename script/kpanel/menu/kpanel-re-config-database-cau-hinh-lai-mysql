@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 cpucores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
 svram=$( free -m | awk 'NR==2 {print $2}' )
 time=$(date +"%m-%d-%Y-%H-%M")
@@ -7,36 +7,36 @@ checknumbera='^[0-9]+$'
 if ! [[ $svram =~ $checknumbera ]] ; then 
 clear
 echo "========================================================================="
-echo "VPSSIM gap loi khi chay chuc nang nay"
+echo "kpanel gap loi khi chay chuc nang nay"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai"
- /etc/vpssim/menu/vpssim-them-xoa-database
+ /etc/kpanel/menu/kpanel-them-xoa-database
  exit
 fi
 if ! [[ $cpucores =~ $checknumbera ]] ; then 
 clear
 echo "========================================================================="
-echo "VPSSIM gap loi khi chay chuc nang nay"
+echo "kpanel gap loi khi chay chuc nang nay"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai"
- /etc/vpssim/menu/vpssim-them-xoa-database
+ /etc/kpanel/menu/kpanel-them-xoa-database
  exit
 fi
 
 if [ ! -d /home/$mainsite/public_html ]; then
 clear
 echo "========================================================================="
-echo "VPSSIM gap loi khi chay chuc nang nay"
+echo "kpanel gap loi khi chay chuc nang nay"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai"
- /etc/vpssim/menu/vpssim-them-xoa-database
+ /etc/kpanel/menu/kpanel-them-xoa-database
  exit
 fi
 
 echo "========================================================================="
 echo "Su dung chuc nang nay de config lai MySQL theo cau hinh server."
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se tu dong config dua theo so thong so CPU & RAM cua Server."
+echo "kpanel se tu dong config dua theo so thong so CPU & RAM cua Server."
 echo "-------------------------------------------------------------------------"
 echo "Khi nang hoac ha cap Server, Ban nen chay chuc nang nay !"
 echo "-------------------------------------------------------------------------"
@@ -50,7 +50,7 @@ if [ ! "$xacnhan" = "OK" ]; then
 clear
 echo "========================================================================="
 echo "Ban phai nhap OK de xac nhan !"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 exit
 fi
     echo "-------------------------------------------------------------------------"
@@ -299,8 +299,8 @@ clear
 echo "========================================================================="
 echo "Re-config MySQL that bai !"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se giu nguyen config MySQL nhu ban dau"
- /etc/vpssim/menu/vpssim-them-xoa-database
+echo "kpanel se giu nguyen config MySQL nhu ban dau"
+ /etc/kpanel/menu/kpanel-them-xoa-database
 else
 rm -rf /var/lib/mysql/vpssimCheckDB
 clear
@@ -308,12 +308,12 @@ echo "========================================================================="
 echo "Config lai MySQL thanh cong ! "
 echo "-------------------------------------------------------------------------"
 echo "File config cu: /etc/my.cnf.d/server.cnf_bak_$time "
- /etc/vpssim/menu/vpssim-them-xoa-database
+ /etc/kpanel/menu/kpanel-them-xoa-database
  fi
     ;;
 *)
 clear
- /etc/vpssim/menu/vpssim-them-xoa-database
+ /etc/kpanel/menu/kpanel-them-xoa-database
   exit
 ;;
 esac

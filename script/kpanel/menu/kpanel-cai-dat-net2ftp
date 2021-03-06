@@ -1,7 +1,7 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -f /usr/local/bin/htpasswd.py ]; then
-cp -r /etc/vpssim/menu/vpssim-tao-mat-khau-bao-ve-folder.py /usr/local/bin/htpasswd.py
+cp -r /etc/kpanel/menu/kpanel-tao-mat-khau-bao-ve-folder.py /usr/local/bin/htpasswd.py
 chmod 755 /usr/local/bin/htpasswd.py
 fi
 php_version1=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
@@ -9,20 +9,20 @@ if [ "$php_version1" == "7.0" ]; then
 clear
 echo "========================================================================="
 echo "Net2FTP chi tuong thich voi php 5.4, 5.5 va 5.6"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 exit
 fi
-if [ -f /etc/vpssim/net2ftpsite.info ]; then
+if [ -f /etc/kpanel/net2ftpsite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban da cai dat Net2FTP cho server !"
 echo "-------------------------------------------------------------------------"
-echo "Domain Net2FTP la: $(cat /etc/vpssim/net2ftpsite.info )"
+echo "Domain Net2FTP la: $(cat /etc/kpanel/net2ftpsite.info )"
 echo "-------------------------------------------------------------------------"
-echo "Hay tro $(cat /etc/vpssim/net2ftpsite.info ) toi $serverip"
+echo "Hay tro $(cat /etc/kpanel/net2ftpsite.info ) toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de su dung Net2FTP"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 exit
 fi
 echo "========================================================================="
@@ -38,7 +38,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 exit
 fi
 
@@ -50,7 +50,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 exit
 fi
 
@@ -58,7 +58,7 @@ if [ -f /etc/nginx/conf.d/$website.conf ]; then
 clear
 echo "========================================================================="
 echo "Phat hien $website da ton tai tren he thong!"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 exit
 fi
 
@@ -72,14 +72,14 @@ sleep 10
     mkdir -p "/home/$website/public_html"
     mkdir -p "/home/$website/logs"
     cd /home/$website/public_html
-#wget -q --no-check-certificate http://vpssim.com/script/vpssim/net2ftp_v1.0.zip
+#wget -q --no-check-certificate http://kpanel.com/script/kpanel/net2ftp_v1.0.zip
 wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/master/net2ftp_v1.0.zip
 
 if [ ! -f net2ftp_v1.0.zip ]; then
 echo "========================================================================="
 echo "Loi download file cai dat, vui long bao loi voi chung toi"
 echo "-------------------------------------------------------------------------"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 fi
 
 unzip -q net2ftp_v1.0.zip
@@ -113,7 +113,7 @@ include /etc/nginx/conf/ddos2.conf;
 #///////////////////////////////////////////////////////
 include /etc/nginx/conf/all.conf;  
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
 include /etc/nginx/conf/block.conf;
 
 #Deny scripts inside writable-directories
@@ -202,7 +202,7 @@ else
 systemctl reload nginx
 systemctl restart php-fpm.service
 fi
-echo "$website" > /etc/vpssim/net2ftpsite.info
+echo "$website" > /etc/kpanel/net2ftpsite.info
 clear
 
 echo "========================================================================="
@@ -211,4 +211,4 @@ echo "-------------------------------------------------------------------------"
 echo "Hay tro $website toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de su dung net2FTP"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu

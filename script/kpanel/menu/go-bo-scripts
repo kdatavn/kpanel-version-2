@@ -1,12 +1,12 @@
 #!/bin/bash
 echo "========================================================================="
-echo "Su dung chuc nang nay de Remove VPSSIM khoi Server"
+echo "Su dung chuc nang nay de Remove kpanel khoi Server"
 echo "-------------------------------------------------------------------------"
 echo "Trong qua trinh remove, toan bo du lieu website, database ... se bi xoa"
 echo "-------------------------------------------------------------------------"
 echo "Server se quay tro lai trang thai nhu moi."
 echo "========================================================================="
-read -r -p "Ban chac chan muon go bo VPSSIM? [y/N] " response
+read -r -p "Ban chac chan muon go bo kpanel? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
 echo "-------------------------------------------------------------------------"
@@ -15,12 +15,12 @@ read xacnhan
 if [ ! "$xacnhan" = "OK" ]; then
 clear
 echo "========================================================================="
-echo "Cancle Remove VPSSIM"
-/etc/vpssim/menu/vpssim-tien-ich
+echo "Cancle Remove kpanel"
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"
-echo "Chuan bi go bo VPSSIM, vui long doi ...."
+echo "Chuan bi go bo kpanel, vui long doi ...."
 sleep 2
 
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
@@ -91,9 +91,9 @@ rm -f /etc/rc.d/init.d/nginx
 rm -f /etc/rc.d/init.d/php-fpm
 rm -f /etc/rc.d/init.d/syslog-ng
 rm -rf /root/*
-rm -rf /bin/vpssim*
+rm -rf /bin/kpanel*
 rm -rf /bin/calc
-rm -rf /etc/vpssim
+rm -rf /etc/kpanel
 rm -rf /etc/cron.d/*
 rm -rf /var/log/nginx
 rm -rf /var/cache/ngx_pagespeed
@@ -123,7 +123,7 @@ exit
     *)
     clear
     echo "========================================================================="
-echo "Cancel Remove VPSSIM"
-/etc/vpssim/menu/vpssim-tien-ich
+echo "Cancel Remove kpanel"
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
 esac

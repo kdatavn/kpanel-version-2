@@ -1,9 +1,9 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 clear
 echo "========================================================================="
 echo "Your VPS  Virtualization:"
 echo "-------------------------------------------------------------------------"
 virt-what
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich

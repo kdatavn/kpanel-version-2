@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ "$(redis-cli ping)" = "PONG" ]; then
 redistatus=Working
 else
@@ -8,7 +8,7 @@ fi
 prompt="Nhap lua chon cua ban: "
 options=("Clear Redis Cache" "Cau hinh Redis" "Kiem tra Redis Status" "Thoat")
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                           Quan Ly Redis Cache                                \n"
 printf "=========================================================================\n"
@@ -21,11 +21,11 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1) /etc/vpssim/menu/vpssim-clear-redis;;
-    2) /etc/vpssim/menu/vpssim-redis-change-size;;
-    3) /etc/vpssim/menu/vpssim-check-redis-status;;
-    4) clear && vpssim;; 
-    0) clear && vpssim;;
+    1) /etc/kpanel/menu/kpanel-clear-redis;;
+    2) /etc/kpanel/menu/kpanel-redis-change-size;;
+    3) /etc/kpanel/menu/kpanel-check-redis-status;;
+    4) clear && kpanel;; 
+    0) clear && kpanel;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu ";continue;;
 
     esac

@@ -1,9 +1,9 @@
 #!/bin/sh
-. /home/vpssim.conf
-/etc/vpssim/menu/vpssim-befor-vps-info
+. /home/kpanel.conf
+/etc/kpanel/menu/kpanel-befor-vps-info
 clear
 printf "=========================================================================\n"
-printf "               VPSSIM - Quan Ly VPS/Server by WebGiaRe.org \n"
+printf "               kpanel - Quan Ly VPS/Server by WebGiaRe.org \n"
 printf "=========================================================================\n"
 printf "                            Server Status \n"
 printf "=========================================================================\n"
@@ -17,10 +17,10 @@ cat > "/etc/csf/csf.deny" <<END
 END
 fi
 fi
-echo "$(cat /tmp/vpssim-php-info.txt)"
-echo "$(cat /tmp/vpssim-nginx-info.txt)"
+echo "$(cat /tmp/kpanel-php-info.txt)"
+echo "$(cat /tmp/kpanel-nginx-info.txt)"
 $(nginx -v)
-echo "$(cat /tmp/vpssim-mysql-info.txt)"
+echo "$(cat /tmp/kpanel-mysql-info.txt)"
 if [ -f /home/$mainsite/private_html/index.php ]; then 
 echo "-------------------------------------------------------------------------"
 echo "PhpmyAdmin Link: On"
@@ -28,9 +28,9 @@ else
 echo "-------------------------------------------------------------------------"
 echo "PhpmyAdmin Link: Off"
 fi
-echo "$(cat /tmp/vpssim-filemanager-info.txt)"
-echo "$(cat /tmp/vpssim-net2ftp-info.txt)"
-echo "$(cat /tmp/vpssim-netdata-info.txt)"
+echo "$(cat /tmp/kpanel-filemanager-info.txt)"
+echo "$(cat /tmp/kpanel-net2ftp-info.txt)"
+echo "$(cat /tmp/kpanel-netdata-info.txt)"
 echo "-------------------------------------------------------------------------"
 if [ -f "/etc/php.d/opcache.ini" ]; then
 ramzenduse=$(grep opcache.memory_consumption /etc/php.d/opcache.ini | grep -o '[0-9]*')
@@ -39,22 +39,22 @@ echo "Zend Opcache: On | Ram Usage: $ramzenduse MB | Auto Clear Time: $cleartime
 else
 echo "Zend Opcache: Off"
 fi
-if [ -f "/tmp/vpssim-memcached-info.txt" ]; then
-echo "$(cat /tmp/vpssim-memcached-info.txt)"
+if [ -f "/tmp/kpanel-memcached-info.txt" ]; then
+echo "$(cat /tmp/kpanel-memcached-info.txt)"
 fi
-if [ -f "/tmp/vpssim-redis-info.txt" ]; then
-echo "Redis: $(cat /tmp/vpssim-redis-info.txt)"
+if [ -f "/tmp/kpanel-redis-info.txt" ]; then
+echo "Redis: $(cat /tmp/kpanel-redis-info.txt)"
 fi
 echo "-------------------------------------------------------------------------"
 #CSF Stautus
-echo "$(cat /tmp/vpssim-csf-firewall-info.txt)"
+echo "$(cat /tmp/kpanel-csf-firewall-info.txt)"
 if [ -f /root/.bash_profile ]; then
-if [ "$(grep "/bin/vpssim" /root/.bash_profile)" == "" ]; then
+if [ "$(grep "/bin/kpanel" /root/.bash_profile)" == "" ]; then
 echo "-------------------------------------------------------------------------"
-echo "Auto Run VPSSIM (Khi Login SSH): TAT"
+echo "Auto Run kpanel (Khi Login SSH): TAT"
 else
 echo "-------------------------------------------------------------------------"
-echo "Auto Run VPSSIM (Khi Login SSH): BAT"
+echo "Auto Run kpanel (Khi Login SSH): BAT"
 fi
 if [ "$(grep timeloginvpssimcheck /root/.bash_profile)" == "" ]; then
 echo "-------------------------------------------------------------------------"
@@ -65,7 +65,7 @@ echo "eMail thong bao Login: BAT | eMail: $(grep "mail -s" /root/.bash_profile  
 fi
 fi
 
-rm -rf /tmp/*vpssim*
+rm -rf /tmp/*kpanel*
 rm -rf /tmp/*hostingaz*
 rm -rf /tmp/*check*
 echo "$(ls /etc/nginx/conf.d | sed 's/.conf//' | sed 's/^www.//')" > /tmp/check123
@@ -100,9 +100,9 @@ echo "Server Uptime: $(uptime | awk '{print $3,$4}' | sed 's/,/ /g') - CPU Load 
 echo "RAM: $( free -m | grep Mem | awk '{print $2}') MB - Free: $( free -m | grep Mem | awk '{print $4}') MB - Cached: $( free -m | grep Mem | awk '{print $7}') MB || Free buffers: $(free -m | grep - | awk '{print $4}') MB"
 echo "Swap: $(free -m | grep Swap | awk '{print $2}') MB - Swap free: $(free -m | grep Swap | awk '{print $4}') MB"
 printf "=========================================================================\n"
-read -p "Nhan [Enter] de quay tro lai VPSSIM menu ..."
+read -p "Nhan [Enter] de quay tro lai kpanel menu ..."
 clear
-vpssim
+kpanel
 exit
 fi
 

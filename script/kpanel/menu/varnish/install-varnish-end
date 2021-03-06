@@ -3,7 +3,7 @@
 sleep 2
 sudo yum -y install varnish
 
-/etc/vpssim/menu/varnish/disk-cache-varnish
+/etc/kpanel/menu/varnish/disk-cache-varnish
 
 current_os_version=$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))
 
@@ -19,4 +19,4 @@ fi
 
 varnishd -V
 
-/etc/vpssim/menu/varnish/install-varnish
+/etc/kpanel/menu/varnish/install-varnish

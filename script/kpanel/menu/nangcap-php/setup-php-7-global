@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 #
 echo "current_os_version="$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release)) >> /tmp/change_php_config
@@ -12,7 +12,7 @@ if [ "$php_version1" == "$new_php_version" ]; then
 clear
 echo "========================================================================="
 echo "Phien ban PHP hien tai: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}') "
-/etc/vpssim/menu/nangcap-php/change-php-version-menu
+/etc/kpanel/menu/nangcap-php/change-php-version-menu
 exit
 fi
 
@@ -24,16 +24,16 @@ case $response in
 echo "-------------------------------------------------------------------------"
 echo "Ok ! please wait ...."
 sleep 1
-/etc/vpssim/menu/vpssim-enable-tat-ca-cac-ham-php-php.ini
+/etc/kpanel/menu/kpanel-enable-tat-ca-cac-ham-php-php.ini
 
-/etc/vpssim/menu/nangcap-php/before-setup-php
+/etc/kpanel/menu/nangcap-php/before-setup-php
 
 if [ "$current_os_version" == "6" ] || [ "$current_os_version" == "7" ]; then 
 yum-config-manager --disable remi-php$phphientai
 yum-config-manager --enable remi-php$num_php_version
-/etc/vpssim/menu/nangcap-php/install-php
+/etc/kpanel/menu/nangcap-php/install-php
 else
-/etc/vpssim/menu/nangcap-php/install-php8
+/etc/kpanel/menu/nangcap-php/install-php8
 fi
 
 #edit php.ini va Zend opcache
@@ -51,9 +51,9 @@ php_version=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
 sed --in-place '/zend_extension/d' /etc/php.d/opcache.*
 
 ###########################
-/etc/vpssim/menu/nangcap-php/setup-suhosin
-/etc/vpssim/menu/nangcap-php/setup-ioncube
-/etc/vpssim/menu/nangcap-php/setup-imagick
+/etc/kpanel/menu/nangcap-php/setup-suhosin
+/etc/kpanel/menu/nangcap-php/setup-ioncube
+/etc/kpanel/menu/nangcap-php/setup-imagick
 
 
 if [ "$php_version" == "5.4" ]; then
@@ -88,7 +88,7 @@ fi
 #sed -i "/.*default_socket_timeout.*/aextension=zip.so" /etc/php.ini
 #fi
 
-/etc/vpssim/menu/vpssim-re-config-cac-ham-php-disable-php.ini
+/etc/kpanel/menu/kpanel-re-config-cac-ham-php-disable-php.ini
 rm -rf /root/updown/
 
 if [ "$current_os_version" == "6" ]; then 
@@ -108,7 +108,7 @@ clear
 echo "========================================================================="
 echo "Sorry, There's an error on changing PHP version."
 
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 fi
 fi
 
@@ -117,7 +117,7 @@ if [ ! "`systemctl is-active php-fpm.service`" == "active" ]; then
 clear
 echo "========================================================================="
 echo "Sorry, There's an error on changing PHP version."
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 fi
 fi
 
@@ -126,7 +126,7 @@ echo "========================================================================="
 echo "Hoan thanh thay doi PHP version. "
 echo "-------------------------------------------------------------------------"
 echo "Phien ban PHP hien tai: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}')                          "
-/etc/vpssim/menu/nangcap-php/change-php-version-menu
+/etc/kpanel/menu/nangcap-php/change-php-version-menu
 ;;
 esac
 
@@ -136,5 +136,5 @@ clear
 
 echo "========================================================================="
 printf "Ban huy thay doi phien ban PHP.                         \n"
-/etc/vpssim/menu/nangcap-php/change-php-version-menu
+/etc/kpanel/menu/nangcap-php/change-php-version-menu
 

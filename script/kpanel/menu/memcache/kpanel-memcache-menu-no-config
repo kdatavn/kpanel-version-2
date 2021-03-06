@@ -19,7 +19,7 @@ options=("Enable" "Restart" "Config Memcached" )
 fi
 fi
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by KDATA.VN \n"
+printf "                kpanel - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                           Memcached Manage \n"
 printf "=========================================================================\n"

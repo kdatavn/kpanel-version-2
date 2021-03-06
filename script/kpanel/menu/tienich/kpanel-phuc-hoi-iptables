@@ -1,16 +1,16 @@
 #!/bin/bash
-. /home/vpssim.conf
-if [ ! -f /etc/vpssim/iptables.bak ]; then
+. /home/kpanel.conf
+if [ ! -f /etc/kpanel/iptables.bak ]; then
 clear
 echo "========================================================================="
-echo "VPSSIM khong tim thay ban backup cua IPtables Firewall !"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+echo "kpanel khong tim thay ban backup cua IPtables Firewall !"
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 echo "--------------------------------------------------------------------------"
 echo "Tim thay ban backup cua IPtable Firewall"
 echo "--------------------------------------------------------------------------"
-echo "File Backup duoc tao vao: $(date -r /etc/vpssim/iptables.bak +%H:%M/%F)"
+echo "File Backup duoc tao vao: $(date -r /etc/kpanel/iptables.bak +%H:%M/%F)"
 echo "--------------------------------------------------------------------------"
 
 read -r -p "Ban muon phuc hoi IPtables Firewall tu file backup nay ? [y/N] " response
@@ -19,16 +19,16 @@ then
 echo "--------------------------------------------------------------------------"
 echo "Please wait..."
 sleep 1
-iptables-restore < /etc/vpssim/iptables.bak
+iptables-restore < /etc/kpanel/iptables.bak
 service iptables save
 
 clear
 echo "========================================================================="
 echo "Phuc hoi IPtables Firewall Rules hoan thanh !"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 else
 clear
 echo "========================================================================="
 echo "Ban da huy phuc hoi IPtables Firewall Rules !"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 fi

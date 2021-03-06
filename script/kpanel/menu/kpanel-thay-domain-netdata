@@ -1,20 +1,20 @@
 #!/bin/bash
-. /home/vpssim.conf
-if [ ! -f /etc/vpssim/netdatasite.info ]; then
+. /home/kpanel.conf
+if [ ! -f /etc/kpanel/netdatasite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat domain NetData cho Server !"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
 exit
 fi
-netdatasite=$(cat /etc/vpssim/netdatasite.info)
+netdatasite=$(cat /etc/kpanel/netdatasite.info)
 if [ ! -f /etc/nginx/conf.d/$netdatasite.conf ]; then
 clear
 echo "========================================================================="
 echo "Qua trinh thay Domain NetData gap loi!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long kiem tra lai"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
 exit
 fi
 echo "========================================================================= "
@@ -32,7 +32,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
 exit
 fi
 
@@ -44,7 +44,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
 exit
 fi
 
@@ -52,7 +52,7 @@ if [ "$netdatasite" = "$website" ]; then
 clear
 echo "========================================================================="
 echo "Please type in the other domain"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
 exit
 fi
 
@@ -62,7 +62,7 @@ echo "========================================================================="
 echo "Phat hien $website da ton tai tren he thong!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -76,7 +76,7 @@ service nginx reload
 else 
 systemctl reload nginx
 fi
-echo "$website" > /etc/vpssim/netdatasite.info
+echo "$website" > /etc/kpanel/netdatasite.info
 clear
 echo "========================================================================="
 echo "Thay Domain moi cho NetData thanh cong !"
@@ -84,10 +84,10 @@ echo "-------------------------------------------------------------------------"
 echo "Hay tro $website toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de su dung NetData"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
 ;;
 esac
 clear
 echo "========================================================================="
 echo "Ban da cancel thay doi domain NetData"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu

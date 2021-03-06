@@ -9,8 +9,8 @@ rm -rf /etc/yum.repos.d/varnishcache_varnish*
 
 echo "========================================================================="
 
-if [ -f /etc/vpssim/varnish.version ];then
-printf "                   Phien ban Varnish hien tai: $(cat /etc/vpssim/varnish.version) \n"
+if [ -f /etc/kpanel/varnish.version ];then
+printf "                   Phien ban Varnish hien tai: $(cat /etc/kpanel/varnish.version) \n"
 else
 printf "                  Varnish Cache chua duoc cai dat\n"
 printf "          Hoac khong duoc cai dat thong qua KPANEL \n"
@@ -40,4 +40,4 @@ sleep 2
 clear
 fi
 
-/etc/vpssim/menu/varnish/install-varnish
+/etc/kpanel/menu/varnish/install-varnish

@@ -1,5 +1,5 @@
 #!/bin/bash
 
-yes | cp -rf /opt/echbay_vpssim/version /opt/echbay_vpssim/script/vpssim/vpssim.newversion
+yes | cp -rf /opt/kdata_kpanel/version /opt/kdata_kpanel/script/kpanel/kpanel.newversion
 rm -rf /root/git-clone*
 rm -rf /root/install*

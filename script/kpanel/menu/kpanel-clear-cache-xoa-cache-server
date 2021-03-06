@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 prompt="Lua chon cua ban: "
 options=("Zend Opcache" "Memcached" "Redis Cache" "Tat Ca Cache" "Huy Bo")
 echo "========================================================================="
@@ -27,7 +27,7 @@ echo "========================================================================="
 echo "Zend Opcache hien dang tat."
 echo "-------------------------------------------------------------------------"
 echo "Ban khong can clear Zend Opcache"
-vpssim
+kpanel
 fi
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."; sleep 1
@@ -38,21 +38,21 @@ service php-fpm restart
 else
 systemctl restart php-fpm.service
 fi
-vpssim
+kpanel
 elif [ "$luachonclearcache" = "memcaceh" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."; sleep 1
 clear
 echo "========================================================================= "
 echo "flush_all" | nc 127.0.0.1 11211
-vpssim
+kpanel
 elif [ "$luachonclearcache" = "redisache" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."; sleep 1
 clear
 echo "========================================================================= "
 ( echo "flushall" ) | redis-cli
-vpssim
+kpanel
 elif [ "$luachonclearcache" = "allcache" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."; sleep 1
@@ -67,7 +67,7 @@ fi
 fi
 echo "flush_all" | nc 127.0.0.1 11211
 ( echo "flushall" ) | redis-cli
-vpssim
+kpanel
 else 
-clear && vpssim
+clear && kpanel
 fi

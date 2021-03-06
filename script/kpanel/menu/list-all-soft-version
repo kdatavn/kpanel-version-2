@@ -2,15 +2,15 @@
 
 clear
 echo "========================================================================="
-echo "---------------------------- VPSSIM -------------------------------"
-if [ -f /etc/vpssim/vpssim.version ]; then
-echo "VPSSIM version: "$(cat /etc/vpssim/vpssim.version)
+echo "---------------------------- kpanel -------------------------------"
+if [ -f /etc/kpanel/kpanel.version ]; then
+echo "kpanel version: "$(cat /etc/kpanel/kpanel.version)
 fi
 echo "------------------------------ PHP --------------------------------"
 echo "PHP version: "$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
 echo "------------------------- phpmyadmin ------------------------------"
-if [ -f /etc/vpssim/phpmyadmin.version ]; then
-echo "phpmyadmin version: "$(cat /etc/vpssim/phpmyadmin.version)
+if [ -f /etc/kpanel/phpmyadmin.version ]; then
+echo "phpmyadmin version: "$(cat /etc/kpanel/phpmyadmin.version)
 fi
 echo "------------------------------ LDD --------------------------------"
 ldd --version
@@ -20,4 +20,4 @@ echo "---------------------------- openssl ------------------------------"
 openssl version
 echo "========================================================================="
 
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu

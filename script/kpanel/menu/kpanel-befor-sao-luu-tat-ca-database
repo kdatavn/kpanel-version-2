@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================= "
 echo "Su dung chuc nang nay de backup tat ca database tren server"
 echo "-------------------------------------------------------------------------"
@@ -11,12 +11,12 @@ echo "========================================================================= 
 read -r -p "Ban muon backup database full ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
-/etc/vpssim/menu/vpssim-sao-luu-tat-ca-database
+/etc/kpanel/menu/kpanel-sao-luu-tat-ca-database
 ;;
 esac
 clear
 echo "========================================================================= "
 echo "Ban huy bo sau luu tat ca database ! "
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-tat-ca-database-menu
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-tat-ca-database-menu
 exit
 fi

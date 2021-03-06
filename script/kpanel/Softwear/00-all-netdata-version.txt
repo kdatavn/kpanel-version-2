@@ -1,4 +1,4 @@
-All NetData Versions For VPSSIM
+All NetData Versions For kpanel
 |1.10.0|
 |1.9|
 |1.8|

@@ -1,17 +1,17 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 rm -rf /tmp/*hostingaz*
 mkdir -p /tmp/danhsachwebsitebackuphostingaz
-ls /etc/nginx/conf.d > /tmp/vpssim-websitelist
-sed -i 's/\.conf//g' /tmp/vpssim-websitelist
- cat > "/tmp/vpssim-replace" <<END
-sed -i '/$mainsite/d' /tmp/vpssim-websitelist
+ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
+sed -i 's/\.conf//g' /tmp/kpanel-websitelist
+ cat > "/tmp/kpanel-replace" <<END
+sed -i '/$mainsite/d' /tmp/kpanel-websitelist
 END
-chmod +x /tmp/vpssim-replace
-/tmp/vpssim-replace
-rm -rf /tmp/vpssim-replace
+chmod +x /tmp/kpanel-replace
+/tmp/kpanel-replace
+rm -rf /tmp/kpanel-replace
 rm -rf /tmp/checksite-list
-acction1="/tmp/vpssim-websitelist"
+acction1="/tmp/kpanel-websitelist"
 while read -r checksite
     do
 if [ -f /home/$mainsite/private_html/backup/$checksite/*.zip ]; then
@@ -21,8 +21,8 @@ fi
 if [ ! -f /tmp/checksite-list ]; then
 clear
 echo "========================================================================="
-echo "VPSSIM khong tim thay cac ban backup tren server"
-/etc/vpssim/menu/vpssim-sao-luu
+echo "kpanel khong tim thay cac ban backup tren server"
+/etc/kpanel/menu/kpanel-sao-luu
 fi
 sowebsitecobackup=$(cat /tmp/checksite-list | wc -l)
 code=-`date |md5sum |cut -c '1-15'`
@@ -77,7 +77,7 @@ case $response in
 echo "========================================================================="
 rm -rf /home/$mainsite/private_html/listbackup*
 echo "========================================================================================================================" > /home/$mainsite/private_html/listbackup-AW$code.txt
-echo "         Link Download All Backup Files - Created by VPSSIM" >> /home/$mainsite/private_html/listbackup-AW$code.txt
+echo "         Link Download All Backup Files - Created by kpanel" >> /home/$mainsite/private_html/listbackup-AW$code.txt
 echo "========================================================================================================================" >> /home/$mainsite/private_html/listbackup-AW$code.txt
 echo "" >> /home/$mainsite/private_html/listbackup-AW$code.txt
 
@@ -97,13 +97,13 @@ echo "http://$serverip:$priport/listbackup-AW$code.txt"
 echo "" >> /home/$mainsite/private_html/listbackup-AW$code.txt
 echo "===================================================The End==============================================================" >> /home/$mainsite/private_html/listbackup-AW$code.txt
 rm -rf /tmp/*hostingaz*
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
    ;;
     *)
     clear
         echo "========================================================================= "
         echo "Huy bo lay link download cac file backup"
-        /etc/vpssim/menu/vpssim-sao-luu
+        /etc/kpanel/menu/kpanel-sao-luu
         rm -rf /tmp/*hostingaz*
         ;;
 esac

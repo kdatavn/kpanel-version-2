@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Su dung chuc nang nay de tao backup cho cac file config va Vhost"
 echo "-------------------------------------------------------------------------"
@@ -31,7 +31,7 @@ echo "========================================================================="
 echo "Link Download File Backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/Backupconfigandvhost-$backupsys.zip"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 
 
 ;;
@@ -39,7 +39,7 @@ echo "http://$serverip:$priport/Backupconfigandvhost-$backupsys.zip"
        clear
 echo "========================================================================= "
 echo "Huy bo tao backup cho file config & Vhost."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
 esac
 

@@ -26,7 +26,7 @@
          # { msg="Invalid choice: $num"; continue; }         # Tieng Anh
      if [ $num == ${#options[@]} ];then
 echo "========================================================================="
-     read -r -p "Ban muon config disable ham PHP theo mac dinh cua VPSSIM ? [y/N] " response
+     read -r -p "Ban muon config disable ham PHP theo mac dinh cua kpanel ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
@@ -44,13 +44,13 @@ fi
       clear
       echo "========================================================================="
       echo "Config disable ham php theo mac dinh thanh cong"
-      /etc/vpssim/menu/vpssim-config-php.ini-menu
+      /etc/kpanel/menu/kpanel-config-php.ini-menu
 ;;
     *)
        clear 
 echo "========================================================================= "
         echo "Ban khong thay doi config disable php function !"
-         /etc/vpssim/menu/vpssim-config-php.ini-menu
+         /etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -83,13 +83,13 @@ fi
 clear
 echo "========================================================================="
 echo "Hoan thanh cau hinh php.ini"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 ;;
     *)
        clear 
 echo "========================================================================= "
 echo "Ban khong thay doi config cua file php.ini !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac
       fi  
@@ -124,12 +124,12 @@ grep "disable_functions =" /etc/php.ini | sed 's/disable_functions =\ //' > /tmp
 echo "========================================================================= "
 echo "Config Disable ham PHP thanh cong "
 rm -rf /tmp/vpssimdis*
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 ;;
     *)
 clear 
 echo "========================================================================= "
 echo "Ban khong thay doi config disable php function !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac

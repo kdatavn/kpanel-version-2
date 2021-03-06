@@ -3,10 +3,10 @@
 
 # setup
 #Nginx_VERSION="1.18.0"
-#cd /usr/local/vpssim/nginx-${Nginx_VERSION}
+#cd /usr/local/kpanel/nginx-${Nginx_VERSION}
 #./configure --with-compat --add-dynamic-module=/root/ngx_brotli
 #make modules
 #cd ~
-#yes | cp -rf /usr/local/vpssim/nginx-${Nginx_VERSION}/objs/{ngx_http_brotli_filter_module.so,ngx_http_brotli_static_module.so} /usr/share/nginx/modules
+#yes | cp -rf /usr/local/kpanel/nginx-${Nginx_VERSION}/objs/{ngx_http_brotli_filter_module.so,ngx_http_brotli_static_module.so} /usr/share/nginx/modules
 
 

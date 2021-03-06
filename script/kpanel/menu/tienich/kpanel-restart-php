@@ -1,18 +1,18 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "$(/sbin/service php-fpm status | awk 'NR==1 {print $5}')" == "running..." ]; then
 clear
 echo "========================================================================"
 service php-fpm restart
-/etc/vpssim/menu/tienich/vpssim-restart-service
+/etc/kpanel/menu/tienich/kpanel-restart-service
 	else
 clear
 echo "========================================================================"
 echo "php-fpm service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -28,17 +28,17 @@ sleep 5 ; clear
 clear
 echo "========================================================================"
 service php-fpm restart
-/etc/vpssim/menu/tienich/vpssim-restart-service
+/etc/kpanel/menu/tienich/kpanel-restart-service
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start php-fpm Service"
+echo "kpanel can not start php-fpm Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
-	echo "Rat tiec, VPSSIM khong the khoi dong lai duoc php-fpm service !"
-	#echo "Sorry, VPSSIM can not restart php-fpm service !"
-	/etc/vpssim/menu/tienich/vpssim-restart-service
+	echo "Rat tiec, kpanel khong the khoi dong lai duoc php-fpm service !"
+	#echo "Sorry, kpanel can not restart php-fpm service !"
+	/etc/kpanel/menu/tienich/kpanel-restart-service
 		fi
 fi
 fi
@@ -49,13 +49,13 @@ clear
 echo "========================================================================"
 service php-fpm stop
 service php-fpm start
-/etc/vpssim/menu/tienich/vpssim-restart-service
+/etc/kpanel/menu/tienich/kpanel-restart-service
 	else
 clear
 echo "========================================================================"
 echo "php-fpm service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -72,17 +72,17 @@ clear
 echo "========================================================================"
 service php-fpm stop
 service php-fpm start
-/etc/vpssim/menu/tienich/vpssim-restart-service
+/etc/kpanel/menu/tienich/kpanel-restart-service
 		else
 				clear
 echo "========================================================================"
-echo "VPSSIM can not start php-fpm Service"
+echo "kpanel can not start php-fpm Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
-	echo "Rat tiec, VPSSIM khong the khoi dong lai duoc php-fpm!"
-	#echo "Sorry, VPSSIM can not restart php-fpm service !"
-	/etc/vpssim/menu/tienich/vpssim-restart-service
+	echo "Rat tiec, kpanel khong the khoi dong lai duoc php-fpm!"
+	#echo "Sorry, kpanel can not restart php-fpm service !"
+	/etc/kpanel/menu/tienich/kpanel-restart-service
 		fi
 fi
 fi

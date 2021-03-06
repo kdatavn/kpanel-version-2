@@ -1,18 +1,18 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "$(/sbin/service nginx status | awk 'NR==1 {print $5}')" == "running..." ]; then
 clear
 echo "========================================================================"
 service nginx restart
-/etc/vpssim/menu/tienich/vpssim-restart-service
+/etc/kpanel/menu/tienich/kpanel-restart-service
 	else
 clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -28,17 +28,17 @@ sleep 5 ; clear
 clear
 echo "========================================================================"
 service nginx restart
-/etc/vpssim/menu/tienich/vpssim-restart-service
+/etc/kpanel/menu/tienich/kpanel-restart-service
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
-	echo "Rat tiec, VPSSIM khong the khoi dong lai duoc Nginx!"
+	echo "Rat tiec, kpanel khong the khoi dong lai duoc Nginx!"
 	#echo "Sorry, Nginx is stopped. Please start it before use this function !"
-	/etc/vpssim/menu/tienich/vpssim-restart-service
+	/etc/kpanel/menu/tienich/kpanel-restart-service
 		fi
 fi
 fi
@@ -49,13 +49,13 @@ clear
 echo "========================================================================"
 service nginx stop
 service nginx start
-/etc/vpssim/menu/tienich/vpssim-restart-service
+/etc/kpanel/menu/tienich/kpanel-restart-service
 	else
 clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -72,17 +72,17 @@ clear
 echo "========================================================================"
 service nginx stop
 service nginx start
-/etc/vpssim/menu/tienich/vpssim-restart-service
+/etc/kpanel/menu/tienich/kpanel-restart-service
 		else
 				clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
-	echo "Rat tiec, VPSSIM khong the khoi dong lai duoc Nginx!"
-	#echo "Sorry, VPSSIM can not restart nginx service !"
-	/etc/vpssim/menu/tienich/vpssim-restart-service
+	echo "Rat tiec, kpanel khong the khoi dong lai duoc Nginx!"
+	#echo "Sorry, kpanel can not restart nginx service !"
+	/etc/kpanel/menu/tienich/kpanel-restart-service
 		fi
 fi
 fi

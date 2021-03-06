@@ -1,21 +1,21 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -f /etc/php.d/opcache.ini ]; then
 clear
 echo "========================================================================="
 echo "Zend Opcache dang tat"
 echo "-------------------------------------------------------------------------"
 echo "Ban phai bat Zend Opcache moi duoc su dung chuc nang nay"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 fi
-if [  "$(grep home /etc/vpssim/opcache.blacklist)" == "" ]; then
+if [  "$(grep home /etc/kpanel/opcache.blacklist)" == "" ]; then
 clear
 echo "========================================================================="
 echo "Hien tai Zend Opcache Blacklist chua co website nao"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
-cat /etc/vpssim/opcache.blacklist > /tmp/view-blacklist
+cat /etc/kpanel/opcache.blacklist > /tmp/view-blacklist
 cat > "/tmp/viewzendcacheblacklist" <<END	
 sed -i 's/\/home\///g' /tmp/view-blacklist
 sed -i 's/\///g' /tmp/view-blacklist
@@ -32,4 +32,4 @@ echo "Danh sach website trong Zend Opcache BlackList: "
 echo "-------------------------------------------------------------------------"
 cat /tmp/view-blacklist | pr -2 -t
 rm -rf /tmp/view-blacklist
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache

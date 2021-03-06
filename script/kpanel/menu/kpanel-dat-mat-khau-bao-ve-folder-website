@@ -1,5 +1,5 @@
 #!/bin/sh
-. /etc/vpssim/pwprotect.default
+. /etc/kpanel/pwprotect.default
 if [ ! -d /etc/nginx/pwprotect ]; then
 mkdir -p /etc/nginx/pwprotect
 fi
@@ -8,8 +8,8 @@ clear
 echo "========================================================================="
 echo "Ban phai tao User va Mat khau mac dinh truoc khi chay chuc nang nay. Tao "
 echo "-------------------------------------------------------------------------"
-echo "User va Mat Khau mac dinh: VPSSIM Menu => User & Password Mac Dinh."
-/etc/vpssim/menu/vpssim-tien-ich
+echo "User va Mat Khau mac dinh: kpanel Menu => User & Password Mac Dinh."
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 echo "========================================================================="
@@ -26,14 +26,14 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap ten website"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
 clear
 echo "========================================================================="
 echo "Khong tim thay $website tren server "
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 fi   
 
 echo "$website" > /tmp/websitemk.txt
@@ -48,7 +48,7 @@ if [ ! -d /home/$website/public_html/$foldermk ]; then
 clear
 echo "========================================================================="
 echo "Khong tim thay folder $foldermk cua $website"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 
@@ -59,13 +59,13 @@ echo "========================================================================="
 echo "$website la wordpress website "
 echo "-------------------------------------------------------------------------"
 echo "Hay su dung Wordpress Blog Tools de dat mat khau bao ve foler ban nhap"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 fi
 
-if [ -f /etc/vpssim/net2ftpsite.info ]; then
-net2ftpsite=$(cat /etc/vpssim/net2ftpsite.info)
+if [ -f /etc/kpanel/net2ftpsite.info ]; then
+net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
 if [ "$website" = "$net2ftpsite" ]; then
 if [ "$foldermk" == "temp" ]; then
 clear
@@ -73,7 +73,7 @@ echo "========================================================================="
 echo "$website la domain Net2FTP"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong the hoan thanh config nay."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 fi
 fi
 fi
@@ -109,7 +109,7 @@ if [ "$username" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap username"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 checkpass="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -117,7 +117,7 @@ if [[ ! "$username" =~ $checkpass ]]; then
 clear
 echo "========================================================================="
 echo "Ban chi duoc dung chu cai va so de dat Username."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -127,7 +127,7 @@ if [ "$matkhau" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap mat khau"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 checkpass="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -135,7 +135,7 @@ if [[ ! "$matkhau" =~ $checkpass ]]; then
 clear
 echo "========================================================================="
 echo "Ban chi duoc dung chu cai va so de dat mat khau mac dinh."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -143,7 +143,7 @@ echo "Thong tin ban nhap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se thay thong tin dang nhap cu theo thong tin moi nay "
+echo "kpanel se thay thong tin dang nhap cu theo thong tin moi nay "
 echo "-------------------------------------------------------------------------"
 echo "please wait ...."
 sleep 1
@@ -178,7 +178,7 @@ echo "========================================================================="
 echo "Thay thong tin dang nhap cho $foldermk thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 ###################################
 #Su Dung Mat Khau Truy Cap Mac Dinh
@@ -203,13 +203,13 @@ echo "========================================================================= 
 echo "Config bao ve folder $foldermk theo mac dinh thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Username: $userdefault | Password: $passdefault"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 ;;
 esac
 clear
 echo "========================================================================= "
 echo "Cancel"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 ###################################
 #tatmatkhautruycap
 ###################################
@@ -238,13 +238,13 @@ fi
 clear
 echo "========================================================================= "
 echo "Tat mat khau truy cap $foldermk thanh cong"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 ;;
 esac
 clear
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 else 
-clear && /etc/vpssim/menu/vpssim-tien-ich
+clear && /etc/kpanel/menu/kpanel-tien-ich
 fi
 fi
 fi
@@ -278,7 +278,7 @@ if [ "$username" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap username"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 checkpass="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -286,7 +286,7 @@ if [[ ! "$username" =~ $checkpass ]]; then
 clear
 echo "========================================================================="
 echo "Ban chi duoc dung chu cai va so de dat Username."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -296,7 +296,7 @@ if [ "$matkhau" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap mat khau"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 checkpass="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -304,7 +304,7 @@ if [[ ! "$matkhau" =~ $checkpass ]]; then
 clear
 echo "========================================================================="
 echo "Ban chi duoc dung chu cai va so de dat mat khau mac dinh."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -312,7 +312,7 @@ echo "Thong tin ban nhap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se thay thong tin dang nhap cu theo thong tin moi nay "
+echo "kpanel se thay thong tin dang nhap cu theo thong tin moi nay "
 echo "-------------------------------------------------------------------------"
 echo "please wait ...."
 sleep 1
@@ -358,7 +358,7 @@ echo "========================================================================="
 echo "Thay thong tin dang nhap cho $foldermk thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 ###################################
 #tatmatkhautruycap
@@ -387,13 +387,13 @@ fi
 clear
 echo "========================================================================= "
 echo "Tat mat khau truy cap $foldermk thanh cong"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 ;;
 esac
 clear
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 else 
-clear && /etc/vpssim/menu/vpssim-tien-ich
+clear && /etc/kpanel/menu/kpanel-tien-ich
 fi
 fi
 fi
@@ -447,7 +447,7 @@ echo "-------------------------------------------------------------------------"
 echo "Thong tin truy cap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $userdefault | Password: $passdefault"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 
 else 
 echo "-------------------------------------------------------------------------"
@@ -459,7 +459,7 @@ if [ "$matkhau" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap mat khau"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 checkpass="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -467,7 +467,7 @@ if [[ ! "$matkhau" =~ $checkpass ]]; then
 clear
 echo "========================================================================="
 echo "Ban chi duoc dung chu cai va so de dat mat khau mac dinh."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 
@@ -477,7 +477,7 @@ echo "========================================================================="
 echo "Mat khau toi thieu phai co 6 ki tu."
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 
@@ -532,7 +532,7 @@ echo "-------------------------------------------------------------------------"
 echo "Thong tin truy cap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 
 exit
 fi

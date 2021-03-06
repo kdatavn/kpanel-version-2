@@ -6,9 +6,9 @@ PS3="$prompt"
 select opt in "${options[@]}" "Thoat"; do 
 
     case "$REPLY" in
-    1) /etc/vpssim/menu/tienich/vpssim-xem-danh-sach-max-dung-luong-file-domain;;
-    2) /etc/vpssim/menu/tienich/vpssim-danh-sach-max-dung-luong-file-folder-home;;
-$(( ${#options[@]}+1 )) ) echo "";  clear && /etc/vpssim/menu/vpssim-tien-ich;;
+    1) /etc/kpanel/menu/tienich/kpanel-xem-danh-sach-max-dung-luong-file-domain;;
+    2) /etc/kpanel/menu/tienich/kpanel-danh-sach-max-dung-luong-file-folder-home;;
+$(( ${#options[@]}+1 )) ) echo "";  clear && /etc/kpanel/menu/kpanel-tien-ich;;
      *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
     esac

@@ -1,11 +1,11 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Voi mot so code loi, Neu dat [display_errors = Off] trong php.ini se lam"
 echo "-------------------------------------------------------------------------"
 echo "website hien thi duy nhat trang trang. Fix by set [display_errors = On]"
 echo "-------------------------------------------------------------------------"
-echo "Neu website khong co loi, VPSSIM khuyen nghi dat [display_errors = Off]"
+echo "Neu website khong co loi, kpanel khuyen nghi dat [display_errors = Off]"
 echo "========================================================================="
 echo "Hien tai: DISPLAY ERRORS = ON "
 echo "========================================================================="
@@ -26,12 +26,12 @@ fi
     clear
     echo "========================================================================="
 echo "Thiet lap [display_errors = Off] trong php.ini thanh cong"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
    echo "Ban huy thay doi gia tri [display_errors]  !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac

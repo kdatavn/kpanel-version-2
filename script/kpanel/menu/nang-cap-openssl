@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 #
 cd ~
@@ -17,7 +17,7 @@ sleep 1
 
 # them lenh kiem tra neu co git roi thi thoi khong tai lai nua
 okResetGit="y"
-if [ -d /opt/echbay_vpssim ]; then
+if [ -d /opt/kdata_kpanel ]; then
 echo "========================================================================="
 echo "========================================================================="
 echo "========================================================================="
@@ -35,12 +35,12 @@ fi
 # copy code tu file install sang
 if [ "$okResetGit" = "y" ]; then
 cd ~
-wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/vpssim-free/master/script/vpssim/menu/git-clone
+wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/kpanel/menu/git-clone
 chmod +x /root/git-clone
 bash /root/git-clone
 fi
 
-. /opt/echbay_vpssim/script/vpssim/nginx-setup.conf
+. /opt/kdata_kpanel/script/kpanel/nginx-setup.conf
 echo "========================================================================="
 echo "NEW openssl version: "${opensslversion}
 echo "========================================================================="
@@ -56,15 +56,15 @@ fi
 if [ "$selectOpenSSL" = "y" ]; then
 echo "Ok ! please wait update "${opensslversion}" ...."
 sleep 1
-cd /usr/local/vpssim
+cd /usr/local/kpanel
 
 #wget --no-check-certificate -q https://www.openssl.org/source/${opensslversion}.tar.gz
-yes | cp -rf /opt/echbay_vpssim/script/vpssim/module-nginx/${opensslversion}.tar.gz ${opensslversion}.tar.gz
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/module-nginx/${opensslversion}.tar.gz ${opensslversion}.tar.gz
 tar -xzf ${opensslversion}.tar.gz
 rm -rf ${opensslversion}.tar.gz
 
 cd ~
-cd /usr/local/vpssim/${opensslversion}
+cd /usr/local/kpanel/${opensslversion}
 #exit
 
 ./config
@@ -87,5 +87,5 @@ echo "Ban da huy thay doi phien ban OpenSSL"
 fi
 
 #
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 

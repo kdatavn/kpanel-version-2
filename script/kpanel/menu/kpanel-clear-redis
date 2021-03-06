@@ -1,12 +1,12 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! "$(redis-cli ping)" = "PONG" ]; then
 clear
 echo "========================================================================="
 echo "Redis dang stop"
 echo "-------------------------------------------------------------------------"
 echo "Ban phai bat Redis len bang lenh [ service redis start ]"
-/etc/vpssim/menu/vpssim-redis-menu
+/etc/kpanel/menu/kpanel-redis-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -16,4 +16,4 @@ sleep 1
 clear
 echo "========================================================================="
 echo "Clear Redis Cache thanh cong"
-/etc/vpssim/menu/vpssim-redis-menu
+/etc/kpanel/menu/kpanel-redis-menu

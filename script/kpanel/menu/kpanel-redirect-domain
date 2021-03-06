@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Su dung chuc nang nay de them redirect domain vao server"
 echo "-------------------------------------------------------------------------"
@@ -11,7 +11,7 @@ if [ "$domain" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 
@@ -23,7 +23,7 @@ echo "========================================================================="
 echo "$domain co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi 
 
@@ -36,7 +36,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,12}$";
@@ -47,7 +47,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi 
 
@@ -60,13 +60,13 @@ echo "-------------------------------------------------------------------------"
 echo "Neu ban muon $domain redirect sang $website"
 echo "-------------------------------------------------------------------------"
 echo "Hay remove $domain khoi he thong va thu lai !!!"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 
 if [ -f /etc/nginx/conf.d/$website.conf ]; then
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se them $domain vao server"
+echo "kpanel se them $domain vao server"
 echo "-------------------------------------------------------------------------"
 read -r -p "Va redirect $domain toi $website. Is it Ok  ? [y/N] " response
 case $response in
@@ -90,13 +90,13 @@ if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == 
 systemctl restart nginx.service
 fi
 echo "$domain da duoc them vao he thong va redirect toi $website."
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
      ;;
     *)
 clear
         echo "========================================================================="
 echo "Cancel !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
         ;;
 esac
 else
@@ -105,6 +105,6 @@ echo "========================================================================="
 echo "Khong tim thay $website tren he thong!!!!!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long kiem tra va lam lai."
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi

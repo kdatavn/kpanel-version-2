@@ -1,21 +1,21 @@
 
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -f /root/.bash_profile ]; then
 clear
 echo "========================================================================="
 echo "Can not find file /root/.bash_profile"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM can not run this function on this server"
+echo "kpanel can not run this function on this server"
 echo "-------------------------------------------------------------------------"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 
-if [ "$(grep "/bin/vpssim" /root/.bash_profile)" == "" ]; then
+if [ "$(grep "/bin/kpanel" /root/.bash_profile)" == "" ]; then
 echo "========================================================================="
-echo "Su dung chuc nang nay de BAT/TAT chuc nang tu dong chay VPSSIM khi login"
+echo "Su dung chuc nang nay de BAT/TAT chuc nang tu dong chay kpanel khi login"
 echo "-------------------------------------------------------------------------"
 echo "SSH vao Server. Hien tai chuc nang nay dang TAT."
 echo "========================================================================="
@@ -25,23 +25,23 @@ case $response in
     echo "-------------------------------------------------------------------------"
     echo "Please wait ... "
     sleep 1
-echo "/bin/vpssim" >> /root/.bash_profile
+echo "/bin/kpanel" >> /root/.bash_profile
 clear
 echo "========================================================================="
-echo "BAT chuc nang Auto Run VPSSIM thanh cong ! "
- /etc/vpssim/menu/vpssim-tien-ich
+echo "BAT chuc nang Auto Run kpanel thanh cong ! "
+ /etc/kpanel/menu/kpanel-tien-ich
     ;;
 *)
 clear
 echo "========================================================================="
 echo "You choosed NO "
- /etc/vpssim/menu/vpssim-tien-ich
+ /etc/kpanel/menu/kpanel-tien-ich
   exit
 ;;
 esac
 else
 echo "========================================================================="
-echo "Su dung chuc nang nay de BAT/TAT chuc nang tu dong chay VPSSIM khi login"
+echo "Su dung chuc nang nay de BAT/TAT chuc nang tu dong chay kpanel khi login"
 echo "-------------------------------------------------------------------------"
 echo "SSH vao Server. Hien tai chuc nang nay dang BAT."
 echo "========================================================================="
@@ -51,17 +51,17 @@ case $response in
     echo "-------------------------------------------------------------------------"
     echo "Please wait ... "
     sleep 1
-    sed -i '/\/bin\/vpssim/d' /root/.bash_profile
+    sed -i '/\/bin\/kpanel/d' /root/.bash_profile
 clear
 echo "========================================================================="
-echo "TAT chuc nang Auto Run VPSSIM thanh cong ! "
- /etc/vpssim/menu/vpssim-tien-ich
+echo "TAT chuc nang Auto Run kpanel thanh cong ! "
+ /etc/kpanel/menu/kpanel-tien-ich
     ;;
 *)
 clear
 echo "========================================================================="
 echo "You choosed NO "
- /etc/vpssim/menu/vpssim-tien-ich
+ /etc/kpanel/menu/kpanel-tien-ich
   exit
 ;;
 esac

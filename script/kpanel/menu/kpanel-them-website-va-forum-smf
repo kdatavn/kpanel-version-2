@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 version=2.0.1
 getsmf () {
 	wget http://download.simplemachines.org/index.php/smf_2-0-11_install.zip
@@ -16,7 +16,7 @@ echo "========================================================================="
 echo "Ban dang su dung PHP 7.0"
 echo "-------------------------------------------------------------------------"
 echo "SMF Forum 2.0.1 khong hoat dong tren PHP 7.0"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 
@@ -34,7 +34,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban phai nhap ten domain."
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}$";
@@ -45,7 +45,7 @@ echo "========================================================================="
 echo "$website co le khong dung dinh dang domain!"
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 if [ -f /etc/nginx/conf.d/$website.conf ]; then
@@ -54,7 +54,7 @@ echo "========================================================================="
 echo "$website da ton tai tren he thong"
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -63,7 +63,7 @@ read adminsmf
 if [ "$adminsmf" = "" ]; then
 echo "========================================================================="
 echo "Ban phai nhap tai khoan admin."
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 if [[ ! ${#adminsmf} -ge 5 ]]; then
@@ -72,7 +72,7 @@ echo "========================================================================="
 echo "Tai khoan admin toi thieu co 5 ky tu "
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi 
 checkuseradmin="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -82,7 +82,7 @@ echo "========================================================================="
 echo "Ban chi duoc phep dung chu cai va so."
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai  !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -94,7 +94,7 @@ if [ "$uremail" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban phaiNhap ten domain."
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 kiemtraemail="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,15}$";
@@ -102,7 +102,7 @@ if [[ ! "$uremail" =~ $kiemtraemail ]]; then
 clear
 echo "========================================================================="
 echo "Dia chi email $uremail khong chinh xac"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -115,7 +115,7 @@ sleep 2
     cd
 chown -R nginx:nginx "/home/$website/public_html/"
 find "/home/$website/public_html/" -type d -exec chmod g+s {} \;
-\cp -uf /etc/vpssim/menu/robots.txt "/home/$website/public_html/"
+\cp -uf /etc/kpanel/menu/robots.txt "/home/$website/public_html/"
     cat > "/etc/nginx/conf.d/$website.conf" <<END
 server {
 	    server_name www.$website;
@@ -138,7 +138,7 @@ include /etc/nginx/conf/ddos2.conf;
 #///////////////////////////////////////////////////////
 # Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua VPSSIM
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
@@ -162,8 +162,8 @@ include /etc/nginx/conf/all.conf;
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;  
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
 # Error Page
@@ -200,7 +200,7 @@ include /etc/nginx/conf/drop.conf;
 
     }
 END
-mkdir -p /home/$website/errorpage_html && cp -r /etc/vpssim/errorpage_html/*.html /home/$website/errorpage_html
+mkdir -p /home/$website/errorpage_html && cp -r /etc/kpanel/errorpage_html/*.html /home/$website/errorpage_html
    echo "$website" > /tmp/databasename.txt
 #echo $website | sed "s/\./_/" | sed "s/\-/_/" | cut -c1-14  > /tmp/databasename.txt  
 sed -i 's/\./_/g' /tmp/databasename.txt
@@ -244,7 +244,7 @@ echo "Username: $username" >> /home/DBinfo.txt
 echo "password: $password" >> /home/DBinfo.txt
 echo "" >> /home/DBinfo.txt
 rm -rf /tmp/database-example-smf.sql
-cp -r /etc/vpssim/menu/database-example/database-example-smf.tar.gz  /tmp/database-example-smf.sql
+cp -r /etc/kpanel/menu/database-example/database-example-smf.tar.gz  /tmp/database-example-smf.sql
 cat > "/tmp/smfinstall" <<END
 sed -i 's/adminvpssim/$adminsmf/g' /tmp/database-example-smf.sql
 sed -i 's/admin@google.com/$uremail/g' /tmp/database-example-smf.sql
@@ -254,7 +254,7 @@ chmod +x /tmp/smfinstall
 /tmp/smfinstall
 mysql -u root -p$mariadbpass $dataname < /tmp/database-example-smf.sql
 rm -rf /home/$website/public_html/Settings.php
-cp -r /etc/vpssim/menu/database-example/smf-Settings.tar.gz /home/$website/public_html/Settings.php
+cp -r /etc/kpanel/menu/database-example/smf-Settings.tar.gz /home/$website/public_html/Settings.php
 random=`date |md5sum |cut -c '1-4'`
 cat > "/tmp/smfinstall" <<END
 sed -i 's/databasename/$dataname/g' /home/$website/public_html/Settings.php
@@ -289,4 +289,4 @@ echo "-------------------------------------------------------------------------"
 echo "De lay mat khau cho tai khoan admin $adminsmf"
 echo "-------------------------------------------------------------------------"
 echo "Thong tin Database duoc luu tai: /home/DBinfo.txt"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu

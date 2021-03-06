@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ -f /etc/php.d/opcache.bak ]; then
 if [ -f	/etc/php.d/*opcache.ini ]; then
 rm -rf /etc/php.d/*opcache.ini
@@ -18,8 +18,8 @@ rm -rf /tmp/vpssimopcache
 rm -rf /tmp/vpssimcheckopcache.tmp
 fi 
 fi
-if [ ! -f /etc/vpssim/opcache.blacklist ]; then
-cat > "/etc/vpssim/opcache.blacklist" <<END
+if [ ! -f /etc/kpanel/opcache.blacklist ]; then
+cat > "/etc/kpanel/opcache.blacklist" <<END
 /home/$mainsite/
 /home/*/public_html/wp-content/plugins/backwpup/*
 /home/*/public_html/wp-content/plugins/duplicator/*
@@ -30,20 +30,20 @@ fi
 zen_opcache_run () {
 	if [ -f /etc/php.d/opcache.ini ]; then
 if [ "$(grep opcache.blacklist /etc/php.d/opcache.ini)" == "" ]; then
-echo "opcache.blacklist_filename=/etc/vpssim/opcache.blacklist" >> /etc/php.d/opcache.ini
+echo "opcache.blacklist_filename=/etc/kpanel/opcache.blacklist" >> /etc/php.d/opcache.ini
 fi 
-/etc/vpssim/menu/opcache/vpssim-dang-bat-opcache-menu
+/etc/kpanel/menu/opcache/kpanel-dang-bat-opcache-menu
 fi
 if [ -f /etc/php.d/opcache.bak ]; then
 if [ "$(grep opcache.blacklist /etc/php.d/opcache.bak)" == "" ]; then
-echo "opcache.blacklist_filename=/etc/vpssim/opcache.blacklist" >> /etc/php.d/opcache.bak
+echo "opcache.blacklist_filename=/etc/kpanel/opcache.blacklist" >> /etc/php.d/opcache.bak
 fi 
-/etc/vpssim/menu/opcache/vpssim-dang-tat-opcache-menu
+/etc/kpanel/menu/opcache/kpanel-dang-tat-opcache-menu
 fi
 clear
 echo "========================================================================="
-echo "VPSSIM can not find zend opcache in your system"
-vpssim
+echo "kpanel can not find zend opcache in your system"
+kpanel
 }
 
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
@@ -58,7 +58,7 @@ zen_opcache_run
 	echo "========================================================================="
 	#echo "Sorry, PHP-FPM stopped. Start it before use this function!"
 	echo "Sorry, PHP-FPM dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -76,7 +76,7 @@ zen_opcache_run
 	echo "========================================================================="
 	#echo "Sorry, PHP-FPM stopped. Start it before use this function!"
 	echo "Sorry, PHP-FPM dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi

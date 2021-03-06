@@ -6,7 +6,7 @@
 cd ~
 
 install_nginx_quiche(){
-cd ~ ; /etc/vpssim/menu/nginx-quiche
+cd ~ ; /etc/kpanel/menu/nginx-quiche
 }
 
 # cai dat cmake 3++ ####################################################################
@@ -32,14 +32,14 @@ cd ~ ; curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
 #
-. /opt/echbay_vpssim/script/vpssim/nginx-setup.conf
+. /opt/kdata_kpanel/script/kpanel/nginx-setup.conf
 echo $moduledir
 #exit
 echo "Install after 3s"
 sleep 3
 
 #
-/opt/echbay_vpssim/script/vpssim/menu/nginx-setup-download
+/opt/kdata_kpanel/script/kpanel/menu/nginx-setup-download
 
 #
 Nginx_VERSION="1.16.1"

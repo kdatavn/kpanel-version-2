@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 Show_menu () {
 prompt="Nhap lua chon cua ban: "
 options=( "Allow/Deny Chay Script Trong Writable Folder" "List Websites KHONG CHO Chay Script Trong Writeable Folder" "Exit" )
@@ -19,17 +19,17 @@ done
 #
 ###################################
 if [ "$luachon" = "tatbat" ]; then
-/etc/vpssim/menu/vpssim-tat-bat-chan-run-script-trong-folder-upload-cho-website
+/etc/kpanel/menu/kpanel-tat-bat-chan-run-script-trong-folder-upload-cho-website
 ###################################
 #
 ###################################
 elif [ "$luachon" = "danhsach" ]; then
-/etc/vpssim/menu/vpssim-list-website-dang-chan-run-script-trong-folder-upload
+/etc/kpanel/menu/kpanel-list-website-dang-chan-run-script-trong-folder-upload
 ###################################
 #
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-tien-ich
+clear && /etc/kpanel/menu/kpanel-tien-ich
 fi
 }
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
@@ -45,7 +45,7 @@ Show_menu
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
 	#echo "Sorry, Nginx is stopped. Please start it before use this function !"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 		fi
 fi
 fi
@@ -63,7 +63,7 @@ Show_menu
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
 	#echo "Sorry, Nginx is stopped. Please start it before use this function !"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 		fi
 fi
 fi

@@ -2,7 +2,7 @@
 
 # setup varnish disk cache config
 if [ ! -f /etc/sysconfig/varnish ]; then
-yes | cp -rf /etc/vpssim/menu/varnish/sysconfig.txt /etc/sysconfig/varnish
+yes | cp -rf /etc/kpanel/menu/varnish/sysconfig.txt /etc/sysconfig/varnish
 fi
 chmod 644 /etc/sysconfig/varnish
 
@@ -18,8 +18,8 @@ chmod 644 /etc/sysconfig/varnish
 checktruenumber='^[0-9]+$'
 
 # lay dung luong theo cau hinh cua nguoi dung
-if [ -f /etc/vpssim/varnish.storage ]; then
-varnish_size=$(cat /etc/vpssim/varnish.storage)
+if [ -f /etc/kpanel/varnish.storage ]; then
+varnish_size=$(cat /etc/kpanel/varnish.storage)
 else
 
 # tinh dung luong varnish cache dang su dung

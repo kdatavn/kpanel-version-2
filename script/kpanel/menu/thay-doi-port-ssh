@@ -1,13 +1,13 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 sshPortdefault=$((grep "Port" /etc/ssh/sshd_config) | head -n 1)
 portcu=$(cat /etc/ssh/sshd_config | grep Port | awk 'END {print $2}')
 if [ ! "$sshPortdefault" == "#Port 22" ]; then
 clear
-echo "Ban da thay doi port SSH ma khong su dung VPSSIM"
+echo "Ban da thay doi port SSH ma khong su dung kpanel"
 echo "-------------------------------------------------------------------------"
 echo "Chuc nang nay khong the hoat dong duoc !"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 if [[ ${portcu} =~ ^[0-9]+$ ]] ;then
@@ -36,7 +36,7 @@ echo "========================================================================="
 echo "Port ban nhap: ${sshport} khong phai la so tu nhien."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !" 
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 if ! [[ $sshport -ge 30000 && $sshport -le 50000  ]] ; then 
@@ -45,7 +45,7 @@ echo "========================================================================="
 echo "Port ban nhap: ${sshport} khong hop le."
 echo "-------------------------------------------------------------------------"
 echo "PortSSH phai khac $priport va nam trong khoang (30000 - 50000) !" 
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 if [ "$priport" = "$sshport" ]; then
@@ -54,7 +54,7 @@ echo "========================================================================="
 echo "Port SSH ban muon thay trung voi port phpmyadmin !"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi 
 if [ "$portcu" = "$sshport" ]; then
@@ -63,7 +63,7 @@ echo "========================================================================="
 echo "Port SSH ban nhap trung voi port hien tai !"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi 
 
@@ -77,7 +77,7 @@ echo "" >> /etc/ssh/sshd_config
 
 echo "-------------------------------------------------------------------------"
 echo "please wait..."; sleep 1
-/etc/vpssim/menu/cai-dat-remove-csf-ssh-port
+/etc/kpanel/menu/cai-dat-remove-csf-ssh-port
 
 iptables -I INPUT -p tcp --dport $sshport -j ACCEPT
 iptables -I INPUT -p udp --dport ${sshport} -j ACCEPT
@@ -102,7 +102,7 @@ echo "-------------------------------------------------------------------------"
 echo "Upload qua SFTP:"
 echo "-------------------------------------------------------------------------"
 echo "Host: sftp://$serverip, User & Pass: Root's info , Port: $sshport" 
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 
@@ -114,7 +114,7 @@ chmod +x /tmp/changeportssh
 rm -rf /tmp/changeportssh
 echo "-------------------------------------------------------------------------"
 echo "please wait..."; sleep 1
-/etc/vpssim/menu/cai-dat-remove-csf-ssh-port
+/etc/kpanel/menu/cai-dat-remove-csf-ssh-port
 
 iptables -I INPUT -p tcp --dport $sshport -j ACCEPT
 service iptables save
@@ -136,10 +136,10 @@ echo "-------------------------------------------------------------------------"
 echo "Upload qua SFTP:"
 echo "-------------------------------------------------------------------------"
 echo "Host: sftp://$serverip, User & Pass: Root's info, Port: $sshport" 
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 esac
 clear
 echo "========================================================================="
 echo "Ban da cancle thay doi SSH Port !"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 

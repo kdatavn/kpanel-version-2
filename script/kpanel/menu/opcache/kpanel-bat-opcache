@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Su dung chuc nang nay de BAT Zend Opcache cho server"
 echo "-------------------------------------------------------------------------"
@@ -23,7 +23,7 @@ echo "========================================================================="
 echo "PHP-FPM khong the khoi dong! "
 echo "-------------------------------------------------------------------------"
 echo "Co the ban da config PHP-FPM sai !"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 fi
@@ -37,7 +37,7 @@ echo "========================================================================="
 echo "PHP-FPM khong the khoi dong! "
 echo "-------------------------------------------------------------------------"
 echo "Co the ban da config PHP-FPM sai !"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 fi
@@ -45,12 +45,12 @@ fi
 clear
 echo "========================================================================="
 	echo "BAT Zend OPcache thanh cong  !"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
         ;;
     *)
         clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
         ;;
 esac

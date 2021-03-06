@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 rans=`date |md5sum |cut -c '1-5'`
   echo "========================================================================="
   echo "Su dung chuc nang nay de xem trang thai Plugins & Themes"
@@ -11,7 +11,7 @@ read website
 if [ "$website" = "" ]; then
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai."
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}$";
@@ -22,7 +22,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
@@ -31,7 +31,7 @@ echo "========================================================================="
 echo "Khong tim thay $website tren he thong"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 if [ ! -f /home/$website/public_html/wp-config.php ]; then
@@ -40,7 +40,7 @@ echo "========================================================================="
 echo "$website co the khong phai wordpress web hoac chua cai dat WP"
 echo "-------------------------------------------------------------------------"
 echo "Vui long cai dat Wordpress code truoc hoac thu domain khac"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 

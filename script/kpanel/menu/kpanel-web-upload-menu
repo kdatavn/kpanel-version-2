@@ -1,14 +1,14 @@
 #!/bin/sh
-. /home/vpssim.conf
-if [ -f /etc/vpssim/uploadsite ]; then
-uploadsite=$(cat /etc/vpssim/uploadsite)
+. /home/kpanel.conf
+if [ -f /etc/kpanel/uploadsite ]; then
+uploadsite=$(cat /etc/kpanel/uploadsite)
  if [ ! -d /home/$uploadsite/public_html ]; then
-rm -rf /etc/vpssim/uploadsite
+rm -rf /etc/kpanel/uploadsite
  fi
 fi
 
-if [ -f /etc/vpssim/uploadsite ]; then
-filemanagedomain=$(cat /etc/vpssim/uploadsite)
+if [ -f /etc/kpanel/uploadsite ]; then
+filemanagedomain=$(cat /etc/kpanel/uploadsite)
 checkfilemanagedomainconfig=$(grep auth_basic /etc/nginx/conf.d/$filemanagedomain.conf)
 if [ "$checkfilemanagedomainconfig" == "" ]; then
 Protection=Disable
@@ -22,18 +22,18 @@ show_menu_filemanager () {
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Setup File Manager" "Cau hinh Upload Max Filesize" "Bao Ve File Manager" "Thay User & Password Admin" "Thay Domain File Manager" "Remove File Manager")
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                               File Manager \n"
 printf "=========================================================================\n"
-if [ ! -f /etc/vpssim/uploadsite ]; then 
+if [ ! -f /etc/kpanel/uploadsite ]; then 
 printf "                      File Manager: Not Install \n"
 else
 printf "               File Manager: Installed | Protection: $Protection\n"
 fi
 printf "=========================================================================\n"
-if [ -f /etc/vpssim/uploadsite ]; then
-filemanagedomain=$(cat /etc/vpssim/uploadsite)
+if [ -f /etc/kpanel/uploadsite ]; then
+filemanagedomain=$(cat /etc/kpanel/uploadsite)
 printf "Link File Manager: http://$filemanagedomain\n"
 printf "=========================================================================\n"
 fi
@@ -42,16 +42,16 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1) /etc/vpssim/menu/vpssim-cai-dat-web-upload-manage;;
-    #2) /etc/vpssim/menu/vpssim-tat-bat-web-manage;;
-    #3) /etc/vpssim/menu/vpssim-hien-link-web-upload;;
-    2) /etc/vpssim/menu/vpssim-change-upload-file-size-limit-file-manage;;
-    3) /etc/vpssim/menu/vpssim-mat-khau-bao-ve-web-file-manage;;
-    4) /etc/vpssim/menu/vpssim-thay-mat-khau-web-file-manage;;
-    5) /etc/vpssim/menu/vpssim-thay-domain-web-file-manage;;
-    6) /etc/vpssim/menu/vpssim-xoa-website-upload-site;;
-    #7) clear && /bin/vpssim;;
-    0) clear && /bin/vpssim;;
+    1) /etc/kpanel/menu/kpanel-cai-dat-web-upload-manage;;
+    #2) /etc/kpanel/menu/kpanel-tat-bat-web-manage;;
+    #3) /etc/kpanel/menu/kpanel-hien-link-web-upload;;
+    2) /etc/kpanel/menu/kpanel-change-upload-file-size-limit-file-manage;;
+    3) /etc/kpanel/menu/kpanel-mat-khau-bao-ve-web-file-manage;;
+    4) /etc/kpanel/menu/kpanel-thay-mat-khau-web-file-manage;;
+    5) /etc/kpanel/menu/kpanel-thay-domain-web-file-manage;;
+    6) /etc/kpanel/menu/kpanel-xoa-website-upload-site;;
+    #7) clear && /bin/kpanel;;
+    0) clear && /bin/kpanel;;
     
   *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
@@ -68,7 +68,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -84,12 +84,12 @@ show_menu_filemanager
 		else
 				clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -103,7 +103,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -119,12 +119,12 @@ show_menu_filemanager
 		else
 				clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -137,7 +137,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -154,13 +154,13 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start PHP-FPM Service"
+echo "kpanel can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	#echo "Sorry, PHP-FPM stopped. Start it before use this function!"
 	echo "Sorry, PHP-FPM dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -174,7 +174,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -191,13 +191,13 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start PHP-FPM Service"
+echo "kpanel can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	#echo "Sorry, PHP-FPM stopped. Start it before use this function!"
 	echo "Sorry, PHP-FPM dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi

@@ -18,7 +18,7 @@ clear
 echo "========================================================================= "
 echo "Remove Linux Malware Detect hoan thanh! "
 
-/etc/vpssim/menu/vpssim-maldet-menu
+/etc/kpanel/menu/kpanel-maldet-menu
 ;;
     *)
 
@@ -27,4 +27,4 @@ esac
        clear 
 echo "========================================================================= "
 echo "Huy bo remove Linux Malware Detect."
-/etc/vpssim/menu/vpssim-maldet-menu
+/etc/kpanel/menu/kpanel-maldet-menu

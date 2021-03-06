@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 php_version1=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
 rm -rf /tmp/checktmp
 echo "Check /tmp by KPANEL" > /tmp/checktmp
@@ -9,7 +9,7 @@ echo "========================================================================="
 echo "Your Server has a problem with /tmp "
 echo "-------------------------------------------------------------------------"
 echo "Please fix it before use this function"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
 rm -rf /tmp/checktmp
@@ -24,7 +24,7 @@ randomblow=`date |md5sum |cut -c '1-32'`;
 sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomblow'|" config.sample.inc.php > config.inc.php
 cd
 chown -R nginx:nginx /home/$mainsite/private_html
-echo "${phpmyadmin_version}" > /etc/vpssim/phpmyadmin.version
+echo "${phpmyadmin_version}" > /etc/kpanel/phpmyadmin.version
 }
 
 curTime=$(date +%d)
@@ -39,7 +39,7 @@ if [ ! "$curTime" = "$fileTime2" ]; then
 echo "Download 0-all-phpmyadmin-version.txt..."
 cd /tmp
 rm -rf 00-all-phpmyadmin-version*
-wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/vpssim-free/master/script/vpssim/00-all-phpmyadmin-version.txt
+wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/kpanel/00-all-phpmyadmin-version.txt
 fi
 
 cd ~
@@ -54,8 +54,8 @@ echo "========================================================================="
 echo "Su dung chuc nang nay de cai dat phpMyAdmin phien ban tuy chon"
 echo "-------------------------------------------------------------------------"
 
-if [ -f /etc/vpssim/phpmyadmin.version ]; then
-echo "Current phpmyadmin version: "$(cat /etc/vpssim/phpmyadmin.version)
+if [ -f /etc/kpanel/phpmyadmin.version ]; then
+echo "Current phpmyadmin version: "$(cat /etc/kpanel/phpmyadmin.version)
 echo "-------------------------------------------------------------------------"
 fi
 
@@ -78,7 +78,7 @@ if [ "$phpmyadmin_version" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
 
@@ -91,7 +91,7 @@ echo "========================================================================="
 echo "Ban dang su dung PHP 5.4, ban chi co the su dung phpMyAdmin 4.4.15.X"
 echo "-------------------------------------------------------------------------"
 echo "Vui long chon lai phien ban phpMyAdmin"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit 
 fi
 fi
@@ -101,11 +101,11 @@ echo "========================================================================="
 echo "Phien ban phpMyAdmin ban nhap qua cu"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long chon phien ban phpMyAmin tu 4.0 tro len."
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
-if [ -f /etc/vpssim/phpmyadmin.version ]; then
-phpmyadinhientai=`cat /etc/vpssim/phpmyadmin.version`
+if [ -f /etc/kpanel/phpmyadmin.version ]; then
+phpmyadinhientai=`cat /etc/kpanel/phpmyadmin.version`
 else
 phpmyadinhientai=Unknown
 fi
@@ -113,7 +113,7 @@ if [[ "$phpmyadinhientai" == "$phpmyadmin_version" ]]; then
 clear
 echo "========================================================================="
 echo "Ban dang su dung phpMyAdmin phien ban $phpmyadmin_version "
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -125,7 +125,7 @@ echo "========================================================================="
 echo "Khong tim thay phpMyAdmin phien ban $phpmyadmin_version tren phpmyadmin.net"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long nhap lai !"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
 if [[ "$checkurlstt" == "000" ]]; then
@@ -134,7 +134,7 @@ echo "========================================================================="
 echo "Khong ket noi duoc phpmyadmin.net"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long kiem tra lai ket noi internet cua server !"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -161,6 +161,6 @@ echo "Cai dat phpMyAdmin phien ban $phpmyadmin_version thanh cong!"
 echo "Please login phpMyAdmin now and check ERROR if you want"
 echo "http://"$serverip":"$priport
 echo "root/"$mariadbpass
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 

@@ -1,10 +1,10 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Chuc nang nay de BAT/TAT [Block Exploits, SQL Injections] cho Website"
 echo "-------------------------------------------------------------------------"
-#echo "VPSSIM khuyen nghi nen bat chuc nang nay cho tat ca website tren server "  
+#echo "kpanel khuyen nghi nen bat chuc nang nay cho tat ca website tren server "  
 #echo "-------------------------------------------------------------------------"
 #echo "Tuy nhien, co truong hop Plugins (extensions) cua website xung doi"
 #echo "-------------------------------------------------------------------------"
@@ -16,15 +16,15 @@ nhapdulieu () {
 echo -n "Nhap ten website: " 
 read website
 website=`echo $website | tr '[A-Z]' '[a-z]'`
-if [ -f /etc/vpssim/net2ftpsite.info ]; then
-net2ftpsite=$(cat /etc/vpssim/net2ftpsite.info)
+if [ -f /etc/kpanel/net2ftpsite.info ]; then
+net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
 if [ "$website" = "$net2ftpsite" ]; then
 clear
 echo "========================================================================="
 echo "$website la domain Net2FTP"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong the su dung chuc nang nay."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 fi
 fi
 if [ "$website" = "" ]; then
@@ -56,8 +56,8 @@ clear
 echo "========================================================================="
 echo "Ban da thay doi config mac dinh trong Vhost cua $website"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien yeu cau cua ban"
-/etc/vpssim/menu/vpssim-block-exploits-sql-injections-menu
+echo "kpanel khong the thuc hien yeu cau cua ban"
+/etc/kpanel/menu/kpanel-block-exploits-sql-injections-menu
 exit
 fi
 fi
@@ -67,8 +67,8 @@ clear
 echo "========================================================================="
 echo "Ban da thay doi config mac dinh trong Vhost cua $website"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien yeu cau cua ban"
-/etc/vpssim/menu/vpssim-block-exploits-sql-injections-menu
+echo "kpanel khong the thuc hien yeu cau cua ban"
+/etc/kpanel/menu/kpanel-block-exploits-sql-injections-menu
 exit
 fi
 fi
@@ -117,13 +117,13 @@ fi
 clear
 echo "========================================================================="
 	echo "BAT [Block Exploits, SQL Injections] cho $website thanh cong !"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
     *)
       clear 
     echo "========================================================================="
    echo "Ban huy BAT [Block Exploits, SQL Injections] cho $website"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
 esac
 exit
@@ -158,13 +158,13 @@ fi
 clear
 echo "========================================================================="
 	echo "TAT [Block Exploits, SQL Injections] cho $website thanh cong !"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
        ;;
     *)
  clear   
     echo "========================================================================="
    echo "Huy TAT [Block Exploits, SQL Injections] cho $website"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
 esac
 exit

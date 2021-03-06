@@ -1,15 +1,15 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 
-if [ -f /etc/vpssim/net2ftpsite.info ]; then
-net2ftpsite=$(cat /etc/vpssim/net2ftpsite.info)
+if [ -f /etc/kpanel/net2ftpsite.info ]; then
+net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
  if [ ! -d /home/$net2ftpsite/public_html ]; then
-rm -rf /etc/vpssim/net2ftpsite.info
+rm -rf /etc/kpanel/net2ftpsite.info
  fi
 fi
 
-if [ -f /etc/vpssim/net2ftpsite.info ]; then
-net2ftpsite=$(cat /etc/vpssim/net2ftpsite.info)
+if [ -f /etc/kpanel/net2ftpsite.info ]; then
+net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
 checknet2ftpconfig=$(grep auth_basic /etc/nginx/conf.d/$net2ftpsite.conf)
 if [ "$checknet2ftpconfig" == "" ]; then
 Protection=Disable
@@ -22,18 +22,18 @@ show_menu_net2ftp () {
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Setup Net2FTP" "Cau hinh Upload Max Filesize" "Bao Ve Net2FTP" "Thay Domain Net2FTP          "  "Remove Net2FTP         ")
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                            Quan Ly Net2FTP \n"
 printf "=========================================================================\n"
-if [ ! -f /etc/vpssim/net2ftpsite.info ]; then
+if [ ! -f /etc/kpanel/net2ftpsite.info ]; then
 printf "                      Net2FTP status: Not Install \n"
 else
 printf "              Net2FTP status: Installed | Protection: $Protection\n"
 fi
 printf "=========================================================================\n"
-if [ -f /etc/vpssim/net2ftpsite.info ]; then
-net2ftpsite=$(cat /etc/vpssim/net2ftpsite.info)
+if [ -f /etc/kpanel/net2ftpsite.info ]; then
+net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
 printf "Link Net2FTP: http://$net2ftpsite\n"
 printf "=========================================================================\n"
 fi
@@ -42,15 +42,15 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1) /etc/vpssim/menu/vpssim-cai-dat-net2ftp;;
-    2) /etc/vpssim/menu/vpssim-change-upload-file-size-limit-net2ftp;;
-    #2) /etc/vpssim/menu/vpssim-tat-bat-net2ftp;;
-    #3) /etc/vpssim/menu/vpssim-thong-tin-quan-ly-net2ftp;;
-    3) /etc/vpssim/menu/vpssim-mat-khau-bao-ve-net2ftp;; 
-    4) /etc/vpssim/menu/vpssim-thay-domain-net2ftp;;
-    5) /etc/vpssim/menu/vpssim-xoa-website-net2ftp;;
-    #6) clear && /bin/vpssim;;
-    0) clear && vpssim;;
+    1) /etc/kpanel/menu/kpanel-cai-dat-net2ftp;;
+    2) /etc/kpanel/menu/kpanel-change-upload-file-size-limit-net2ftp;;
+    #2) /etc/kpanel/menu/kpanel-tat-bat-net2ftp;;
+    #3) /etc/kpanel/menu/kpanel-thong-tin-quan-ly-net2ftp;;
+    3) /etc/kpanel/menu/kpanel-mat-khau-bao-ve-net2ftp;; 
+    4) /etc/kpanel/menu/kpanel-thay-domain-net2ftp;;
+    5) /etc/kpanel/menu/kpanel-xoa-website-net2ftp;;
+    #6) clear && /bin/kpanel;;
+    0) clear && kpanel;;
     
   *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
@@ -68,7 +68,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -84,12 +84,12 @@ show_menu_net2ftp
 		else
 				clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -103,7 +103,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -119,12 +119,12 @@ show_menu_net2ftp
 		else
 				clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -137,7 +137,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -154,13 +154,13 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start PHP-FPM Service"
+echo "kpanel can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	#echo "Sorry, PHP-FPM stopped. Start it before use this function!"
 	echo "Sorry, PHP-FPM dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -174,7 +174,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -191,13 +191,13 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start PHP-FPM Service"
+echo "kpanel can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	#echo "Sorry, PHP-FPM stopped. Start it before use this function!"
 	echo "Sorry, PHP-FPM dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi

@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -d /home/$mainsite/private_html/backup/AllDB ]; then
 mkdir -p /home/$mainsite/private_html/backup/AllDB
 fi
@@ -26,7 +26,7 @@ clear
 echo "========================================================================"
 echo "MySQL service is Down"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5
@@ -53,16 +53,16 @@ rm -f /tmp/config.temp
 	if [ ! -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
 	clear
 	echo "========================================================================="
-	echo "Sorry, MySQL service dang stopped. VPSSIM khong the bat MySQL len duoc!"
-	vpssim
+	echo "Sorry, MySQL service dang stopped. kpanel khong the bat MySQL len duoc!"
+	kpanel
 	else
 	rm -rf /var/lib/mysql/vpssimCheckDB
 	clear
-	/etc/vpssim/menu/vpssim-them-xoa-database
+	/etc/kpanel/menu/kpanel-them-xoa-database
 	fi
 else
 rm -rf /var/lib/mysql/vpssimCheckDB
 clear
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 fi
 

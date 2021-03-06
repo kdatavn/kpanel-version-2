@@ -1,11 +1,11 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -d /home/$mainsite/private_html ]; then
 clear
 echo "========================================================================="
 echo "You can not use this function"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 exit
 fi
 echo "========================================================================="
@@ -27,14 +27,14 @@ sleep 1
 	clear
 	echo "========================================================================= "
 	echo "Khong tim thay backup cua cac database tren server"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 	exit
 	fi
 listfolder=$(cat /tmp/deletebackupdb)
 for pathfolder in $listfolder
 do
-export vpssim=$pathfolder
-export sim=${vpssim%/*}
+export kpanel=$pathfolder
+export sim=${kpanel%/*}
 rm -rf "${sim}"
 done
 cd
@@ -46,7 +46,7 @@ sleep 1
 clear
 echo "========================================================================= "
 echo "Xoa backup tat ca database thanh cong"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 ;;
     *)
         echo ""
@@ -55,4 +55,4 @@ esac
 clear
 echo "========================================================================="
 echo "Huy bo xoa cac ban backup database"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database

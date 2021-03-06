@@ -1,14 +1,14 @@
 #!/bin/bash
 
-. /home/vpssim.conf
-if [ ! -f /etc/vpssim/uploadsite ]; then
+. /home/kpanel.conf
+if [ ! -f /etc/kpanel/uploadsite ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat File Manager cho VPS !"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 exit
 fi
-uploadsite=$(cat /etc/vpssim/uploadsite)
+uploadsite=$(cat /etc/kpanel/uploadsite)
 if [ -f /home/$uploadsite/public_html/index.php ]; then 
 echo "========================================================================="
 echo "Hien tai File Manager dang BAT"
@@ -28,13 +28,13 @@ fi
 	rm -f /home/$uploadsite/public_html/index.html
     cat > "/home/$uploadsite/public_html/index.html" <<END
 <!DOCTYPE html>
-<html id="VPSSIM" lang="en-US" dir="LTR" class="Public Cute Pig" xmlns:fb="http://www.facebook.com/2008/fbml">
+<html id="kpanel" lang="en-US" dir="LTR" class="Public Cute Pig" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 <meta charset="utf-8"/>
 <title>Cute Pig !!!</title>
 </head>
 <body>
-<center><img src="https://hostingaz.vn/script/vpssim/pig.jpg"></center><br><br>
+<center><img src="https://hostingaz.vn/script/kpanel/pig.jpg"></center><br><br>
 <center>What do you want?</center>
 </body>
 </html>
@@ -42,13 +42,13 @@ END
 clear
 echo "========================================================================="
 echo "File Manager da duoc TAT thanh cong !"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
         ;;
     *)
 clear
  echo "========================================================================="
 echo "Ban lua chon NO  !"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
         ;;
 esac
 exit
@@ -72,13 +72,13 @@ fi
 clear
         echo "========================================================================="
         echo "File Manager da duoc BAT thanh cong !"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
         ;;
     *)
                clear
  echo "========================================================================="
 echo "Ban lua chon NO!"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 
         ;;
 esac

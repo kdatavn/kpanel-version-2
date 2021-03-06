@@ -1,10 +1,10 @@
 #!/bin/bash
-. /home/vpssim.conf
-if [ ! -f /etc/vpssim/netdatasite.info ]; then
+. /home/kpanel.conf
+if [ ! -f /etc/kpanel/netdatasite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat NetData tren server !"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
 exit
 fi
 
@@ -40,13 +40,13 @@ fi
 clear
 echo "========================================================================="
 echo "NetData da duoc TAT thanh cong !"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
         ;;
     *)
 clear
  echo "========================================================================="
 echo "Ban lua chon NO  !"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
         ;;
 esac
 exit
@@ -66,13 +66,13 @@ fi
 clear
         echo "========================================================================="
         echo "NetData da duoc BAT thanh cong !"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
         ;;
     *)
                clear
  echo "========================================================================="
 echo "Ban lua chon NO!"
-/etc/vpssim/menu/vpssim-netdata-menu
+/etc/kpanel/menu/kpanel-netdata-menu
 
         ;;
 esac

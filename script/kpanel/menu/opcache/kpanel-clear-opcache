@@ -1,12 +1,12 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -f /etc/php.d/opcache.ini ]; then
 clear
 echo "========================================================================="
 echo "Zend Opcache current DISABLE"
 echo "-------------------------------------------------------------------------"
 echo "Please enable it to use this function"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 fi
 if [ -f /etc/php.d/opcache.ini ]; then
 echo "-------------------------------------------------------------------------"
@@ -26,7 +26,7 @@ echo "========================================================================="
 echo "Zend Opcache khong the clear vi PHP-FPM khong the khoi dong. "
 echo "-------------------------------------------------------------------------"
 echo "Co the ban da config PHP-FPM sai !!"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 fi
@@ -39,7 +39,7 @@ if [ "$test_php" == "inactive" ]; then
 clear
 echo "========================================================================="
 echo "Zend Opcache khong the clear vi PHP-FPM bi stop. "
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 fi
@@ -54,19 +54,19 @@ echo "========================================================================="
 echo "Zend Opcache khong the clear vi PHP-FPM khong the khoi dong. "
 echo "-------------------------------------------------------------------------"
 echo "Co the ban da config PHP-FPM sai !!"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 fi
 clear
 echo "========================================================================= "
 echo "Ban da hoan thanh clear Zend Opcache "
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 fi
 clear
 echo "========================================================================= "
 echo "Zend OPcache dang disable tren VPS"
 echo "-------------------------------------------------------------------------"
 echo "Hay bat Zend Opcache len de VPS co hieu suat tot nhat!"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 fi

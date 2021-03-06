@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Nhap ten website ban muon nang cap themes va plugins "
 echo "-------------------------------------------------------------------------" 
@@ -9,7 +9,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "You typed wrong, please type in accurately! "
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}$";
@@ -20,7 +20,7 @@ echo "========================================================================="
 echo "$website co le khong phai ten domain !"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
@@ -29,7 +29,7 @@ echo "========================================================================="
 echo "Khong tim thay $website tren he thong"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 
@@ -39,7 +39,7 @@ echo "========================================================================="
 echo "$website co the khong phai wordpress web hoac chua cai dat WP"
 echo "-------------------------------------------------------------------------"
 echo "Vui long cai dat Wordpress code truoc hoac thu domain khac"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 databasename=`cat /home/$website/public_html/wp-config.php | grep DB_NAME | cut -d \' -f 4`
@@ -71,9 +71,9 @@ echo "-------------------------------------------------------------------------"
 sleep 1
 cd /home/$website/public_html/
 chown -R nginx:nginx /home/$website/public_html/wp-content/themes
-/etc/vpssim/menu/vpssim-enable-tat-ca-cac-ham-php-php.ini
+/etc/kpanel/menu/kpanel-enable-tat-ca-cac-ham-php-php.ini
 wp theme update --all --allow-root | grep Success: > /tmp/update-themes-status
-/etc/vpssim/menu/vpssim-re-config-cac-ham-php-disable-php.ini
+/etc/kpanel/menu/kpanel-re-config-cac-ham-php-disable-php.ini
 chown -R nginx:nginx /home/$website/public_html/wp-content/themes
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 service php-fpm restart
@@ -90,16 +90,16 @@ else
 echo "$wpwebsite: $(cat /tmp/update-themes-status | sed 's/Success://')"
 rm -rf /tmp/update-themes-status
 fi
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 elif [ "$cachlam" = "updateplugins" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 1
 chown -R nginx:nginx /home/$website/public_html/wp-content/plugins
 cd /home/$website/public_html/
-/etc/vpssim/menu/vpssim-enable-tat-ca-cac-ham-php-php.ini
+/etc/kpanel/menu/kpanel-enable-tat-ca-cac-ham-php-php.ini
 wp plugin update --all --allow-root | grep Success: > /tmp/update-plugins-status
-/etc/vpssim/menu/vpssim-re-config-cac-ham-php-disable-php.ini
+/etc/kpanel/menu/kpanel-re-config-cac-ham-php-disable-php.ini
 chown -R nginx:nginx /home/$website/public_html/wp-content/plugins
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 service php-fpm restart
@@ -116,12 +116,12 @@ else
 echo "$wpwebsite: $(cat /tmp/update-plugins-status | sed 's/Success://')"
 rm -rf /tmp/update-plugins-status
 fi
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 else 
 clear
 echo "========================================================================="
 echo "Huy bo update Themes & PLugins cho $website"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 fi
 
 

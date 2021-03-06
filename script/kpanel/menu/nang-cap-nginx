@@ -1,9 +1,9 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 # them lenh kiem tra neu co git roi thi thoi khong tai lai nua
 okResetGit="y"
-if [ -d /opt/echbay_vpssim ]; then
+if [ -d /opt/kdata_kpanel ]; then
 echo "========================================================================="
 echo "========================================================================="
 echo "========================================================================="
@@ -21,7 +21,7 @@ fi
 if [ "$okResetGit" = "y" ]; then
 # copy code tu file install sang
 cd ~
-wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/vpssim-free/master/script/vpssim/menu/git-clone
+wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/kpanel/menu/git-clone
 chmod +x /root/git-clone
 bash /root/git-clone
 fi
@@ -30,11 +30,11 @@ fi
 cd ~
 cd /tmp
 rm -rf 00-all-nginx-version.txt
-yes | cp -rf /opt/echbay_vpssim/script/vpssim/00-all-nginx-version.txt 00-all-nginx-version.txt
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/00-all-nginx-version.txt 00-all-nginx-version.txt
 
 nginx -V
 
-. /opt/echbay_vpssim/script/vpssim/nginx-setup.conf
+. /opt/kdata_kpanel/script/kpanel/nginx-setup.conf
 echo "========================================================================="
 echo "NEW nginx version: "${Nginx_VERSION}
 echo "========================================================================="
@@ -51,17 +51,17 @@ if [ "$selectNginxVersion" = "y" ]; then
 echo "Ok ! please wait install nginx-"${Nginx_VERSION}" ...."
 sleep 1
 else
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
 
 echo "OS Version: "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then
-/opt/echbay_vpssim/script/vpssim/menu/nginx-setup6
+/opt/kdata_kpanel/script/kpanel/menu/nginx-setup6
 elif [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then
-/opt/echbay_vpssim/script/vpssim/menu/nginx-setup7
+/opt/kdata_kpanel/script/kpanel/menu/nginx-setup7
 else
-/opt/echbay_vpssim/script/vpssim/menu/nginx-setup8
+/opt/kdata_kpanel/script/kpanel/menu/nginx-setup8
 fi
 
 cd ~
@@ -80,13 +80,13 @@ else
 service nginx restart
 fi
 
-#rm -rf /opt/echbay_vpssim/*
-#rm -rf /opt/echbay_vpssim
+#rm -rf /opt/kdata_kpanel/*
+#rm -rf /opt/kdata_kpanel
 sleep 1
 
 clear
 echo "========================================================================="
 nginx -V
 echo "Cai dat Nginx phien ban $Nginx_VERSION thanh cong !"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 

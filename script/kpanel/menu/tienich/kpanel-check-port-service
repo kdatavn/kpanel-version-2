@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 echo "========================================================================="
 echo -n "Nhap port ban muon kiem tra [ENTER]: " 
@@ -9,7 +9,7 @@ if [ "$portservice" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 
@@ -19,7 +19,7 @@ echo "========================================================================="
 echo "Port ban nhap: ${portservice} khong phai la so tu nhien."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !" 
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 if ! [[ $portservice -ge 1 && $portservice -le 65535  ]] ; then  
@@ -30,7 +30,7 @@ echo "-------------------------------------------------------------------------"
 echo "Port phai la so tu nhien nam trong khoang (1 - 65535)."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !" 
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi  
 
@@ -39,7 +39,7 @@ if [ "$test_port" == "" ]; then
 clear
 echo "========================================================================= "
 echo "Khong co dich vu nao su dung port $portservice "
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 echo "Please wait....";sleep 1
@@ -48,7 +48,7 @@ echo "========================================================================="
 echo "Dich vu dang su dung port $portservice: "
 echo "-------------------------------------------------------------------------"
 lsof -i:$portservice
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 fi

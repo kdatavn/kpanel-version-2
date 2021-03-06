@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Chuc nang nay se update Centos system, MariaDB va PHP-FPM."
 echo "-------------------------------------------------------------------------"
@@ -36,13 +36,13 @@ chmod 777 /var/lib/php/session/
 clear
 echo "========================================================================="
 echo "Da cap nhat thanh cong server"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 ;;
 esac
 rm -rf /tmp/abc.txt
 clear
 echo "========================================================================="
 echo "Ban da huy bo update "
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi

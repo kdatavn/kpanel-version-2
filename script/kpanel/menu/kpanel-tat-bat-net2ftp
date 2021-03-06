@@ -1,14 +1,14 @@
 #!/bin/bash
 
-. /home/vpssim.conf
-if [ ! -f /etc/vpssim/net2ftpsite.info ]; then
+. /home/kpanel.conf
+if [ ! -f /etc/kpanel/net2ftpsite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat Net2FTP tren server !"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 exit
 fi
-net2ftpsite=$(cat /etc/vpssim/net2ftpsite.info)
+net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
 if [ -f /home/$net2ftpsite/public_html/index.php ]; then 
 echo "========================================================================="
 echo "Hien tai Net2FTP dang BAT"
@@ -28,13 +28,13 @@ fi
 	rm -f /home/$net2ftpsite/public_html/index.html
     cat > "/home/$net2ftpsite/public_html/index.html" <<END
 <!DOCTYPE html>
-<html id="VPSSIM" lang="en-US" dir="LTR" class="Public Cute Pig" xmlns:fb="http://www.facebook.com/2008/fbml">
+<html id="kpanel" lang="en-US" dir="LTR" class="Public Cute Pig" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 <meta charset="utf-8"/>
 <title>Cute Pig !!!</title>
 </head>
 <body>
-<center><img src="https://hostingaz.vn/script/vpssim/pig.jpg"></center><br><br>
+<center><img src="https://hostingaz.vn/script/kpanel/pig.jpg"></center><br><br>
 <center>What do you want?</center>
 </body>
 </html>
@@ -42,13 +42,13 @@ END
 clear
 echo "========================================================================="
 echo "Net2FTP da duoc TAT thanh cong !"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
         ;;
     *)
 clear
  echo "========================================================================="
 echo "Ban lua chon NO  !"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
         ;;
 esac
 exit
@@ -72,13 +72,13 @@ fi
 clear
         echo "========================================================================="
         echo "Net2FTP da duoc BAT thanh cong !"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
         ;;
     *)
                clear
  echo "========================================================================="
 echo "Ban lua chon NO!"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 
         ;;
 esac

@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! "$(redis-cli ping)" = "PONG" ]; then
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 service redis start
@@ -7,9 +7,9 @@ else
 systemctl start redis.service
 fi
 clear
-/etc/vpssim/menu/vpssim-redis-menu
+/etc/kpanel/menu/kpanel-redis-menu
 else
-/etc/vpssim/menu/vpssim-redis-menu
+/etc/kpanel/menu/kpanel-redis-menu
 fi
 
 

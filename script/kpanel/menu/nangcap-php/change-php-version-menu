@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 prompt="Nhap lua chon cua ban (0-Thoat):"
 php_version=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
 
@@ -26,7 +26,7 @@ options=( "PHP 7.4" "PHP 7.3" "PHP 7.2" "PHP 7.1" "PHP 7.0" "PHP 5.6" "PHP 5.5" 
 fi
 
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                       Chon PHP Version Cho Server\n"
 
@@ -64,38 +64,38 @@ done
 #7.4
 ###################################
 if [ "$chonphpversion" = "74" ]; then
-/etc/vpssim/menu/nangcap-php/setup-php-74
+/etc/kpanel/menu/nangcap-php/setup-php-74
 #7.3
 ###################################
 elif [ "$chonphpversion" = "73" ]; then
-/etc/vpssim/menu/nangcap-php/setup-php-73
+/etc/kpanel/menu/nangcap-php/setup-php-73
 #7.2
 ###################################
 elif [ "$chonphpversion" = "72" ]; then
-/etc/vpssim/menu/nangcap-php/setup-php-72
+/etc/kpanel/menu/nangcap-php/setup-php-72
 #7.1
 ###################################
 elif [ "$chonphpversion" = "71" ]; then
-/etc/vpssim/menu/nangcap-php/setup-php-71
+/etc/kpanel/menu/nangcap-php/setup-php-71
 #7.0
 ###################################
 elif [ "$chonphpversion" = "70" ]; then
-/etc/vpssim/menu/nangcap-php/setup-php-70
+/etc/kpanel/menu/nangcap-php/setup-php-70
 ###################################
 #5.6
 ###################################
 elif [ "$chonphpversion" = "56" ]; then
-/etc/vpssim/menu/nangcap-php/setup-php-56
+/etc/kpanel/menu/nangcap-php/setup-php-56
 ###################################
 #5.5
 ###################################
 elif [ "$chonphpversion" = "55" ]; then
-/etc/vpssim/menu/nangcap-php/setup-php-55
+/etc/kpanel/menu/nangcap-php/setup-php-55
 ###################################
 #5.4
 ###################################
 elif [ "$chonphpversion" = "54" ]; then
-/etc/vpssim/menu/nangcap-php/setup-php-54
+/etc/kpanel/menu/nangcap-php/setup-php-54
 else 
-clear && /etc/vpssim/menu/vpssim-update-upgrade-service-menu
+clear && /etc/kpanel/menu/kpanel-update-upgrade-service-menu
 fi

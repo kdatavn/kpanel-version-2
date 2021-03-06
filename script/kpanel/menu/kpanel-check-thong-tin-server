@@ -2,7 +2,7 @@
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Services dang chay va RAM dung" "RAM MySQL su dung" "Free Disc " "Uptime VPS" "CPU Load average" "Last YUM update" "Authenication Failures" "User dang nhat gan day" "Xem thong tin CPU" "Check I/O Speed" "Check download Speed")
 printf "=========================================================================\n"
-printf "                VPSSIM - Manage VPS/Server by HostingAZ.VN             \n"
+printf "                kpanel - Manage VPS/Server by HostingAZ.VN             \n"
 printf "=========================================================================\n"
 printf "                     Check VPS/Server information\n"
 printf "=========================================================================\n"
@@ -10,20 +10,20 @@ PS3="$prompt"
 select opt in "${options[@]}" "Thoat"; do 
 
     case "$REPLY" in
-    1) clear && echo "=========================================================================" && /etc/vpssim/menu/vpssim-tien-trinh-dang-chay-ram-use;;
-    2) /etc/vpssim/menu/checkddos/vpssim-ram-mysql-dung;;
-    3) /etc/vpssim/menu/checkddos/vpssim-dung-luong-disc-trong;;
-    4) /etc/vpssim/menu/checkddos/vpssim-uptime-vps;;
-    5) /etc/vpssim/menu/checkddos/vpssim-load-average;;
-    6) /etc/vpssim/menu/checkddos/vpssim-lan-cap-nhat-yum-cuoi;;
-    7) /etc/vpssim/menu/checkddos/vpssim-Authenication-Failures;;
-    8) /etc/vpssim/menu/checkddos/vpssim-user-dang-nhap-gan-day;;
+    1) clear && echo "=========================================================================" && /etc/kpanel/menu/kpanel-tien-trinh-dang-chay-ram-use;;
+    2) /etc/kpanel/menu/checkddos/kpanel-ram-mysql-dung;;
+    3) /etc/kpanel/menu/checkddos/kpanel-dung-luong-disc-trong;;
+    4) /etc/kpanel/menu/checkddos/kpanel-uptime-vps;;
+    5) /etc/kpanel/menu/checkddos/kpanel-load-average;;
+    6) /etc/kpanel/menu/checkddos/kpanel-lan-cap-nhat-yum-cuoi;;
+    7) /etc/kpanel/menu/checkddos/kpanel-Authenication-Failures;;
+    8) /etc/kpanel/menu/checkddos/kpanel-user-dang-nhap-gan-day;;
     9) echo "-------------------------------------------------------------------------" && cat /proc/cpuinfo && echo "-------------------------------------------------------------------------";;
     10) echo "-------------------------------------------------------------------------" && dd if=/dev/zero of=test bs=64k count=16k conv=fdatasync; rm test && echo "-------------------------------------------------------------------------";;
 #    11) clear && wget http://hostingaz.vn/script/others/freeVPSbench.sh -O - -o /dev/null|bash;;
-    11) clear && wget --no-check-certificate https://raw.githubusercontent.com/itvn9online/vpssim-free/master/script/others/freeVPSbench.sh -O - -o /dev/null|bash;;
-    0) clear && vpssim;;
-$(( ${#options[@]}+1 )) ) echo "Bye!";  clear && /bin/vpssim;;
+    11) clear && wget --no-check-certificate https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/others/freeVPSbench.sh -O - -o /dev/null|bash;;
+    0) clear && kpanel;;
+$(( ${#options[@]}+1 )) ) echo "Bye!";  clear && /bin/kpanel;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
     esac

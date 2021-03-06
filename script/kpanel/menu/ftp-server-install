@@ -1,10 +1,10 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ -f /etc/pure-ftpd/pure-ftpd.conf ]; then
 clear
 echo "========================================================================= "
 echo "FTP server da duoc cai dat tren server. "
-/etc/vpssim/menu/vpssim-ftpserver-menu
+/etc/kpanel/menu/kpanel-ftpserver-menu
 exit
 fi
 
@@ -39,7 +39,7 @@ PassivePortRange          30000 50000
 TLS 1
 " >> /etc/pure-ftpd/pure-ftpd.conf ;
 
-openssl req -x509 -nodes -days 7200 -newkey rsa:2048 -keyout /etc/pki/pure-ftpd/pure-ftpd.pem -out /etc/pki/pure-ftpd/pure-ftpd.pem -subj "/C=US/ST=VPSSIM FTP/L=VPSSIM FTP/O=VPSSIM FTP/CN=VPSSIM FTP"
+openssl req -x509 -nodes -days 7200 -newkey rsa:2048 -keyout /etc/pki/pure-ftpd/pure-ftpd.pem -out /etc/pki/pure-ftpd/pure-ftpd.pem -subj "/C=US/ST=kpanel FTP/L=kpanel FTP/O=kpanel FTP/CN=kpanel FTP"
 
 if [ ! "$(grep /etc/ssl/private/pure-ftpd.pem /etc/pure-ftpd/pure-ftpd.conf)" == "" ]; then
 echo "
@@ -52,9 +52,9 @@ fi
 yes | cp -rf /etc/pki/pure-ftpd/pure-ftpd.pem /etc/ssl/private/pure-ftpd.pem
 fi
 
-if [ ! -f /etc/vpssim/pure-ftpd.pem ]; then
+if [ ! -f /etc/kpanel/pure-ftpd.pem ]; then
 if [ -f /etc/pki/pure-ftpd/pure-ftpd.pem ]; then
-yes | cp -rf /etc/pki/pure-ftpd/pure-ftpd.pem /etc/vpssim/pure-ftpd.pem
+yes | cp -rf /etc/pki/pure-ftpd/pure-ftpd.pem /etc/kpanel/pure-ftpd.pem
 fi
 fi
 
@@ -78,16 +78,16 @@ clear
 echo "-------------------------------------------------------------------------"
 echo "Phat hien CSF FireWall dang duoc cai dat tren VPS"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se khoi dong lai CSF Firewall ...."
+echo "kpanel se khoi dong lai CSF Firewall ...."
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 5
-/etc/vpssim/menu/CSF-Fiwall/vpssim-re-start-khoi-dong-lai-csf-lfd
+/etc/kpanel/menu/CSF-Fiwall/kpanel-re-start-khoi-dong-lai-csf-lfd
 fi
 clear
 echo "========================================================================= "
 echo "Cai dat FTP server thanh cong"
-/etc/vpssim/menu/vpssim-ftpserver-menu
+/etc/kpanel/menu/kpanel-ftpserver-menu
 exit
 fi
 

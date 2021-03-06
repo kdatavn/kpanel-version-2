@@ -1,18 +1,18 @@
 #!/bin/sh
-. /home/vpssim.conf
-if [ "$(grep VPSSIM.COM /bin/vpssim)" != "" ]; then
+. /home/kpanel.conf
+if [ "$(grep kpanel.COM /bin/kpanel)" != "" ]; then
 clear
 echo "========================================================================= "
 echo "You are using English Version"
-/etc/vpssim/menu/vpssim-thay-doi-ngon-ngu-menu
+/etc/kpanel/menu/kpanel-thay-doi-ngon-ngu-menu
 exit
 fi
 echo "========================================================================= "
-echo "Use this function to change language for VPSSIM"
+echo "Use this function to change language for kpanel"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM support EngLish & Vietnamese"
+echo "kpanel support EngLish & Vietnamese"
 echo "========================================================================= "
-read -r -p "You want to change VPSSIM language to English ? [y/N] " response
+read -r -p "You want to change kpanel language to English ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
@@ -20,45 +20,45 @@ echo "Please wait ... "
 sleep 1
 echo "-------------------------------------------------------------------------"
 
-cd /etc/vpssim/
-rm -rf /etc/vpssim/menu.zip
-wget -q --no-check-certificate https://vpssim.com/script/vpssim/menu.zip
+cd /etc/kpanel/
+rm -rf /etc/kpanel/menu.zip
+wget -q --no-check-certificate https://kpanel.com/script/kpanel/menu.zip
 
 #Check menu.zip files
 
 rm -rf /tmp/menu
 unzip -q -o menu.zip -d /tmp
-if [ ! -f /tmp/menu/vpssim-tien-ich ]; then
+if [ ! -f /tmp/menu/kpanel-tien-ich ]; then
 rm -rf /tmp/menu
 clear
 echo "========================================================================="
 echo "There's an error in changing language process"
 echo "-------------------------------------------------------------------------"
 echo "Please try again !"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
 ## Finish check menu.zip
 rm -rf /tmp/menu
 unzip -q -o menu.zip
-rm -rf /etc/vpssim/menu.zip
+rm -rf /etc/kpanel/menu.zip
 cd
 download_main_menu () {
-#wget -q --no-check-certificate https://vpssim.com/script/vpssim/vpssim -O /bin/vpssim && chmod +x /bin/vpssim
-wget -q --no-check-certificate https://github.com/itvn9online/vpssim-free/raw/master/script/vpssim/vpssim -O /bin/vpssim && chmod +x /bin/vpssim
+#wget -q --no-check-certificate https://kpanel.com/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
+wget -q --no-check-certificate https://github.com/itvn9online/kpanel-free/raw/master/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
 }
 download_main_menu
-checkvpssim_mainmenu=`cat /bin/vpssim`
+checkvpssim_mainmenu=`cat /bin/kpanel`
 if [ -z "$checkvpssim_mainmenu" ]; then
 download_main_menu
 fi
-#wget -q --no-check-certificate https://vpssim.com/script/vpssim/motd -O /etc/motd
-wget -q --no-check-certificate https://github.com/itvn9online/vpssim-free/raw/master/script/vpssim/motd -O /etc/motd
-find /etc/vpssim/menu -type f -exec chmod 755 {} \;
+#wget -q --no-check-certificate https://kpanel.com/script/kpanel/motd -O /etc/motd
+wget -q --no-check-certificate https://github.com/itvn9online/kpanel-free/raw/master/script/kpanel/motd -O /etc/motd
+find /etc/kpanel/menu -type f -exec chmod 755 {} \;
 clear 
 echo "========================================================================= "
-echo "Change Language of VPSSIM to English Finished"
-/etc/vpssim/menu/vpssim-thay-doi-ngon-ngu-menu
+echo "Change Language of kpanel to English Finished"
+/etc/kpanel/menu/kpanel-thay-doi-ngon-ngu-menu
        ;;
     *)
         echo ""
@@ -67,5 +67,5 @@ esac
 clear
 clear
 echo "========================================================================="
-echo "Cancel Change Language for VPSSIM"
-/etc/vpssim/menu/vpssim-thay-doi-ngon-ngu-menu
+echo "Cancel Change Language for kpanel"
+/etc/kpanel/menu/kpanel-thay-doi-ngon-ngu-menu

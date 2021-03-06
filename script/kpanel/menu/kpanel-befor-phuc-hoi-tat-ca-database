@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 if [ ! -d /home/$mainsite/private_html/backup/AllDB ]; then
 mkdir -p /home/$mainsite/private_html/backup/AllDB
@@ -15,7 +15,7 @@ echo "-------------------------------------------------------------------------"
 echo "/home/$mainsite/private_html/backup/AllDB"
 echo "-------------------------------------------------------------------------"
 echo "Sau do chay lai chuc nang nay."
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-tat-ca-database-menu
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-tat-ca-database-menu
 exit
 fi
 
@@ -31,14 +31,14 @@ echo "-------------------------------------------------------------------------"
 echo "Trong thu muc AllDB chi duoc phep co 1 file backup duy nhat ! "
 echo "-------------------------------------------------------------------------"
 echo "Hay xoa file khong su dung va lam lai !"
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-tat-ca-database-menu
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-tat-ca-database-menu
 exit
  fi
  fi
 
 clear
 echo "========================================================================="
-echo "            VPSSIM - Manage VPS/Server by HostingAZ.VN                "
+echo "            kpanel - Manage VPS/Server by HostingAZ.VN                "
 echo "========================================================================="
 echo "                      Restore All Database                             "
 echo "========================================================================="
@@ -60,7 +60,7 @@ read -p "Nhan [Enter] de tiep tuc ..."
 filename=`cat /tmp/backupname`
 rm -rf /tmp/backupname
 echo "========================================================================="
-echo "            VPSSIM - Manage VPS/Server by HostingAZ.VN                "
+echo "            kpanel - Manage VPS/Server by HostingAZ.VN                "
 echo "========================================================================="
 echo "                      Restore All Database                             "
 echo "========================================================================="
@@ -80,12 +80,12 @@ echo "========================================================================= 
 read -r -p "Ban muon phuc hoi tat ca cac database tu file backup nay ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
-/etc/vpssim/menu/vpssim-phuc-hoi-tat-ca-database
+/etc/kpanel/menu/kpanel-phuc-hoi-tat-ca-database
 ;;
 esac
 clear
 echo "========================================================================= "
 echo "Ban huy bo phuc hoi tat ca database ! "
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-tat-ca-database-menu
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-tat-ca-database-menu
 exit
 fi

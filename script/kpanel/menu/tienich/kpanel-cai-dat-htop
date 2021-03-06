@@ -1,12 +1,12 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ -f /usr/local/bin/htop ]; then
 clear
 echo "========================================================================= "
 echo "HTOP da cai dat tren server  "
 echo "-------------------------------------------------------------------------"
 echo "Chay HTOP bang command: htop "
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 if [ -f /usr/bin/htop ]; then
@@ -15,7 +15,7 @@ echo "========================================================================= 
 echo "HTOP da cai dat tren server  "
 echo "-------------------------------------------------------------------------"
 echo "Chay HTOP bang command: htop "
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 echo "========================================================================="
@@ -30,7 +30,7 @@ case $response in
     echo "Please wait ...";sleep 1
 yum -y install ncurses ncurses-devel
 cd /tmp
-#wget -q --no-check-certificate https://vpssim.com/script/vpssim/Softwear/htop-2.0.0.tar.gz
+#wget -q --no-check-certificate https://kpanel.com/script/kpanel/Softwear/htop-2.0.0.tar.gz
 wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/master/htop-2.0.0.tar.gz
 tar xvfvz htop-2.0.0.tar.gz
 cd /tmp/htop-2.0.0
@@ -51,12 +51,12 @@ echo "Cai dat htop that bai"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai."
 fi
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 
         ;;
     *)
        clear
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
 esac
 

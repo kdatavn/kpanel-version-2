@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 rm -rf /tmp/*hostingaz*
 mkdir -p /tmp/danhsachdatabasebackuphostingaz
 listdatabases=$(ls -l /var/lib/mysql | grep "^d" | awk -F" " '{print $9}' | grep -Ev "(Database|information_schema|mysql|performance_schema|vpssimCheckDB)")
@@ -15,8 +15,8 @@ done
 if [ ! -f /tmp/checksite-list ]; then
 clear
 echo "========================================================================="
-echo "VPSSIM khong tim thay file backup database tren server"
-/etc/vpssim/menu/vpssim-them-xoa-database
+echo "kpanel khong tim thay file backup database tren server"
+/etc/kpanel/menu/kpanel-them-xoa-database
 exit
 fi
 sodatabasecobackup=$(cat /tmp/checksite-list | wc -l)
@@ -72,7 +72,7 @@ echo "Please wait ..."
 sleep 2
 rm -rf /home/$mainsite/private_html/Listbackupall*.txt
 echo "========================================================================================================================" > /home/$mainsite/private_html/Listbackupall-DB-$code.txt
-echo "                                Link Download All Backup Files - Created by VPSSIM" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
+echo "                                Link Download All Backup Files - Created by kpanel" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "========================================================================================================================" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
@@ -93,14 +93,14 @@ echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/Listbackupall-DB-$code.txt"
 echo "" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "===================================================The End==============================================================" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 rm -rf /tmp/*hostingaz*
    ;;
     *)
     clear
         echo "========================================================================= "
         echo "Huy bo lay link download backup cua tat ca database"
-        /etc/vpssim/menu/vpssim-them-xoa-database
+        /etc/kpanel/menu/kpanel-them-xoa-database
         ;;
 esac
 

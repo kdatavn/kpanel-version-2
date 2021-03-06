@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Dung chuc nang nay de xem danh sach 5 file va folder dung luong lon nhat"
 echo "-------------------------------------------------------------------------"
@@ -37,7 +37,7 @@ echo "5 Folder Lon Nhat Trong /home/$website/public_html:"
 echo "-------------------------------------------------------------------------"
 cat /tmp/listfolder
 rm -rf /tmp/*list*
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 }
 nhapduieu

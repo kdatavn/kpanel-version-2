@@ -2,7 +2,7 @@
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Tu dong kiem tra va block IP" "Ket noi toi cong 80 & 443" "So ket noi dang SYN_RECV" "IP dang ket noi & so ket noi/IP" "Block IP")
 printf "=========================================================================\n"
-printf "                VPSSIM - Manage VPS/Server by HostingAZ.VN             \n"
+printf "                kpanel - Manage VPS/Server by HostingAZ.VN             \n"
 printf "=========================================================================\n"
 printf "                   Check DDOS, Flood & Block IP DOS\n"
 printf "=========================================================================\n"
@@ -10,14 +10,14 @@ PS3="$prompt"
 select opt in "${options[@]}" "Thoat"; do 
 
     case "$REPLY" in
-    1 ) /etc/vpssim/menu/checkddos/auto-check-block-ip-ddos;;
-    2 ) /etc/vpssim/menu/checkddos/vpssim-so-ket-noi;;
-    3 ) /etc/vpssim/menu/checkddos/vpssim-so-rysync;;
+    1 ) /etc/kpanel/menu/checkddos/auto-check-block-ip-ddos;;
+    2 ) /etc/kpanel/menu/checkddos/kpanel-so-ket-noi;;
+    3 ) /etc/kpanel/menu/checkddos/kpanel-so-rysync;;
     4 ) netstat -an|grep :80 |awk '{print $5}'|cut -d":" -f1|sort|uniq -c|sort -rn;;
-    5 ) /etc/vpssim/menu/vpssim-chan-ip-ddos;;
-    0) clear && vpssim;;
+    5 ) /etc/kpanel/menu/kpanel-chan-ip-ddos;;
+    0) clear && kpanel;;
       
-    $(( ${#options[@]}+1 )) ) echo "Tam biet!";  clear && /bin/vpssim;;
+    $(( ${#options[@]}+1 )) ) echo "Tam biet!";  clear && /bin/kpanel;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
     esac

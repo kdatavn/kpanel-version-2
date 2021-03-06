@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 re='^[0-9]+$'
 dataname=$(cat /tmp/databaseautobackup)
 randomcode=`date |md5sum |cut -c '1-12'` 
@@ -9,7 +9,7 @@ options=( "3 Ngay" "7 Ngay" "10 Ngay" "15 Ngay" "20 Ngay" "25 Ngay" "30 Ngay")
 echo "========================================================================="
 echo "Lua Chon Server Se Luu Tru File Backup Trong Thoi Gian Bao Lau"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM Se Tu Dong Xoa File Backup Khi Dat Toi Gioi Han Nay" 
+echo "kpanel Se Tu Dong Xoa File Backup Khi Dat Toi Gioi Han Nay" 
 echo "========================================================================="
 PS3="$prompt"
 select opt in "${options[@]}"; do 
@@ -48,7 +48,7 @@ options=( "7 Ngay" "14 Ngay" "21 Ngay" "28 Ngay" "35 Ngay" "42 Ngay" "49 Ngay")
 echo "========================================================================="
 echo "Lua Chon Server Se Luu Tru File Backup Trong Thoi Gian Bao Lau"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM Se Tu Dong Xoa File Backup Khi Dat Toi Gioi Han Nay"
+echo "kpanel Se Tu Dong Xoa File Backup Khi Dat Toi Gioi Han Nay"
 echo "========================================================================="
 PS3="$prompt"
 select opt in "${options[@]}"; do 
@@ -83,7 +83,7 @@ fi
 
 chongio()
 {
-echo -n "Ban muon VPSSIM backup database nay luc may gio ? [0-23]: " 
+echo -n "Ban muon kpanel backup database nay luc may gio ? [0-23]: " 
 read gio
 if [ "$gio" = "" ]; then
 echo "========================================================================="
@@ -113,7 +113,7 @@ fi
 chonthu()
 {
 echo "-------------------------------------------------------------------------"
-echo -n "Ban muon VPSSIM backup database vao thu may ?[2-8]: " 
+echo -n "Ban muon kpanel backup database vao thu may ?[2-8]: " 
 read thu
 if [ "$thu" = "" ]; then
 echo "========================================================================="
@@ -199,15 +199,15 @@ chonthoigianluubackupfilehangtuan
 echo "-------------------------------------------------------------------------"
 echo "Thoi Gian Luu Tru Toi Da Cua 1 File Backup Tren Server La $songayxoa Ngay"
 echo "-------------------------------------------------------------------------"
-read -r -p "Cho phep VPSSIM backup $dataname vao $gio gio $thu12 hang tuan ? [y/N] " response
+read -r -p "Cho phep kpanel backup $dataname vao $gio gio $thu12 hang tuan ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
         echo "-------------------------------------------------------------------------"
     echo "Please wait ..."
     sleep 2
-    cat > "/bin/vpssim-backupdb-$dataname" <<END
+    cat > "/bin/kpanel-backupdb-$dataname" <<END
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 if [ ! -d /home/$mainsite/private_html/backup/$dataname ]; then
 mkdir -p /home/$mainsite/private_html/backup/$dataname
@@ -227,15 +227,15 @@ mysqldump -u root -p\$mariadbpass $dataname --single-transaction | gzip -6 > $da
 fi
 cd
 END
-chmod +x /bin/vpssim-backupdb-$dataname
-  if [ ! -f /etc/cron.d/vpssim.db.cron ]; then
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.db.cron
-echo "0 $gio * * $day root /bin/vpssim-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/vpssim.db.cron
+chmod +x /bin/kpanel-backupdb-$dataname
+  if [ ! -f /etc/cron.d/kpanel.db.cron ]; then
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.db.cron
+echo "0 $gio * * $day root /bin/kpanel-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/kpanel.db.cron
 else
-  if [ "$(grep "SHELL=/bin/sh" /etc/cron.d/vpssim.db.cron)" == "" ]; then
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.db.cron 
+  if [ "$(grep "SHELL=/bin/sh" /etc/cron.d/kpanel.db.cron)" == "" ]; then
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.db.cron 
   fi
-echo "0 $gio * * $day root /bin/vpssim-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/vpssim.db.cron
+echo "0 $gio * * $day root /bin/kpanel-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/kpanel.db.cron
 fi
 service crond restart
 clear
@@ -247,13 +247,13 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$dataname/$dataname-$randomcode.sql.gz"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban da huy bo yeu cau tu dong backup $dataname !"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 ;;
 esac
 ###################################
@@ -266,15 +266,15 @@ chonthoigianluubackupfile
 echo "-------------------------------------------------------------------------"
 echo "Thoi Gian Luu Tru Toi Da Cua 1 File Backup Tren Server La $songayxoa Ngay"
 echo "-------------------------------------------------------------------------"
-read -r -p "Cho phep VPSSIM backup $dataname vao $gio gio hang ngay ? [y/N] " response
+read -r -p "Cho phep kpanel backup $dataname vao $gio gio hang ngay ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
     echo "Please wait ..."
     sleep 2
-    cat > "/bin/vpssim-backupdb-$dataname" <<END
+    cat > "/bin/kpanel-backupdb-$dataname" <<END
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 if [ ! -d /home/$mainsite/private_html/backup/$dataname ]; then
 mkdir -p /home/$mainsite/private_html/backup/$dataname
@@ -294,15 +294,15 @@ mysqldump -u root -p\$mariadbpass $dataname --single-transaction | gzip -6 > $da
 fi
 cd
 END
-chmod +x /bin/vpssim-backupdb-$dataname
-  if [ ! -f /etc/cron.d/vpssim.db.cron ]; then
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.db.cron
-echo "0 $gio * * * root /bin/vpssim-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/vpssim.db.cron
+chmod +x /bin/kpanel-backupdb-$dataname
+  if [ ! -f /etc/cron.d/kpanel.db.cron ]; then
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.db.cron
+echo "0 $gio * * * root /bin/kpanel-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/kpanel.db.cron
 else
-  if [ "$(grep "SHELL=/bin/sh" /etc/cron.d/vpssim.db.cron)" == "" ]; then
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.db.cron 
+  if [ "$(grep "SHELL=/bin/sh" /etc/cron.d/kpanel.db.cron)" == "" ]; then
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.db.cron 
   fi
-echo "0 $gio * * * root /bin/vpssim-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/vpssim.db.cron
+echo "0 $gio * * * root /bin/kpanel-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/kpanel.db.cron
 fi
 service crond restart
 clear
@@ -314,13 +314,13 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$dataname/$dataname-$randomcode.sql.gz"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban da huy bo yeu cau tu dong backup $dataname !"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 ;;
 esac
 #Sao luu hang gio
@@ -330,15 +330,15 @@ chonthoigianluubackupfile
 echo "-------------------------------------------------------------------------"
 echo "Thoi Gian Luu Tru Toi Da Cua 1 File Backup Tren Server La $songayxoa Ngay"
 echo "========================================================================="
-read -r -p "Cho phep VPSSIM backup $dataname moi tieng mot lan ? [y/N] " response
+read -r -p "Cho phep kpanel backup $dataname moi tieng mot lan ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
         echo "-------------------------------------------------------------------------"
     echo "Please wait ..."
     sleep 2
-    cat > "/bin/vpssim-backupdb-$dataname" <<END
+    cat > "/bin/kpanel-backupdb-$dataname" <<END
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 if [ ! -d /home/$mainsite/private_html/backup/$dataname ]; then
 mkdir -p /home/$mainsite/private_html/backup/$dataname
@@ -358,15 +358,15 @@ mysqldump -u root -p\$mariadbpass $dataname --single-transaction | gzip -6 > $da
 fi
 cd
 END
-chmod +x /bin/vpssim-backupdb-$dataname
-  if [ ! -f /etc/cron.d/vpssim.db.cron ]; then
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.db.cron
-echo "0 * * * * root /bin/vpssim-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/vpssim.db.cron
+chmod +x /bin/kpanel-backupdb-$dataname
+  if [ ! -f /etc/cron.d/kpanel.db.cron ]; then
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.db.cron
+echo "0 * * * * root /bin/kpanel-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/kpanel.db.cron
 else
-  if [ "$(grep "SHELL=/bin/sh" /etc/cron.d/vpssim.db.cron)" == "" ]; then
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.db.cron 
+  if [ "$(grep "SHELL=/bin/sh" /etc/cron.d/kpanel.db.cron)" == "" ]; then
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.db.cron 
   fi
-echo "0 * * * * root /bin/vpssim-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/vpssim.db.cron
+echo "0 * * * * root /bin/kpanel-backupdb-$dataname >/dev/null 2>&1" >> /etc/cron.d/kpanel.db.cron
 fi
 service crond restart
 clear
@@ -378,17 +378,17 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$dataname/$dataname-$randomcode.sql.gz"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban da huy bo yeu cau auto backup $dataname !"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 ;;
 esac
 else 
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 fi
 
 

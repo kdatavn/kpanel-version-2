@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 dataname=$(cat /tmp/databaseautobackup)
 
 echo "-------------------------------------------------------------------------"
@@ -12,10 +12,10 @@ case $response in
     echo "-------------------------------------------------------------------------"
     echo "Please wait ..."
 sleep 1
-rm -rf /bin/vpssim-backupdb-$dataname
-if [ -f /etc/cron.d/vpssim.db.cron ]; then
+rm -rf /bin/kpanel-backupdb-$dataname
+if [ -f /etc/cron.d/kpanel.db.cron ]; then
 cat > "/tmp/removebackupdb" <<END
-sed -i '/vpssim-backupdb-$dataname/d' /etc/cron.d/vpssim.db.cron
+sed -i '/kpanel-backupdb-$dataname/d' /etc/cron.d/kpanel.db.cron
 END
 chmod +x /tmp/removebackupdb
 /tmp/removebackupdb 
@@ -25,12 +25,12 @@ fi
 clear
 echo "========================================================================="
 echo "TAT che do tu dong backup Database cho $dataname thanh cong."
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
         ;;
     *)
         clear
 echo "========================================================================= "
 echo "Huy TAT che do auto backup Database cho $dataname !"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
         ;;
 esac

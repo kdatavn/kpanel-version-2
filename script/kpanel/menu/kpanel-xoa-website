@@ -1,15 +1,15 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 rm -rf /tmp/checktmp
-echo "Check /tmp by VPSSIM" > /tmp/checktmp
+echo "Check /tmp by kpanel" > /tmp/checktmp
 if [ ! -f /tmp/checktmp ]; then
 clear
 echo "========================================================================="
 echo "Your Server has a problem with /tmp "
 echo "-------------------------------------------------------------------------"
 echo "Please fix it before use this function"
-vpssim
+kpanel
 exit
 fi
 
@@ -26,15 +26,15 @@ fi
 
 check_ftp_account()
 {
-if [ ! -f /etc/vpssim/FTP-Account.info ]; then
-echo "=========================================================================" > /etc/vpssim/FTP-Account.info
-echo "Please Do Not Delete This File " >> /etc/vpssim/FTP-Account.info
-echo "-------------------------------------------------------------------------" >> /etc/vpssim/FTP-Account.info
-echo "If you delete this file, VPSSIM will not run !" >> /etc/vpssim/FTP-Account.info
-echo "-------------------------------------------------------------------------" >> /etc/vpssim/FTP-Account.info
-echo "All FTP User for all domain on VPS list below:" >> /etc/vpssim/FTP-Account.info
-echo "=========================================================================" >> /etc/vpssim/FTP-Account.info
-echo "" >> /etc/vpssim/FTP-Account.info
+if [ ! -f /etc/kpanel/FTP-Account.info ]; then
+echo "=========================================================================" > /etc/kpanel/FTP-Account.info
+echo "Please Do Not Delete This File " >> /etc/kpanel/FTP-Account.info
+echo "-------------------------------------------------------------------------" >> /etc/kpanel/FTP-Account.info
+echo "If you delete this file, kpanel will not run !" >> /etc/kpanel/FTP-Account.info
+echo "-------------------------------------------------------------------------" >> /etc/kpanel/FTP-Account.info
+echo "All FTP User for all domain on VPS list below:" >> /etc/kpanel/FTP-Account.info
+echo "=========================================================================" >> /etc/kpanel/FTP-Account.info
+echo "" >> /etc/kpanel/FTP-Account.info
 fi
 if [ -f /etc/pure-ftpd/pureftpd.passwd ]; then
 if [ ! "$(grep /home/$website/ /etc/pure-ftpd/pureftpd.passwd)" == "" ];then  
@@ -48,17 +48,17 @@ rm -rf /tmp/abcd
 pure-pw mkdb
 fi
 fi
-if [ ! "$(grep /home/$website/ /etc/vpssim/FTP-Account.info)" == "" ];then 
+if [ ! "$(grep /home/$website/ /etc/kpanel/FTP-Account.info)" == "" ];then 
 echo "========================================================================="
-echo "Phat hien tai khoan FTP: $(grep /home/$website/ /etc/vpssim/FTP-Account.info | awk 'NR==1 {print $7}') cua $website  "
+echo "Phat hien tai khoan FTP: $(grep /home/$website/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}') cua $website  "
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se remove tai khoan FTP: $(grep /home/$website/ /etc/vpssim/FTP-Account.info | awk 'NR==1 {print $7}')"
+echo "kpanel se remove tai khoan FTP: $(grep /home/$website/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 6
 rm -rf /tmp/abcde
 cat > "/tmp/abcde" <<END	
-sed -i '/\/home\/$website/d' /etc/vpssim/FTP-Account.info
+sed -i '/\/home\/$website/d' /etc/kpanel/FTP-Account.info
 END
 chmod +x /tmp/abcde
 /tmp/abcde
@@ -78,7 +78,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-vpssim
+kpanel
 exit
 fi
 
@@ -91,35 +91,35 @@ echo "========================================================================="
 echo "Ban dang muon remove domain quan ly !!!!"
 echo "-------------------------------------------------------------------------"
 echo "Domain quan ly khong the xoa khoi website !"
-vpssim
+kpanel
 exit
 fi
 
-if [ -f /etc/vpssim/uploadsite ]; then
+if [ -f /etc/kpanel/uploadsite ]; then
 rm -rf /tmp/uploadsite
-cp -r /etc/vpssim/uploadsite /tmp/uploadsite
-uploadsite=$(cat /etc/vpssim/uploadsite)
+cp -r /etc/kpanel/uploadsite /tmp/uploadsite
+uploadsite=$(cat /etc/kpanel/uploadsite)
 if [ "$website" = "$uploadsite" ]; then
-/etc/vpssim/menu/vpssim-xoa-domain-file-manager-upload
+/etc/kpanel/menu/kpanel-xoa-domain-file-manager-upload
 fi
 fi
 
-if [ -f /etc/vpssim/netdatasite.info ]; then
-netdatasite=$(cat /etc/vpssim/netdatasite.info)
+if [ -f /etc/kpanel/netdatasite.info ]; then
+netdatasite=$(cat /etc/kpanel/netdatasite.info)
 if [ "$website" = "$netdatasite" ]; then
 clear
 echo "========================================================================="
 echo "Ban khong the xoa Domain Netdata"
-vpssim
+kpanel
 fi
 fi
 
-if [ -f /etc/vpssim/net2ftpsite.info ]; then
+if [ -f /etc/kpanel/net2ftpsite.info ]; then
 rm -rf /tmp/net2ftpsite.info
-cp -r /etc/vpssim/net2ftpsite.info /tmp/net2ftpsite.info
-net2ftpsite=$(cat /etc/vpssim/net2ftpsite.info)
+cp -r /etc/kpanel/net2ftpsite.info /tmp/net2ftpsite.info
+net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
 if [ "$website" = "$net2ftpsite" ]; then
-/etc/vpssim/menu/vpssim-xoa-website-net2ftp-vpssim-main
+/etc/kpanel/menu/kpanel-xoa-website-net2ftp-kpanel-main
 fi
 fi
 
@@ -133,7 +133,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-vpssim
+kpanel
 exit
 fi
 
@@ -141,7 +141,7 @@ if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
 clear
 echo "========================================================================="
 echo "$website Khong ton tai tren he thong !"
-vpssim
+kpanel
 exit
 fi
 
@@ -149,7 +149,7 @@ fi
 if [ -f /home/$website/public_html/wp-config.php ]; then
 rm -rf /tmp/removewebsite.txt
 echo "$website" > /tmp/removewebsite.txt
-/etc/vpssim/menu/vpssim-xoa-website-wordpress
+/etc/kpanel/menu/kpanel-xoa-website-wordpress
 fi
 
 
@@ -157,7 +157,7 @@ if [ -f /home/$website/public_html/config.php ]; then
 if [ -d /home/$website/public_html/phpbb ]; then
 rm -rf /tmp/removewebsite.txt
 echo "$website" > /tmp/removewebsite.txt
-/etc/vpssim/menu/vpssim-xoa-website-phpbb-forum
+/etc/kpanel/menu/kpanel-xoa-website-phpbb-forum
 fi
 fi
 
@@ -165,7 +165,7 @@ if [ -d /home/$website/public_html/administrator ]; then
 if [ -f /home/$website/public_html/configuration.php ]; then
 rm -rf /tmp/removewebsite.txt
 echo "$website" > /tmp/removewebsite.txt
-/etc/vpssim/menu/vpssim-xoa-website-joomla
+/etc/kpanel/menu/kpanel-xoa-website-joomla
 fi
 fi
 
@@ -173,7 +173,7 @@ if [ -f /home/$website/public_html/Settings.php ]; then
 if [ -f /home/$website/public_html/Sources/Themes.php ]; then
 rm -rf /tmp/removewebsite.txt
 echo "$website" > /tmp/removewebsite.txt
-/etc/vpssim/menu/vpssim-xoa-website-smf-forum
+/etc/kpanel/menu/kpanel-xoa-website-smf-forum
 fi
 fi
 
@@ -181,7 +181,7 @@ if [ -f /home/$website/public_html/inc/config.php ]; then
 if [ -f /home/$website/public_html/inc/mybb_group.php ]; then
 rm -rf /tmp/removewebsite.txt
 echo "$website" > /tmp/removewebsite.txt
-/etc/vpssim/menu/vpssim-xoa-website-mybb-forum
+/etc/kpanel/menu/kpanel-xoa-website-mybb-forum
 fi
 fi
 
@@ -190,7 +190,7 @@ if [ ! "$(grep DIR_CACHE /home/$website/public_html/config.php)" == "" ]; then
 if [ ! "$(grep DIR_LOGS /home/$website/public_html/config.php)" == "" ]; then
 rm -rf /tmp/removewebsite.txt
 echo "$website" > /tmp/removewebsite.txt
-/etc/vpssim/menu/vpssim-xoa-website-opencart
+/etc/kpanel/menu/kpanel-xoa-website-opencart
 fi
 fi
 fi
@@ -207,21 +207,21 @@ rm -rf /home/$website
 rm -f /etc/nginx/conf.d/$website.conf
 rm -R /etc/nginx/pwprotect/$website 
 ### Remove website from Zend Opcache BlackList
-if [ ! -f /etc/vpssim/opcache.blacklist ]; then
-cat > "/etc/vpssim/opcache.blacklist" <<END
+if [ ! -f /etc/kpanel/opcache.blacklist ]; then
+cat > "/etc/kpanel/opcache.blacklist" <<END
 END
 fi
-if [ ! "$(grep /home/$website /etc/vpssim/opcache.blacklist)" == "" ]; then
+if [ ! "$(grep /home/$website /etc/kpanel/opcache.blacklist)" == "" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Phat hien $website trong Zend Opcache Blacklist"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se xoa $website trong blacklist nay"
+echo "kpanel se xoa $website trong blacklist nay"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 6
 rm -rf /tmp/zendcacheblacklist
 cat > "/tmp/zendcacheblacklist" <<END
-sed --in-place '\/home\/$website/d' /etc/vpssim/opcache.blacklist
+sed --in-place '\/home\/$website/d' /etc/kpanel/opcache.blacklist
 END
 chmod +x /tmp/zendcacheblacklist
 /tmp/zendcacheblacklist
@@ -230,18 +230,18 @@ fi
 check_ftp_account
 check_and_delete_auto_backup_website()
 {
-	if [  -f /bin/vpssim-backupcode-$website ]; then
-	if [ ! "$(grep vpssim-backupcode-$website /etc/cron.d/vpssim.code.cron)" == "" ]; then
+	if [  -f /bin/kpanel-backupcode-$website ]; then
+	if [ ! "$(grep kpanel-backupcode-$website /etc/cron.d/kpanel.code.cron)" == "" ]; then
 echo "========================================================================="
 echo "Phat hien $website dang bat auto backup code"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se tat che do auto backup code khi remove khoi server"
+echo "kpanel se tat che do auto backup code khi remove khoi server"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 5
-	rm -rf /bin/vpssim-backupcode-$website
+	rm -rf /bin/kpanel-backupcode-$website
 	cat > "/tmp/removebackupcode" <<END
-sed -i '/vpssim-backupcode-$website/d' /etc/cron.d/vpssim.code.cron
+sed -i '/kpanel-backupcode-$website/d' /etc/cron.d/kpanel.code.cron
 END
 chmod +x /tmp/removebackupcode
 /tmp/removebackupcode 
@@ -254,7 +254,7 @@ check_and_delete_auto_backup_website
 if [ -f /root/.acme.sh/$website/$website.conf ]; then
 rm -rf /root/.acme.sh/$website
 rm -rf /etc/nginx/auth-acme/$website
-rm -rf /etc/vpssim/Backup.Vhost.SSL/$website
+rm -rf /etc/kpanel/Backup.Vhost.SSL/$website
 fi
 ############ 
 check_folder_protect_config ### Check Config Protect Folder & Files
@@ -266,13 +266,13 @@ fi
 clear
 echo "========================================================================="
 echo "Xoa $website khoi Server thanh cong."
-vpssim
+kpanel
         ;;
     *)
 clear
 echo "========================================================================="
 echo "Ban khong xoa $website khoi Server "
-vpssim
+kpanel
         ;;
 esac
 else
@@ -281,6 +281,6 @@ echo "========================================================================="
 echo "Khong tim thay $website tren Server."
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai"
-vpssim
+kpanel
 exit
 fi

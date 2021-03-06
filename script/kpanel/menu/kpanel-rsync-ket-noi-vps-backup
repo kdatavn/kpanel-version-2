@@ -1,13 +1,13 @@
 #!/bin/bash 
-. /home/vpssim.conf
-if [ -f /etc/vpssim/vps_backup_rsync.info ]; then
-if [ ! "$(grep "thanhcong" /etc/vpssim/vps_backup_rsync.info | awk '{print $3}')" == "" ]; then
+. /home/kpanel.conf
+if [ -f /etc/kpanel/vps_backup_rsync.info ]; then
+if [ ! "$(grep "thanhcong" /etc/kpanel/vps_backup_rsync.info | awk '{print $3}')" == "" ]; then
 clear
 echo "========================================================================="
 echo "Ban da hoan thanh cau hinh ket noi server hien tai voi VPS backup"
 echo "-------------------------------------------------------------------------"
-echo "VPS Backup co dia chi IP: $(grep "ipaddress" /etc/vpssim/vps_backup_rsync.info | awk '{print $3}')"
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+echo "VPS Backup co dia chi IP: $(grep "ipaddress" /etc/kpanel/vps_backup_rsync.info | awk '{print $3}')"
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 exit
 fi
 fi
@@ -26,7 +26,7 @@ if [ "$ipvpsbackup" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai."
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 exit
 fi
 
@@ -38,7 +38,7 @@ echo "$ipvpsbackup khong phai la dia chi IP ! "
 echo "-------------------------------------------------------------------------"
 echo "Vui long nhap lai"
 #echo "Please try again."
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -48,7 +48,7 @@ if [ "$passrootbackupvps" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai."
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 exit
 fi
 if [ -f ~/.ssh/known_hosts ]; then
@@ -76,10 +76,10 @@ echo "========================================================================="
 echo "Ket noi that bai"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long kiem tra lai thong tin VPS Backup"
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 exit
 fi
-cat > "/etc/vpssim/vps_backup_rsync.info" <<END
+cat > "/etc/kpanel/vps_backup_rsync.info" <<END
 ipaddress = $ipvpsbackup
 ketnoistatus = thanhcong
 END
@@ -88,6 +88,6 @@ echo "========================================================================="
 echo "Ket noi toi VPS backup $ipvpsbackup thanh cong ! "
 echo "-------------------------------------------------------------------------"
 echo "Bay gio ban co the cau hinh thoi gian dong bo cho Server"
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 exit
 

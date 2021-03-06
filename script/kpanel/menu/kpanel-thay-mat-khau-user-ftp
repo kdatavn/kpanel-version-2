@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 if [ ! -f /etc/pure-ftpd/pure-ftpd.conf ]; then
 clear
@@ -7,7 +7,7 @@ echo "========================================================================= 
 echo "FTP Server chua duoc cai dat "
 echo "-------------------------------------------------------------------------"
 echo "Ban phai cai dat chuc nang Setup FTP Server truoc"
-/etc/vpssim/menu/vpssim-ftpserver-menu
+/etc/kpanel/menu/kpanel-ftpserver-menu
 exit
 fi
 echo "========================================================================="
@@ -19,7 +19,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/vpssim/menu/vpssim-ftpserver-menu
+/etc/kpanel/menu/kpanel-ftpserver-menu
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}$";
@@ -30,7 +30,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long nhap lai  !"
-/etc/vpssim/menu/vpssim-ftpserver-menu
+/etc/kpanel/menu/kpanel-ftpserver-menu
 exit
 fi
 if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
@@ -39,14 +39,14 @@ echo "========================================================================="
 echo "Website $website khong ton tai tren he thong!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay nhap lai !"
-/etc/vpssim/menu/vpssim-ftpserver-menu
+/etc/kpanel/menu/kpanel-ftpserver-menu
 exit
 fi
 if [ "$(pure-pw list | grep "/home/$website/")" == "" ]; then
 clear
 echo "========================================================================="
 echo "Website $website chua tao tai khoan FTP!"
-/etc/vpssim/menu/vpssim-ftpserver-menu
+/etc/kpanel/menu/kpanel-ftpserver-menu
 fi
 
 echo "========================================================================="
@@ -54,24 +54,24 @@ echo "Phat hien tai khoan FTP cho $website"
 echo "-------------------------------------------------------------------------"
 echo "Thong tin tai khoan FTP hien tai:"
 echo "-------------------------------------------------------------------------"
-echo "Username: $(grep "/home/$website/" /etc/vpssim/FTP-Account.info | awk 'NR==1 {print $7}')  |  Password: $(grep "/home/$website/" /etc/vpssim/FTP-Account.info | awk 'NR==1 {print $10}')"
+echo "Username: $(grep "/home/$website/" /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')  |  Password: $(grep "/home/$website/" /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $10}')"
 echo "-------------------------------------------------------------------------"
-echo "Bay gio VPSSIM se thay mat khau moi cho: $(grep "/home/$website/" /etc/vpssim/FTP-Account.info | awk 'NR==1 {print $7}')"
+echo "Bay gio kpanel se thay mat khau moi cho: $(grep "/home/$website/" /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')"
 echo "========================================================================="
 echo "Please wait ....."
 sleep 7
-username=$(grep "/home/$website/" /etc/vpssim/FTP-Account.info | awk 'NR==1 {print $7}')
+username=$(grep "/home/$website/" /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')
 mkmoi=`date |md5sum |cut -c '3-23'`
 #echo "$mkmoi" | passwd --stdin $ftpuser
 ( echo ${mkmoi} ; echo ${mkmoi} ) | pure-pw passwd $username
 pure-pw mkdb
 cat > "/tmp/xoaftpuser" <<END	
-sed -i '/\/home\/$website/d' /etc/vpssim/FTP-Account.info
+sed -i '/\/home\/$website/d' /etc/kpanel/FTP-Account.info
 END
 chmod +x /tmp/xoaftpuser
 /tmp/xoaftpuser
 rm -rf /tmp/xoaftpuser
-echo "FTP Account for $website | Username: $username | Password: $mkmoi | dd /home/$website/ " >> /etc/vpssim/FTP-Account.info
+echo "FTP Account for $website | Username: $username | Password: $mkmoi | dd /home/$website/ " >> /etc/kpanel/FTP-Account.info
 clear
 echo "========================================================================= "
 echo "Thay mat khau tai khoan FTP cua $website thanh cong"
@@ -81,7 +81,7 @@ echo "-------------------------------------------------------------------------"
 echo "IP: $serverip"
 echo "-------------------------------------------------------------------------"
 echo "User: $username | Password: $mkmoi"
-/etc/vpssim/menu/vpssim-ftpserver-menu
+/etc/kpanel/menu/kpanel-ftpserver-menu
 
 
 

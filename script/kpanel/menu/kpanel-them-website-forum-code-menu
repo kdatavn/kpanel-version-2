@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 prompt="Nhap lua chon cua ban: "
 options=( "PhpBB" "SMF" "MyBB" "Thoat")
 printf "=========================================================================\n"
@@ -18,13 +18,13 @@ select opt in "${options[@]}"; do
 done
 ###################################
 if [ "$vhostconfig" = "phpbb" ]; then
-/etc/vpssim/menu/vpssim-them-website-va-forum-phpbb
+/etc/kpanel/menu/kpanel-them-website-va-forum-phpbb
 ###################################
 elif [ "$vhostconfig" = "smf" ]; then
-/etc/vpssim/menu/vpssim-them-website-va-forum-smf
+/etc/kpanel/menu/kpanel-them-website-va-forum-smf
 ###################################
 elif [ "$vhostconfig" = "mybb" ]; then
-/etc/vpssim/menu/vpssim-them-website-va-forum-mybb
+/etc/kpanel/menu/kpanel-them-website-va-forum-mybb
 else 
-clear && /etc/vpssim/menu/vpssim-befor-them-website-menu
+clear && /etc/kpanel/menu/kpanel-befor-them-website-menu
 fi

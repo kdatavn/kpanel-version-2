@@ -1,8 +1,8 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ -f /home/$mainsite/private_html/backup/home/*.zip ]; then
-find /home/$mainsite/private_html/backup/$website/ -name '*.zip' -type f -exec basename {} \;  > /etc/vpssim/linkbackup
-filename=`cat /etc/vpssim/linkbackup`
+find /home/$mainsite/private_html/backup/$website/ -name '*.zip' -type f -exec basename {} \;  > /etc/kpanel/linkbackup
+filename=`cat /etc/kpanel/linkbackup`
 echo "-------------------------------------------------------------------------"
 echo "Please wait..."
 sleep 1
@@ -13,12 +13,12 @@ echo "-------------------------------------------------------------------------"
 echo "Link download backup: "
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/home/$filename"
-/etc/vpssim/menu/vpssim-sao-luu
-rm -rf /etc/vpssim/linkbackup
+/etc/kpanel/menu/kpanel-sao-luu
+rm -rf /etc/kpanel/linkbackup
 else
 clear
 echo "========================================================================="
 echo "Ban chua tao file backup code folder Home !"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 exit
 fi

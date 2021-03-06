@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Su dung chuc nang nay de TAT Zend Opcache cho server"
 echo "-------------------------------------------------------------------------"
@@ -17,13 +17,13 @@ fi
 clear
 echo "========================================================================="
 	echo "Tat Zend OPcache thanh cong !"
-/etc/vpssim/menu/opcache/vpssim-dang-tat-opcache-menu
+/etc/kpanel/menu/opcache/kpanel-dang-tat-opcache-menu
         ;;
     *)
         clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
         ;;
 esac
 exit

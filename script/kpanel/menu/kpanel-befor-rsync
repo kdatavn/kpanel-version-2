@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -f ~/.ssh/id_rsa ]; then
 ssh-keygen -f ~/.ssh/id_rsa -q -P ""
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
@@ -14,10 +14,10 @@ else
 	echo "StrictHostKeyChecking no" >> ~/.ssh/config
 	fi
 fi
-if [ ! -f /etc/vpssim/menu/vpssim-rsync-have-read ]; then
+if [ ! -f /etc/kpanel/menu/kpanel-rsync-have-read ]; then
 clear
 printf "=========================================================================\n"
-printf "               VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "               kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                          Quan Ly VPS Backup \n"
 printf "=========================================================================\n"
@@ -35,12 +35,12 @@ echo "ngay ca khi server dang su dung gap su co die hay khong cuu duoc du lieu."
 echo "-------------------------------------------------------------------------"
 echo "He dieu hanh VPS backup ho tro: Centos 6, Centos 7, Ubuntu, Debian. "
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khuyen dung Centos 6 de nhan ho tro nhieu nhat tu VPSSIM."
+echo "kpanel khuyen dung Centos 6 de nhan ho tro nhieu nhat tu kpanel."
 echo "-------------------------------------------------------------------------"
-echo "Luu y: Ban co the su dung 1 VPS backup de sao luu nhieu VPS chay VPSSIM"
+echo "Luu y: Ban co the su dung 1 VPS backup de sao luu nhieu VPS chay kpanel"
 echo "-------------------------------------------------------------------------"
-touch /etc/vpssim/menu/vpssim-rsync-have-read
+touch /etc/kpanel/menu/kpanel-rsync-have-read
 read -p "Nhan [Enter] de tiep tuc ..."
 clear
 fi
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu

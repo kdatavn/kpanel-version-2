@@ -1,11 +1,11 @@
 #!/bin/bash
 prompt="Lua chon cua ban (0-Thoat):" 
-#options=( "Update System" "Update VPSSIM" "Change Nginx Version" "Change phpMyAdmin Version" "Upgrade MariaDB to 10.0 Version" "Change PHP Version" "Change VPSSIM Language" "Thoat")
-#options=( "Update System" "Update VPSSIM" "Update Nginx" "Change phpMyAdmin Version" "Change PHP Version" "Change VPSSIM Language" "Update OpenSSL version" "Reset code form git" "List soft version")
+#options=( "Update System" "Update kpanel" "Change Nginx Version" "Change phpMyAdmin Version" "Upgrade MariaDB to 10.0 Version" "Change PHP Version" "Change kpanel Language" "Thoat")
+#options=( "Update System" "Update kpanel" "Update Nginx" "Change phpMyAdmin Version" "Change PHP Version" "Change kpanel Language" "Update OpenSSL version" "Reset code form git" "List soft version")
 options=( "Update System" "Update KPANEL" "Update Nginx" "Change phpMyAdmin Version" "Change PHP Version" "Update OpenSSL version" \
 "Pull code form git" "Reset code form git" "List soft version" "Nginx quiche" "Auto update system")
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by WebGiaRe.org \n"
+printf "                kpanel - Quan Ly VPS/Server by WebGiaRe.org \n"
 printf "=========================================================================\n"
 printf "                        Update / Upgrade Service \n"
 printf "=========================================================================\n"
@@ -17,21 +17,21 @@ select opt in "${options[@]}" ; do
     case "$REPLY" in
 
 
-	1) /etc/vpssim/menu/update-he-thong;;
-	2) /etc/vpssim/menu/nang-cap-scripts;;
-	3) /etc/vpssim/menu/nang-cap-nginx;;
-#	3) /etc/vpssim/menu/vpssim-befor-nang-cap-nginx;;
-	4) /etc/vpssim/menu/vpssim-nang-cap-phpmyadmin;;
-#	5) /etc/vpssim/menu/nang-cap-mariaDB/vpssim-before-nang-cap-mariadb;;
-	5) clear && /etc/vpssim/menu/nangcap-php/vpssim-updown-php;;
-#	6) clear && /etc/vpssim/menu/vpssim-thay-doi-ngon-ngu-menu;;
-	6) clear && /etc/vpssim/menu/nang-cap-openssl;;
-	7) clear && /etc/vpssim/menu/git-pull;;
-	8) clear && /etc/vpssim/menu/git-reset;;
-	9) clear && /etc/vpssim/menu/list-all-soft-version;;
-	10) clear && /etc/vpssim/menu/nginx-quiche;;
-	11) clear && /etc/vpssim/menu/auto-update-system;;
-	0) clear && vpssim;;
+	1) /etc/kpanel/menu/update-he-thong;;
+	2) /etc/kpanel/menu/nang-cap-scripts;;
+	3) /etc/kpanel/menu/nang-cap-nginx;;
+#	3) /etc/kpanel/menu/kpanel-befor-nang-cap-nginx;;
+	4) /etc/kpanel/menu/kpanel-nang-cap-phpmyadmin;;
+#	5) /etc/kpanel/menu/nang-cap-mariaDB/kpanel-before-nang-cap-mariadb;;
+	5) clear && /etc/kpanel/menu/nangcap-php/kpanel-updown-php;;
+#	6) clear && /etc/kpanel/menu/kpanel-thay-doi-ngon-ngu-menu;;
+	6) clear && /etc/kpanel/menu/nang-cap-openssl;;
+	7) clear && /etc/kpanel/menu/git-pull;;
+	8) clear && /etc/kpanel/menu/git-reset;;
+	9) clear && /etc/kpanel/menu/list-all-soft-version;;
+	10) clear && /etc/kpanel/menu/nginx-quiche;;
+	11) clear && /etc/kpanel/menu/auto-update-system;;
+	0) clear && kpanel;;
         *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
     esac

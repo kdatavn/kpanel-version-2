@@ -2,7 +2,7 @@
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Tao Tai Khoan FTP Cho Website" "Vo Hieu Hoa Tai Khoan FTP" "Thay Mat Khau Tai Khoan FTP" "Xem Thong Tin FTP Cua Website" "Setup FTP Server Over TLS" )
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                           Quan Ly FTP Server \n"
 printf "=========================================================================\n"
@@ -11,13 +11,13 @@ PS3="$prompt"
 select opt in "${options[@]}" "Thoat"; do 
 
     case "$REPLY" in
-    1) /etc/vpssim/menu/vpssim-tao-ftp-user-cho-domain;;
-    2) /etc/vpssim/menu/vpssim-xoa-ftp-user;;
-    3) /etc/vpssim/menu/vpssim-thay-mat-khau-user-ftp;;
-    4) /etc/vpssim/menu/vpssim-view-userftp-password;;
-    5) /etc/vpssim/menu/ftp-server-install;;
-    0) clear && vpssim;;
-$(( ${#options[@]}+1 )) ) echo "";  clear && vpssim;;
+    1) /etc/kpanel/menu/kpanel-tao-ftp-user-cho-domain;;
+    2) /etc/kpanel/menu/kpanel-xoa-ftp-user;;
+    3) /etc/kpanel/menu/kpanel-thay-mat-khau-user-ftp;;
+    4) /etc/kpanel/menu/kpanel-view-userftp-password;;
+    5) /etc/kpanel/menu/ftp-server-install;;
+    0) clear && kpanel;;
+$(( ${#options[@]}+1 )) ) echo "";  clear && kpanel;;
      *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
     esac

@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Su dung chuc nang nay de xem tat ca IPtables Firewall Rules cua server"
 echo "-------------------------------------------------------------------------"
@@ -11,7 +11,7 @@ case $response in
 rm -rf /home/$mainsite/private_html/IPtablesRules*
 randomcode=`date |md5sum |cut -c '1-16'`
 echo "============================================================================" > /home/$mainsite/private_html/IPtablesRules-$randomcode.txt
-echo "IPtables Firewall Rules in Server: $serverip - Created by VPSSIM " >> /home/$mainsite/private_html/IPtablesRules-$randomcode.txt
+echo "IPtables Firewall Rules in Server: $serverip - Created by kpanel " >> /home/$mainsite/private_html/IPtablesRules-$randomcode.txt
 echo "============================================================================" >>/home/$mainsite/private_html/IPtablesRules-$randomcode.txt
 echo "" >> /home/$mainsite/private_html/IPtablesRules-$randomcode.txt
 iptables-save >> /home/$mainsite/private_html/IPtablesRules-$randomcode.txt
@@ -21,11 +21,11 @@ echo "========================================================================= 
 echo "Link View IPtables Firewall Rules:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/IPtablesRules-$randomcode.txt"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
     *)
        clear
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
 esac
 

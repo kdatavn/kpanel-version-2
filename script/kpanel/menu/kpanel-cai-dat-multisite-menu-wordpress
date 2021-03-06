@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 #prompt="Type in your choice: "
 prompt="Nhap lua chon cua ban: "
 options=( "Sub-Domain" "Sub-directories" "Huy bo cai dat")
@@ -26,13 +26,13 @@ done
 #subdomain
 ###################################
 if [ "$multisitehow" = "subdomain" ]; then
-/etc/vpssim/menu/vpssim-setup-wp-multisite-sub-domain-wordpress
+/etc/kpanel/menu/kpanel-setup-wp-multisite-sub-domain-wordpress
 ###################################
 #Super Cache
 ###################################
 elif [ "$multisitehow" = "subdirectories" ]; then
-/etc/vpssim/menu/vpssim-setup-wp-multisite-sub-folder-wordpress
+/etc/kpanel/menu/kpanel-setup-wp-multisite-sub-folder-wordpress
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-wordpress-tools-menu
+clear && /etc/kpanel/menu/kpanel-wordpress-tools-menu
 fi

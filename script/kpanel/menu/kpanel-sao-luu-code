@@ -1,19 +1,19 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 rm -rf /tmp/*hostingaz*
 mkdir -p /tmp/saoluuwebsitethanhconghostingaz
 mkdir -p /tmp/saoluuwebsitethatbaihostingaz
-ls /etc/nginx/conf.d > /tmp/vpssim-websitelist
-sed -i 's/\.conf//g' /tmp/vpssim-websitelist 
- cat > "/tmp/vpssim-replace" <<END
-sed -i '/$mainsite/d' /tmp/vpssim-websitelist
+ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
+sed -i 's/\.conf//g' /tmp/kpanel-websitelist 
+ cat > "/tmp/kpanel-replace" <<END
+sed -i '/$mainsite/d' /tmp/kpanel-websitelist
 END
-chmod +x /tmp/vpssim-replace
-/tmp/vpssim-replace
-rm -rf /tmp/vpssim-replace
+chmod +x /tmp/kpanel-replace
+/tmp/kpanel-replace
+rm -rf /tmp/kpanel-replace
 rm -rf /tmp/checksite-list
-sowebsitetrenserver=$(cat /tmp/vpssim-websitelist | wc -l)
-listwebsite=$(cat /tmp/vpssim-websitelist)
+sowebsitetrenserver=$(cat /tmp/kpanel-websitelist | wc -l)
+listwebsite=$(cat /tmp/kpanel-websitelist)
 rm -rf /tmp/checksite-list
 for checksite in $listwebsite 
 do
@@ -23,12 +23,12 @@ fi
  done
 
 if [ ! -f /tmp/checksite-list ]; then
-rm -rf /tmp/*vpssim*
+rm -rf /tmp/*kpanel*
 rm -rf /tmp/*hostingaz*
 clear
 echo "========================================================================="
 echo "Khong tim thay website co du lieu tren server"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 fi
 nhapwebsite ()
 {
@@ -83,9 +83,9 @@ case $response in
     echo "-------------------------------------------------------------------------"
 	echo "Dang sao luu $website, please wait..."
 	sleep 1
-	if [  -f /bin/vpssim-backupcode-$website ]; then
-	if [ ! "$(grep vpssim-backupcode-$website /etc/cron.d/vpssim.code.cron)" == "" ]; then
-pathname=$(grep "\/home\/$mainsite\/private_html\/backup\/$website" /bin/vpssim-backupcode-$website | awk 'NR==6 {print $3}')
+	if [  -f /bin/kpanel-backupcode-$website ]; then
+	if [ ! "$(grep kpanel-backupcode-$website /etc/cron.d/kpanel.code.cron)" == "" ]; then
+pathname=$(grep "\/home\/$mainsite\/private_html\/backup\/$website" /bin/kpanel-backupcode-$website | awk 'NR==6 {print $3}')
 filename2=$(basename $pathname)
 thongbao=$(echo "($website Enabled Auto Backup)")
 	else
@@ -104,15 +104,15 @@ fi
 clear
 echo "========================================================================="
 echo "Link Backup File:"
-if [  -f /bin/vpssim-backupcode-$website ]; then
-	if [ ! "$(grep vpssim-backupcode-$website /etc/cron.d/vpssim.code.cron)" == "" ]; then
+if [  -f /bin/kpanel-backupcode-$website ]; then
+	if [ ! "$(grep kpanel-backupcode-$website /etc/cron.d/kpanel.code.cron)" == "" ]; then
 echo "-------------------------------------------------------------------------"
 echo "$thongbao"
 fi
 fi
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$website/$filename2"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
         ;;
     *)
         ;;
@@ -127,7 +127,7 @@ done
 fi
 cd
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se doi ten file backup cu thanh:"
+echo "kpanel se doi ten file backup cu thanh:"
 echo "-------------------------------------------------------------------------"
 echo "`cat /tmp/vpssim_ten_file_cu`"
 echo "-------------------------------------------------------------------------"
@@ -135,9 +135,9 @@ echo "Sau do se sao luu $website"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 4
-if [  -f /bin/vpssim-backupcode-$website ]; then
-	if [ ! "$(grep vpssim-backupcode-$website /etc/cron.d/vpssim.code.cron)" == "" ]; then
-pathname=$(grep "\/home\/$mainsite\/private_html\/backup\/$website" /bin/vpssim-backupcode-$website | awk 'NR==6 {print $3}')
+if [  -f /bin/kpanel-backupcode-$website ]; then
+	if [ ! "$(grep kpanel-backupcode-$website /etc/cron.d/kpanel.code.cron)" == "" ]; then
+pathname=$(grep "\/home\/$mainsite\/private_html\/backup\/$website" /bin/kpanel-backupcode-$website | awk 'NR==6 {print $3}')
 filename2=$(basename $pathname)
 thongbao=$(echo " ($website Enabled Auto Backup)")
 	else
@@ -160,15 +160,15 @@ echo "-------------------------------------------------------------------------"
 echo "File Backup Cu Duoc Doi Ten Thanh:"
 echo "-------------------------------------------------------------------------"
 echo "$(cat /tmp/vpssim_ten_file_cu)"
-rm -rf /tmp/*vpssim*
-/etc/vpssim/menu/vpssim-sao-luu
+rm -rf /tmp/*kpanel*
+/etc/kpanel/menu/kpanel-sao-luu
 else
 echo "-------------------------------------------------------------------------"
-	echo "VPSSIM dang sao luu $website, ban cho xiu...."
+	echo "kpanel dang sao luu $website, ban cho xiu...."
 	sleep 1
-	if [  -f /bin/vpssim-backupcode-$website ]; then
-	if [ ! "$(grep vpssim-backupcode-$website /etc/cron.d/vpssim.code.cron)" == "" ]; then
-pathname=$(grep "\/home\/$mainsite\/private_html\/backup\/$website" /bin/vpssim-backupcode-$website | awk 'NR==6 {print $3}')
+	if [  -f /bin/kpanel-backupcode-$website ]; then
+	if [ ! "$(grep kpanel-backupcode-$website /etc/cron.d/kpanel.code.cron)" == "" ]; then
+pathname=$(grep "\/home\/$mainsite\/private_html\/backup\/$website" /bin/kpanel-backupcode-$website | awk 'NR==6 {print $3}')
 filename2=$(basename $pathname)
 thongbao=$(echo " ($website Enabled Auto Backup)")
 	else
@@ -189,12 +189,12 @@ echo "========================================================================="
 echo "Link Backup File:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$website/$filename2"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 fi
 else
 clear
 echo "========================================================================="
 echo "Khong tim thay $website tren server hoac web chua co du lieu!"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 fi
 

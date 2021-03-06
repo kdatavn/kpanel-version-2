@@ -1,8 +1,8 @@
 #!/bin/bash
 prompt="Lua chon phien ban Varnish (0-Thoat):"
 
-if [ -f /etc/vpssim/varnish.version ];then
-current_varnish_version=$(cat /etc/vpssim/varnish.version)
+if [ -f /etc/kpanel/varnish.version ];then
+current_varnish_version=$(cat /etc/kpanel/varnish.version)
 else
 current_varnish_version=""
 fi
@@ -30,11 +30,11 @@ printf "         KPANEL - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                           Varnish Cache\n"
 echo "========================================================================="
-/etc/vpssim/menu/varnish/disk-varnish
+/etc/kpanel/menu/varnish/disk-varnish
 echo "========================================================================="
 
-if [ -f /etc/vpssim/varnish.version ];then
-printf "                   Phien ban Varnish hien tai: $(cat /etc/vpssim/varnish.version) \n"
+if [ -f /etc/kpanel/varnish.version ];then
+printf "                   Phien ban Varnish hien tai: $(cat /etc/kpanel/varnish.version) \n"
 else
 printf "                    Varnish Cache chua duoc cai dat\n"
 printf "          Hoac khong duoc cai dat thong qua KPANEL \n"
@@ -48,17 +48,17 @@ PS3="$prompt"
 select opt in "${options[@]}" ; do 
 
 case "$REPLY" in
-1) clear && /etc/vpssim/menu/varnish/varnish40;;
-2) clear && /etc/vpssim/menu/varnish/varnish41;;
-3) clear && /etc/vpssim/menu/varnish/varnish60;;
-4) clear && /etc/vpssim/menu/varnish/varnish61;;
-5) clear && /etc/vpssim/menu/varnish/varnish62;;
-6) clear && /etc/vpssim/menu/varnish/varnish63;;
-7) clear && /etc/vpssim/menu/varnish/varnish64;;
-8) clear && /etc/vpssim/menu/varnish/reset-disk-cache-varnish;;
-9) clear && /etc/vpssim/menu/varnish/uninstall-varnish;;
-#0) clear && vpssim;;
-0) clear && /etc/vpssim/menu/vpssim-tien-ich;;
+1) clear && /etc/kpanel/menu/varnish/varnish40;;
+2) clear && /etc/kpanel/menu/varnish/varnish41;;
+3) clear && /etc/kpanel/menu/varnish/varnish60;;
+4) clear && /etc/kpanel/menu/varnish/varnish61;;
+5) clear && /etc/kpanel/menu/varnish/varnish62;;
+6) clear && /etc/kpanel/menu/varnish/varnish63;;
+7) clear && /etc/kpanel/menu/varnish/varnish64;;
+8) clear && /etc/kpanel/menu/varnish/reset-disk-cache-varnish;;
+9) clear && /etc/kpanel/menu/varnish/uninstall-varnish;;
+#0) clear && kpanel;;
+0) clear && /etc/kpanel/menu/kpanel-tien-ich;;
 *) echo "Ban nhap sai ! Ban vui long chon so trong danh sach";continue;;
 esac
 done

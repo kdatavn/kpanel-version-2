@@ -1,75 +1,75 @@
 #!/bin/sh
-. /home/vpssim.conf
-rm -rf /tmp/vpssim*
+. /home/kpanel.conf
+rm -rf /tmp/kpanel*
 echo "-------------------------------------------------------------------------"
-echo "Please wait. VPSSIM dang kiem tra ..."; sleep 1
+echo "Please wait. kpanel dang kiem tra ..."; sleep 1
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "$(/sbin/service memcached status | awk 'NR==1 {print $5}')" == "running..." ]; then
-		echo "Memcached: Running | Ram Usage: `grep CACHESIZE= /etc/sysconfig/memcached | grep -o '[0-9]*'` MB"  > /tmp/vpssim-memcached-info.txt
+		echo "Memcached: Running | Ram Usage: `grep CACHESIZE= /etc/sysconfig/memcached | grep -o '[0-9]*'` MB"  > /tmp/kpanel-memcached-info.txt
 	else
-		echo "Memcached: Stopped"  > /tmp/vpssim-memcached-info.txt
+		echo "Memcached: Stopped"  > /tmp/kpanel-memcached-info.txt
 	fi
 fi
 
 #if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then 
 if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "`systemctl is-active memcached.service`" == "active" ]; then
-		echo "Memcached: Running | Ram Usage: `grep CACHESIZE= /etc/sysconfig/memcached | grep -o '[0-9]*'` MB"  > /tmp/vpssim-memcached-info.txt
+		echo "Memcached: Running | Ram Usage: `grep CACHESIZE= /etc/sysconfig/memcached | grep -o '[0-9]*'` MB"  > /tmp/kpanel-memcached-info.txt
 	else
-		echo "Memcached: Stopped"  > /tmp/vpssim-memcached-info.txt
+		echo "Memcached: Stopped"  > /tmp/kpanel-memcached-info.txt
 	fi
 fi
 
-if [ ! -f /etc/vpssim/uploadsite ]; then 
-echo "File Manager: Not Install " > /tmp/vpssim-filemanager-info.txt
+if [ ! -f /etc/kpanel/uploadsite ]; then 
+echo "File Manager: Not Install " > /tmp/kpanel-filemanager-info.txt
 else
-uploadsite=$(cat /etc/vpssim/uploadsite)
-echo "File Manager: Installed | Domain: $uploadsite" > /tmp/vpssim-filemanager-info.txt
+uploadsite=$(cat /etc/kpanel/uploadsite)
+echo "File Manager: Installed | Domain: $uploadsite" > /tmp/kpanel-filemanager-info.txt
 fi
 
-if [ ! -f /etc/vpssim/net2ftpsite.info ]; then 
-echo "Net2FTP: Not Install " > /tmp/vpssim-net2ftp-info.txt
+if [ ! -f /etc/kpanel/net2ftpsite.info ]; then 
+echo "Net2FTP: Not Install " > /tmp/kpanel-net2ftp-info.txt
 else
-net2ftpsite=$(cat /etc/vpssim/net2ftpsite.info)
-echo "Net2FTP: Installed | Domain: $net2ftpsite" > /tmp/vpssim-net2ftp-info.txt
+net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
+echo "Net2FTP: Installed | Domain: $net2ftpsite" > /tmp/kpanel-net2ftp-info.txt
 fi
 
-if [ ! -f /etc/vpssim/netdatasite.info ]; then 
-echo "NetData: Not Install " > /tmp/vpssim-netdata-info.txt
+if [ ! -f /etc/kpanel/netdatasite.info ]; then 
+echo "NetData: Not Install " > /tmp/kpanel-netdata-info.txt
 else
-netdatasite=$(cat /etc/vpssim/netdatasite.info)
+netdatasite=$(cat /etc/kpanel/netdatasite.info)
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "$(/sbin/service netdata status | awk 'NR==1 {print $5}')" == "running..." ]; then
-echo "NetData: Installed & Enable | Domain: $netdatasite" > /tmp/vpssim-netdata-info.txt
+echo "NetData: Installed & Enable | Domain: $netdatasite" > /tmp/kpanel-netdata-info.txt
 	else
-echo "NetData: Installed But Disable | Domain: $netdatasite" > /tmp/vpssim-netdata-info.txt
+echo "NetData: Installed But Disable | Domain: $netdatasite" > /tmp/kpanel-netdata-info.txt
 	fi
 fi
 
 #if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then
 if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "`systemctl is-active netdata.service`" == "active" ]; then
-echo "NetData: Installed & Enable | Domain: $netdatasite" > /tmp/vpssim-netdata-info.txt
+echo "NetData: Installed & Enable | Domain: $netdatasite" > /tmp/kpanel-netdata-info.txt
 	else
-echo "NetData: Installed But Disable | Domain: $netdatasite" > /tmp/vpssim-netdata-info.txt
+echo "NetData: Installed But Disable | Domain: $netdatasite" > /tmp/kpanel-netdata-info.txt
 	fi
 fi
 fi
 
 
 if [ ! -f "/etc/csf/csf.conf" ]; then
-echo "CSF Firewall: Not install" > /tmp/vpssim-csf-firewall-info.txt
+echo "CSF Firewall: Not install" > /tmp/kpanel-csf-firewall-info.txt
 else
 csf -v > /tmp/vpssimcheckcscfstatus
 if [ "$(grep disabled /tmp/vpssimcheckcscfstatus)" = "" ]; then
-echo "CSF Firewall: installed | Version: $(csf -v | awk 'NR==1 {print $2}' | sed 's/v//') " > /tmp/vpssim-csf-firewall-info.txt
+echo "CSF Firewall: installed | Version: $(csf -v | awk 'NR==1 {print $2}' | sed 's/v//') " > /tmp/kpanel-csf-firewall-info.txt
 else
-echo "CSF Firewall: Installed but Disable" > /tmp/vpssim-csf-firewall-info.txt
+echo "CSF Firewall: Installed but Disable" > /tmp/kpanel-csf-firewall-info.txt
 fi
 fi
 
 
-# /etc/vpssim/menu/vpssim-befor-vps-info-redis
+# /etc/kpanel/menu/kpanel-befor-vps-info-redis
 
 
 if [ -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
@@ -86,7 +86,7 @@ clear
 echo "========================================================================"
 echo "MySQL service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5
@@ -113,26 +113,26 @@ rm -f /tmp/config.temp
 	if [ ! -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start MySQL Service"
+echo "kpanel can not start MySQL Service"
 sleep 4 ;
-echo "MySQL Status: Stopped" > /tmp/vpssim-mysql-info.txt
+echo "MySQL Status: Stopped" > /tmp/kpanel-mysql-info.txt
 	else
 	rm -rf /var/lib/mysql/vpssimCheckDB
-echo "MySQL Status: Running" > /tmp/vpssim-mysql-info.txt
+echo "MySQL Status: Running" > /tmp/kpanel-mysql-info.txt
 	fi
 else
 rm -rf /var/lib/mysql/vpssimCheckDB
-echo "MySQL Status: Running" > /tmp/vpssim-mysql-info.txt
+echo "MySQL Status: Running" > /tmp/kpanel-mysql-info.txt
 fi
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "$(/sbin/service nginx status | awk 'NR==1 {print $5}')" == "running..." ]; then
-echo "Nginx Status: Running" > /tmp/vpssim-nginx-info.txt
+echo "Nginx Status: Running" > /tmp/kpanel-nginx-info.txt
 	else
 clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -144,13 +144,13 @@ echo "------------------------------------------------------------------------"
 echo "please wait ..."
 sleep 5 ; clear
 		if [ "$(/sbin/service nginx status | awk 'NR==1 {print $5}')" == "running..." ]; then
-echo "Nginx Status: Running" > /tmp/vpssim-nginx-info.txt
+echo "Nginx Status: Running" > /tmp/kpanel-nginx-info.txt
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
-echo "Nginx Status: Stopped" > /tmp/vpssim-nginx-info.txt
+echo "Nginx Status: Stopped" > /tmp/kpanel-nginx-info.txt
 		fi
 fi
 fi
@@ -159,13 +159,13 @@ fi
 if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "`systemctl is-active nginx.service`" == "active" ]; then
 
-echo "Nginx Status: Running" > /tmp/vpssim-nginx-info.txt
+echo "Nginx Status: Running" > /tmp/kpanel-nginx-info.txt
 	else
 clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -178,26 +178,26 @@ echo "please wait ..."
 sleep 5 ; clear
 	if [ "`systemctl is-active nginx.service`" == "active" ]; then
 
-echo "Nginx Status: Running" > /tmp/vpssim-nginx-info.txt
+echo "Nginx Status: Running" > /tmp/kpanel-nginx-info.txt
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
-echo "Nginx Status: Stopped" > /tmp/vpssim-nginx-info.txt
+echo "Nginx Status: Stopped" > /tmp/kpanel-nginx-info.txt
 		fi
 fi
 fi
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "$(/sbin/service php-fpm status | awk 'NR==1 {print $5}')" == "running..." ]; then
-	echo "PHP Status: Running" > /tmp/vpssim-php-info.txt
-	echo "PHP version: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}') " >> /tmp/vpssim-php-info.txt
+	echo "PHP Status: Running" > /tmp/kpanel-php-info.txt
+	echo "PHP version: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}') " >> /tmp/kpanel-php-info.txt
 	else
 clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -210,14 +210,14 @@ echo "------------------------------------------------------------------------"
 echo "please wait ..."
 sleep 5 ; clear
 			if [ "$(/sbin/service php-fpm status | awk 'NR==1 {print $5}')" == "running..." ]; then
-	echo "PHP Status: Running" > /tmp/vpssim-php-info.txt
-	echo "PHP version: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}') " >> /tmp/vpssim-php-info.txt
+	echo "PHP Status: Running" > /tmp/kpanel-php-info.txt
+	echo "PHP version: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}') " >> /tmp/kpanel-php-info.txt
 		else
 	clear
 echo "========================================================================"
-echo "VPSSIM can not start PHP-FPM Service"
+echo "kpanel can not start PHP-FPM Service"
 sleep 4 ;
-	echo "PHP Status: Stopped" >> /tmp/vpssim-php-info.txt
+	echo "PHP Status: Stopped" >> /tmp/kpanel-php-info.txt
 		fi
 fi
 fi
@@ -225,14 +225,14 @@ fi
 #if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then 
 if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 if [ "`systemctl is-active php-fpm.service`" == "active" ]; then
-	echo "PHP Status: Running" > /tmp/vpssim-php-info.txt
-	echo "PHP version: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}') " >> /tmp/vpssim-php-info.txt
+	echo "PHP Status: Running" > /tmp/kpanel-php-info.txt
+	echo "PHP version: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}') " >> /tmp/kpanel-php-info.txt
 	else
 clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -245,14 +245,14 @@ echo "------------------------------------------------------------------------"
 echo "please wait ..."
 sleep 5 ; clear
 if [ "`systemctl is-active php-fpm.service`" == "active" ]; then
-	echo "PHP Status: Running" > /tmp/vpssim-php-info.txt
-	echo "PHP version: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}') " >> /tmp/vpssim-php-info.txt
+	echo "PHP Status: Running" > /tmp/kpanel-php-info.txt
+	echo "PHP version: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}') " >> /tmp/kpanel-php-info.txt
 		else
 		clear
 echo "========================================================================"
-echo "VPSSIM can not start PHP-FPM Service"
+echo "kpanel can not start PHP-FPM Service"
 sleep 4 ;
-	echo "PHP Status: Stopped" >> /tmp/vpssim-php-info.txt
+	echo "PHP Status: Stopped" >> /tmp/kpanel-php-info.txt
 		fi
 fi
 fi

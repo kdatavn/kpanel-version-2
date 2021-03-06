@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 if [ "$(iptables -L -n | grep :$priport | awk 'NR==1 {print $1}')" == "ACCEPT" ]; then
 clear
@@ -7,7 +7,7 @@ echo "========================================================================="
 echo "Port Phpmyadmin port ($priport) dang OPEN."
 echo "-------------------------------------------------------------------------"
 echo "Ban khong can mo lai no! " 
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
 exit
 fi
 
@@ -28,13 +28,13 @@ echo "========================================================================="
 	echo "-------------------------------------------------------------------------"
 	iptables -I INPUT -p tcp --dport $priport -j ACCEPT
 	service iptables save
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
         ;;
     *)
         clear
 echo "========================================================================="
 echo "Ban huy OPEN Phpmyadmin Port (Port $priport)"
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
         ;;
 esac
 

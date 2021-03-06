@@ -1,12 +1,12 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 phphientai=$(php -r "echo PHP_MAJOR_VERSION.''.PHP_MINOR_VERSION;")
 php_version1=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
 if [ "$php_version1" == "5.4" ]; then
 clear
 echo "========================================================================="
 echo "Phien ban PHP hien tai: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}') "
-/etc/vpssim/menu/nangcap-php/change-php-version-menu
+/etc/kpanel/menu/nangcap-php/change-php-version-menu
 exit
 fi
 echo "========================================================================="
@@ -18,7 +18,7 @@ case $response in
 echo "-------------------------------------------------------------------------"
 echo "Ok ! please wait ...."
 sleep 1
-/etc/vpssim/menu/vpssim-enable-tat-ca-cac-ham-php-php.ini
+/etc/kpanel/menu/kpanel-enable-tat-ca-cac-ham-php-php.ini
 
 mkdir -p /root/updown
 yes | cp -rf /etc/php-fpm.conf /root/updown/
@@ -45,7 +45,7 @@ yum-config-manager --disable remi-php$phphientai
 #
 #yyyyyyyyyyyyyyyyyyyyyy
 yum-config-manager --enable remi-php54
-/etc/vpssim/menu/nangcap-php/install-php5
+/etc/kpanel/menu/nangcap-php/install-php5
 
 #edit php.ini va Zend opcache
 rm -rf /etc/php.ini  
@@ -60,8 +60,8 @@ yes | cp -rf /root/updown/opcache.* /etc/php.d/
 php_version=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
 sed --in-place '/zend_extension/d' /etc/php.d/opcache.*
 yes "" | pecl install imagick
-#wget --no-check-certificate -q https://vpssim.com/script/vpssim/check-imagick.php.zip -O /home/$mainsite/private_html/check-imagick.php
-wget --no-check-certificate -q https://github.com/itvn9online/vpssim-free/raw/master/script/vpssim/check-imagick.php.zip -O /home/$mainsite/private_html/check-imagick.php
+#wget --no-check-certificate -q https://kpanel.com/script/kpanel/check-imagick.php.zip -O /home/$mainsite/private_html/check-imagick.php
+wget --no-check-certificate -q https://github.com/itvn9online/kpanel-free/raw/master/script/kpanel/check-imagick.php.zip -O /home/$mainsite/private_html/check-imagick.php
 if [ "$php_version" == "5.4" ]; then
   if [ "$(find / -name 'opcache.so')" == "0" ]; then
  pecl install channel://pecl.php.net/ZendOpcache-7.0.5
@@ -77,10 +77,10 @@ echo "extension=imagick.so" > /etc/php.d/imagick.ini
 fi
 
 ## Ioncube
-/etc/vpssim/menu/nangcap-php/setup-ioncube
+/etc/kpanel/menu/nangcap-php/setup-ioncube
 
 sed -i '/extension=zip.so/d' /etc/php.ini
-/etc/vpssim/menu/vpssim-re-config-cac-ham-php-disable-php.ini
+/etc/kpanel/menu/kpanel-re-config-cac-ham-php-disable-php.ini
 rm -rf /root/updown/
 phpmyadmin_version=4.4.15.7
 cd  /home/$mainsite/private_html/
@@ -91,8 +91,8 @@ rm -rf phpMyAdmin-*
 cd
 chown -R nginx:nginx /home/$mainsite/private_html
 chmod 777 /var/lib/php/session/
-rm -rf /etc/vpssim/phpmyadmin.version
-echo "4.4.15.7" > /etc/vpssim/phpmyadmin.version
+rm -rf /etc/kpanel/phpmyadmin.version
+echo "4.4.15.7" > /etc/kpanel/phpmyadmin.version
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 chkconfig --add php-fpm
 chkconfig --levels 235 php-fpm on
@@ -109,7 +109,7 @@ if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6
 	echo "========================================================================="
 	echo "Sorry, There's an error on changing PHP version."
 	
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 fi
 fi
 #if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then 
@@ -118,7 +118,7 @@ if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == 
 	clear
 	echo "========================================================================="
 	echo "Sorry, There's an error on changing PHP version."
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 fi
 fi
 clear
@@ -126,11 +126,11 @@ echo "========================================================================="
 echo "Hoan thanh thay doi PHP version. "
 echo "-------------------------------------------------------------------------"
 echo "Phien ban PHP hien tai: $(php -i | grep 'PHP Version' | awk 'NR==1 {print $4}')                          "
-/etc/vpssim/menu/nangcap-php/change-php-version-menu
+/etc/kpanel/menu/nangcap-php/change-php-version-menu
         ;;
 esac
 clear
 echo "========================================================================="
   printf "Ban huy thay doi phien ban PHP.                         \n"
-/etc/vpssim/menu/nangcap-php/change-php-version-menu
+/etc/kpanel/menu/nangcap-php/change-php-version-menu
 

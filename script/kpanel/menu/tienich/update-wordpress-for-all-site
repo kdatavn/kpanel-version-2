@@ -1,6 +1,6 @@
 #!/bin/bash
-if [ ! -f /tmp/server_wp_all_update ] && [ -f /home/vpssim.conf ]; then
-. /home/vpssim.conf
+if [ ! -f /tmp/server_wp_all_update ] && [ -f /home/kpanel.conf ]; then
+. /home/kpanel.conf
 fi
 
 
@@ -11,7 +11,7 @@ fi
 
 # TEST Only
 for_test_only () {
-/etc/vpssim/menu/tienich/update-wordpress-for-all-site
+/etc/kpanel/menu/tienich/update-wordpress-for-all-site
 
 if [ -L /home/user25575/domains/cabki.vn/public_html ]; then
 echo "dir"
@@ -489,7 +489,7 @@ if [ $2 -lt $3 ]; then
 								chown -R $4:$4 $d
 								chown -R $4:$4 $d/*
 							else
-								# voi VPSSIM, HOCVPS -> phan quyen cho user va nginx
+								# voi kpanel, HOCVPS -> phan quyen cho user va nginx
 								id -u nginx
 								if [ $? -eq 0 ]; then
 									chown -R $4:nginx $d
@@ -563,8 +563,8 @@ fi
 cd ~
 
 
-if [ ! -f /tmp/server_wp_all_update ] && [ -f /home/vpssim.conf ]; then
-/etc/vpssim/menu/vpssim-tien-ich
+if [ ! -f /tmp/server_wp_all_update ] && [ -f /home/kpanel.conf ]; then
+/etc/kpanel/menu/kpanel-tien-ich
 fi
 
 

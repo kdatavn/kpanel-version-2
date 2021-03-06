@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Dung chuc nang nay config Vhost de su dung Plugin Cache. Hoac thay doi"
 echo "-------------------------------------------------------------------------"
@@ -14,7 +14,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "You typed wrong, please type in accurately! "
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}";
@@ -25,7 +25,7 @@ echo "========================================================================="
 echo "$website co le khong phai ten domain !"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
@@ -34,7 +34,7 @@ echo "========================================================================="
 echo "Khong tim thay $website tren he thong"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 
@@ -44,7 +44,7 @@ echo "========================================================================="
 echo "$website co the khong phai wordpress web hoac chua cai dat WP"
 echo "-------------------------------------------------------------------------"
 echo "Vui long cai dat Wordpress code truoc hoac thu domain khac"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 if [ "$(grep "include /etc/nginx/conf/w3total.conf;" /etc/nginx/conf.d/$website.conf)" == "" ]; then
@@ -52,8 +52,8 @@ clear
 echo "========================================================================="
 echo "Ban da xoa 1 trong 3 dong: AAA, CCC, DDD trong Vhost cua $website"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien yeu cau cua ban"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+echo "kpanel khong the thuc hien yeu cau cua ban"
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
    if [ "$(grep "include /etc/nginx/conf/supercache.conf;" /etc/nginx/conf.d/$website.conf)" == "" ]; then
@@ -61,8 +61,8 @@ clear
 echo "========================================================================="
 echo "Ban da xoa 1 trong 3 dong: AAA, CCC, DDD trong Vhost cua $website"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien yeu cau cua ban"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+echo "kpanel khong the thuc hien yeu cau cua ban"
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
     if [ "$(grep "include /etc/nginx/conf/all.conf;" /etc/nginx/conf.d/$website.conf)" == "" ]; then
@@ -70,8 +70,8 @@ clear
 echo "========================================================================="
 echo "Ban da xoa 1 trong 3 dong: AAA, CCC, DDD trong Vhost cua $website"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien yeu cau cua ban"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+echo "kpanel khong the thuc hien yeu cau cua ban"
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
 echo "-------------------------------------------------------------------------"
@@ -105,16 +105,16 @@ echo "-------------------------------------------------------------------------"
 clear
 echo "========================================================================="
 echo "$website dang duoc config su dung Redis Cache"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
   if [ "$(grep "include /etc/nginx/conf/all.conf;" /etc/nginx/conf.d/$website.conf)" == "" ]; then
 clear
 echo "========================================================================="
-echo "Ban da thay doi file cau hinh Vhost cua VPSSIM"
+echo "Ban da thay doi file cau hinh Vhost cua kpanel"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien chuc nang nay"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+echo "kpanel khong the thuc hien chuc nang nay"
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
 cat > "/tmp/re-config-vhost.sh" <<END
@@ -134,7 +134,7 @@ fi
 clear
 echo "========================================================================="
 echo "Cau hinh Vhost cua $website cho Redis Cache thanh cong"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 ###################################
 #supercache
 ###################################
@@ -146,16 +146,16 @@ echo "-------------------------------------------------------------------------"
 clear
 echo "========================================================================="
 echo "$website dang duoc config su dung WP Super Cache"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
   if [ "$(grep "include /etc/nginx/conf/supercache.conf;" /etc/nginx/conf.d/$website.conf)" == "" ]; then
 clear
 echo "========================================================================="
-echo "Ban da thay doi file cau hinh Vhost cua VPSSIM"
+echo "Ban da thay doi file cau hinh Vhost cua kpanel"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien chuc nang nay"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+echo "kpanel khong the thuc hien chuc nang nay"
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
 cat > "/tmp/re-config-vhost.sh" <<END
@@ -175,7 +175,7 @@ fi
 clear
 echo "========================================================================="
 echo "Cau hinh Vhost cua $website cho WP Super Cache thanh cong"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 
 ####################
 #w3total
@@ -189,16 +189,16 @@ echo "-------------------------------------------------------------------------"
 clear
 echo "========================================================================="
 echo "$website dang duoc config su dung W3 Total Cache"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
     if [ "$(grep "include /etc/nginx/conf/w3total.conf;" /etc/nginx/conf.d/$website.conf)" == "" ]; then
 clear
 echo "========================================================================="
-echo "Ban da thay doi file cau hinh Vhost cua VPSSIM"
+echo "Ban da thay doi file cau hinh Vhost cua kpanel"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien chuc nang nay"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+echo "kpanel khong the thuc hien chuc nang nay"
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
 cat > "/tmp/re-config-vhost.sh" <<END
@@ -218,10 +218,10 @@ fi
 clear
 echo "========================================================================="
 echo "Cau hinh Vhost cua $website cho W3 Total Cache thanh cong"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 ###################################
 #Huy bo 
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-wordpress-tools-menu
+clear && /etc/kpanel/menu/kpanel-wordpress-tools-menu
 fi

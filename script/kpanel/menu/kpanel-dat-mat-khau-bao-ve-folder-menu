@@ -1,16 +1,16 @@
 #!/bin/sh
 if [ ! -f /usr/local/bin/htpasswd.py ]; then
-cp -r /etc/vpssim/menu/vpssim-tao-mat-khau-bao-ve-folder.py /usr/local/bin/htpasswd.py
+cp -r /etc/kpanel/menu/kpanel-tao-mat-khau-bao-ve-folder.py /usr/local/bin/htpasswd.py
 chmod 755 /usr/local/bin/htpasswd.py
 fi
-if [ ! -f /etc/vpssim/pwprotect.default ]; then
-echo "" > /etc/vpssim/pwprotect.default
+if [ ! -f /etc/kpanel/pwprotect.default ]; then
+echo "" > /etc/kpanel/pwprotect.default
 fi
 if [ ! -d /etc/nginx/pwprotect ]; then
 mkdir -p /etc/nginx/pwprotect
 fi
-if [ ! -f /etc/vpssim/pwprotect.default ]; then
-echo "" > /etc/vpssim/pwprotect.default
+if [ ! -f /etc/kpanel/pwprotect.default ]; then
+echo "" > /etc/kpanel/pwprotect.default
 fi
 echo "========================================================================="
 prompt="Lua chon cua ban: "
@@ -28,11 +28,11 @@ done
 
 ###################################
 if [ "$luachonacction" = "taomatkhau" ]; then
-/etc/vpssim/menu/vpssim-dat-mat-khau-bao-ve-folder-website
+/etc/kpanel/menu/kpanel-dat-mat-khau-bao-ve-folder-website
 ###################################
 elif [ "$luachonacction" = "taomatkhaumacdinh" ]; then
-/etc/vpssim/menu/dat-mat-khau-bao-ve-folder-mac-dinh
+/etc/kpanel/menu/dat-mat-khau-bao-ve-folder-mac-dinh
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-tien-ich
+clear && /etc/kpanel/menu/kpanel-tien-ich
 fi

@@ -1,11 +1,11 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 rm -rf /tmp/*hostingaz*
 mkdir -p /tmp/sitedangbatpagespeedhostingaz
-ls /etc/nginx/conf.d > /tmp/vpssim-websitelist
-sed -i 's/\.conf//g' /tmp/vpssim-websitelist 
-sowebsitetrenserver=$(cat /tmp/vpssim-websitelist | wc -l)
-websitetrenserver=$(cat /tmp/vpssim-websitelist)
+ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
+sed -i 's/\.conf//g' /tmp/kpanel-websitelist 
+sowebsitetrenserver=$(cat /tmp/kpanel-websitelist | wc -l)
+websitetrenserver=$(cat /tmp/kpanel-websitelist)
 for website in $websitetrenserver 
 do
 if [ "$(grep "ngx_pagespeed.conf" /etc/nginx/conf.d/$website.conf)" == "include /etc/nginx/ngx_pagespeed.conf;" ]; then
@@ -27,6 +27,6 @@ echo "-------------------------------------------------------------------------"
 ls /tmp/sitedangbatpagespeedhostingaz | pr -3 -t
 fi
 rm -rf /tmp/*hostingaz*
-rm -rf /tmp/*vpssim*
-/etc/vpssim/menu/pagespeed/vpssim-pagespeed-menu
+rm -rf /tmp/*kpanel*
+/etc/kpanel/menu/pagespeed/kpanel-pagespeed-menu
 

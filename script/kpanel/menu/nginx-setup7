@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /opt/echbay_vpssim/script/vpssim/nginx-setup.conf
+. /opt/kdata_kpanel/script/kpanel/nginx-setup.conf
 echo $moduledir
 echo $opensslversion
 echo $withopensslopt
@@ -12,18 +12,18 @@ echo "Install after 3s"
 sleep 3
 
 
-/opt/echbay_vpssim/script/vpssim/menu/nginx-setup-download
+/opt/kdata_kpanel/script/kpanel/menu/nginx-setup-download
 
 
 cd
-cd /usr/local/vpssim
+cd /usr/local/kpanel
 #cai dat  nginx
 wget -q http://nginx.org/download/nginx-${Nginx_VERSION}.tar.gz
 tar -xzf nginx-${Nginx_VERSION}.tar.gz
-rm -rf /usr/local/vpssim/nginx-${Nginx_VERSION}.tar.gz 
-cd /usr/local/vpssim/nginx-${Nginx_VERSION}
-#sed -i 's/"Server: nginx"/"Server: Nginx-VPSSIM"/g' /usr/local/vpssim/nginx-${Nginx_VERSION}/src/http/ngx_http_header_filter_module.c
-#sed -i 's/"Server: "/"Server: Nginx-VPSSIM"/g' /usr/local/vpssim/nginx-${Nginx_VERSION}/src/http/ngx_http_header_filter_module.c
+rm -rf /usr/local/kpanel/nginx-${Nginx_VERSION}.tar.gz 
+cd /usr/local/kpanel/nginx-${Nginx_VERSION}
+#sed -i 's/"Server: nginx"/"Server: Nginx-kpanel"/g' /usr/local/kpanel/nginx-${Nginx_VERSION}/src/http/ngx_http_header_filter_module.c
+#sed -i 's/"Server: "/"Server: Nginx-kpanel"/g' /usr/local/kpanel/nginx-${Nginx_VERSION}/src/http/ngx_http_header_filter_module.c
 ./configure --group=nginx --user=nginx \
 --pid-path=/var/run/nginx.pid \
 --prefix=/usr/share/nginx \

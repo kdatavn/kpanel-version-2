@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 randomwp=`date |md5sum |cut -c '1-7'`
 echo "========================================================================="
 echo "Them Website + Wordpress code moi nhat."
@@ -14,7 +14,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap chinh xac"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}$";
@@ -25,7 +25,7 @@ echo "========================================================================="
 echo "$website khong dung dinh dang domain!"
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 if [ -f /etc/nginx/conf.d/$website.conf ]; then
@@ -34,7 +34,7 @@ echo "========================================================================="
 echo "$website da ton tai tren he thong !"
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 
@@ -62,7 +62,7 @@ done
 if [ "$vhostconfig" = "redis" ]; then
 clear
 printf "=========================================================================\n"
-echo "VPSSIM se download Wordpress Code vao /home/$website/public_html"
+echo "kpanel se download Wordpress Code vao /home/$website/public_html"
 echo "-------------------------------------------------------------------------"
 echo "Va cau hinh Vhost su dung Redis Cache"
 sleep 7
@@ -89,7 +89,7 @@ include /etc/nginx/conf/ddos2.conf;
 #///////////////////////////////////////////////////////
 # Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua VPSSIM
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
@@ -112,8 +112,8 @@ include /etc/nginx/conf/all.conf;
 
 
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
 
 # Error Page
@@ -158,7 +158,7 @@ END
 elif [ "$vhostconfig" = "supercache" ]; then
 clear
 printf "=========================================================================\n"
-echo "VPSSIM se download Wordpress Code vao /home/$website/public_html"
+echo "kpanel se download Wordpress Code vao /home/$website/public_html"
 echo "-------------------------------------------------------------------------"
 echo "Va cau hinh Vhost su dung WP Super Cache"
 sleep 7
@@ -185,7 +185,7 @@ include /etc/nginx/conf/ddos2.conf;
 #///////////////////////////////////////////////////////
 # Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua VPSSIM
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
@@ -208,8 +208,8 @@ include /etc/nginx/conf/supercache.conf;
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
 # Error Page
@@ -252,7 +252,7 @@ END
 elif [ "$vhostconfig" = "wptotalcache" ]; then
 clear
 printf "=========================================================================\n"
-echo "VPSSIM se download Wordpress Code vao /home/$website/public_html"
+echo "kpanel se download Wordpress Code vao /home/$website/public_html"
 echo "-------------------------------------------------------------------------"
 echo "Va cau hinh Vhost su dung W3 Total Cache"
 sleep 7
@@ -279,7 +279,7 @@ include /etc/nginx/conf/ddos2.conf;
 #///////////////////////////////////////////////////////
 # Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua VPSSIM
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
@@ -303,8 +303,8 @@ include /etc/nginx/conf/w3total.conf;
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf; 
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
 # Error Page
@@ -345,7 +345,7 @@ END
 else 
 clear
 printf "=========================================================================\n"
-echo "VPSSIM se download Wordpress Code vao /home/$website/public_html"
+echo "kpanel se download Wordpress Code vao /home/$website/public_html"
 echo "-------------------------------------------------------------------------"
 echo "Ban se tu cau hinh Vhost"
 sleep 7
@@ -372,7 +372,7 @@ include /etc/nginx/conf/ddos2.conf;
 #///////////////////////////////////////////////////////
 # Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua VPSSIM
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
@@ -396,8 +396,8 @@ include /etc/nginx/conf/all.conf;
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
 # Error Page
@@ -451,15 +451,15 @@ clear
     cd
 chown -R nginx:nginx /home/$website/public_html/
 find /home/$website/public_html/ -type d -exec chmod g+s {} \;
-\cp -uf /etc/vpssim/menu/robots.txt /home/$website/public_html/
+\cp -uf /etc/kpanel/menu/robots.txt /home/$website/public_html/
 ##echo "define('FS_METHOD','direct');" >> /home/$website/public_html/wp-config-sample.php
 perl -pi -e "s/= 'wp_';/= 'wp_${randomwp}_';/g" /home/$website/public_html/wp-config-sample.php
-mkdir -p /home/$website/errorpage_html && cp -r /etc/vpssim/errorpage_html/*.html /home/$website/errorpage_html
+mkdir -p /home/$website/errorpage_html && cp -r /etc/kpanel/errorpage_html/*.html /home/$website/errorpage_html
 #######################################################################
 #######################################################################
 echo "========================================================================="
 echo "========================================================================="
-read -r -p "Ban co muon VPSSIM tao Database moi cho $website ? [y/N] " response
+read -r -p "Ban co muon kpanel tao Database moi cho $website ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "Please wait....";sleep 1
@@ -525,7 +525,7 @@ echo "User name: $username"
 echo "Mat khau: $password"
 echo "-------------------------------------------------------------------------"
 echo "Thong tin database da duoc luu vao: /home/DBinfo.txt"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
         ;;
     *)
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
@@ -540,6 +540,6 @@ echo "-------------------------------------------------------------------------"
 echo "Wordpress code da duoc download vao /home/$website/public_html "
 echo "-------------------------------------------------------------------------"
 echo "File Vhost: /etc/nginx/conf.d/$website.conf"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
         ;;
 esac

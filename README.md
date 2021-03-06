@@ -8,7 +8,7 @@ test
 ### Phiên bản hệ điều hành khuyên dùng:
 - [x] **`CentOS 7 x64` Khuyên dùng để cho hiệu suất tốt nhất. Mã nguồn KPANEL hiện tại đang phát triển chính trên CentOS 7 x64.**
 - [ ] `CentOS 8 x64` MỚI và đang thử nghiệm. Tương lai gần KPANEL cũng sẽ phát triển song song cả trên CentOS 8 x64, hiện tại mới đang thử nghiệm.
-- [ ] `CentOS 6 x64` KPANEL được phát triển trên phiên bản CentOS 6 x64, do KPANEL kế thừa mã nguồn của VPSSIM nên KPANEL cũng hoạt động tốt trên CentOS 6 x64, nên nếu có yêu cầu bắt buộc phải dùng CentOS 6 thì bạn có thể hoàn toàn yên tâm sử dụng, chỉ là về lâu dài thì các phiên bản cũ sẽ trờ nên lỗi thời, nên KPANEL chỉ phát triển từ CentOS 7 & 8.
+- [ ] `CentOS 6 x64` KPANEL được phát triển trên phiên bản CentOS 6 x64, do KPANEL kế thừa mã nguồn của kpanel nên KPANEL cũng hoạt động tốt trên CentOS 6 x64, nên nếu có yêu cầu bắt buộc phải dùng CentOS 6 thì bạn có thể hoàn toàn yên tâm sử dụng, chỉ là về lâu dài thì các phiên bản cũ sẽ trờ nên lỗi thời, nên KPANEL chỉ phát triển từ CentOS 7 & 8.
 
 ----------------------------------------------
 

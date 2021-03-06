@@ -1,9 +1,9 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ -f /etc/php.d/opcache.ini ]; then
 clear
 echo "========================================================================="
-echo "               VPSSIM - Manage VPS/Server by HostingAZ.VN      "       
+echo "               kpanel - Manage VPS/Server by HostingAZ.VN      "       
 echo "========================================================================="
 echo "                        Cau hinh Zend OPcache"
 echo "========================================================================="
@@ -21,7 +21,7 @@ if [ "$opcacheram" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 
@@ -33,11 +33,11 @@ echo "-------------------------------------------------------------------------"
 echo "RAM cho Opcache phai la so tu nhien nam trong khoang (20 - $(calc $( free -m | awk 'NR==2 {print $2}' )/5))."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi  
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM dang dem so luong file php tren VPS"
+echo "kpanel dang dem so luong file php tren VPS"
 sleep 1
 echo "========================================================================="
 echo "So File PHP hien tai trong folder HOME cua VPS: $(find /home -type f | grep php | wc -l) files"
@@ -50,7 +50,7 @@ if [ "$filephp" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 
@@ -62,7 +62,7 @@ echo "-------------------------------------------------------------------------"
 echo "MAX FILES phai la so tu nhien nam trong khoang (2000 - 50000)."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi  
 echo "========================================================================="
@@ -76,7 +76,7 @@ if [ "$timeclear" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 
@@ -88,7 +88,7 @@ echo "-------------------------------------------------------------------------"
 echo "Thoi gian tu dong clear Zend Opcache phai nam trong khoang (30 - 9999999)."
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long nhap lai !"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi  
 
@@ -116,7 +116,7 @@ echo "========================================================================="
 echo "Ban config sai ! Vui long config lai ."
 echo "-------------------------------------------------------------------------"
 echo "Website dang bi loi 502  !"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 fi
@@ -129,7 +129,7 @@ echo "========================================================================="
 echo "Ban config sai ! Vui long config lai ."
 echo "-------------------------------------------------------------------------"
 echo "Website dang bi loi 502  !"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 fi
@@ -142,7 +142,7 @@ echo "========================================================================="
 echo "Ban config sai ! Vui long config lai ."
 echo "-------------------------------------------------------------------------"
 echo "Website dang bi loi 502  !"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi
 fi
@@ -153,13 +153,13 @@ echo "-------------------------------------------------------------------------"
 echo "Max PHP file Zend Opcache co the cache = $filephp"
 echo "-------------------------------------------------------------------------"
 echo "PHP cached se duoc tu dong clear moi $timeclear giay"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 fi
 clear
 echo "========================================================================= "
 echo "Zend OPcache dang disable tren VPS"
 echo "-------------------------------------------------------------------------"
 echo "Hay bat Zend Opcache len de VPS co hieu suat tot nhat!"
-/etc/vpssim/menu/opcache/vpssim-before-opcache
+/etc/kpanel/menu/opcache/kpanel-before-opcache
 exit
 fi

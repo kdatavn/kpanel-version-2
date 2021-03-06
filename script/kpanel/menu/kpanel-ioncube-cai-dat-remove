@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 if [ -f /etc/php.d/ioncube.ini ]; then
 echo "========================================================================="
@@ -27,13 +27,13 @@ clear
 echo "========================================================================="
 
 	echo "Go bo Ioncube Loader thanh cong !"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
     *)
        clear
     echo "========================================================================="
    echo "Ban huy bo remove Ioncube Loader"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
 esac
 exit
@@ -45,7 +45,7 @@ echo "========================================================================="
 echo "Ban dang dung PHP 7.0"
 echo "-------------------------------------------------------------------------"
 echo "Chuc nang nay khong ho tro PHP 7.0"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 echo "========================================================================="
@@ -59,16 +59,16 @@ case $response in
     echo "-------------------------------------------------------------------------"
 		echo "Please wait..."
 		sleep 1
-/etc/vpssim/menu/vpssim-enable-tat-ca-cac-ham-php-php.ini
+/etc/kpanel/menu/kpanel-enable-tat-ca-cac-ham-php-php.ini
 sleep 1
 
 # tao file nay de goi toi file cai dat ioncube thi no moi cai
 echo "ioncubestatus=1" > /tmp/change_php_config
 
 ## Ioncube
-/etc/vpssim/menu/nangcap-php/setup-ioncube
+/etc/kpanel/menu/nangcap-php/setup-ioncube
 
-/etc/vpssim/menu/vpssim-re-config-cac-ham-php-disable-php.ini
+/etc/kpanel/menu/kpanel-re-config-cac-ham-php-disable-php.ini
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 service php-fpm restart
 else
@@ -77,13 +77,13 @@ fi
 clear
 echo "========================================================================="
 echo "Cai dat Ioncube Loader vao server thanh cong !"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
        ;;
     *)
     clear
     echo "========================================================================="
    echo "Ban huy install Ioncube Loader"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
 esac
 exit

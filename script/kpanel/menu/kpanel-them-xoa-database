@@ -1,14 +1,14 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -f /usr/local/bin/htpasswd.py ]; then
-cp -r /etc/vpssim/menu/vpssim-tao-mat-khau-bao-ve-folder.py /usr/local/bin/htpasswd.py
+cp -r /etc/kpanel/menu/kpanel-tao-mat-khau-bao-ve-folder.py /usr/local/bin/htpasswd.py
 chmod 755 /usr/local/bin/htpasswd.py
 fi
-if [ ! -f /etc/vpssim/pwprotect.default ]; then
-echo "" > /etc/vpssim/pwprotect.default
+if [ ! -f /etc/kpanel/pwprotect.default ]; then
+echo "" > /etc/kpanel/pwprotect.default
 fi
-if [ ! -f /etc/cron.d/vpssim.db.cron ]; then
-touch /etc/cron.d/vpssim.db.cron
+if [ ! -f /etc/cron.d/kpanel.db.cron ]; then
+touch /etc/cron.d/kpanel.db.cron
 fi
 if [ ! -d /home/$mainsite/private_html/backup ]; then
 mkdir -p /home/$mainsite/private_html/backup
@@ -42,11 +42,11 @@ numberdb=$(cat /tmp/vpssim_listdbf | wc -l)
 else
 databasesize=0KB
 fi
-rm -rf /tmp/*vpssim*
+rm -rf /tmp/*kpanel*
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Tao Database" "Xoa Database" "Backup 1 Database" "Backup Tat Ca Database" "Auto Backup Database" "Phuc Hoi (Restore) Database" "Auto re-Start MySQL Server" "Xem Mat Khau User Root MySQL" "Thay Doi Pass User Root MySQL" "Re-config MySQL" "Lay Link File Backup" "Xoa Tat Ca File Backup" "Danh Sach Database")
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                            Quan ly Database                 \n"
 printf "=========================================================================\n"
@@ -67,22 +67,22 @@ PS3="$prompt"
 select opt in "${options[@]}" ; do 
 
     case "$REPLY" in   
-    1) /etc/vpssim/menu/vpssim-tao-database;;
-    2) /etc/vpssim/menu/vpssim-xoa-database;; 
-    3 ) /etc/vpssim/menu/vpssim-sao-luu-data;;
-    4 ) /etc/vpssim/menu/vpssim-lan-luot-sao-luu-het-tat-ca-database;;
-    #4) clear && /etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-tat-ca-database-menu;; "Full Backup & Restore Database" 
-    5) /etc/vpssim/menu/vpssim-tu-dong-sao-luu-database-menu;;
-    6 ) /etc/vpssim/menu/vpssim-phuc-hoi-database-chon-dinh-dang;;
-    7) /etc/vpssim/menu/tienich/befor-auto-start-mysql;;
-    8) /etc/vpssim/menu/vpssim-hien-mat-khau-root-mysql;;
-    9) /etc/vpssim/menu/vpssim-change-root-mysql-password;;
-    10) /etc/vpssim/menu/vpssim-re-config-database-cau-hinh-lai-mysql;;
-    11 ) /etc/vpssim/menu/vpssim-lay-link-sao-luu-database-backup-menu;;
-    12 ) /etc/vpssim/menu/vpssim-xoa-toan-bo-backup-database;;
-    13) /etc/vpssim/menu/vpssim-list-database-tren-vps-them-xoa-function;; 
-    14) clear && /bin/vpssim;;
-    0) clear && vpssim;;
+    1) /etc/kpanel/menu/kpanel-tao-database;;
+    2) /etc/kpanel/menu/kpanel-xoa-database;; 
+    3 ) /etc/kpanel/menu/kpanel-sao-luu-data;;
+    4 ) /etc/kpanel/menu/kpanel-lan-luot-sao-luu-het-tat-ca-database;;
+    #4) clear && /etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-tat-ca-database-menu;; "Full Backup & Restore Database" 
+    5) /etc/kpanel/menu/kpanel-tu-dong-sao-luu-database-menu;;
+    6 ) /etc/kpanel/menu/kpanel-phuc-hoi-database-chon-dinh-dang;;
+    7) /etc/kpanel/menu/tienich/befor-auto-start-mysql;;
+    8) /etc/kpanel/menu/kpanel-hien-mat-khau-root-mysql;;
+    9) /etc/kpanel/menu/kpanel-change-root-mysql-password;;
+    10) /etc/kpanel/menu/kpanel-re-config-database-cau-hinh-lai-mysql;;
+    11 ) /etc/kpanel/menu/kpanel-lay-link-sao-luu-database-backup-menu;;
+    12 ) /etc/kpanel/menu/kpanel-xoa-toan-bo-backup-database;;
+    13) /etc/kpanel/menu/kpanel-list-database-tren-vps-them-xoa-function;; 
+    14) clear && /bin/kpanel;;
+    0) clear && kpanel;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
     esac

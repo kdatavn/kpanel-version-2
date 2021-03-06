@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Su dung chuc nang nay de them website vao server"
 echo "-------------------------------------------------------------------------"
@@ -11,7 +11,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 
@@ -23,7 +23,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 
@@ -31,11 +31,11 @@ if [ -f /etc/nginx/conf.d/$website.conf ]; then
 clear
 echo "========================================================================="
 echo "Phat hien $website da ton tai tren he thong!"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
     mkdir -p "/home/$website/public_html"
-    \cp -uf /etc/vpssim/menu/robots.txt "/home/$website/public_html/"
+    \cp -uf /etc/kpanel/menu/robots.txt "/home/$website/public_html/"
 chown -R nginx:nginx "/home/$website/public_html/"
 find "/home/$website/public_html/" -type d -exec chmod g+s {} \;
     mkdir -p "/home/$website/logs"
@@ -45,7 +45,7 @@ add_index_html(){
 cat > "/home/$website/public_html/index.html" <<END
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 	<head>
-		<title>Them $website vao server bang VPSSIM thanh cong !</title>
+		<title>Them $website vao server bang kpanel thanh cong !</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<style type="text/css">
 			/*<![CDATA[*/
@@ -74,7 +74,7 @@ cat > "/home/$website/public_html/index.html" <<END
 		</style>
 	</head>
 	<body>
-		<h1><strong>Them $website vao server bang <a href="https://hostingaz.vn/3455-cai-dat-nginx-mariadb-php-fpm-lemp-toi-uu-bao-mat-vps-centos-vpssim.html" title="Cai dat VPSSIM, huong dan cai dat VPSSIM tren VPS server" > VPSSIM</a> thanh cong !</strong></h1>
+		<h1><strong>Them $website vao server bang <a href="https://hostingaz.vn/3455-cai-dat-nginx-mariadb-php-fpm-lemp-toi-uu-bao-mat-vps-centos-kpanel.html" title="Cai dat kpanel, huong dan cai dat kpanel tren VPS server" > kpanel</a> thanh cong !</strong></h1>
 			</body>
 </html>
 END
@@ -118,7 +118,7 @@ include /etc/nginx/conf/ddos2.conf;
 #///////////////////////////////////////////////////////
 # Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua VPSSIM
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
@@ -142,8 +142,8 @@ include /etc/nginx/conf/all.conf;
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;  
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
 
 # Error Page
@@ -180,18 +180,18 @@ include /etc/nginx/conf/drop.conf;
     }
 END
 
-if [ ! -d /etc/vpssim/errorpage_html ]; then
-	if [ -d /opt/echbay_vpssim/script/vpssim/errorpage_html ]; then
-		mkdir -p /etc/vpssim/errorpage_html ; chmod 755 /etc/vpssim/errorpage_html
-		yes | cp -rf /opt/echbay_vpssim/script/vpssim/errorpage_html/. /etc/vpssim/errorpage_html/
+if [ ! -d /etc/kpanel/errorpage_html ]; then
+	if [ -d /opt/kdata_kpanel/script/kpanel/errorpage_html ]; then
+		mkdir -p /etc/kpanel/errorpage_html ; chmod 755 /etc/kpanel/errorpage_html
+		yes | cp -rf /opt/kdata_kpanel/script/kpanel/errorpage_html/. /etc/kpanel/errorpage_html/
 	fi
 fi
 
-mkdir -p /home/$website/errorpage_html && cp -r /etc/vpssim/errorpage_html/*.html /home/$website/errorpage_html
+mkdir -p /home/$website/errorpage_html && cp -r /etc/kpanel/errorpage_html/*.html /home/$website/errorpage_html
 ############################################################################
 ############################################################################
 echo "-------------------------------------------------------------------------"
-read -r -p "Ban co muon VPSSIM tao Database moi cho $website ? [y/N] " response
+read -r -p "Ban co muon kpanel tao Database moi cho $website ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY])
     echo "-------------------------------------------------------------------------"
@@ -258,7 +258,7 @@ echo "User name: $username"
 echo "Mat khau: $password"
 echo "-------------------------------------------------------------------------"
 echo "Thong tin database da duoc luu vao: /home/DBinfo.txt"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
         ;;
     *)
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
@@ -273,6 +273,6 @@ echo "-------------------------------------------------------------------------"
 echo "Upload code to /home/$website/public_html"
 echo "-------------------------------------------------------------------------"
 echo "Vhost File: /etc/nginx/conf.d/$website.conf"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
         ;;
 esac

@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Hien tai chuc nang [Auto re-start MySQL Server] dang duoc BAT"
 echo "-------------------------------------------------------------------------"
@@ -8,18 +8,18 @@ case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
     echo "Please wait...."; sleep 1
-    rm -rf /etc/cron.d/vpssim-auto-start-mysql.cron
+    rm -rf /etc/cron.d/kpanel-auto-start-mysql.cron
     service crond restart
     clear
     echo "========================================================================="
 echo "Disable [Auto re-start MySQL Server] thanh cong !"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
         ;;
     *)
        clear
     echo "========================================================================="
    echo "Ban khong disable [Auto re-start MySQL Server]"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
         ;;
 esac
 

@@ -1,20 +1,20 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 
 saoluuiptables ()
 {
-iptables-save > /etc/vpssim/iptables.bak
+iptables-save > /etc/kpanel/iptables.bak
 echo "--------------------------------------------------------------------------"
 echo "Please wait..."
 sleep 1
 clear
 echo "========================================================================="
 echo "Sao luu IPtables Firewall Rules hoan thanh!"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 }
-if [ -f /etc/vpssim/iptables.bak ]; then
+if [ -f /etc/kpanel/iptables.bak ]; then
 echo "--------------------------------------------------------------------------"
 echo "Phat hien file back up cu cua IPtables Firewall"
 echo "--------------------------------------------------------------------------"
@@ -27,7 +27,7 @@ case $response in
     clear
     echo "========================================================================="
         echo "Ban da huy tao file backup moi"
-        /etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+        /etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
 esac
 else

@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 echo "========================================================================="
 echo "Su dung chuc nang nay de CLOSE port (INPUT) cho server bang IPtables"
@@ -11,7 +11,7 @@ if [ "$portclose" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 
@@ -21,7 +21,7 @@ echo "========================================================================="
 echo "Port ban nhap: ${portclose} khong phai la so tu nhien."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !" 
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 
@@ -31,7 +31,7 @@ echo "========================================================================="
 echo "Port $portclose dang CLOSED."
 echo "-------------------------------------------------------------------------"
 echo "Ban khong can phai re-close no! " 
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 
@@ -43,7 +43,7 @@ echo "-------------------------------------------------------------------------"
 echo "Port cua VPS phai la so tu nhien nam trong khoang (1 - 65535)."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !" 
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi  
 
@@ -63,13 +63,13 @@ echo "========================================================================="
 	echo "-------------------------------------------------------------------------"
 	iptables -I INPUT -p tcp --dport $portclose -j DROP
 	service iptables save
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
     *)
         clear
 echo "========================================================================="
 echo "Ban huy close port 80"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
 esac
 exit
@@ -92,13 +92,13 @@ echo "========================================================================="
 	echo "-------------------------------------------------------------------------"
 	iptables -I INPUT -p tcp --dport $portclose -j DROP
 	service iptables save
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
     *)
         clear
 echo "========================================================================="
 echo "Ban huy close port 25"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
 esac
 exit
@@ -122,13 +122,13 @@ echo "========================================================================="
 	echo "-------------------------------------------------------------------------"
 	iptables -I INPUT -p tcp --dport $portclose -j DROP
 	service iptables save
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
     *)
         clear
 echo "========================================================================="
 echo "Ban huy close port 21"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
 esac
 exit
@@ -152,13 +152,13 @@ echo "========================================================================="
 	echo "-------------------------------------------------------------------------"
 	iptables -I INPUT -p tcp --dport $portclose -j DROP
 	service iptables save
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
     *)
         clear
 echo "========================================================================="
 echo "Ban da huy close port 443"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
         ;;
 esac
 exit
@@ -170,7 +170,7 @@ if [ $portclose = 22 ]; then
 clear
 echo "========================================================================="
 echo "Ban khong the close SSH port !"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 
@@ -178,7 +178,7 @@ if [ $portclose = 3306 ]; then
 clear
 echo "========================================================================="
 echo "Ban khong the close MySQL port !"
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 
@@ -188,7 +188,7 @@ echo "========================================================================="
 echo "Port $portclose la Phpmyadmin port. Hay su dung chuc nang "
 echo "-------------------------------------------------------------------------"
 echo "[Open/Close Phpmyadmin Port] neu ban muon Open/Close port $portclose!" 
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 
@@ -198,7 +198,7 @@ echo "Port ban muon CLOSE: $portclose"
 echo "-------------------------------------------------------------------------"
 iptables -I INPUT -p tcp --dport $portclose -j DROP
 service iptables save
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 fi

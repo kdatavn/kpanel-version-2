@@ -1,12 +1,12 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -f /usr/local/maldetect/conf.maldet ]; then
 clear
 echo "========================================================================= "
 echo "LMD with ClamAV chua duoc cai dat tren VPS "
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long cai dat LMD truoc khi chay chuc nang nay !"
-/etc/vpssim/menu/vpssim-maldet-menu
+/etc/kpanel/menu/kpanel-maldet-menu
 exit
 fi
 echo "========================================================================= "
@@ -59,13 +59,13 @@ echo "========================================================================="
 echo "Scan hoan thanh. Report for scan on: $(maldet --report list | grep SCAN | awk 'NR==1 {print $1,$2,$3}')"
 echo "-------------------------------------------------------------------------"
 cat /tmp/maldet-last.txt | grep '\S'
-/etc/vpssim/menu/vpssim-maldet-menu
+/etc/kpanel/menu/kpanel-maldet-menu
         ;;
     *)
 clear
 echo "========================================================================="
 echo "Huy bo Scan $website "
-/etc/vpssim/menu/vpssim-maldet-menu
+/etc/kpanel/menu/kpanel-maldet-menu
         ;;
 esac
 }

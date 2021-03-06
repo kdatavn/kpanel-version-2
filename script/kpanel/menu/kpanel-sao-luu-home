@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 
 echo "========================================================================="
@@ -24,7 +24,7 @@ echo "========================================================================="
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/home/$serverip-$website$backuphomename.zip"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 exit
 
  ;;
@@ -35,5 +35,5 @@ esac
 clear
 echo "========================================================================="
 echo "Huy backup thu muc Home"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 

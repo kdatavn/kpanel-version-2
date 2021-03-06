@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 cd
 website=`cat /tmp/removewebsite.txt`
 tendatabase=`cat /home/$website/public_html/Settings.php | grep db_name | cut -d \' -f 2`
@@ -23,18 +23,18 @@ rm -f /tmp/config.temp
 }
 check_and_delete_auto_backup_website()
 {
-	if [  -f /bin/vpssim-backupcode-$website ]; then
-	if [ ! "$(grep vpssim-backupcode-$website /etc/cron.d/vpssim.code.cron)" == "" ]; then
+	if [  -f /bin/kpanel-backupcode-$website ]; then
+	if [ ! "$(grep kpanel-backupcode-$website /etc/cron.d/kpanel.code.cron)" == "" ]; then
 echo "========================================================================="
 echo "Phat hien $website dang bat auto backup code"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se tat che do auto backup code khi remove khoi server"
+echo "kpanel se tat che do auto backup code khi remove khoi server"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 5
-	rm -rf /bin/vpssim-backupcode-$website
+	rm -rf /bin/kpanel-backupcode-$website
 	cat > "/tmp/removebackupcode" <<END
-sed -i '/vpssim-backupcode-$website/d' /etc/cron.d/vpssim.code.cron
+sed -i '/kpanel-backupcode-$website/d' /etc/cron.d/kpanel.code.cron
 END
 chmod +x /tmp/removebackupcode
 /tmp/removebackupcode 
@@ -45,15 +45,15 @@ service crond restart
 }
 check_ftp_account()
 {
-if [ ! -f /etc/vpssim/FTP-Account.info ]; then
-echo "=========================================================================" > /etc/vpssim/FTP-Account.info
-echo "Please Do Not Delete This File " >> /etc/vpssim/FTP-Account.info
-echo "-------------------------------------------------------------------------" >> /etc/vpssim/FTP-Account.info
-echo "If you delete this file, VPSSIM will not run !" >> /etc/vpssim/FTP-Account.info
-echo "-------------------------------------------------------------------------" >> /etc/vpssim/FTP-Account.info
-echo "All FTP User for all domain on VPS list below:" >> /etc/vpssim/FTP-Account.info
-echo "=========================================================================" >> /etc/vpssim/FTP-Account.info
-echo "" >> /etc/vpssim/FTP-Account.info
+if [ ! -f /etc/kpanel/FTP-Account.info ]; then
+echo "=========================================================================" > /etc/kpanel/FTP-Account.info
+echo "Please Do Not Delete This File " >> /etc/kpanel/FTP-Account.info
+echo "-------------------------------------------------------------------------" >> /etc/kpanel/FTP-Account.info
+echo "If you delete this file, kpanel will not run !" >> /etc/kpanel/FTP-Account.info
+echo "-------------------------------------------------------------------------" >> /etc/kpanel/FTP-Account.info
+echo "All FTP User for all domain on VPS list below:" >> /etc/kpanel/FTP-Account.info
+echo "=========================================================================" >> /etc/kpanel/FTP-Account.info
+echo "" >> /etc/kpanel/FTP-Account.info
 fi
 if [ -f /etc/pure-ftpd/pureftpd.passwd ]; then
 if [ ! "$(grep /home/$website/ /etc/pure-ftpd/pureftpd.passwd)" == "" ];then  
@@ -67,18 +67,18 @@ rm -rf /tmp/abcd
 pure-pw mkdb
 fi
 fi
-if [ ! "$(grep /home/$website/ /etc/vpssim/FTP-Account.info)" == "" ];then 
+if [ ! "$(grep /home/$website/ /etc/kpanel/FTP-Account.info)" == "" ];then 
 echo "========================================================================="
-echo "Tim thay tai khoan FTP: $(grep /home/$website/ /etc/vpssim/FTP-Account.info | awk 'NR==1 {print $7}') cua $website  "
+echo "Tim thay tai khoan FTP: $(grep /home/$website/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}') cua $website  "
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se remove tai khoan FTP: $(grep /home/$website/ /etc/vpssim/FTP-Account.info | awk 'NR==1 {print $7}')"
+echo "kpanel se remove tai khoan FTP: $(grep /home/$website/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 echo "-------------------------------------------------------------------------"
 sleep 6
 rm -rf /tmp/abcde
 cat > "/tmp/abcde" <<END	
-sed -i '/\/home\/$website/d' /etc/vpssim/FTP-Account.info
+sed -i '/\/home\/$website/d' /etc/kpanel/FTP-Account.info
 END
 chmod +x /tmp/abcde
 /tmp/abcde
@@ -116,21 +116,21 @@ cd
 rm -rf /home/$website
 rm -rf /etc/nginx/conf.d/$website.conf
 ### Remove website from Zend Opcache BlackList
-if [ ! -f /etc/vpssim/opcache.blacklist ]; then
-cat > "/etc/vpssim/opcache.blacklist" <<END
+if [ ! -f /etc/kpanel/opcache.blacklist ]; then
+cat > "/etc/kpanel/opcache.blacklist" <<END
 END
 fi
-if [ ! "$(grep /home/$website /etc/vpssim/opcache.blacklist)" == "" ]; then
+if [ ! "$(grep /home/$website /etc/kpanel/opcache.blacklist)" == "" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Tim thay $website trong Zend Opcache Blacklist"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se xoa $website trong blacklist nay"
+echo "kpanel se xoa $website trong blacklist nay"
 echo "-------------------------------------------------------------------------"
 echo "Please wait .... "
 sleep 6
 rm -rf /tmp/zendcacheblacklist
 cat > "/tmp/zendcacheblacklist" <<END
-sed --in-place '\/home\/$website/d' /etc/vpssim/opcache.blacklist
+sed --in-place '\/home\/$website/d' /etc/kpanel/opcache.blacklist
 END
 chmod +x /tmp/zendcacheblacklist
 /tmp/zendcacheblacklist
@@ -148,17 +148,17 @@ systemctl reload nginx
 systemctl restart php-fpm.service
 fi 
 
-if [ -f /bin/vpssim-backupdb-$tendatabase ]; then
+if [ -f /bin/kpanel-backupdb-$tendatabase ]; then
 echo "-------------------------------------------------------------------------"
 echo "Phat hien $tendatabase trong danh sach tu dong sao luu"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se remove $tendatabase khoi danh sach tu dong sao luu"
+echo "kpanel se remove $tendatabase khoi danh sach tu dong sao luu"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 3
-rm -rf /bin/vpssim-backupdb-$tendatabase
+rm -rf /bin/kpanel-backupdb-$tendatabase
 cat > "/tmp/removebackupdb" <<END
-sed --in-place '/vpssim-backupdb-$tendatabase/d' /etc/cron.d/vpssim.db.cron
+sed --in-place '/kpanel-backupdb-$tendatabase/d' /etc/cron.d/kpanel.db.cron
 END
 chmod +x /tmp/removebackupdb
 /tmp/removebackupdb 
@@ -170,7 +170,7 @@ fi
 clear
 echo "========================================================================="
 echo "Xoa $website va database thanh cong."
-vpssim
+kpanel
 ###################################
 #xoawebsite
 ###################################
@@ -181,21 +181,21 @@ sleep 1
 rm -rf /home/$website
 rm -rf /etc/nginx/conf.d/$website.conf
 ### Remove website from Zend Opcache BlackList
-if [ ! -f /etc/vpssim/opcache.blacklist ]; then
-cat > "/etc/vpssim/opcache.blacklist" <<END
+if [ ! -f /etc/kpanel/opcache.blacklist ]; then
+cat > "/etc/kpanel/opcache.blacklist" <<END
 END
 fi
-if [ ! "$(grep /home/$website /etc/vpssim/opcache.blacklist)" == "" ]; then
+if [ ! "$(grep /home/$website /etc/kpanel/opcache.blacklist)" == "" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Tim thay $website trong Zend Opcache Blacklist"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se xoa $website trong blacklist nay"
+echo "kpanel se xoa $website trong blacklist nay"
 echo "-------------------------------------------------------------------------"
 echo "Please wait .... "
 sleep 6
 rm -rf /tmp/zendcacheblacklist
 cat > "/tmp/zendcacheblacklist" <<END
-sed --in-place '\/home\/$website/d' /etc/vpssim/opcache.blacklist
+sed --in-place '\/home\/$website/d' /etc/kpanel/opcache.blacklist
 END
 chmod +x /tmp/zendcacheblacklist
 /tmp/zendcacheblacklist
@@ -218,7 +218,7 @@ echo "========================================================================="
 echo "Xoa $website thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Database $tendatabase van con tren server"
-vpssim
+kpanel
 
 #################################
 #Xoa an toan"
@@ -250,22 +250,22 @@ rm -rf /home/$website
 rm -rf /etc/nginx/conf.d/$website.conf
 cd
 ### Remove website from Zend Opcache BlackList
-if [ ! -f /etc/vpssim/opcache.blacklist ]; then
-cat > "/etc/vpssim/opcache.blacklist" <<END
+if [ ! -f /etc/kpanel/opcache.blacklist ]; then
+cat > "/etc/kpanel/opcache.blacklist" <<END
 END
 fi
-if [ ! "$(grep /home/$website /etc/vpssim/opcache.blacklist)" == "" ]; then
+if [ ! "$(grep /home/$website /etc/kpanel/opcache.blacklist)" == "" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Tim thay $website trong Zend Opcache Blacklist"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se xoa $website trong blacklist nay"
+echo "kpanel se xoa $website trong blacklist nay"
 echo "-------------------------------------------------------------------------"
 echo "Please wait .... "
 sleep 6
 sleep 2
 rm -rf /tmp/zendcacheblacklist
 cat > "/tmp/zendcacheblacklist" <<END
-sed --in-place '\/home\/$website/d' /etc/vpssim/opcache.blacklist
+sed --in-place '\/home\/$website/d' /etc/kpanel/opcache.blacklist
 END
 chmod +x /tmp/zendcacheblacklist
 /tmp/zendcacheblacklist
@@ -283,17 +283,17 @@ systemctl reload nginx
 systemctl restart php-fpm.service
 fi   
 
-if [ -f /bin/vpssim-backupdb-$tendatabase ]; then
+if [ -f /bin/kpanel-backupdb-$tendatabase ]; then
 echo "-------------------------------------------------------------------------"
 echo "Phat hien $tendatabase trong danh sach tu dong sao luu"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se remove $tendatabase khoi danh sach tu dong sao luu"
+echo "kpanel se remove $tendatabase khoi danh sach tu dong sao luu"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 3
-rm -rf /bin/vpssim-backupdb-$tendatabase
+rm -rf /bin/kpanel-backupdb-$tendatabase
 cat > "/tmp/removebackupdb" <<END
-sed --in-place '/vpssim-backupdb-$tendatabase/d' /etc/cron.d/vpssim.db.cron
+sed --in-place '/kpanel-backupdb-$tendatabase/d' /etc/cron.d/kpanel.db.cron
 END
 chmod +x /tmp/removebackupdb
 /tmp/removebackupdb 
@@ -312,7 +312,7 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup code:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$website/$website_$random123.zip"
-vpssim
+kpanel
 ###################################
 #Huy bo
 ###################################
@@ -321,7 +321,7 @@ cd
 clear
 echo "========================================================================="
 echo "Cancle remove $website "
-vpssim
+kpanel
 fi
 
 

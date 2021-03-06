@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 echo "========================================================================="
 echo "Su dung chuc nang nay de xem thong tin chi tiet ve server. Cac thong tin"
@@ -14,11 +14,11 @@ case $response in
 
 randomcode=`date |md5sum |cut -c '1-14'`
 rm -rf /home/$mainsite/private_html/servervpsinfo*
-curl -ss ipinfo.io > /etc/vpssim/ipvpsinfo.txt
-sed -i 's/,//g' /etc/vpssim/ipvpsinfo.txt
-sed -i 's/"//g' /etc/vpssim/ipvpsinfo.txt
+curl -ss ipinfo.io > /etc/kpanel/ipvpsinfo.txt
+sed -i 's/,//g' /etc/kpanel/ipvpsinfo.txt
+sed -i 's/"//g' /etc/kpanel/ipvpsinfo.txt
 echo "=========================================================================================" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
-echo "KIEM TRA THONG TIN SERVER BOI VPSSIM" > /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
+echo "KIEM TRA THONG TIN SERVER BOI kpanel" > /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
 echo "=========================================================================================" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
 echo "" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
 echo "" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
@@ -26,12 +26,12 @@ echo "==========================================================================
 echo "THONG TIN DIA CHI IP SERVER" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
 echo "=========================================================================================" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
 echo "IP Server: $serverip" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
-echo "Host name: $(cat /etc/vpssim/ipvpsinfo.txt | awk 'NR==3 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
-echo "City: $(cat /etc/vpssim/ipvpsinfo.txt | awk 'NR==4 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
-echo "Region: $(cat /etc/vpssim/ipvpsinfo.txt | awk 'NR==5 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
-echo "Country: $(cat /etc/vpssim/ipvpsinfo.txt | awk 'NR==6 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
-echo "Latitude/Longitude: $(cat /etc/vpssim/ipvpsinfo.txt | awk 'NR==7 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
-echo "Network: $(cat /etc/vpssim/ipvpsinfo.txt | awk 'NR==8 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
+echo "Host name: $(cat /etc/kpanel/ipvpsinfo.txt | awk 'NR==3 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
+echo "City: $(cat /etc/kpanel/ipvpsinfo.txt | awk 'NR==4 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
+echo "Region: $(cat /etc/kpanel/ipvpsinfo.txt | awk 'NR==5 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
+echo "Country: $(cat /etc/kpanel/ipvpsinfo.txt | awk 'NR==6 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
+echo "Latitude/Longitude: $(cat /etc/kpanel/ipvpsinfo.txt | awk 'NR==7 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
+echo "Network: $(cat /etc/kpanel/ipvpsinfo.txt | awk 'NR==8 {print $2,$3,$4,$5,$6}')" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
 echo "" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
 
 ###################
@@ -66,7 +66,7 @@ echo "THONG TIN CHI TIET CPU" >> /home/$mainsite/private_html/servervpsinfo-$ran
 echo "=========================================================================================" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
 cat /proc/cpuinfo >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
 echo "=================================== The End =============================================" >> /home/$mainsite/private_html/servervpsinfo-$randomcode.txt
-rm -rf /etc/vpssim/ipvpsinfo.txt
+rm -rf /etc/kpanel/ipvpsinfo.txt
 
 
 clear
@@ -74,11 +74,11 @@ echo "========================================================================="
 echo "Link Xem Thong Tin Server:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/servervpsinfo-$randomcode.txt"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
     *)
        clear
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
 esac
 

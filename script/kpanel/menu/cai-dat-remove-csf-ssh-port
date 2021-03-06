@@ -1,15 +1,15 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ -f /etc/csf/csf.conf ]; then
 clear
 echo "========================================================================="
 echo "Phat hien CSF Firewall dang duoc cai dat tren VPS "
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se remove CSF sau do cai dat lai CSF de cap nhat port SSH moi"
+echo "kpanel se remove CSF sau do cai dat lai CSF de cap nhat port SSH moi"
 sleep 8
-yes | cp -rf /etc/csf/csf.conf /etc/vpssim/csf.conf_bak
+yes | cp -rf /etc/csf/csf.conf /etc/kpanel/csf.conf_bak
 cd /etc/csf
 sh uninstall.sh
 cd
-/etc/vpssim/menu/cai-csf-firewall-cai-dat-CSF-FIREWALL
+/etc/kpanel/menu/cai-csf-firewall-cai-dat-CSF-FIREWALL
 fi

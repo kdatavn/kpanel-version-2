@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 cd /etc/nginx/conf.d
 ls > /tmp/websitelist
 sed -i 's/\.conf//g' /tmp/websitelist
@@ -15,8 +15,8 @@ fi
  if [ ! -f /tmp/wordpresslist ]; then
 clear
 echo "========================================================================="
- echo "VPSSIM khong tim thay website chay Wordpress Code tren Server"
- /etc/vpssim/menu/vpssim-wordpress-tools-menu
+ echo "kpanel khong tim thay website chay Wordpress Code tren Server"
+ /etc/kpanel/menu/kpanel-wordpress-tools-menu
  exit
  fi
 echo "========================================================================="
@@ -40,12 +40,12 @@ done
 #Update plugin
 ###################################
 if [ "$luachonupdate" = "updateplugin" ]; then
-/etc/vpssim/menu/vpssim-enable-tat-ca-cac-ham-php-php.ini
+/etc/kpanel/menu/kpanel-enable-tat-ca-cac-ham-php-php.ini
 sositewp=$(cat /tmp/wordpresslist | wc -l)
 echo "========================================================================="
 echo "Hien tai co $sositewp website dang su dung wordpress code tren server" 
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se check va update tat ca plugins cua $sositewp website nay"
+echo "kpanel se check va update tat ca plugins cua $sositewp website nay"
 sleep 1
 acction2="/tmp/wordpresslist"
 while read -r wpwebsite
@@ -55,7 +55,7 @@ cd /home/$wpwebsite/public_html
 #echo "========================================================================="
 #echo "Update Status For: $wpwebsite"
 chown -R nginx:nginx /home/$wpwebsite/public_html/wp-content/plugins
-/etc/vpssim/menu/vpssim-enable-tat-ca-cac-ham-php-php.ini
+/etc/kpanel/menu/kpanel-enable-tat-ca-cac-ham-php-php.ini
 wp plugin update --all --allow-root | grep Success: > /tmp/update-plugins-status
 chown -R nginx:nginx /home/$wpwebsite/public_html/wp-content/plugins
    if [ "$(cat /tmp/update-plugins-status)" = "Success: Updated 0/0 plugins." ]; then
@@ -71,7 +71,7 @@ cd
   fi
 done < "$acction2"
 rm -rf /tmp/wordpresslist
-/etc/vpssim/menu/vpssim-re-config-cac-ham-php-disable-php.ini
+/etc/kpanel/menu/kpanel-re-config-cac-ham-php-disable-php.ini
 echo "-------------------------------------------------------------------------"
      if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
      service php-fpm restart
@@ -82,12 +82,12 @@ echo "-------------------------------------------------------------------------"
 #Update tat ca themes
 ###################################
 elif [ "$luachonupdate" = "updatethemes" ]; then
-/etc/vpssim/menu/vpssim-enable-tat-ca-cac-ham-php-php.ini
+/etc/kpanel/menu/kpanel-enable-tat-ca-cac-ham-php-php.ini
 sositewp=$(cat /tmp/wordpresslist | wc -l)
 echo "========================================================================="
 echo "Hien tai co $sositewp website dang su dung wordpress code tren server" 
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM su check va update tat ca Themes cua $sositewp website nay"
+echo "kpanel su check va update tat ca Themes cua $sositewp website nay"
 sleep 1
 acction2="/tmp/wordpresslist"
 while read -r wpwebsite
@@ -97,7 +97,7 @@ chown -R nginx:nginx /home/$wpwebsite/public_html/wp-content/themes
 cd /home/$wpwebsite/public_html
 #echo "========================================================================="
 #echo "Update Status For: $wpwebsite"
-/etc/vpssim/menu/vpssim-enable-tat-ca-cac-ham-php-php.ini
+/etc/kpanel/menu/kpanel-enable-tat-ca-cac-ham-php-php.ini
 wp theme update --all --allow-root | grep Success: > /tmp/update-themes-status
 chown -R nginx:nginx /home/$wpwebsite/public_html/wp-content/themes
    if [ "$(cat /tmp/update-themes-status)" = "Success: Updated 0/0 themes." ]; then
@@ -114,7 +114,7 @@ cd
 done < "$acction2"
 rm -rf /tmp/wordpresslist
 echo "-------------------------------------------------------------------------"
-    /etc/vpssim/menu/vpssim-re-config-cac-ham-php-disable-php.ini
+    /etc/kpanel/menu/kpanel-re-config-cac-ham-php-disable-php.ini
      if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
      service php-fpm restart
      else
@@ -124,5 +124,5 @@ echo "-------------------------------------------------------------------------"
 #Huy bo update
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-wordpress-tools-menu
+clear && /etc/kpanel/menu/kpanel-wordpress-tools-menu
 fi

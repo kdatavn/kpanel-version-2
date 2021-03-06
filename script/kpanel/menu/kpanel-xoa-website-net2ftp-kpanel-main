@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 net2ftpsite=$(cat /tmp/net2ftpsite.info)
 check_folder_protect_config()
 {
@@ -14,15 +14,15 @@ fi
 
 check_ftp_account()
 {
-if [ ! -f /etc/vpssim/FTP-Account.info ]; then
-echo "=========================================================================" > /etc/vpssim/FTP-Account.info
-echo "Please Do Not Delete This File " >> /etc/vpssim/FTP-Account.info
-echo "-------------------------------------------------------------------------" >> /etc/vpssim/FTP-Account.info
-echo "If you delete this file, VPSSIM will not run !" >> /etc/vpssim/FTP-Account.info
-echo "-------------------------------------------------------------------------" >> /etc/vpssim/FTP-Account.info
-echo "All FTP User for all domain on VPS list below:" >> /etc/vpssim/FTP-Account.info
-echo "=========================================================================" >> /etc/vpssim/FTP-Account.info
-echo "" >> /etc/vpssim/FTP-Account.info
+if [ ! -f /etc/kpanel/FTP-Account.info ]; then
+echo "=========================================================================" > /etc/kpanel/FTP-Account.info
+echo "Please Do Not Delete This File " >> /etc/kpanel/FTP-Account.info
+echo "-------------------------------------------------------------------------" >> /etc/kpanel/FTP-Account.info
+echo "If you delete this file, kpanel will not run !" >> /etc/kpanel/FTP-Account.info
+echo "-------------------------------------------------------------------------" >> /etc/kpanel/FTP-Account.info
+echo "All FTP User for all domain on VPS list below:" >> /etc/kpanel/FTP-Account.info
+echo "=========================================================================" >> /etc/kpanel/FTP-Account.info
+echo "" >> /etc/kpanel/FTP-Account.info
 fi
 if [ -f /etc/pure-ftpd/pureftpd.passwd ]; then
 if [ ! "$(grep /home/$net2ftpsite/ /etc/pure-ftpd/pureftpd.passwd)" == "" ];then  
@@ -36,18 +36,18 @@ rm -rf /tmp/abcd
 pure-pw mkdb
 fi
 fi
-if [ ! "$(grep /home/$net2ftpsite/ /etc/vpssim/FTP-Account.info)" == "" ];then 
+if [ ! "$(grep /home/$net2ftpsite/ /etc/kpanel/FTP-Account.info)" == "" ];then 
 echo "========================================================================="
-echo "Phat hien tai khoan FTP: $(grep /home/$net2ftpsite/ /etc/vpssim/FTP-Account.info | awk 'NR==1 {print $7}') cua $net2ftpsite  "
+echo "Phat hien tai khoan FTP: $(grep /home/$net2ftpsite/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}') cua $net2ftpsite  "
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se remove tai khoan FTP: $(grep /home/$net2ftpsite/ /etc/vpssim/FTP-Account.info | awk 'NR==1 {print $7}')"
+echo "kpanel se remove tai khoan FTP: $(grep /home/$net2ftpsite/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 echo "-------------------------------------------------------------------------"
 sleep 6
 rm -rf /tmp/abcde
 cat > "/tmp/abcde" <<END	
-sed -i '/\/home\/$net2ftpsite/d' /etc/vpssim/FTP-Account.info
+sed -i '/\/home\/$net2ftpsite/d' /etc/kpanel/FTP-Account.info
 END
 chmod +x /tmp/abcde
 /tmp/abcde
@@ -62,21 +62,21 @@ case $response in
     echo "Please wait....";sleep 1
 rm -rf /home/$net2ftpsite
 rm -f /etc/nginx/conf.d/$net2ftpsite.conf 
-if [ ! -f /etc/vpssim/opcache.blacklist ]; then
-cat > "/etc/vpssim/opcache.blacklist" <<END
+if [ ! -f /etc/kpanel/opcache.blacklist ]; then
+cat > "/etc/kpanel/opcache.blacklist" <<END
 END
 fi
-if [ ! "$(grep /home/$net2ftpsite /etc/vpssim/opcache.blacklist)" == "" ]; then
+if [ ! "$(grep /home/$net2ftpsite /etc/kpanel/opcache.blacklist)" == "" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Phat hien $net2ftpsite trong Zend Opcache Blacklist"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se xoa $net2ftpsite trong blacklist nay"
+echo "kpanel se xoa $net2ftpsite trong blacklist nay"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 6
 rm -rf /tmp/zendcacheblacklist
 cat > "/tmp/zendcacheblacklist" <<END
-sed --in-place '\/home\/$net2ftpsite/d' /etc/vpssim/opcache.blacklist
+sed --in-place '\/home\/$net2ftpsite/d' /etc/kpanel/opcache.blacklist
 END
 chmod +x /tmp/zendcacheblacklist
 /tmp/zendcacheblacklist
@@ -85,18 +85,18 @@ fi
 check_ftp_account
 check_and_delete_auto_backup_website()
 {
-	if [  -f /bin/vpssim-backupcode-$net2ftpsite ]; then
-	if [ ! "$(grep vpssim-backupcode-$net2ftpsite /etc/cron.d/vpssim.code.cron)" == "" ]; then
+	if [  -f /bin/kpanel-backupcode-$net2ftpsite ]; then
+	if [ ! "$(grep kpanel-backupcode-$net2ftpsite /etc/cron.d/kpanel.code.cron)" == "" ]; then
 echo "========================================================================="
 echo "Phat hien $net2ftpsite dang bat auto backup code"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se tat che do auto backup code khi remove khoi server"
+echo "kpanel se tat che do auto backup code khi remove khoi server"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 5
-	rm -rf /bin/vpssim-backupcode-$net2ftpsite
+	rm -rf /bin/kpanel-backupcode-$net2ftpsite
 	cat > "/tmp/removebackupcode" <<END
-sed -i '/vpssim-backupcode-$net2ftpsite/d' /etc/cron.d/vpssim.code.cron
+sed -i '/kpanel-backupcode-$net2ftpsite/d' /etc/cron.d/kpanel.code.cron
 END
 chmod +x /tmp/removebackupcode
 /tmp/removebackupcode 
@@ -107,7 +107,7 @@ service crond restart
 }
 check_and_delete_auto_backup_website
 check_folder_protect_config
-rm -rf /etc/vpssim/net2ftpsite.info
+rm -rf /etc/kpanel/net2ftpsite.info
 rm -rf /tmp/net2ftpsite.info
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 service nginx reload
@@ -119,19 +119,19 @@ fi
 clear
 echo "========================================================================= "
 echo "Remove Domain Net2FTP thanh cong ! "
-vpssim
+kpanel
 ;;
     *)
        clear 
 echo "========================================================================= "
 echo "Ban huy remove Domain Net2FTP."
-vpssim
+kpanel
         ;;
 esac
 clear 
 echo "========================================================================= "
 echo "Ban huy remove Domain Net2FTP"
-vpssim
+kpanel
 
 
 

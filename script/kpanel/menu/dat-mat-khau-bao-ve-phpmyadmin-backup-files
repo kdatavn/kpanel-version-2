@@ -1,6 +1,6 @@
 #!/bin/sh
-. /home/vpssim.conf
-. /etc/vpssim/pwprotect.default
+. /home/kpanel.conf
+. /etc/kpanel/pwprotect.default
 
 if [ ! -d /etc/nginx/pwprotect ]; then
 mkdir -p /etc/nginx/pwprotect
@@ -11,8 +11,8 @@ clear
 echo "========================================================================="
 echo "Ban phai tao User va Mat khau mac dinh truoc khi chay chuc nang nay. Tao "
 echo "-------------------------------------------------------------------------"
-echo "User va Mat Khau mac dinh: VPSSIM Menu => User & Password Mac Dinh."
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+echo "User va Mat Khau mac dinh: kpanel Menu => User & Password Mac Dinh."
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
 exit
 fi
 
@@ -46,7 +46,7 @@ service nginx reload
        clear 
 echo "========================================================================= "
 echo "Huy bo dat mat khau bao ve phpMyAdmin "
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
         ;;
 esac
 clear 
@@ -56,7 +56,7 @@ echo "-------------------------------------------------------------------------"
 echo "Thong tin truy cap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $userdefault | Password: $passdefault"
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
 
 else
 
@@ -86,11 +86,11 @@ fi
        clear 
 echo "========================================================================= "
 echo "Huy bo TAT mat khau bao ve phpMyAdmin "
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
         ;;
 esac
 clear 
 echo "========================================================================= "
 echo "Hoan thanh TAT mat khau bao ve phpMyAdmin "
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
 fi

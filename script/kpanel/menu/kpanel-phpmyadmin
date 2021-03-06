@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 if [ -f /home/$mainsite/private_html/index.php ]; then 
 echo "========================================================================="
@@ -24,13 +24,13 @@ fi
 	rm -f /home/$mainsite/private_html/index.html
     cat > "/home/$mainsite/private_html/index.html" <<END
 <!DOCTYPE html>
-<html id="VPSSIM" lang="en-US" dir="LTR" class="Public Cute Pig" xmlns:fb="http://www.facebook.com/2008/fbml">
+<html id="kpanel" lang="en-US" dir="LTR" class="Public Cute Pig" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 <meta charset="utf-8"/>
 <title>Cute Pig !!!</title>
 </head>
 <body>
-<center><img src="https://hostingaz.vn/script/vpssim/pig.jpg"></center><br><br>
+<center><img src="https://hostingaz.vn/script/kpanel/pig.jpg"></center><br><br>
 <center>What do you want?</center>
 </body>
 </html>
@@ -38,13 +38,13 @@ END
 clear
 echo "========================================================================="
 echo "Phpmyadmin link da duoc TAT thanh cong !"
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
         ;;
     *)
 clear
  echo "========================================================================="
 echo "Ban lua chon NO  !"
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
         ;;
 esac
 exit
@@ -73,13 +73,13 @@ clear
         echo "Phpmyadmin link da duoc BAT thanh cong !"
 echo "-------------------------------------------------------------------------"
                echo "Truy cap phpmyadmin qua: $mainsite:$priport  hoac $serverip:$priport"
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
         ;;
     *)
                clear
  echo "========================================================================="
 echo "Ban lua chon NO!"
-/etc/vpssim/menu/vpssim-phpmyadmin-menu
+/etc/kpanel/menu/kpanel-phpmyadmin-menu
 
         ;;
 esac

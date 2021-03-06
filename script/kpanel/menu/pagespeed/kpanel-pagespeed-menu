@@ -3,7 +3,7 @@ prompt="Nhap lua chon cua ban (0-Thoat):"
 options=("Enable Nginx Pagespeed" "Disable Nginx Pagespeed" "Clear Nginx Pagespeed Cache" "List Website BAT Nginx Pagespeed")
 
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                         Quan Ly Nginx Pagespeed                                \n"
 printf "=========================================================================\n"
@@ -12,13 +12,13 @@ PS3="$prompt"
 select opt in "${options[@]}" "Thoat"; do 
 
     case "$REPLY" in
-    1 ) /etc/vpssim/menu/pagespeed/vpssim-bat-pagespeed;;
-    2 ) /etc/vpssim/menu/pagespeed/vpssim-tat-pagespeed;;
-    3 ) /etc/vpssim/menu/pagespeed/vpssim-clear-pagespeed;;
-    4 ) /etc/vpssim/menu/pagespeed/vpssim-list-website-dang-bat-pagespeed;;
+    1 ) /etc/kpanel/menu/pagespeed/kpanel-bat-pagespeed;;
+    2 ) /etc/kpanel/menu/pagespeed/kpanel-tat-pagespeed;;
+    3 ) /etc/kpanel/menu/pagespeed/kpanel-clear-pagespeed;;
+    4 ) /etc/kpanel/menu/pagespeed/kpanel-list-website-dang-bat-pagespeed;;
     
-    $(( ${#options[@]}+1 )) ) echo "bye!";  clear && /bin/vpssim;;
-    0 ) echo "bye!";  clear && /bin/vpssim;;
+    $(( ${#options[@]}+1 )) ) echo "bye!";  clear && /bin/kpanel;;
+    0 ) echo "bye!";  clear && /bin/kpanel;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
     esac

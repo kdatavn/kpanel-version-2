@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Dung chuc nang nay de xem thong tin dia chi IP & Nameserver cua 1 website"
 echo "-------------------------------------------------------------------------"
@@ -9,7 +9,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 
@@ -21,7 +21,7 @@ echo "========================================================================="
 echo "$website Co the khong dung dinh dang domain!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -36,14 +36,14 @@ echo "-------------------------------------------------------------------------"
 echo "Nameserver:"
 echo "-------------------------------------------------------------------------"
 host -t ns $website
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 else
 clear
 echo "========================================================================="
 echo "Co the domain $website ban nhap"
 echo "-------------------------------------------------------------------------"
 echo "Khong tro toi bat ky IP nao hoac chua dang ky."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 

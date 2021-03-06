@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Dung chuc nang nay de BAT/TAT che do Auto backup database tren server"
 echo "-------------------------------------------------------------------------"
@@ -9,31 +9,31 @@ if [ "$dataname" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap ten database !"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 exit
 fi
 if [ ! -f /var/lib/mysql/$dataname/db.opt ]; then
 clear
 echo "========================================================================="
 echo "Database: $dataname khong ton tai tren he thong"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 exit
 fi
 if [ "$(ls -1 /var/lib/mysql/$dataname | wc -l)" == 1 ]; then
 clear
 echo "========================================================================="
 echo "Database $dataname chua co du lieu"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 exit
 fi
 
 rm -rf /tmp/databaseautobackup
 echo "$dataname" > /tmp/databaseautobackup
-if [ -f /bin/vpssim-backupdb-$dataname ]; then
- if [ -f /etc/cron.d/vpssim.db.cron ]; then
-     if [ ! "$(grep vpssim-backupdb-$dataname /etc/cron.d/vpssim.db.cron)" == "" ]; then
-     /etc/vpssim/menu/vpssim-TAT-tu-dong-sao-luu-database
+if [ -f /bin/kpanel-backupdb-$dataname ]; then
+ if [ -f /etc/cron.d/kpanel.db.cron ]; then
+     if [ ! "$(grep kpanel-backupdb-$dataname /etc/cron.d/kpanel.db.cron)" == "" ]; then
+     /etc/kpanel/menu/kpanel-TAT-tu-dong-sao-luu-database
      fi
  fi
 fi 
- /etc/vpssim/menu/vpssim-BAT-tu-dong-sao-luu-database
+ /etc/kpanel/menu/kpanel-BAT-tu-dong-sao-luu-database

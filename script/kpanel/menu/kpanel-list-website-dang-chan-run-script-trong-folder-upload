@@ -1,14 +1,14 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 1
 rm -rf /tmp/*hostingaz*
 mkdir -p /tmp/sitedangdenyrunscripthostingaz
-ls /etc/nginx/conf.d > /tmp/vpssim-websitelist
-sed -i 's/\.conf//g' /tmp/vpssim-websitelist 
-sowebsitetrenserver=$(cat /tmp/vpssim-websitelist | wc -l)
-sowebsite=$(cat /tmp/vpssim-websitelist)
+ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
+sed -i 's/\.conf//g' /tmp/kpanel-websitelist 
+sowebsitetrenserver=$(cat /tmp/kpanel-websitelist | wc -l)
+sowebsite=$(cat /tmp/kpanel-websitelist)
 for website in $sowebsite 
 do
 if [ -f /etc/nginx/conf.d/$website.conf ]; then
@@ -34,4 +34,4 @@ echo "-------------------------------------------------------------------------"
 ls /tmp/sitedangdenyrunscripthostingaz | pr -3 -t
 rm -rf /tmp/*hostingaz*
 fi
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich

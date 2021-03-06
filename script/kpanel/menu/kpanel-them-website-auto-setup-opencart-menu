@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 php_version1=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")
 if [ "$php_version1" == "7.0" ]; then
 clear
@@ -8,7 +8,7 @@ echo "========================================================================="
 echo "Ban dang su dung PHP 7.0"
 echo "-------------------------------------------------------------------------"
 echo "Hien tai Opencart chua ho tro PHP 7.0"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 
@@ -36,37 +36,37 @@ done
 #2200
 ###################################
 if [ "$chooseversionopencart" = "2200" ]; then
-/etc/vpssim/menu/vpssim-them-website-va-opencart-2200
+/etc/kpanel/menu/kpanel-them-website-va-opencart-2200
 ###################################
 #2102
 ###################################
 elif [ "$chooseversionopencart" = "2102" ]; then
-/etc/vpssim/menu/vpssim-them-website-va-opencart-2102
+/etc/kpanel/menu/kpanel-them-website-va-opencart-2102
 ###################################
 #2101
 ###################################
 elif [ "$chooseversionopencart" = "2101" ]; then
-/etc/vpssim/menu/vpssim-them-website-va-opencart-2101
+/etc/kpanel/menu/kpanel-them-website-va-opencart-2101
 ###################################
 #2031
 ###################################
 elif [ "$chooseversionopencart" = "2031" ]; then
-/etc/vpssim/menu/vpssim-them-website-va-opencart-2031
+/etc/kpanel/menu/kpanel-them-website-va-opencart-2031
 ###################################
 #2020
 ###################################
 elif [ "$chooseversionopencart" = "2020" ]; then
-/etc/vpssim/menu/vpssim-them-website-va-opencart-2020
+/etc/kpanel/menu/kpanel-them-website-va-opencart-2020
 ###################################
 #2000
 ###################################
 elif [ "$chooseversionopencart" = "2000" ]; then
-/etc/vpssim/menu/vpssim-them-website-va-opencart-2000
+/etc/kpanel/menu/kpanel-them-website-va-opencart-2000
 ###################################
 #1654
 ###################################
 elif [ "$chooseversionopencart" = "1564" ]; then
-/etc/vpssim/menu/vpssim-them-website-va-opencart-1564
+/etc/kpanel/menu/kpanel-them-website-va-opencart-1564
 else 
-clear && /etc/vpssim/menu/vpssim-them-website-menu
+clear && /etc/kpanel/menu/kpanel-them-website-menu
 fi

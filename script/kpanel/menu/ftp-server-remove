@@ -8,16 +8,16 @@ echo "Chuan bi Remove FTP Server ... "
 sleep 1
 yum remove pure-ftpd -y
 rm -rf /etc/pure-ftpd/*.*
-rm -rf /etc/vpssim/FTP-Account.info
-if [ ! -f /etc/vpssim/FTP-Account.info ]; then
-echo "=========================================================================" > /etc/vpssim/FTP-Account.info
-echo "Please Do Not Delete This File " >> /etc/vpssim/FTP-Account.info
-echo "-------------------------------------------------------------------------" >> /etc/vpssim/FTP-Account.info
-echo "If you delete this file, VPSSIM will not run !" >> /etc/vpssim/FTP-Account.info
-echo "-------------------------------------------------------------------------" >> /etc/vpssim/FTP-Account.info
-echo "All FTP User for all domain on VPS list below:" >> /etc/vpssim/FTP-Account.info
-echo "=========================================================================" >> /etc/vpssim/FTP-Account.info
-echo "" >> /etc/vpssim/FTP-Account.info
+rm -rf /etc/kpanel/FTP-Account.info
+if [ ! -f /etc/kpanel/FTP-Account.info ]; then
+echo "=========================================================================" > /etc/kpanel/FTP-Account.info
+echo "Please Do Not Delete This File " >> /etc/kpanel/FTP-Account.info
+echo "-------------------------------------------------------------------------" >> /etc/kpanel/FTP-Account.info
+echo "If you delete this file, kpanel will not run !" >> /etc/kpanel/FTP-Account.info
+echo "-------------------------------------------------------------------------" >> /etc/kpanel/FTP-Account.info
+echo "All FTP User for all domain on VPS list below:" >> /etc/kpanel/FTP-Account.info
+echo "=========================================================================" >> /etc/kpanel/FTP-Account.info
+echo "" >> /etc/kpanel/FTP-Account.info
 fi
 clear
 iptables -I INPUT -p tcp --dport 21 -j DROP
@@ -27,18 +27,18 @@ service iptables save
        clear 
 echo "========================================================================= "
 echo "Huy bo remove FTP Server "
-/etc/vpssim/menu/vpssim-ftpserver-menu
+/etc/kpanel/menu/kpanel-ftpserver-menu
         ;;
 esac
 clear 
 echo "========================================================================= "
-echo "VPSSIM hoan thanh remove FTP Server "
-/etc/vpssim/menu/vpssim-ftpserver-menu
+echo "kpanel hoan thanh remove FTP Server "
+/etc/kpanel/menu/kpanel-ftpserver-menu
 fi
 clear
 echo "========================================================================= "
 echo "Ban chua cai dat FTP server "
-/etc/vpssim/menu/vpssim-ftpserver-menu
+/etc/kpanel/menu/kpanel-ftpserver-menu
 exit
 fi
 

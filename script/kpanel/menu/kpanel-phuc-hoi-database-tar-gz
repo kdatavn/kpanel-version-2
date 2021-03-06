@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Database can phuc hoi phai ton tai tren he thong ! "
 echo "========================================================================="
@@ -9,7 +9,7 @@ if [ "$dataname" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap chinh xac!"
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 exit
 fi
 if [ ! -f /var/lib/mysql/$dataname/db.opt ]; then
@@ -18,7 +18,7 @@ echo "========================================================================="
 echo "Khong tim thay database $dataname tren server "
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -29,7 +29,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai !"
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}$";
@@ -40,7 +40,7 @@ echo "========================================================================="
 echo "$website co le khong phai domain !"
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 exit
 fi
 if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
@@ -49,20 +49,20 @@ echo "========================================================================="
 echo "Khong tim thay website $website !"
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 exit
 fi
 date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim1
 if [ ! -f /home/$mainsite/private_html/backup/$dataname/*.gz ]; then
 randomcode=`date |md5sum |cut -c '1-13'`
-	if [ -f /home/$website/public_html/VPSSIM-DATABASE.tar.gz ]; then
+	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
 	echo "-------------------------------------------------------------------------"
-	echo "Tim thay file backup VPSSIM-DATABASE.tar.gz"
+	echo "Tim thay file backup kpanel-DATABASE.tar.gz"
 	echo "-------------------------------------------------------------------------"
 	echo "Chuan bi phuc hoi .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 2
-	gunzip < /home/$website/public_html/VPSSIM-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
+	gunzip < /home/$website/public_html/kpanel-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
 	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
 	check1=`cat /tmp/vpssim1`
 	check2=`cat /tmp/vpssim2`
@@ -74,17 +74,17 @@ randomcode=`date |md5sum |cut -c '1-13'`
 		echo "Phuc hoi database $dataname that bai "
 		echo "-------------------------------------------------------------------------"
 		echo "Vui long kiem tra file backup va thu lai !"
-		/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		else	
 		rm -rf /tmp/vpssim1
 		rm -rf /tmp/vpssim2
-		mv /home/$website/public_html/VPSSIM-DATABASE.tar.gz /home/$website/public_html/VPSSIM-DATABASE.tar.gz.$randomcode
+		mv /home/$website/public_html/kpanel-DATABASE.tar.gz /home/$website/public_html/kpanel-DATABASE.tar.gz.$randomcode
 		clear
 		echo "========================================================================="
 		echo "Phuc hoi database $dataname thanh cong !"
 		echo "-------------------------------------------------------------------------"
-		echo "File backup duoc doi ten thanh VPSSIM-DATABASE.tar.gz.$randomcode"
-		/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+		echo "File backup duoc doi ten thanh kpanel-DATABASE.tar.gz.$randomcode"
+		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		exit
 		fi
 	else
@@ -94,23 +94,23 @@ randomcode=`date |md5sum |cut -c '1-13'`
 	echo "========================================================================="
 	echo "Chuc nang nay ho tro phuc hoi database tu backup dinh dang TAR.GZ"
 	echo "-------------------------------------------------------------------------"
-	echo "Doi ten file backup thanh VPSSIM-DATABASE.tar.gz sau do upload vao: "
+	echo "Doi ten file backup thanh kpanel-DATABASE.tar.gz sau do upload vao: "
 	echo "-------------------------------------------------------------------------"
 	echo "/home/$website/public_html/"
 	echo "========================================================================="
 	read -p "Khi upload hoan thanh. Nhan [Enter] de phuc hoi..."
 	echo "-------------------------------------------------------------------------"
-	echo "VPSSIM dang tim kiem file backup .... "
+	echo "kpanel dang tim kiem file backup .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 4
-		if [ -f /home/$website/public_html/VPSSIM-DATABASE.tar.gz ]; then
+		if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
 		echo "-------------------------------------------------------------------------"
-	echo "Tim thay file backup VPSSIM-DATABASE.tar.gz"
+	echo "Tim thay file backup kpanel-DATABASE.tar.gz"
 	echo "-------------------------------------------------------------------------"
 	echo "Chuan bi phuc hoi .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 2
-	gunzip < /home/$website/public_html/VPSSIM-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
+	gunzip < /home/$website/public_html/kpanel-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
 	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
 	check1=`cat /tmp/vpssim1`
 	check2=`cat /tmp/vpssim2`
@@ -122,26 +122,26 @@ randomcode=`date |md5sum |cut -c '1-13'`
 		echo "Phuc hoi database $dataname that bai "
 		echo "-------------------------------------------------------------------------"
 		echo "Vui long kiem tra file backup va thu lai !"
-		/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		else	
 		rm -rf /tmp/vpssim1
 		rm -rf /tmp/vpssim2
-		mv /home/$website/public_html/VPSSIM-DATABASE.tar.gz /home/$website/public_html/VPSSIM-DATABASE.tar.gz.$randomcode
+		mv /home/$website/public_html/kpanel-DATABASE.tar.gz /home/$website/public_html/kpanel-DATABASE.tar.gz.$randomcode
 		clear
 		echo "========================================================================="
 		echo "Phuc hoi database $dataname thanh cong !"
 		echo "-------------------------------------------------------------------------"
-		echo "File backup duoc doi ten thanh VPSSIM-DATABASE.tar.gz.$randomcode"
-		/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+		echo "File backup duoc doi ten thanh kpanel-DATABASE.tar.gz.$randomcode"
+		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		exit
 		fi
 	else
 	clear
 		echo "========================================================================="
-		echo "Khong tim thay website VPSSIM-DATABASE.tar.gz !"
+		echo "Khong tim thay website kpanel-DATABASE.tar.gz !"
 		echo "-------------------------------------------------------------------------"
 		echo "Hay upload file Backup len server roi thu lai"
-		/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		exit
 		fi
 		fi
@@ -176,7 +176,7 @@ if [ "$luachonphuchoi" = "phuchoitufilebackup" ]; then
 echo "--------------------------------------------------------------------------"
 echo "Please wait ...."
 echo "--------------------------------------------------------------------------"
-echo "VPSSIM dang Restore $dataname.........."
+echo "kpanel dang Restore $dataname.........."
 gunzip < /home/$mainsite/private_html/backup/$dataname/$filename | mysql -u root -p$mariadbpass $dataname
 date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
 check1=`cat /tmp/vpssim1`
@@ -189,28 +189,28 @@ check2=`cat /tmp/vpssim2`
 	echo "Phuc hoi database $dataname that bai "
 	echo "-------------------------------------------------------------------------"
 	echo "Vui long kiem tra file backup va thu lai !"
-	/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+	/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 	else	
 	rm -rf /tmp/vpssim1
 	rm -rf /tmp/vpssim2
 	clear
 	echo "========================================================================="
 	echo "Phuc hoi database $dataname thanh cong !"
-	/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+	/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 	fi
 ###################################
 #Upload file backup len va Restore tu file nay
 ###################################
 elif [ "$luachonphuchoi" = "uploadsaudophuchoi" ]; then
 randomcode=`date |md5sum |cut -c '1-18'`
-	if [ -f /home/$website/public_html/VPSSIM-DATABASE.tar.gz ]; then
+	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
 	echo "-------------------------------------------------------------------------"
-	echo "Tim thay file backup VPSSIM-DATABASE.tar.gz"
+	echo "Tim thay file backup kpanel-DATABASE.tar.gz"
 	echo "-------------------------------------------------------------------------"
 	echo "Chuan bi phuc hoi .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 2
-	gunzip < /home/$website/public_html/VPSSIM-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
+	gunzip < /home/$website/public_html/kpanel-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
 	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
 	check1=`cat /tmp/vpssim1`
 	check2=`cat /tmp/vpssim2`
@@ -222,17 +222,17 @@ randomcode=`date |md5sum |cut -c '1-18'`
 		echo "Phuc hoi database $dataname that bai "
 		echo "-------------------------------------------------------------------------"
 		echo "Vui long kiem tra file backup va thu lai !"
-		/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		else	
 		rm -rf /tmp/vpssim1
 		rm -rf /tmp/vpssim2
-        mv /home/$website/public_html/VPSSIM-DATABASE.tar.gz /home/$website/public_html/VPSSIM-DATABASE.tar.gz.$randomcode
+        mv /home/$website/public_html/kpanel-DATABASE.tar.gz /home/$website/public_html/kpanel-DATABASE.tar.gz.$randomcode
 		clear
 		echo "========================================================================="
 		echo "Phuc hoi database $dataname thanh cong !"
 		echo "-------------------------------------------------------------------------"
-		echo "File backup duoc doi ten thanh VPSSIM-DATABASE.tar.gz.$randomcode"
-		/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+		echo "File backup duoc doi ten thanh kpanel-DATABASE.tar.gz.$randomcode"
+		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		exit
 		fi
 		
@@ -243,23 +243,23 @@ randomcode=`date |md5sum |cut -c '1-18'`
 	echo "========================================================================="
 	echo "Chuc nang nay ho tro phuc hoi database tu backup dinh dang TAR.GZ"
 	echo "-------------------------------------------------------------------------"
-	echo "Doi ten file backup thanh VPSSIM-DATABASE.tar.gz sau do upload vao: "
+	echo "Doi ten file backup thanh kpanel-DATABASE.tar.gz sau do upload vao: "
 	echo "-------------------------------------------------------------------------"
 	echo "/home/$website/public_html/"
 	echo "========================================================================="
 	read -p "Khi upload hoan thanh. Nhan [Enter] de phuc hoi..."
 	echo "-------------------------------------------------------------------------"
-	echo "VPSSIM dang tim kiem file backup .... "
+	echo "kpanel dang tim kiem file backup .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 4
-		if [ -f /home/$website/public_html/VPSSIM-DATABASE.tar.gz ]; then
+		if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
 		echo "-------------------------------------------------------------------------"
-	echo "Tim thay file backup VPSSIM-DATABASE.tar.gz"
+	echo "Tim thay file backup kpanel-DATABASE.tar.gz"
 	echo "-------------------------------------------------------------------------"
 	echo "Chuan bi phuc hoi .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 2
-	gunzip < /home/$website/public_html/VPSSIM-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
+	gunzip < /home/$website/public_html/kpanel-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
 	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
 	check1=`cat /tmp/vpssim1`
 	check2=`cat /tmp/vpssim2`
@@ -271,27 +271,27 @@ randomcode=`date |md5sum |cut -c '1-18'`
 		echo "Phuc hoi database $dataname that bai "
 		echo "-------------------------------------------------------------------------"
 		echo "Vui long kiem tra file backup va thu lai !"
-		/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		else	
 		rm -rf /tmp/vpssim1
 		rm -rf /tmp/vpssim2
-		mv /home/$website/public_html/VPSSIM-DATABASE.tar.gz /home/$website/public_html/VPSSIM-DATABASE.tar.gz.$randomcode
+		mv /home/$website/public_html/kpanel-DATABASE.tar.gz /home/$website/public_html/kpanel-DATABASE.tar.gz.$randomcode
 		clear
 		echo "========================================================================="
 		echo "Phuc hoi database $dataname thanh cong !"
 		echo "-------------------------------------------------------------------------"
-		echo "File backup duoc doi ten thanh VPSSIM-DATABASE.tar.gz.$randomcode"
-		/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+		echo "File backup duoc doi ten thanh kpanel-DATABASE.tar.gz.$randomcode"
+		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		exit
 		fi
 
 	else
 	clear
 		echo "========================================================================="
-		echo "Khong tim thay VPSSIM-DATABASE.tar.gz !"
+		echo "Khong tim thay kpanel-DATABASE.tar.gz !"
 		echo "-------------------------------------------------------------------------"
 		echo "Hay upload file Backup len server roi thu lai"
-		/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		exit
 		fi
 fi
@@ -299,6 +299,6 @@ fi
 #Huy bo phuchoi
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-database
+clear && /etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 fi
 fi

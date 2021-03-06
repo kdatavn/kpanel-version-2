@@ -1,15 +1,15 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 # Rate limit on registrations per IP is currently 10 per 3 hours
 # Rate limit on certificates per Domain is currently 5 per 7 days
 
-if [ ! -d /etc/vpssim/Backup.Vhost.SSL ]; then
-mkdir -p /etc/vpssim/Backup.Vhost.SSL
+if [ ! -d /etc/kpanel/Backup.Vhost.SSL ]; then
+mkdir -p /etc/kpanel/Backup.Vhost.SSL
 fi
 
-if [ ! -d /etc/vpssim/.tmp ]; then
-mkdir -p /etc/vpssim/.tmp
+if [ ! -d /etc/kpanel/.tmp ]; then
+mkdir -p /etc/kpanel/.tmp
 fi
 
 if [ ! -f /root/.acme.sh/acme.sh ]; then
@@ -25,7 +25,7 @@ echo "========================================================================="
 echo "Cai dat acme.sh hoan thanh"
 echo "-------------------------------------------------------------------------"
 echo "Bay gio ban co the su dung chuc nang cai dat SSL cho website cua minh."
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 fi
 
 echo "========================================================================="
@@ -41,7 +41,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap ten website"
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 
@@ -49,7 +49,7 @@ if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
 clear
 echo "========================================================================="
 echo "Khong tim thay $website tren server "
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi  
 
@@ -58,28 +58,28 @@ clear
 echo "========================================================================="
 echo "Khong tim thay folder public_html cua $website"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien thuc nang nay."
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+echo "kpanel khong the thuc hien thuc nang nay."
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 ##############
 if [ -f /root/.acme.sh/$website/$website.conf ]; then
 
-echo "Check $website when Setup SSL" > /home/$website/public_html/vpssim.check
-checkurlsttSSL=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://$website/vpssim.check")
-checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "http://$website/vpssim.check")
-rm -rf /home/$website/public_html/vpssim.check
+echo "Check $website when Setup SSL" > /home/$website/public_html/kpanel.check
+checkurlsttSSL=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://$website/kpanel.check")
+checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "http://$website/kpanel.check")
+rm -rf /home/$website/public_html/kpanel.check
 if [[  "$checkurlsttSSL" == "200" ]]; then
 clear
 echo "========================================================================="
 echo "Ban da cai dat thanh cong SSL cho $website."
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 if [[ "$checkurlstt" == "200" ]]; then
 
-yes | cp -rf  /etc/vpssim/Backup.Vhost.SSL/$website/$website.conf /home/$website/$website.conf_HTTP
-yes | cp -rf  /etc/vpssim/Backup.Vhost.SSL/$website/$website.conf_HTTPS /home/$website/$website.conf_HTTPS
+yes | cp -rf  /etc/kpanel/Backup.Vhost.SSL/$website/$website.conf /home/$website/$website.conf_HTTP
+yes | cp -rf  /etc/kpanel/Backup.Vhost.SSL/$website/$website.conf_HTTPS /home/$website/$website.conf_HTTPS
 
 clear
 echo "========================================================================="
@@ -92,33 +92,33 @@ echo "-------------------------------------------------------------------------"
 echo "Backup Vhost: /home/$website/$website.conf_HTTP"
 echo "-------------------------------------------------------------------------"
 echo "SSL Vhost: /home/$website/$website.conf_HTTPS"
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 fi
 
 ################
 
-rm -rf /etc/vpssim/.tmp/servername
-grep "server_name\ $website" /etc/nginx/conf.d/$website.conf > /etc/vpssim/.tmp/servername
-servername=$(cat /etc/vpssim/.tmp/servername)
-if [ ! -n /etc/vpssim/.tmp/servername ]; then
+rm -rf /etc/kpanel/.tmp/servername
+grep "server_name\ $website" /etc/nginx/conf.d/$website.conf > /etc/kpanel/.tmp/servername
+servername=$(cat /etc/kpanel/.tmp/servername)
+if [ ! -n /etc/kpanel/.tmp/servername ]; then
 clear
 echo "========================================================================="
-echo "Ban da thay doi cau hinh file Vhost khong dung voi config VPSSIM yeu cau"
+echo "Ban da thay doi cau hinh file Vhost khong dung voi config kpanel yeu cau"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the chay chuc nang nay."
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+echo "kpanel khong the chay chuc nang nay."
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 
 if [ "`grep "block.conf;" /etc/nginx/conf.d/$website.conf`" = "" ]; then
 clear
 echo "========================================================================="
-echo "Ban da thay doi cau hinh file Vhost khong dung voi config VPSSIM yeu cau"
+echo "Ban da thay doi cau hinh file Vhost khong dung voi config kpanel yeu cau"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the chay chuc nang nay"
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+echo "kpanel khong the chay chuc nang nay"
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 
@@ -127,30 +127,30 @@ echo "Tim thay $website tren he thong."
 echo "-------------------------------------------------------------------------"
 echo "Neu domain BAT cloudflare hoac chua TRO ve IP server"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se khong the thuc hien chuc nang nay."
+echo "kpanel se khong the thuc hien chuc nang nay."
 echo "========================================================================="
 echo "========================================================================="
 echo ""
 sleep 7
 echo "Kiem tra DNS cua domain ..."; sleep 3
-echo "Check $website when Setup SSL" > /home/$website/public_html/vpssim.check
-checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "http://$website/vpssim.check")
-checkurlsttSSL=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://$website/vpssim.check")
-rm -rf /home/$website/public_html/vpssim.check
+echo "Check $website when Setup SSL" > /home/$website/public_html/kpanel.check
+checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "http://$website/kpanel.check")
+checkurlsttSSL=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://$website/kpanel.check")
+rm -rf /home/$website/public_html/kpanel.check
 if [[  "$checkurlsttSSL" == "200" ]]; then
 clear
 echo "========================================================================="
 echo "Ban dang su dung SSL cho $website."
 echo "-------------------------------------------------------------------------"
-echo "Hien tai VPSSIM khong ho tro chuyen tu SSL thuong sang Let's Encrypt SSL."
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+echo "Hien tai kpanel khong ho tro chuyen tu SSL thuong sang Let's Encrypt SSL."
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 if [[ ! "$checkurlstt" == "200" ]]; then
 clear
 echo "========================================================================="
 echo "Ban phai tro $website toi $serverip truoc khi thuc hien chuc nang nay"
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 
@@ -161,17 +161,17 @@ echo ""
 echo "Kiem tra Domain co BAT cloudflare (Hide IP Address) hay khong ? ..."; sleep 3
 
 
-rm -rf /etc/vpssim/.tmp/cloudflare.status
-curl -I -s $website > /etc/vpssim/.tmp/cloudflare.status
-status_cloudflare=`grep cloudflare-nginx /etc/vpssim/.tmp/cloudflare.status`
-rm -rf /etc/vpssim/.tmp/cloudflare.status
+rm -rf /etc/kpanel/.tmp/cloudflare.status
+curl -I -s $website > /etc/kpanel/.tmp/cloudflare.status
+status_cloudflare=`grep cloudflare-nginx /etc/kpanel/.tmp/cloudflare.status`
+rm -rf /etc/kpanel/.tmp/cloudflare.status
 if [ ! "$status_cloudflare" = "" ]; then
 clear
 echo "========================================================================="
 echo "$website dang BAT CloudFlare"
 echo "-------------------------------------------------------------------------"
 echo "Ban phai tat CloudFlare truoc khi su dung chuc nang nay."
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 echo "$websiteTO khong BAT Cloudflare. => [ OK ]"
@@ -182,7 +182,7 @@ echo "========================================================================="
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
-echo "VPSSIM bat dau cai dat Let's Encrypt ..."
+echo "kpanel bat dau cai dat Let's Encrypt ..."
 sleep 3
 
 if [ ! -d /home/$website/public_html/.well-known/acme-challenge ]; then
@@ -190,8 +190,8 @@ mkdir -p /home/$website/public_html/.well-known
 mkdir -p /home/$website/public_html/.well-known/acme-challenge
 fi
 
-rm -rf /etc/vpssim/.tmp/config.ssl.$website.txt
-cat > "/etc/vpssim/.tmp/config.ssl.$website.txt" <<END
+rm -rf /etc/kpanel/.tmp/config.ssl.$website.txt
+cat > "/etc/kpanel/.tmp/config.ssl.$website.txt" <<END
 
 # Config for Free SSL (LetEncrypt) - Do not Delete !
 location ~ /.well-known {
@@ -200,7 +200,7 @@ location ~ /.well-known {
     }
 END
 
-cd /etc/vpssim/.tmp
+cd /etc/kpanel/.tmp
 if [ "`grep "location\ ~\ /.well-known\ {" /etc/nginx/conf.d/$website.conf`" == "" ]; then
 sed -i "/block.conf;/r config.ssl.${website}.txt" /etc/nginx/conf.d/$website.conf
 fi
@@ -208,16 +208,16 @@ cd
 
 service nginx restart
 
-echo "Check $website when Setup SSL" > /home/$website/public_html/.well-known/acme-challenge/vpssim.check
-checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "http://$website/.well-known/acme-challenge/vpssim.check")
-rm -rf /home/$website/public_html/.well-known/acme-challenge/vpssim.check
+echo "Check $website when Setup SSL" > /home/$website/public_html/.well-known/acme-challenge/kpanel.check
+checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "http://$website/.well-known/acme-challenge/kpanel.check")
+rm -rf /home/$website/public_html/.well-known/acme-challenge/kpanel.check
 if [[ ! "$checkurlstt" == "200" ]]; then
 clear
 echo "========================================================================="
 echo "Qua trinh cai dat SSL cho $website gap loi."
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien chuc nang nay."
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+echo "kpanel khong the thuc hien chuc nang nay."
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 mkdir -p /etc/nginx/auth-acme
@@ -232,20 +232,20 @@ clear
 echo "========================================================================="
 echo "Qua trinh cai dat SSL cho $website gap loi."
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the cai dat SSL Let's Encrypt cho domain nay."
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+echo "kpanel khong the cai dat SSL Let's Encrypt cho domain nay."
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 exit
 fi
 
-rm -rf /etc/vpssim/.tmp/$website.conf.txt
-cp -r /etc/nginx/conf.d/$website.conf /etc/vpssim/.tmp/$website.conf.txt
+rm -rf /etc/kpanel/.tmp/$website.conf.txt
+cp -r /etc/nginx/conf.d/$website.conf /etc/kpanel/.tmp/$website.conf.txt
 
 # replace from 1 to server_name
-sed -i "1,/${servername}/d" /etc/vpssim/.tmp/$website.conf.txt
+sed -i "1,/${servername}/d" /etc/kpanel/.tmp/$website.conf.txt
 # Tao vhost ssl
-rm -rf /etc/vpssim/.tmp/SSL-$website.conf.txt
+rm -rf /etc/kpanel/.tmp/SSL-$website.conf.txt
 
-cat > "/etc/vpssim/.tmp/SSL-$website.conf.txt" <<END
+cat > "/etc/kpanel/.tmp/SSL-$website.conf.txt" <<END
 server {
 listen 80;
 server_name $website www.$website;
@@ -280,29 +280,29 @@ index index.php index.html index.htm;
 $servername
 END
 
-cd /etc/vpssim/.tmp/
+cd /etc/kpanel/.tmp/
 cat SSL-$website.conf.txt $website.conf.txt > $website.conf_HTTPS
-rm -rf /etc/vpssim/.tmp/SSL-$website.conf.txt
-rm -rf /etc/vpssim/.tmp/$website.conf.txt
+rm -rf /etc/kpanel/.tmp/SSL-$website.conf.txt
+rm -rf /etc/kpanel/.tmp/$website.conf.txt
 cd
-if [ ! -d /etc/vpssim/Backup.Vhost.SSL ]; then
-mkdir -p /etc/vpssim/Backup.Vhost.SSL
+if [ ! -d /etc/kpanel/Backup.Vhost.SSL ]; then
+mkdir -p /etc/kpanel/Backup.Vhost.SSL
 fi
-mkdir -p /etc/vpssim/Backup.Vhost.SSL/$website
+mkdir -p /etc/kpanel/Backup.Vhost.SSL/$website
 #Backup Vhost.Conf
-yes | cp -rf  /etc/nginx/conf.d/$website.conf /etc/vpssim/Backup.Vhost.SSL/$website/$website.conf
-yes | cp -rf  /etc/vpssim/.tmp/$website.conf_HTTPS /etc/vpssim/Backup.Vhost.SSL/$website/$website.conf_HTTPS
+yes | cp -rf  /etc/nginx/conf.d/$website.conf /etc/kpanel/Backup.Vhost.SSL/$website/$website.conf
+yes | cp -rf  /etc/kpanel/.tmp/$website.conf_HTTPS /etc/kpanel/Backup.Vhost.SSL/$website/$website.conf_HTTPS
 
 yes | cp -rf /etc/nginx/conf.d/$website.conf /home/$website/$website.conf_HTTP
-yes | cp -rf  /etc/vpssim/.tmp/$website.conf_HTTPS /home/$website/$website.conf_HTTPS
-yes | cp -rf  /etc/vpssim/.tmp/$website.conf_HTTPS /etc/nginx/conf.d/$website.conf
-rm -rf /etc/vpssim/.tmp/$website.conf_HTTPS
-rm -rf /home/$website/public_html/vpssim.check2
-echo "Check SSL Setup" > /home/$website/public_html/vpssim.check2
+yes | cp -rf  /etc/kpanel/.tmp/$website.conf_HTTPS /home/$website/$website.conf_HTTPS
+yes | cp -rf  /etc/kpanel/.tmp/$website.conf_HTTPS /etc/nginx/conf.d/$website.conf
+rm -rf /etc/kpanel/.tmp/$website.conf_HTTPS
+rm -rf /home/$website/public_html/kpanel.check2
+echo "Check SSL Setup" > /home/$website/public_html/kpanel.check2
 service nginx restart
 
-checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://$website/vpssim.check2")
-rm -rf /home/$website/public_html/vpssim.check2
+checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://$website/kpanel.check2")
+rm -rf /home/$website/public_html/kpanel.check2
 if [[ ! "$checkurlstt" == "200" ]]; then
 yes | cp -rf  /home/$website/$website.conf_HTTP /etc/nginx/conf.d/$website.conf
 
@@ -319,7 +319,7 @@ echo "-------------------------------------------------------------------------"
 echo "Backup Vhost: /home/$website/$website.conf_HTTP"
 echo "-------------------------------------------------------------------------"
 echo "Backup SSL Vhost: /home/$website/$website.conf_HTTPS"
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 else
 nextgiahan=`cat /root/.acme.sh/$website/$website.conf | grep NextRenewTimeStr | cut -d \" -f 2 `
 curTime=$(date +%s)
@@ -342,20 +342,20 @@ fi
 echo "Backup Vhost: /home/$website/$website.conf_HTTP"
 echo "-------------------------------------------------------------------------"
 echo "Backup SSL Vhost: /home/$website/$website.conf_HTTPS"
-if [ -f /etc/vpssim/Renew.SSL.Letencrypt ] && [ -f /etc/cron.d/vpssim.autorenew.ssl.cron ]; then
+if [ -f /etc/kpanel/Renew.SSL.Letencrypt ] && [ -f /etc/cron.d/kpanel.autorenew.ssl.cron ]; then
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se tu dong gia han chung chi sau: $thoigiannengiahanlai ngay."
+echo "kpanel se tu dong gia han chung chi sau: $thoigiannengiahanlai ngay."
 else
 echo "-------------------------------------------------------------------------"
 echo "BAN CHUA BAT TINH NANG TU DONG GIA HAN SSL."
 fi
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 fi
 ;;
     *)
 clear 
 echo "========================================================================= "
 echo "Cancel !"
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
         ;;
 esac

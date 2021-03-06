@@ -1,9 +1,9 @@
 #!/bin/sh
 
 cd ~
-if [ -d /opt/echbay_vpssim ]; then
-rm -rf /opt/echbay_vpssim/*
-rm -rf /opt/echbay_vpssim
+if [ -d /opt/kdata_kpanel ]; then
+rm -rf /opt/kdata_kpanel/*
+rm -rf /opt/kdata_kpanel
 sleep 5
 fi
 
@@ -11,28 +11,28 @@ echo "Install git..."
 sudo yum -y install git > /dev/null 2>&1
 
 # update code
-if [ -d /opt/echbay_vpssim ]; then
-cd ~ ; cd /opt/echbay_vpssim && git pull ; cd ~
+if [ -d /opt/kdata_kpanel ]; then
+cd ~ ; cd /opt/kdata_kpanel && git pull ; cd ~
 #git commit -m "KPANEL commit"
 #git pull origin master
 #git pull origin
 #git merge origin master
 # or clone new
 else
-git clone https://github.com/kdatavn/kpanel-version-2.git /opt/echbay_vpssim
+git clone https://github.com/kdatavn/kpanel-version-2.git /opt/kdata_kpanel
 fi
 
 cd ~
 
 sleep 5
 
-find /opt/echbay_vpssim/script/vpssim/menu -type f -exec chmod 755 {} \;
-/opt/echbay_vpssim/script/vpssim/menu/git-clone-done
+find /opt/kdata_kpanel/script/kpanel/menu -type f -exec chmod 755 {} \;
+/opt/kdata_kpanel/script/kpanel/menu/git-clone-done
 
 echo "update KPANEL menu"
-mkdir -p /etc/vpssim/menu ; chmod 755 /etc/vpssim/menu
-rm -rf /etc/vpssim/menu/*
-yes | cp -rf /opt/echbay_vpssim/script/vpssim/menu/. /etc/vpssim/menu/
+mkdir -p /etc/kpanel/menu ; chmod 755 /etc/kpanel/menu
+rm -rf /etc/kpanel/menu/*
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/menu/. /etc/kpanel/menu/
 
 echo "Chmod 755 Menu"
-/opt/echbay_vpssim/script/vpssim/menu/chmod-755-menu
+/opt/kdata_kpanel/script/kpanel/menu/chmod-755-menu

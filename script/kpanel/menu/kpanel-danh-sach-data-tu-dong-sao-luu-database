@@ -1,27 +1,27 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 1
-rm -rf /tmp/vpssim-databaselist
-ls /var/lib/mysql > /tmp/vpssim-databaselist
+rm -rf /tmp/kpanel-databaselist
+ls /var/lib/mysql > /tmp/kpanel-databaselist
 rm -rf /tmp/checkautobackupvpssim
 mkdir -p /tmp/checkautobackupvpssim
-checkautobackup=$(cat /tmp/vpssim-databaselist)
+checkautobackup=$(cat /tmp/kpanel-databaselist)
 rm -rf /tmp/chitietbackupauto
 randomcode=`date |md5sum |cut -c '1-12'`
 for databasecheck in $checkautobackup 
 do
-if [ -f /bin/vpssim-backupdb-$databasecheck ]; then
- if [ -f /etc/cron.d/vpssim.db.cron ]; then
-     if [ ! "$(grep vpssim-backupdb-$databasecheck /etc/cron.d/vpssim.db.cron)" == "" ]; then
+if [ -f /bin/kpanel-backupdb-$databasecheck ]; then
+ if [ -f /etc/cron.d/kpanel.db.cron ]; then
+     if [ ! "$(grep kpanel-backupdb-$databasecheck /etc/cron.d/kpanel.db.cron)" == "" ]; then
      touch /tmp/checkautobackupvpssim/$databasecheck
      if [ ! -f /tmp/chitietbackupauto ]; then
      touch /tmp/chitietbackupauto
      fi
-	if [ "$(grep VPSSIM /tmp/chitietbackupauto)" == "" ]; then
+	if [ "$(grep kpanel /tmp/chitietbackupauto)" == "" ]; then
 	echo "=========================================================================" >> /tmp/chitietbackupauto
-	echo "Link Download Backup for Database Enabled Auto Backup - Created by VPSSIM" >> /tmp/chitietbackupauto
+	echo "Link Download Backup for Database Enabled Auto Backup - Created by kpanel" >> /tmp/chitietbackupauto
 	echo "=========================================================================" >> /tmp/chitietbackupauto
 	echo "Luu Y:" >> /tmp/chitietbackupauto
 	echo "-------------------------------------------------------------------------" >> /tmp/chitietbackupauto
@@ -29,7 +29,7 @@ if [ -f /bin/vpssim-backupdb-$databasecheck ]; then
 	echo "-------------------------------------------------------------------------" >> /tmp/chitietbackupauto
 	echo "Server Duoc Backup Thanh Cong. " >> /tmp/chitietbackupauto
 	fi
-filename=$(grep "$databasecheck" /bin/vpssim-backupdb-$databasecheck | awk 'NR==7 {print $11}')
+filename=$(grep "$databasecheck" /bin/kpanel-backupdb-$databasecheck | awk 'NR==7 {print $11}')
 echo "=========================================================================" >> /tmp/chitietbackupauto
 echo "Database $databasecheck:" >> /tmp/chitietbackupauto
 echo "-------------------------------------------------------------------------" >> /tmp/chitietbackupauto
@@ -55,6 +55,6 @@ echo "List Link Download File Backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/linkAUTOBackupData-$randomcode.txt"
 fi
-rm -rf /tmp/*vpssim*
+rm -rf /tmp/*kpanel*
 rm -rf /tmp/chitietbackupauto
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database

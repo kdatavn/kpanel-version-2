@@ -1,35 +1,35 @@
 #!/bin/sh
-. /home/vpssim.conf
-website=$(cat /tmp/vpssim-tensitephuchoi)
-dataname=$(cat /tmp/vpssim-tendatabasephuchoi)
+. /home/kpanel.conf
+website=$(cat /tmp/kpanel-tensitephuchoi)
+dataname=$(cat /tmp/kpanel-tendatabasephuchoi)
 randomcode=`date |md5sum |cut -c '1-18'` 
 echo "========================================================================="   
-	echo "Tim thay file backup VPSSIM-DATABASE.sql"
+	echo "Tim thay file backup kpanel-DATABASE.sql"
 	echo "-------------------------------------------------------------------------"
 	echo "Chuan bi phuc hoi .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 2
-	mysql -u root -p$mariadbpass $dataname < /home/$website/public_html/VPSSIM-DATABASE.sql
+	mysql -u root -p$mariadbpass $dataname < /home/$website/public_html/kpanel-DATABASE.sql
 	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
 	check1=`cat /tmp/vpssim1`
 	check2=`cat /tmp/vpssim2`
 		if [ "$check1" == "$check2" ]; then
-		rm -rf /tmp/*vpssim*
+		rm -rf /tmp/*kpanel*
 		sleep 8
 		clear
 		echo "========================================================================="
 		echo "Phuc hoi database $dataname that bai "
 		echo "-------------------------------------------------------------------------"
 		echo "Vui long kiem tra file backup va thu lai !"
-		/etc/vpssim/menu/vpssim-wordpress-tools-menu
+		/etc/kpanel/menu/kpanel-wordpress-tools-menu
 		else	
-        rm -rf /tmp/*vpssim*
-		mv /home/$website/public_html/VPSSIM-DATABASE.sql /home/$website/public_html/VPSSIM-DATABASE.sql.$randomcode
+        rm -rf /tmp/*kpanel*
+		mv /home/$website/public_html/kpanel-DATABASE.sql /home/$website/public_html/kpanel-DATABASE.sql.$randomcode
 		clear
 		echo "========================================================================="
 		echo "Phuc hoi database $dataname thanh cong !"
 		echo "-------------------------------------------------------------------------"
-		echo "File backup duoc doi ten thanh VPSSIM-DATABASE.sql.$randomcode"
-		/etc/vpssim/menu/vpssim-wordpress-tools-menu
+		echo "File backup duoc doi ten thanh kpanel-DATABASE.sql.$randomcode"
+		/etc/kpanel/menu/kpanel-wordpress-tools-menu
 		exit
 		fi

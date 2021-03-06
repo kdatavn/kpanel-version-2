@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 svram=$( free -m | awk 'NR==2 {print $2}' )
 cpucores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
 	ramformariadb=$(calc $svram/10*6)
@@ -23,7 +23,7 @@ rpm -qa|grep  -i mariadb > /tmp/checkmariadb
 abc456=`date |md5sum |cut -c '1-12'` 
 if [ "$(service mysql status | awk 'NR==1 {print $3}')" == "running" ]; then   
 echo "--------------------------------------------------------------------------"
-echo "VPSSIM se sao luu tat ca Database truoc khi nang cap MariaDB"
+echo "kpanel se sao luu tat ca Database truoc khi nang cap MariaDB"
 echo "--------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 3
@@ -325,7 +325,7 @@ if [ ! "$(service mysql status | awk 'NR==1 {print $3}')" == "running" ]; then
 clear
 echo "========================================================================="
 echo "Nang cap MariaDB that bai !"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
 clear
@@ -337,11 +337,11 @@ echo "Link file backup database:"
 echo "--------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/AllDB/AllDB_$abc456.sql.gz"
 fi
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 
 ;;
 esac
 clear
 echo "========================================================================="
 echo "Ban da cancel nang cap MariaDB len phien ban 10.0 !"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu

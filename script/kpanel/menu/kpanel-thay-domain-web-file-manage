@@ -1,21 +1,21 @@
 #!/bin/bash
 
-. /home/vpssim.conf
-if [ ! -f /etc/vpssim/uploadsite ]; then
+. /home/kpanel.conf
+if [ ! -f /etc/kpanel/uploadsite ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat File Manager cho Server !"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 exit
 fi
-uploadsite=$(cat /etc/vpssim/uploadsite)
+uploadsite=$(cat /etc/kpanel/uploadsite)
 if [ ! -f /etc/nginx/conf.d/$uploadsite.conf ]; then
 clear
 echo "========================================================================="
 echo "Qua trinh thay Domain File Manager gap loi!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long kiem tra lai"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 exit
 fi
 echo "========================================================================= "
@@ -32,7 +32,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 exit
 fi
 
@@ -44,7 +44,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 exit
 fi
 
@@ -54,7 +54,7 @@ echo "========================================================================="
 echo "Phat hien $website da ton tai tren he thong!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 exit
 fi
 
@@ -84,7 +84,7 @@ include /etc/nginx/conf/ddos2.conf;
 #///////////////////////////////////////////////////////
 include /etc/nginx/conf/supercache.conf;  
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
 #include /etc/nginx/conf/block.conf;
 
     	location ~ \.php$ {
@@ -133,7 +133,7 @@ include /etc/nginx/conf/ddos2.conf;
 #///////////////////////////////////////////////////////
 include /etc/nginx/conf/supercache.conf;  
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
 #include /etc/nginx/conf/block.conf;
 
     	location ~ \.php$ {
@@ -168,16 +168,16 @@ service nginx reload
 else 
 systemctl reload nginx
 fi
-echo "$website" > /etc/vpssim/uploadsite
+echo "$website" > /etc/kpanel/uploadsite
 clear
 echo "========================================================================="
-echo "Hay tro domain $(cat /etc/vpssim/uploadsite) toi $serverip"
+echo "Hay tro domain $(cat /etc/kpanel/uploadsite) toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de quan ly file tren server."
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 ;;
 esac
 clear
 echo "========================================================================="
 echo "Ban da cancel thay doi domain File Manager"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu

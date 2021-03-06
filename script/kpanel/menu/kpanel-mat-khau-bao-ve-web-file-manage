@@ -1,25 +1,25 @@
 #!/bin/sh
-. /home/vpssim.conf
-. /etc/vpssim/pwprotect.default
+. /home/kpanel.conf
+. /etc/kpanel/pwprotect.default
 if [ ! -d /etc/nginx/pwprotect ]; then
 mkdir -p /etc/nginx/pwprotect
 fi
 
-if [ ! -f /etc/vpssim/uploadsite ]; then
+if [ ! -f /etc/kpanel/uploadsite ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat File Manager cho Server !"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 exit
 fi
-uploadsite=$(cat /etc/vpssim/uploadsite)
+uploadsite=$(cat /etc/kpanel/uploadsite)
 if [ ! -f /etc/nginx/.htpasswd ]; then
 clear
 echo "========================================================================="
 echo "Ban phai tao User va Mat khau mac dinh truoc khi chay chuc nang nay. Tao "
 echo "-------------------------------------------------------------------------"
-echo "User va Mat Khau mac dinh: VPSSIM Menu => User & Password Mac Dinh."
-/etc/vpssim/menu/vpssim-web-upload-menu
+echo "User va Mat Khau mac dinh: kpanel Menu => User & Password Mac Dinh."
+/etc/kpanel/menu/kpanel-web-upload-menu
 exit
 fi
 
@@ -55,7 +55,7 @@ fi
        clear 
 echo "========================================================================= "
 echo "Huy bo dat mat khau bao ve domain File Manager "
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
         ;;
 esac
 clear 
@@ -65,7 +65,7 @@ echo "-------------------------------------------------------------------------"
 echo "Thong tin truy cap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $userdefault | Password: $passdefault"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 
 else
 
@@ -93,11 +93,11 @@ fi
        clear 
 echo "========================================================================= "
 echo "Huy bo TAT bao ve domain File Manager"
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
         ;;
 esac
 clear 
 echo "========================================================================= "
 echo "Hoan thanh TAT mat khau bao ve domain File Manager "
-/etc/vpssim/menu/vpssim-web-upload-menu
+/etc/kpanel/menu/kpanel-web-upload-menu
 fi

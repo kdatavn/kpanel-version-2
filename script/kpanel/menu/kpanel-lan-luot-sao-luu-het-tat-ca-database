@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 rm -rf /tmp/*hostingaz*
 code=`date |md5sum |cut -c '1-19'`
 echo "$(mysql --user=root --password=$mariadbpass -e "SHOW DATABASES;" | grep -Ev "(Database|information_schema|mysql|performance_schema)")" > /tmp/listdabasehostingaz
@@ -8,7 +8,7 @@ checksize=$(du -sb /tmp/listdabasehostingaz | awk 'NR==1 {print $1}')
    clear
    echo "========================================================================="
    echo "Khong tim thay database co du lieu tren server"
-   /etc/vpssim/menu/vpssim-them-xoa-database
+   /etc/kpanel/menu/kpanel-them-xoa-database
    exit
    fi
 sodatabasetrenserver=$(cat /tmp/listdabasehostingaz | wc -l)
@@ -29,7 +29,7 @@ rm -rf /tmp/*list*
 clear
 echo "========================================================================="
 echo "Khong tim thay database co du lieu tren server"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 exit
 fi
  
@@ -37,9 +37,9 @@ sodatabase=$(cat /tmp/checkdatabase-list | wc -l)
 saoluudata ()
 {
 randomcode=-`date |md5sum |cut -c '1-11'`
-if [ -f /bin/vpssim-backupdb-$dataname ]; then
-if [ ! "$(grep vpssim-backupdb-$dataname /etc/cron.d/vpssim.db.cron)" == "" ]; then
-filename=$(grep "$dataname" /bin/vpssim-backupdb-$dataname | awk 'NR==7 {print $11}')
+if [ -f /bin/kpanel-backupdb-$dataname ]; then
+if [ ! "$(grep kpanel-backupdb-$dataname /etc/cron.d/kpanel.db.cron)" == "" ]; then
+filename=$(grep "$dataname" /bin/kpanel-backupdb-$dataname | awk 'NR==7 {print $11}')
 ####
 if [ ! -d /home/$mainsite/private_html/backup/$dataname ]; then
 mkdir -p /home/$mainsite/private_html/backup/$dataname
@@ -89,7 +89,7 @@ fi
 fi
 fi
 
-if [ ! -f /bin/vpssim-backupdb-$dataname ]; then
+if [ ! -f /bin/kpanel-backupdb-$dataname ]; then
 ####
 if [ ! -d /home/$mainsite/private_html/backup/$dataname ]; then
 mkdir -p /home/$mainsite/private_html/backup/$dataname
@@ -141,26 +141,26 @@ fi
 echo "========================================================================="
 echo "Su dung chuc nang nay de backup tat ca database tren server"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se lan luot backup tung database mot tren server cho den het."
+echo "kpanel se lan luot backup tung database mot tren server cho den het."
 echo "-------------------------------------------------------------------------"
 echo "Tuy thuoc vao so luong database va dung luong tung database ma thoi gian"
 echo "-------------------------------------------------------------------------"
 echo "hoan thanh sao luu tat ca database co the nhanh hay cham."
 echo "=========================================================================" 
-read -r -p "Ban muon VPSSIM lan luot sao luu tat ca database ? [y/N] " response
+read -r -p "Ban muon kpanel lan luot sao luu tat ca database ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
 echo "========================================================================="
 echo "Tong Database tren server: $sodatabasetrenserver | Database co du lieu: $sodatabase"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se sao luu $sodatabase database co du lieu tren server"
+echo "kpanel se sao luu $sodatabase database co du lieu tren server"
 echo "========================================================================="
 echo "PLEASE DO NOT TURNOFF THIS CREEEN !"
 echo "========================================================================="
 sleep 2
 rm -rf /home/$mainsite/private_html/Listbackupall*
 echo "========================================================================================================================" > /home/$mainsite/private_html/Listbackupall-DB-$code.txt
-echo "                                  Link Download Backup All Database - Created by VPSSIM" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
+echo "                                  Link Download Backup All Database - Created by kpanel" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "========================================================================================================================" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
@@ -190,14 +190,14 @@ echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/Listbackupall-DB-$code.txt"
 fi
 rm -rf /tmp/*hostingaz*
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
    ;;
     *)
     clear
     rm -rf /tmp/*hostingaz*
         echo "========================================================================= "
         echo "Huy bo lan luot sao luu tat ca database"
-        /etc/vpssim/menu/vpssim-them-xoa-database
+        /etc/kpanel/menu/kpanel-them-xoa-database
         ;;
 esac
 

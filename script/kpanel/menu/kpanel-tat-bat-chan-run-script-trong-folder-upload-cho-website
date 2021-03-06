@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Su dung chuc nang nay de ALLOW/DENY chay script trong writable folder"
 echo "-------------------------------------------------------------------------"
@@ -12,15 +12,15 @@ echo -n "Nhap ten website: "
 read website
 website=`echo $website | tr '[A-Z]' '[a-z]'`
 
-if [ -f /etc/vpssim/net2ftpsite.info ]; then
-net2ftpsite=$(cat /etc/vpssim/net2ftpsite.info)
+if [ -f /etc/kpanel/net2ftpsite.info ]; then
+net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
 if [ "$website" = "$net2ftpsite" ]; then
 clear
 echo "========================================================================="
 echo "$website la domain Net2FTP"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong the su dung chuc nang nay."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 fi
 fi
 
@@ -52,8 +52,8 @@ clear
 echo "========================================================================="
 echo "Ban da thay doi config Vhost mac dinh cua $website"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien yeu cau cua ban"
-/etc/vpssim/menu/vpssim-block-exploits-sql-injections-menu
+echo "kpanel khong the thuc hien yeu cau cua ban"
+/etc/kpanel/menu/kpanel-block-exploits-sql-injections-menu
 exit
 fi
 fi
@@ -63,8 +63,8 @@ clear
 echo "========================================================================="
 echo "Ban da thay doi config Vhost mac dinh cua $website"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien yeu cau cua ban"
-/etc/vpssim/menu/vpssim-block-exploits-sql-injections-menu
+echo "kpanel khong the thuc hien yeu cau cua ban"
+/etc/kpanel/menu/kpanel-block-exploits-sql-injections-menu
 exit
 fi
 fi
@@ -119,13 +119,13 @@ fi
 clear
 echo "========================================================================="
 echo "Config CHO PHEP chay Script trong writable folder cho $website thanh cong!"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
     *)
        clear
     echo "========================================================================="
    echo "Huy thay doi config Vhost cho $website"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
 esac
 exit
@@ -173,13 +173,13 @@ fi
 clear
 echo "========================================================================="
 echo "Config KHONG chay script trong writable folder cho $website thanh cong"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
        ;;
     *)
     clear
     echo "========================================================================="
    echo "Huy thay doi config Vhost cho $website"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
         ;;
 esac
 exit

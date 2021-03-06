@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ -f /etc/php.d/opcache.ini ]; then
 
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
@@ -18,7 +18,7 @@ echo "========================================================================="
 echo "Zend Opcache khong the clear vi PHP-FPM khong the khoi dong lai. "
 echo "-------------------------------------------------------------------------"
 echo "Co the ban da config sai gi do!"
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
 exit
 fi
 fi
@@ -32,7 +32,7 @@ echo "========================================================================="
 echo "Zend Opcache khong the clear vi PHP-FPM khong the khoi dong lai. "
 echo "-------------------------------------------------------------------------"
 echo "Co the ban da config sai gi do!"
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
 exit
 fi
 fi
@@ -46,7 +46,7 @@ echo "========================================================================="
 echo "Zend Opcache khong the clear vi PHP-FPM khong the khoi dong lai. "
 echo "-------------------------------------------------------------------------"
 echo "Co the ban da config sai gi do!"
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
 exit
 fi
 fi
@@ -54,12 +54,12 @@ echo "Please wait....";sleep 1
 clear
 echo "========================================================================= "
 echo "Ban da hoan thanh Clear Opcache "
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
 fi
 clear
 echo "========================================================================= "
 echo "Zend OPcache dang Disable tren VPS"
 echo "Hay bat Zend Opcache len de VPS co hieu suat tot nhat."
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
 exit
 fi

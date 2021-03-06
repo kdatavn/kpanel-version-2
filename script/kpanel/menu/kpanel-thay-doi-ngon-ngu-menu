@@ -1,50 +1,50 @@
 #!/bin/sh
-. /home/vpssim.conf
-rm -rf /tmp/vpssim.newversion*
+. /home/kpanel.conf
+rm -rf /tmp/kpanel.newversion*
 cd /tmp
-timeout 3 wget -q https://hostingaz.vn/script/vpssim/vpssim.newversion
+timeout 3 wget -q https://hostingaz.vn/script/kpanel/kpanel.newversion
 cd
-LOCALVER=`cat /etc/vpssim/vpssim.version`
- if [ ! -f /tmp/vpssim.newversion ]; then 
+LOCALVER=`cat /etc/kpanel/kpanel.version`
+ if [ ! -f /tmp/kpanel.newversion ]; then 
  clear
 printf "=========================================================================\n"
-echo "VPSSIM Khong the kiem tra phien ban VPSSIM hien tai"
+echo "kpanel Khong the kiem tra phien ban kpanel hien tai"
 echo "-------------------------------------------------------------------------"
-echo "(VPSSIM cant not check current version)"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+echo "(kpanel cant not check current version)"
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
  exit
  fi
-if [ -f /tmp/vpssim.newversion ]; then
-REMOVER=`cat /tmp/vpssim.newversion`
+if [ -f /tmp/kpanel.newversion ]; then
+REMOVER=`cat /tmp/kpanel.newversion`
 if [ ! "$LOCALVER" == "$REMOVER" ]; then
 clear
 printf "=========================================================================\n"
 echo "Ban phai update KPANEL len phien ban moi nhat de su dung chuc nang nay"
 echo "-------------------------------------------------------------------------"
 echo "(You must update KPANEL to latest version to use this function)"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 fi
 fi
-if [ "$(grep VPSSIM.COM /bin/vpssim)" != "" ]; then
+if [ "$(grep kpanel.COM /bin/kpanel)" != "" ]; then
 options=("EngLish (Current)" "VietNamese" "Exit")
 else
 options=("EngLish" "VietNamese (Current)" "Exit")
 fi
 prompt="Nhap lua chon cua ban:" 
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"             
+printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"             
 printf "=========================================================================\n"
-printf "                       Lua Chon Ngon Ngu Cho VPSSIM                                \n"
+printf "                       Lua Chon Ngon Ngu Cho kpanel                                \n"
 printf "=========================================================================\n"
 PS3="$prompt"
 select opt in "${options[@]}" ; do 
 
     case "$REPLY" in
 
-    1) /etc/vpssim/menu/vpssim-chuyen-ngon-ngu-sang-tieng-anh;;
-    2) /etc/vpssim/menu/vpssim-chuyen-ngon-ngu-sang-tieng-viet;;
-    3) clear && /etc/vpssim/menu/vpssim-update-upgrade-service-menu;; 
-    0) clear && /etc/vpssim/menu/vpssim-update-upgrade-service-menu;; 
+    1) /etc/kpanel/menu/kpanel-chuyen-ngon-ngu-sang-tieng-anh;;
+    2) /etc/kpanel/menu/kpanel-chuyen-ngon-ngu-sang-tieng-viet;;
+    3) clear && /etc/kpanel/menu/kpanel-update-upgrade-service-menu;; 
+    0) clear && /etc/kpanel/menu/kpanel-update-upgrade-service-menu;; 
     *) echo "You typed wrong, Please type in the ordinal number on the list";continue;;
 
     esac

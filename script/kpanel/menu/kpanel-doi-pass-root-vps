@@ -13,10 +13,10 @@ clear
 echo "========================================================================= "
 
 echo "Ban da thay mat khau cho user root thanh cong."
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 ;;
 esac
 clear
 echo "========================================================================="
 echo "Ban da cancle thay doi mat khau user root!"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich

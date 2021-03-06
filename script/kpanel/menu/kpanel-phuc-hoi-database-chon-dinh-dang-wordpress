@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Su dung chuc nang nay de phuc hoi database cho Wordpress website "
 echo "========================================================================="
@@ -9,7 +9,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai "
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}$";
@@ -20,7 +20,7 @@ echo "========================================================================="
 echo "$website Co the khong dung dinh dang domain!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
@@ -29,7 +29,7 @@ echo "========================================================================="
 echo "$website khong ton tai tren he thong!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 if [ -f /home/$website/public_html/wp-config-sample.php ]; then
@@ -39,7 +39,7 @@ echo "========================================================================="
 echo "$website co code wordpress nhung chua cai dat !"
 echo "-------------------------------------------------------------------------"
 echo "Hay cai dat wordpress va thu lai !"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 fi
@@ -49,42 +49,42 @@ echo "========================================================================="
 echo "$website khong phai wordpress blog !"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai."
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 
 dataname=`cat /home/$website/public_html/wp-config.php | grep DB_NAME | cut -d \' -f 4`
 randomwp=`date |md5sum |cut -c '1-18'`
-echo "$website" > /tmp/vpssim-tensitephuchoi
-echo "$dataname" > /tmp/vpssim-tendatabasephuchoi
+echo "$website" > /tmp/kpanel-tensitephuchoi
+echo "$dataname" > /tmp/kpanel-tendatabasephuchoi
 date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim1
 randomcode=`date |md5sum |cut -c '1-12'`
 if [ ! -f /home/$mainsite/private_html/backup/$dataname/*.sql.gz ]; then
      
-   if [ -f /home/$website/public_html/VPSSIM-DATABASE.tar.gz ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-tar-gz-wordpress
-   elif [ -f /home/$website/public_html/VPSSIM-DATABASE.sql.gz ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-sql-gz-wordpress
-   elif [ -f /home/$website/public_html/VPSSIM-DATABASE.zip ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-zip-wordpress
-   elif [ -f /home/$website/public_html/VPSSIM-DATABASE.sql ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-sql-wordpress
+   if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-tar-gz-wordpress
+   elif [ -f /home/$website/public_html/kpanel-DATABASE.sql.gz ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-gz-wordpress
+   elif [ -f /home/$website/public_html/kpanel-DATABASE.zip ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-zip-wordpress
+   elif [ -f /home/$website/public_html/kpanel-DATABASE.sql ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-wordpress
    else
 	clear
 	echo "========================================================================="
 	echo "CACH PHUC HOI DATABASE"
 	echo "========================================================================="
-	echo "Dinh dang backup VPSSIM ho tro phuc hoi: .SQL, .ZIP, .SQL.GZ va .TAR.GZ"
+	echo "Dinh dang backup kpanel ho tro phuc hoi: .SQL, .ZIP, .SQL.GZ va .TAR.GZ"
 	echo "-------------------------------------------------------------------------"
 	echo "Tuy theo dinh dang file backup ma ban thuc hien:"
 	echo "-------------------------------------------------------------------------"
-	echo "Dinh dang .SQL    => Doi ten file backup thanh VPSSIM-DATABASE.sql"
+	echo "Dinh dang .SQL    => Doi ten file backup thanh kpanel-DATABASE.sql"
 	echo "-------------------------------------------------------------------------"
-	echo "Dinh dang .ZIP    => Doi ten file backup thanh VPSSIM-DATABASE.zip"
+	echo "Dinh dang .ZIP    => Doi ten file backup thanh kpanel-DATABASE.zip"
 	echo "-------------------------------------------------------------------------"
-	echo "Dinh dang .SQL.GZ => Doi ten backup thanh VPSSIM-DATABASE.sql.gz"
+	echo "Dinh dang .SQL.GZ => Doi ten backup thanh kpanel-DATABASE.sql.gz"
 	echo "-------------------------------------------------------------------------"
-	echo "Dinh dang .TAR.GZ => Doi ten backup thanh VPSSIM-DATABASE.tar.gz"
+	echo "Dinh dang .TAR.GZ => Doi ten backup thanh kpanel-DATABASE.tar.gz"
 	echo "-------------------------------------------------------------------------"
 	echo "Sau do upload len:"
 	echo "-------------------------------------------------------------------------"
@@ -92,24 +92,24 @@ if [ ! -f /home/$mainsite/private_html/backup/$dataname/*.sql.gz ]; then
 	echo "========================================================================="
 	read -p "Khi upload hoan thanh. Nhan [Enter] de phuc hoi..."
 	echo "-------------------------------------------------------------------------"
-	echo "VPSSIM dang tim kiem file backup .... "
+	echo "kpanel dang tim kiem file backup .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 4
-	if [ -f /home/$website/public_html/VPSSIM-DATABASE.tar.gz ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-tar-gz-wordpress
-    elif [ -f /home/$website/public_html/VPSSIM-DATABASE.sql.gz ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-sql-gz-wordpress
-    elif [ -f /home/$website/public_html/VPSSIM-DATABASE.zip ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-zip-wordpress
-    elif [ -f /home/$website/public_html/VPSSIM-DATABASE.sql ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-sql-wordpress
+	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-tar-gz-wordpress
+    elif [ -f /home/$website/public_html/kpanel-DATABASE.sql.gz ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-gz-wordpress
+    elif [ -f /home/$website/public_html/kpanel-DATABASE.zip ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-zip-wordpress
+    elif [ -f /home/$website/public_html/kpanel-DATABASE.sql ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-wordpress
     else
 	clear
 		echo "========================================================================="
 		echo "Khong tim thay file backup cua database $dataname !"
 		echo "-------------------------------------------------------------------------"
 		echo "Hay upload file Backup len server roi thu lai"
-		/etc/vpssim/menu/vpssim-wordpress-tools-menu
+		/etc/kpanel/menu/kpanel-wordpress-tools-menu
 		exit
 		fi
 		fi
@@ -123,7 +123,7 @@ echo "-------------------------------------------------------------------------"
 echo "/home/$mainsite/private_html/backup/$dataname"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long chi de mot file .SQL.GZ duy nhat trong thu muc nay"
-/etc/vpssim/menu/vpssim-wordpress-tools-menu
+/etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
 filename=`cat /tmp/backupname`
@@ -154,58 +154,58 @@ if [ "$luachonphuchoi" = "phuchoitufilebackup" ]; then
 echo "--------------------------------------------------------------------------"
 echo "Please wait ...."
 echo "--------------------------------------------------------------------------"
-echo "VPSSIM dang Restore $dataname.........."
+echo "kpanel dang Restore $dataname.........."
 sleep 3
 gunzip < /home/$mainsite/private_html/backup/$dataname/$filename | mysql -u root -p$mariadbpass $dataname
 date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
 check1=`cat /tmp/vpssim1`
 check2=`cat /tmp/vpssim2`
 	if [ "$check1" == "$check2" ]; then
-	rm -rf /tmp/*vpssim*
+	rm -rf /tmp/*kpanel*
 	sleep 8
 	clear
 	echo "========================================================================="
 		echo "Phuc hoi database $dataname that bai "
 		echo "-------------------------------------------------------------------------"
 		echo "Vui long kiem tra file backup va thu lai !"
-	/etc/vpssim/menu/vpssim-wordpress-tools-menu
+	/etc/kpanel/menu/kpanel-wordpress-tools-menu
 	else	
-   rm -rf /tmp/*vpssim*
+   rm -rf /tmp/*kpanel*
 	
 	clear
 	echo "========================================================================="
 	echo "Phuc hoi database $dataname thanh cong !"
-	/etc/vpssim/menu/vpssim-wordpress-tools-menu
+	/etc/kpanel/menu/kpanel-wordpress-tools-menu
 	fi
 ###################################
 #Upload file backup len va Restore tu file nay
 ###################################
 elif [ "$luachonphuchoi" = "uploadsaudophuchoi" ]; then
 randomcode=`date |md5sum |cut -c '1-12'`
-	if [ -f /home/$website/public_html/VPSSIM-DATABASE.tar.gz ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-tar-gz-wordpress
-    elif [ -f /home/$website/public_html/VPSSIM-DATABASE.sql.gz ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-sql-gz-wordpress
-    elif [ -f /home/$website/public_html/VPSSIM-DATABASE.zip ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-zip-wordpress
-    elif [ -f /home/$website/public_html/VPSSIM-DATABASE.sql ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-sql-wordpress
+	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-tar-gz-wordpress
+    elif [ -f /home/$website/public_html/kpanel-DATABASE.sql.gz ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-gz-wordpress
+    elif [ -f /home/$website/public_html/kpanel-DATABASE.zip ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-zip-wordpress
+    elif [ -f /home/$website/public_html/kpanel-DATABASE.sql ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-wordpress
     else
 	clear
 	echo "========================================================================="
 	echo "CACH PHUC HOI DATABASE"
 	echo "========================================================================="
-	echo "Dinh dang backup VPSSIM ho tro phuc hoi: .SQL, .ZIP, .SQL.GZ va .TAR.GZ"
+	echo "Dinh dang backup kpanel ho tro phuc hoi: .SQL, .ZIP, .SQL.GZ va .TAR.GZ"
 	echo "-------------------------------------------------------------------------"
 	echo "Tuy theo dinh dang file backup ma ban thuc hien:"
 	echo "-------------------------------------------------------------------------"
-	echo "Dinh dang .SQL    => Doi ten file backup thanh VPSSIM-DATABASE.sql"
+	echo "Dinh dang .SQL    => Doi ten file backup thanh kpanel-DATABASE.sql"
 	echo "-------------------------------------------------------------------------"
-	echo "Dinh dang .ZIP    => Doi ten file backup thanh VPSSIM-DATABASE.zip"
+	echo "Dinh dang .ZIP    => Doi ten file backup thanh kpanel-DATABASE.zip"
 	echo "-------------------------------------------------------------------------"
-	echo "Dinh dang .SQL.GZ => Doi ten backup thanh VPSSIM-DATABASE.sql.gz"
+	echo "Dinh dang .SQL.GZ => Doi ten backup thanh kpanel-DATABASE.sql.gz"
 	echo "-------------------------------------------------------------------------"
-	echo "Dinh dang .TAR.GZ => Doi ten backup thanh VPSSIM-DATABASE.tar.gz"
+	echo "Dinh dang .TAR.GZ => Doi ten backup thanh kpanel-DATABASE.tar.gz"
 	echo "-------------------------------------------------------------------------"
 	echo "Sau do upload len:"
 	echo "-------------------------------------------------------------------------"
@@ -213,24 +213,24 @@ randomcode=`date |md5sum |cut -c '1-12'`
 	echo "========================================================================="
 	read -p "Khi upload hoan thanh. Nhan [Enter] de phuc hoi..."
 	echo "-------------------------------------------------------------------------"
-	echo "VPSSIM dang tim kiem file backup .... "
+	echo "kpanel dang tim kiem file backup .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 4
-	if [ -f /home/$website/public_html/VPSSIM-DATABASE.tar.gz ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-tar-gz-wordpress
-    elif [ -f /home/$website/public_html/VPSSIM-DATABASE.sql.gz ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-sql-gz-wordpress
-    elif [ -f /home/$website/public_html/VPSSIM-DATABASE.zip ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-zip-wordpress
-    elif [ -f /home/$website/public_html/VPSSIM-DATABASE.sql ]; then
-   /etc/vpssim/menu/vpssim-phuc-hoi-database-vpssim-database-sql-wordpress
+	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-tar-gz-wordpress
+    elif [ -f /home/$website/public_html/kpanel-DATABASE.sql.gz ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-gz-wordpress
+    elif [ -f /home/$website/public_html/kpanel-DATABASE.zip ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-zip-wordpress
+    elif [ -f /home/$website/public_html/kpanel-DATABASE.sql ]; then
+   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-wordpress
     else
 	clear
 		echo "========================================================================="
 		echo "Khong tim thay file backup cua database $dataname !"
 		echo "-------------------------------------------------------------------------"
 		echo "Hay upload file Backup len server roi thu lai"
-		/etc/vpssim/menu/vpssim-wordpress-tools-menu
+		/etc/kpanel/menu/kpanel-wordpress-tools-menu
 		exit
 		fi
 fi
@@ -238,6 +238,6 @@ fi
 #Huy bo phuchoi
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-wordpress-tools-menu
+clear && /etc/kpanel/menu/kpanel-wordpress-tools-menu
 fi
 fi

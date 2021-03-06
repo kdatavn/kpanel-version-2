@@ -1,50 +1,50 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 
-if [ ! -f /etc/vpssim/vpssim.version ]; then
+if [ ! -f /etc/kpanel/kpanel.version ]; then
 clear
 echo "========================================================================="
 echo "Xin loi, chung toi khong the biet phien ban hien tai cua ban"
 echo "-------------------------------------------------------------------------"
 echo "Hay chac rang ban chay script offical tu website https://github.com/kdatavn/kpanel-version-2"
-vpssim
+kpanel
 exit
 fi
 
 maximumsize=10
-rm -rf /etc/vpssim/vpssim.newversion
-cd /etc/vpssim
-#timeout 3 wget -q http://hostingaz.vn/script/vpssim/vpssim.newversion
-timeout 3 wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/vpssim-free/master/version -O /etc/vpssim/vpssim.newversion
+rm -rf /etc/kpanel/kpanel.newversion
+cd /etc/kpanel
+#timeout 3 wget -q http://hostingaz.vn/script/kpanel/kpanel.newversion
+timeout 3 wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/kpanel-free/master/version -O /etc/kpanel/kpanel.newversion
 
 cd
-if [ -f /etc/vpssim/vpssim.newversion ]; then
-checksizeversion=$(du -sb /etc/vpssim/vpssim.newversion | awk 'NR==1 {print $1}')
+if [ -f /etc/kpanel/kpanel.newversion ]; then
+checksizeversion=$(du -sb /etc/kpanel/kpanel.newversion | awk 'NR==1 {print $1}')
 if [ "$checksizeversion" == "0" ];then
-rm -rf /etc/vpssim/vpssim.newversion
+rm -rf /etc/kpanel/kpanel.newversion
 fi
 if [ $checksizeversion -gt $maximumsize ]; then
-rm -rf /etc/vpssim/vpssim.newversion
+rm -rf /etc/kpanel/kpanel.newversion
 fi
 fi
 
-if [ ! -f /etc/vpssim/vpssim.newversion ]; then
+if [ ! -f /etc/kpanel/kpanel.newversion ]; then
 clear
 printf "=========================================================================\n"
 echo "Khong the kiem tra phien ban update KPANEL"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 else
-LOCALVER=`cat /etc/vpssim/vpssim.version`
-REMOVER=`cat /etc/vpssim/vpssim.newversion`
+LOCALVER=`cat /etc/kpanel/kpanel.version`
+REMOVER=`cat /etc/kpanel/kpanel.newversion`
 fi
 
 
 chuaCoBanMoi="n"
 if [ "$LOCALVER" == "$REMOVER" ]; then
 clear
-rm -rf /etc/vpssim/vpssim.newversion
+rm -rf /etc/kpanel/kpanel.newversion
 echo "========================================================================="
 echo "Ban dang su dung phien ban moi nhat cua KPANEL - Phien ban: $LOCALVER"
 echo "-------------------------------------------------------------------------"
@@ -57,7 +57,7 @@ echo "OK sir! tien trinh cap nhat se duoc tiep tuc..."
 sleep 3
 chuaCoBanMoi="y"
 else
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
 fi
@@ -83,22 +83,22 @@ echo "-------------------------------------------------------------------------"
 echo "Chuan bi update KPANEL..... "
 sleep 1
 
-rm -rf /etc/vpssim/vpssim-update
-#wget -q http://hostingaz.vn/script/vpssim/vpssim-update -O /etc/vpssim/vpssim-update && chmod +x /etc/vpssim/vpssim-update
-wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/vpssim-free/master/script/vpssim/vpssim-update -O /etc/vpssim/vpssim-update
-chmod +x /etc/vpssim/vpssim-update
-bash /etc/vpssim/vpssim-update
+rm -rf /etc/kpanel/kpanel-update
+#wget -q http://hostingaz.vn/script/kpanel/kpanel-update -O /etc/kpanel/kpanel-update && chmod +x /etc/kpanel/kpanel-update
+wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/kpanel/kpanel-update -O /etc/kpanel/kpanel-update
+chmod +x /etc/kpanel/kpanel-update
+bash /etc/kpanel/kpanel-update
 
 else
 
 clear
 printf "=========================================================================\n"
 echo "Ban da huy bo update KPANEL"
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 
 fi
 
 #
-clear && /etc/vpssim/menu/vpssim-update-upgrade-service-menu
+clear && /etc/kpanel/menu/kpanel-update-upgrade-service-menu
 
 exit

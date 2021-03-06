@@ -1,41 +1,41 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 
-if [ ! -d /etc/vpssim/Backup.Vhost.SSL ]; then
-mkdir -p /etc/vpssim/Backup.Vhost.SSL
+if [ ! -d /etc/kpanel/Backup.Vhost.SSL ]; then
+mkdir -p /etc/kpanel/Backup.Vhost.SSL
 fi
 
-if [ ! -d /etc/vpssim/.tmp ]; then
-mkdir -p /etc/vpssim/.tmp
+if [ ! -d /etc/kpanel/.tmp ]; then
+mkdir -p /etc/kpanel/.tmp
 fi
 
 if [ ! -f /root/.acme.sh/acme.sh ]; then
 clear
 echo "========================================================================="
-echo "VPSSIM se cai dat tien ich Acme.Sh truoc khi chay chuc nang nay"
+echo "kpanel se cai dat tien ich Acme.Sh truoc khi chay chuc nang nay"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."; sleep 5
 wget -O -  https://get.acme.sh | sh
-rm -rf /etc/vpssim/.tmp/check_crontab_acme
-crontab -l > /etc/vpssim/.tmp/check_crontab_acme
-if [ ! "$(grep "/root/.acme.sh" /etc/vpssim/.tmp/check_crontab_acme)" = "" ]; then
+rm -rf /etc/kpanel/.tmp/check_crontab_acme
+crontab -l > /etc/kpanel/.tmp/check_crontab_acme
+if [ ! "$(grep "/root/.acme.sh" /etc/kpanel/.tmp/check_crontab_acme)" = "" ]; then
 /root/.acme.sh/acme.sh --uninstallcronjob
 fi
-rm -rf /etc/vpssim/.tmp/check_crontab_acme
+rm -rf /etc/kpanel/.tmp/check_crontab_acme
 sleep 3
 clear
 echo "========================================================================="
 echo "Cai dat acme.sh hoan thanh"
 echo "-------------------------------------------------------------------------"
 echo "Bay gio ban co the su dung chuc nang cai dat SSL cho website cua minh."
-/etc/vpssim/menu/vpssim-letsencrypt-menu
+/etc/kpanel/menu/kpanel-letsencrypt-menu
 fi
 version=`/root/.acme.sh/acme.sh --version | awk 'NR==2' | sed 's/v//'`
 show_menu_lets-encrypt () {
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Cai Dat SSL Cho Domain" "Kiem Tra SSL Cua Domain " "Auto Renew SSL" "Renew SSL Cho Domain" "List Domain Cai Dat SSL" "Remove SSL (Back to HTTP)" "Upgrade Acme.sh")
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                        Cai Dat SSL - Let's Encrypt \n"
 echo "========================================================================="
@@ -46,15 +46,15 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1) /etc/vpssim/menu/vpssim-cai-dat-ssl-letsencrypt;;
-    2) /etc/vpssim/menu/vpssim-kiem-tra-ssl-letsencrypt;;
-    3) /etc/vpssim/menu/vpssim-bat-auto-gia-han-letsencrypt;; 
-    4) /etc/vpssim/menu/vpssim-renew-ssl-letsencrypt;;
-    5) /etc/vpssim/menu/vpssim-list-domain-cai-dat-letsencrypt;;
-    6) /etc/vpssim/menu/vpssim-remove-ssl-letsencrypt;;
-    7) /etc/vpssim/menu/vpssim-update-letsencrypt;;
-    8) clear && /bin/vpssim;;
-    0) clear && /bin/vpssim;;
+    1) /etc/kpanel/menu/kpanel-cai-dat-ssl-letsencrypt;;
+    2) /etc/kpanel/menu/kpanel-kiem-tra-ssl-letsencrypt;;
+    3) /etc/kpanel/menu/kpanel-bat-auto-gia-han-letsencrypt;; 
+    4) /etc/kpanel/menu/kpanel-renew-ssl-letsencrypt;;
+    5) /etc/kpanel/menu/kpanel-list-domain-cai-dat-letsencrypt;;
+    6) /etc/kpanel/menu/kpanel-remove-ssl-letsencrypt;;
+    7) /etc/kpanel/menu/kpanel-update-letsencrypt;;
+    8) clear && /bin/kpanel;;
+    0) clear && /bin/kpanel;;
     
   *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
@@ -72,7 +72,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -88,12 +88,12 @@ show_menu_lets-encrypt
 		else
 				clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi
@@ -107,7 +107,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "VPSSIM trying to start it"
+echo "kpanel trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -123,12 +123,12 @@ show_menu_lets-encrypt
 		else
 				clear
 echo "========================================================================"
-echo "VPSSIM can not start Nginx Service"
+echo "kpanel can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
-	vpssim
+	kpanel
 		fi
 fi
 fi

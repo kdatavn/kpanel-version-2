@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 echo "========================================================================="
 echo "Su dung chuc nang nay de OPEN port (INPUT) cho server bang IPtables"
@@ -10,7 +10,7 @@ if [ "$portopen" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 if [[ ! ${portopen} =~ ^[0-9]+$ ]] ;then 
@@ -19,7 +19,7 @@ echo "========================================================================="
 echo "Port ban nhap: ${portopen} khong phai la so tu nhien."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !" 
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 if ! [[ $portopen -ge 1 && $portopen -le 65535  ]] ; then  
@@ -30,7 +30,7 @@ echo "-------------------------------------------------------------------------"
 echo "Port phai la so tu nhien nam trong khoang (1 - 65535)."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !" 
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi  
 if [ $portopen = $priport ]; then
@@ -39,7 +39,7 @@ echo "========================================================================="
 echo "Port $portopen la Phpmyadmin port. Ban hay su dung chuc nang "
 echo "-------------------------------------------------------------------------"
 echo "[Open/Close Phpmyadmin Port] nen ban muon Open/Close port $portopen !" 
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 if [ "$(iptables -L -n | grep :$portopen | awk 'NR==1 {print $1}')" == "ACCEPT" ]; then
@@ -48,7 +48,7 @@ echo "========================================================================="
 echo "Port $portopen dang Open."
 echo "-------------------------------------------------------------------------"
 echo "Ban khong can mo lai no! " 
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -60,7 +60,7 @@ echo "Port ban muon OPEN: $portopen"
 echo "-------------------------------------------------------------------------"
 iptables -I INPUT -p tcp --dport $portopen -j ACCEPT
 service iptables save
-/etc/vpssim/menu/vpssim-iptables-firewall-manager-menu
+/etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi
 fi

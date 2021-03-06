@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 version=2.2.0.0
 echo "========================================================================="
 echo "Them Domain + Tu dong cai dat Opencart $version"
@@ -15,7 +15,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban phai nhap ten domain."
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}$";
@@ -26,7 +26,7 @@ echo "========================================================================="
 echo "$website co le khong dung dinh dang domain!"
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 if [ -f /etc/nginx/conf.d/$website.conf ]; then
@@ -35,7 +35,7 @@ echo "========================================================================="
 echo "$website da ton tai tren he thong"
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -44,7 +44,7 @@ read adminopencart
 if [ "$adminopencart" = "" ]; then
 echo "========================================================================="
 echo "Ban phai nhap ten tai khoan admin."
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 if [[ ! ${#adminopencart} -ge 5 ]]; then
@@ -53,7 +53,7 @@ echo "========================================================================="
 echo "Tai khoan admin toi thieu co 5 ky tu "
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi 
 checkuseradmin="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -63,7 +63,7 @@ echo "========================================================================="
 echo "Ban chi duoc phep dung chu cai va so."
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai  !"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -75,7 +75,7 @@ if [ "$uremail" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban phaitype in the your email."
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 
@@ -84,7 +84,7 @@ if [[ ! "$uremail" =~ $kiemtraemail ]]; then
 clear
 echo "========================================================================="
 echo "Dia chi email $uremail khong chinh xac"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
 
@@ -105,7 +105,7 @@ sleep 6
     cd
 chown -R nginx:nginx /home/$website/public_html
 find /home/$website/public_html -type d -exec chmod g+s {} \;
-\cp -uf /etc/vpssim/menu/robots.txt /home/$website/public_html/
+\cp -uf /etc/kpanel/menu/robots.txt /home/$website/public_html/
     cat > "/etc/nginx/conf.d/$website.conf" <<END
 server {
 	    server_name www.$website;
@@ -128,7 +128,7 @@ include /etc/nginx/conf/ddos2.conf;
 #///////////////////////////////////////////////////////
 # Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua VPSSIM
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
@@ -152,8 +152,8 @@ include /etc/nginx/conf/all.conf;
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;
 
-#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh VPSSIM de tat.
-#Khong duoc xoa dong duoi, neu xoa VPSSIM se khong hoat dong !
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
 # Error Page
@@ -190,7 +190,7 @@ include /etc/nginx/conf/drop.conf;
 
     }
 END
-mkdir -p /home/$website/errorpage_html && cp -r /etc/vpssim/errorpage_html/*.html /home/$website/errorpage_html
+mkdir -p /home/$website/errorpage_html && cp -r /etc/kpanel/errorpage_html/*.html /home/$website/errorpage_html
    echo "$website" > /tmp/databasename.txt
 #echo $website | sed "s/\./_/" | sed "s/\-/_/" | cut -c1-14  > /tmp/databasename.txt  
 sed -i 's/\./_/g' /tmp/databasename.txt
@@ -233,7 +233,7 @@ echo "Data name: $dataname" >> /home/DBinfo.txt
 echo "Username: $username" >> /home/DBinfo.txt
 echo "password: $password" >> /home/DBinfo.txt
 echo "" >> /home/DBinfo.txt
-cp -r /etc/vpssim/menu/database-example/database-example-opencart2200.tar.gz  /tmp/database-example-opencart2200.sql
+cp -r /etc/kpanel/menu/database-example/database-example-opencart2200.tar.gz  /tmp/database-example-opencart2200.sql
 rm -rf /tmp/opencartinstall
 cat > "/tmp/opencartinstall" <<END
 sed -i 's/adminvpssim/$adminopencart/g' /tmp/database-example-opencart2200.sql
@@ -333,4 +333,4 @@ echo "-------------------------------------------------------------------------"
 echo "De lay mat khau cho tai khoan admin $adminopencart"
 echo "-------------------------------------------------------------------------"
 echo "Thong tin Database duoc luu tai: /home/DBinfo.txt"
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu

@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Su dung chuc nang nay de update Themes va Plugins cho wordpress website"  
 echo "========================================================================="
@@ -24,15 +24,15 @@ done
 #Update 1 website
 ###################################
 if [ "$luachonupdate" = "update1site" ]; then
-/etc/vpssim/menu/vpssim-nang-cap-plugins-themes-wordpress
+/etc/kpanel/menu/kpanel-nang-cap-plugins-themes-wordpress
 ###################################
 #Update tat ca cac website
 ###################################
 elif [ "$luachonupdate" = "updateall" ]; then
-/etc/vpssim/menu/vpssim-nang-cap-plugins-themes-tat-ca-website-wordpress
+/etc/kpanel/menu/kpanel-nang-cap-plugins-themes-tat-ca-website-wordpress
 ###################################
 #Huy bo update
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-wordpress-tools-menu
+clear && /etc/kpanel/menu/kpanel-wordpress-tools-menu
 fi

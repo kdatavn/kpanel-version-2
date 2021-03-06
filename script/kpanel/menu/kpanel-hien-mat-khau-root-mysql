@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "Please wait..."; sleep 1
 clear
 echo "========================================================================="
@@ -8,4 +8,4 @@ echo "-------------------------------------------------------------------------"
 echo "User: root"
 echo "-------------------------------------------------------------------------"
 echo "Password: $mariadbpass"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database

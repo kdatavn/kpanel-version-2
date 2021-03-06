@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 
 #
@@ -10,7 +10,7 @@ firstSetup=$1
 #if [ -f /etc/yum/yum-cron.conf ]; then
 #echo "========================================================================="
 #echo "yum-cron has been install!"
-#/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+#/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 #exit
 #fi
 
@@ -23,7 +23,7 @@ if [ ! -f /etc/yum/yum-cron.conf ]; then
 echo "========================================================================="
 echo "ERROR! yum-cron can not install..."
 if [ "$firstSetup" = "" ]; then
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 exit
 fi
 fi
@@ -88,5 +88,5 @@ sudo tail -50 /var/log/yum.log
 
 #
 if [ "$firstSetup" = "" ]; then
-/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
 fi

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 echo "========================================================================="
 echo "Su dung chuc nang nay de xoa (remove) database tren server"
 echo "-------------------------------------------------------------------------"
@@ -13,7 +13,7 @@ if [ "$dataname" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 exit
 fi
 
@@ -23,7 +23,7 @@ echo "========================================================================="
 echo "Ban crazy ? Ban muon xoa data he thong ? ?"
 echo "-------------------------------------------------------------------------"
 echo "Bye...!"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 exit
 fi
 
@@ -41,17 +41,17 @@ END
 mysql -u root -p$mariadbpass < /tmp/config.temp
 rm -f /tmp/config.temp
 
-if [ -f /bin/vpssim-backupdb-$dataname ]; then
+if [ -f /bin/kpanel-backupdb-$dataname ]; then
 echo "-------------------------------------------------------------------------"
 echo "Phat hien $dataname trong danh sach tu dong sao luu"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se remove $datanase khoi danh sach tu dong sao luu"
+echo "kpanel se remove $datanase khoi danh sach tu dong sao luu"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 3
-rm -rf /bin/vpssim-backupdb-$dataname
+rm -rf /bin/kpanel-backupdb-$dataname
 cat > "/tmp/removebackupdb" <<END
-sed --in-place '/vpssim-backupdb-$dataname/d' /etc/cron.d/vpssim.db.cron
+sed --in-place '/kpanel-backupdb-$dataname/d' /etc/cron.d/kpanel.db.cron
 END
 chmod +x /tmp/removebackupdb
 /tmp/removebackupdb 
@@ -61,7 +61,7 @@ fi
 clear
 echo "========================================================================="
 echo "Xoa data $dataname thanh cong !"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
         ;;
     *)
         echo "========================================================================= "
@@ -71,7 +71,7 @@ else
 clear
 echo "========================================================================="
 echo "Data $dataname khong ton tai tren he thong hoac trong rong"
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database
 exit
 fi
 

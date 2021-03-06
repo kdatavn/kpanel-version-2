@@ -1,38 +1,38 @@
 #!/bin/bash 
-. /home/vpssim.conf
-if [ ! -f /etc/vpssim/vps_backup_rsync.info ]; then
+. /home/kpanel.conf
+if [ ! -f /etc/kpanel/vps_backup_rsync.info ]; then
 clear
 echo "========================================================================="
 echo "Server hien tai chua duoc ket noi voi VPS backup"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long ket noi voi VPS backup truoc khi thuc hien thao tac nay."
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 exit
 fi
-if [ -f /etc/vpssim/vpssim_backup_VPS_by_rsync ]; then
-	if [ ! -f /etc/cron.d/vpssim.rsync.cron ]; then
-	rm -rf /etc/vpssim/vpssim_backup_VPS_by_rsync
+if [ -f /etc/kpanel/vpssim_backup_VPS_by_rsync ]; then
+	if [ ! -f /etc/cron.d/kpanel.rsync.cron ]; then
+	rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync
 	fi
 fi
-if [ -f /etc/cron.d/vpssim.rsync.cron ]; then
-	if [ ! -f /etc/vpssim/vpssim_backup_VPS_by_rsync ]; then
-	rm -rf /etc/cron.d/vpssim.rsync.cron
+if [ -f /etc/cron.d/kpanel.rsync.cron ]; then
+	if [ ! -f /etc/kpanel/vpssim_backup_VPS_by_rsync ]; then
+	rm -rf /etc/cron.d/kpanel.rsync.cron
 	fi
 fi
 
-if [ -f /etc/vpssim/vpssim_backup_VPS_by_rsync ]; then
-minutesrsync=$(grep vpssim_backup_VPS_by_rsync /etc/cron.d/vpssim.rsync.cron | awk 'NR==1 {print $1}' | sed 's/*\///')
+if [ -f /etc/kpanel/vpssim_backup_VPS_by_rsync ]; then
+minutesrsync=$(grep vpssim_backup_VPS_by_rsync /etc/cron.d/kpanel.rsync.cron | awk 'NR==1 {print $1}' | sed 's/*\///')
 clear
 echo "========================================================================="
-echo "Hien tai VPSSIM tu dong sync data server toi VPS Backup $minutesrsync phut 1 lan"
+echo "Hien tai kpanel tu dong sync data server toi VPS Backup $minutesrsync phut 1 lan"
 echo "-------------------------------------------------------------------------"
 echo "Neu muon thay doi thoi gian nay, ban phai [Disable Sync To VPS Backup] "
 echo "-------------------------------------------------------------------------"
 echo "truoc, sau do dung chuc nang [ Ket Noi VPS Backup ]"
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 exit
 fi
-ipvpsbackup=$(grep "ipaddress" /etc/vpssim/vps_backup_rsync.info | awk '{print $3}')
+ipvpsbackup=$(grep "ipaddress" /etc/kpanel/vps_backup_rsync.info | awk '{print $3}')
 echo "-------------------------------------------------------------------------"
 echo "Ket noi toi VPS Backup ... "
 checkconnect=$(ssh -o BatchMode=yes -o ConnectTimeout=9 root@$ipvpsbackup echo connected 2>&1)
@@ -41,8 +41,8 @@ clear
 echo "========================================================================="
 echo "Ket noi toi VPS Backup that bai"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM khong the thuc hien chuc nang nay"
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+echo "kpanel khong the thuc hien chuc nang nay"
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 exit
 fi
 
@@ -63,57 +63,57 @@ select opt in "${options[@]}"; do
     esac  
 done
 make_script_backup () {
-rm -rf /etc/vpssim/vpssim_backup_VPS_by_rsync
-ipvpsbackup=$(grep "ipaddress" /etc/vpssim/vps_backup_rsync.info | awk '{print $3}')
-cat > "/etc/vpssim/vpssim_backup_VPS_by_rsync" <<END
+rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync
+ipvpsbackup=$(grep "ipaddress" /etc/kpanel/vps_backup_rsync.info | awk '{print $3}')
+cat > "/etc/kpanel/vpssim_backup_VPS_by_rsync" <<END
 #!/bin/bash
 ssh root@$ipvpsbackup mkdir -p /home/VPS-$serverip 
 ssh root@$ipvpsbackup mkdir -p /home/VPS-$serverip/etc
-if [ "\$(grep "Createfolder" /etc/vpssim/vps_backup_rsync.info | awk '{print $3}')" == "" ]; then
+if [ "\$(grep "Createfolder" /etc/kpanel/vps_backup_rsync.info | awk '{print $3}')" == "" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Cai dat rsync and wget cho VPS Backup "
 echo "-------------------------------------------------------------------------"
 ssh root@$ipvpsbackup apt-get -y -q install rsync wget tar
 ssh root@$ipvpsbackup yum -y -q install rsync wget tar
-echo "Createfolder = thanhcong" >> /etc/vpssim/vps_backup_rsync.info
+echo "Createfolder = thanhcong" >> /etc/kpanel/vps_backup_rsync.info
 fi
 echo "Thoi gian thuc hien backup gan nhat: $(date +%T/%d/%m/%Y)" > /home/00-Time-Backup.txt
-rsync -avzq -e ssh /etc/vpssim/menu/vpssim-rsync-motd root@$ipvpsbackup:/etc/motd
-rsync -avz -e ssh --exclude={cache,.cache,vpssim.conf} /home/ root@$ipvpsbackup:/home/VPS-$serverip/home/
+rsync -avzq -e ssh /etc/kpanel/menu/kpanel-rsync-motd root@$ipvpsbackup:/etc/motd
+rsync -avz -e ssh --exclude={cache,.cache,kpanel.conf} /home/ root@$ipvpsbackup:/home/VPS-$serverip/home/
 rsync -avz -e ssh /var/lib/mysql/ root@$ipvpsbackup:/home/VPS-$serverip/mysql/
 rsync -avz -e ssh /etc/nginx/ root@$ipvpsbackup:/home/VPS-$serverip/etc/nginx/
 rsync -avz -e ssh /etc/my.cnf.d/ root@$ipvpsbackup:/home/VPS-$serverip/etc/my.cnf.d/
 rsync -avz -e ssh /etc/php-fpm.d/ root@$ipvpsbackup:/home/VPS-$serverip/etc/php-fpm.d/
 ssh root@$ipvpsbackup rm -rf /home/VPS-$serverip/etc/nginx/conf.d/$mainsite.conf
 END
-chmod +x /etc/vpssim/vpssim_backup_VPS_by_rsync
+chmod +x /etc/kpanel/vpssim_backup_VPS_by_rsync
 }
 
 make_script_backup_no_sim_domain_com() {
-rm -rf /etc/vpssim/vpssim_backup_VPS_by_rsync
-ipvpsbackup=$(grep "ipaddress" /etc/vpssim/vps_backup_rsync.info | awk '{print $3}')
-cat > "/etc/vpssim/vpssim_backup_VPS_by_rsync" <<END
+rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync
+ipvpsbackup=$(grep "ipaddress" /etc/kpanel/vps_backup_rsync.info | awk '{print $3}')
+cat > "/etc/kpanel/vpssim_backup_VPS_by_rsync" <<END
 #!/bin/bash
 ssh root@$ipvpsbackup mkdir -p /home/VPS-$serverip 
 ssh root@$ipvpsbackup mkdir -p /home/VPS-$serverip/etc
-if [ "\$(grep "Createfolder" /etc/vpssim/vps_backup_rsync.info | awk '{print $3}')" == "" ]; then
+if [ "\$(grep "Createfolder" /etc/kpanel/vps_backup_rsync.info | awk '{print $3}')" == "" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Cai dat rsync and wget cho VPS Backup "
 echo "-------------------------------------------------------------------------"
 ssh root@$ipvpsbackup apt-get -y -q install rsync wget tar
 ssh root@$ipvpsbackup yum -y -q install rsync wget tar
-echo "Createfolder = thanhcong" >> /etc/vpssim/vps_backup_rsync.info
+echo "Createfolder = thanhcong" >> /etc/kpanel/vps_backup_rsync.info
 fi
 echo "Thoi gian thuc hien backup gan nhat: $(date +%T/%d/%m/%Y)" > /home/00-Time-Backup.txt
-rsync -avzq -e ssh /etc/vpssim/menu/vpssim-rsync-motd root@$ipvpsbackup:/etc/motd
-rsync -avz -e ssh --exclude={$mainsite,cache,.cache,vpssim.conf} /home/ root@$ipvpsbackup:/home/VPS-$serverip/home/
+rsync -avzq -e ssh /etc/kpanel/menu/kpanel-rsync-motd root@$ipvpsbackup:/etc/motd
+rsync -avz -e ssh --exclude={$mainsite,cache,.cache,kpanel.conf} /home/ root@$ipvpsbackup:/home/VPS-$serverip/home/
 rsync -avz -e ssh /var/lib/mysql/ root@$ipvpsbackup:/home/VPS-$serverip/mysql/
 rsync -avz -e ssh /etc/nginx/ root@$ipvpsbackup:/home/VPS-$serverip/etc/nginx/
 rsync -avz -e ssh /etc/my.cnf.d/ root@$ipvpsbackup:/home/VPS-$serverip/etc/my.cnf.d/
 rsync -avz -e ssh /etc/php-fpm.d/ root@$ipvpsbackup:/home/VPS-$serverip/etc/php-fpm.d/
 ssh root@$ipvpsbackup rm -rf /home/VPS-$serverip/etc/nginx/conf.d/$mainsite.conf
 END
-chmod +x /etc/vpssim/vpssim_backup_VPS_by_rsync
+chmod +x /etc/kpanel/vpssim_backup_VPS_by_rsync
 }
 ###################################
 #backuptatca
@@ -121,7 +121,7 @@ chmod +x /etc/vpssim/vpssim_backup_VPS_by_rsync
 if [ "$chooseaction" = "backuptatca" ]; then
 make_script_backup
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se backup tat ca website bao gom ca $mainsite"
+echo "kpanel se backup tat ca website bao gom ca $mainsite"
 echo "-------------------------------------------------------------------------"
 echo "($mainsite chua toan bo backup cac website va database)"
 ###################################
@@ -130,12 +130,12 @@ echo "($mainsite chua toan bo backup cac website va database)"
 elif [ "$chooseaction" = "khongbackupmainsite" ]; then
 make_script_backup_no_sim_domain_com
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se backup tat ca website tru $mainsite"
+echo "kpanel se backup tat ca website tru $mainsite"
 echo "-------------------------------------------------------------------------"
 echo "($mainsite chua toan bo backup cac website va database)"
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+clear && /etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 fi
 
 prompt="Nhap lua chon cua ban: "
@@ -160,9 +160,9 @@ done
 
 
 set_time_run_rsync () {
-rm -rf /etc/cron.d/vpssim.rsync.cron
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.rsync.cron
-echo "*/$phut * * * * root /etc/vpssim/vpssim_backup_VPS_by_rsync >/dev/null 2>&1" >> /etc/cron.d/vpssim.rsync.cron
+rm -rf /etc/cron.d/kpanel.rsync.cron
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.rsync.cron
+echo "*/$phut * * * * root /etc/kpanel/vpssim_backup_VPS_by_rsync >/dev/null 2>&1" >> /etc/cron.d/kpanel.rsync.cron
 }
 
 ###################################
@@ -202,16 +202,16 @@ phut=59
 #make_script_backup
 set_time_run_rsync
 else
-rm -rf /etc/vpssim/vpssim_backup_VPS_by_rsync
+rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync
 clear
-/etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
 exit
 ###################################
 fi
 
 echo "-------------------------------------------------------------------------"
-read -r -p "Ban muon VPSSIM auto Sync Data toi VPS Backup $phut phut 1 lan ? [y/N] " response
-#read -r -p "You want VPSSIM sync data to vps backup every $phut minutes  ? [y/N] " response
+read -r -p "Ban muon kpanel auto Sync Data toi VPS Backup $phut phut 1 lan ? [y/N] " response
+#read -r -p "You want kpanel sync data to vps backup every $phut minutes  ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
@@ -222,19 +222,19 @@ clear
   echo "========================================================================="
   echo "Thiet lap thoi gian auto Sync data thanh cong !"
   echo "-------------------------------------------------------------------------"
-  echo "Cu $phut phut 1 lan, VPSSIM auto sync data toi VPS backup."
+  echo "Cu $phut phut 1 lan, kpanel auto sync data toi VPS backup."
   echo "-------------------------------------------------------------------------"
   echo "Thu muc luu tru backup tren VPS backup: /home/VPS-$serverip"
-  /etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+  /etc/kpanel/menu/kpanel-rsync-backup-vps-menu
  
 ;;
 *)
-rm -rf /etc/cron.d/vpssim.rsync.cron
-rm -rf /etc/vpssim/vpssim_backup_VPS_by_rsync
+rm -rf /etc/cron.d/kpanel.rsync.cron
+rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync
 clear
 echo "========================================================================="
 echo "Ban huy thiet lap cau hinh thoi gian backup VPS !"
-  /etc/vpssim/menu/vpssim-rsync-backup-vps-menu
+  /etc/kpanel/menu/kpanel-rsync-backup-vps-menu
   exit
 ;;
 esac

@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 rm -rf /home/$mainsite/private_html/ListWebsite*
 randomcode=-`date |md5sum |cut -c '1-12'`
 rm -rf /tmp/*check*
@@ -9,7 +9,7 @@ echo "========================================================================="
 echo "Website Co Du Lieu:"
 echo "-------------------------------------------------------------------------"
 echo "=================================================================================================================" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
-echo "List Website - Created by VPSSIM" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
+echo "List Website - Created by kpanel" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
 echo "=================================================================================================================" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
 echo "" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
 echo "-----------------------------------------------------------------------------------------------------------------" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
@@ -74,4 +74,4 @@ echo "-------------------------------------------------------------------------"
 echo "Tong website: $(ls -1 /etc/nginx/conf.d | wc -l) | Website Co Du Lieu: $websitedulieu $sowebsitedatabaseempty "
 rm -rf /tmp/*check*
 rm -rf /tmp/abc
-/etc/vpssim/menu/vpssim-them-website-menu
+/etc/kpanel/menu/kpanel-them-website-menu

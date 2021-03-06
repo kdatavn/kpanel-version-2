@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 if [ ! -f /home/$mainsite/private_html/backup/AllDB/*.sql.gz ]; then
 clear
@@ -7,7 +7,7 @@ echo "========================================================================="
 echo "Ban chua thuc hien sao luu tat ca database !"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay kiem tra lai !"
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-tat-ca-database-menu
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-tat-ca-database-menu
 exit
 fi
 find /home/$mainsite/private_html/backup/AllDB/ -type f -exec basename {} \;  > /tmp/backupname
@@ -22,6 +22,6 @@ echo "-------------------------------------------------------------------------"
 echo "Link download backup: "
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/AllDB/$filename"
-/etc/vpssim/menu/vpssim-sao-luu-phuc-hoi-tat-ca-database-menu
+/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-tat-ca-database-menu
 exit
 fi

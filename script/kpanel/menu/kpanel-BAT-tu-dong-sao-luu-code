@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 re='^[0-9]+$'
 website=$(cat /tmp/websiteautobackup)
 randomcode=`date |md5sum |cut -c '1-12'` 
@@ -10,7 +10,7 @@ options=( "3 Ngay" "7 Ngay" "10 Ngay" "15 Ngay" "20 Ngay" "25 Ngay" "30 Ngay")
 echo "========================================================================="
 echo "Lua Chon Server Se Luu Tru File Backup Trong Thoi Gian Bao Lau"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM Se Tu Dong Xoa File Backup Cua WebSite Khi Dat Toi Gioi Han Nay" 
+echo "kpanel Se Tu Dong Xoa File Backup Cua WebSite Khi Dat Toi Gioi Han Nay" 
 echo "========================================================================="
 PS3="$prompt"
 select opt in "${options[@]}"; do 
@@ -48,7 +48,7 @@ options=( "7 Ngay" "14 Ngay" "21 Ngay" "28 Ngay" "35 Ngay" "42 Ngay" "49 Ngay")
 echo "========================================================================="
 echo "Lua Chon Server Se Luu Tru File Backup Trong Thoi Gian Bao Lau"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM Se Tu Dong Xoa File Backup Cua WebSite Khi Dat Toi Gioi Han Nay"
+echo "kpanel Se Tu Dong Xoa File Backup Cua WebSite Khi Dat Toi Gioi Han Nay"
 echo "========================================================================="
 PS3="$prompt"
 select opt in "${options[@]}"; do 
@@ -82,7 +82,7 @@ fi
 }
 chongio()
 {
-echo -n "Ban muon VPSSIM tu dong backup $website vao may gio ?[0-23]: " 
+echo -n "Ban muon kpanel tu dong backup $website vao may gio ?[0-23]: " 
 read gio
 if [ "$gio" = "" ]; then
 echo "========================================================================="
@@ -112,7 +112,7 @@ fi
 chonthu()
 {
 echo "-------------------------------------------------------------------------"
-echo -n "Ban muon VPSSIM tu dong backup $website vao thu may ?[2-8]: " 
+echo -n "Ban muon kpanel tu dong backup $website vao thu may ?[2-8]: " 
 read thu
 if [ "$thu" = "" ]; then
 echo "========================================================================="
@@ -200,15 +200,15 @@ chonthoigianluubackupfilehangtuan
 echo "-------------------------------------------------------------------------"
 echo "Thoi Gian Luu Tru Toi Da Cua 1 File Backup Tren Server La $songayxoa Ngay"
 echo "-------------------------------------------------------------------------"
-read -r -p "Cho phep VPSSIM backup $website vao $gio gio $thu12 hang tuan ? [y/N] " response
+read -r -p "Cho phep kpanel backup $website vao $gio gio $thu12 hang tuan ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
         echo "-------------------------------------------------------------------------"
     echo "Please wait ..."
     sleep 2
-    cat > "/bin/vpssim-backupcode-$website" <<END
+    cat > "/bin/kpanel-backupcode-$website" <<END
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 if [ ! -d /home/$mainsite/private_html/backup/$website ]; then
 mkdir -p /home/$mainsite/private_html/backup/$website
@@ -225,15 +225,15 @@ zip -r -q $website.zip *
 mv $website.zip /home/$mainsite/private_html/backup/$website/$website-$randomcode.zip
 cd
 END
-chmod +x /bin/vpssim-backupcode-$website
-if [ ! -f /etc/cron.d/vpssim.code.cron ]; then
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.code.cron
-echo "0 $gio * * $day root /bin/vpssim-backupcode-$website >/dev/null 2>&1" >> /etc/cron.d/vpssim.code.cron
+chmod +x /bin/kpanel-backupcode-$website
+if [ ! -f /etc/cron.d/kpanel.code.cron ]; then
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.code.cron
+echo "0 $gio * * $day root /bin/kpanel-backupcode-$website >/dev/null 2>&1" >> /etc/cron.d/kpanel.code.cron
 else
-  if [ "$(grep "SHELL=/bin/sh" /etc/cron.d/vpssim.code.cron)" == "" ]; then
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.code.cron 
+  if [ "$(grep "SHELL=/bin/sh" /etc/cron.d/kpanel.code.cron)" == "" ]; then
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.code.cron 
   fi
-echo "0 $gio * * $day root /bin/vpssim-backupcode-$website >/dev/null 2>&1" >> /etc/cron.d/vpssim.code.cron
+echo "0 $gio * * $day root /bin/kpanel-backupcode-$website >/dev/null 2>&1" >> /etc/cron.d/kpanel.code.cron
 fi
 service crond restart
 clear
@@ -245,13 +245,13 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$website/$website-$randomcode.zip"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban da huy bo yeu cau tu dong backup $website !"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 ;;
 esac
 ###################################
@@ -264,15 +264,15 @@ chonthoigianluubackupfile
 echo "-------------------------------------------------------------------------"
 echo "Thoi Gian Luu Tru Toi Da Cua 1 File Backup Tren Server La $songayxoa Ngay"
 echo "-------------------------------------------------------------------------"
-read -r -p "Cho phep VPSSIM backup $website vao $gio gio hang ngay ? [y/N] " response
+read -r -p "Cho phep kpanel backup $website vao $gio gio hang ngay ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
     echo "Please wait ..."
     sleep 2
-    cat > "/bin/vpssim-backupcode-$website" <<END
+    cat > "/bin/kpanel-backupcode-$website" <<END
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 if [ ! -d /home/$mainsite/private_html/backup/$website ]; then
 mkdir -p /home/$mainsite/private_html/backup/$website
@@ -289,15 +289,15 @@ zip -r -q $website.zip *
 mv $website.zip /home/$mainsite/private_html/backup/$website/$website-$randomcode.zip
 cd
 END
-chmod +x /bin/vpssim-backupcode-$website
-  if [ ! -f /etc/cron.d/vpssim.code.cron ]; then
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.code.cron
-echo "0 $gio * * * root /bin/vpssim-backupcode-$website >/dev/null 2>&1" >> /etc/cron.d/vpssim.code.cron
+chmod +x /bin/kpanel-backupcode-$website
+  if [ ! -f /etc/cron.d/kpanel.code.cron ]; then
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.code.cron
+echo "0 $gio * * * root /bin/kpanel-backupcode-$website >/dev/null 2>&1" >> /etc/cron.d/kpanel.code.cron
 else
-  if [ "$(grep "SHELL=/bin/sh" /etc/cron.d/vpssim.code.cron)" == "" ]; then
-echo "SHELL=/bin/sh" > /etc/cron.d/vpssim.code.cron 
+  if [ "$(grep "SHELL=/bin/sh" /etc/cron.d/kpanel.code.cron)" == "" ]; then
+echo "SHELL=/bin/sh" > /etc/cron.d/kpanel.code.cron 
   fi
-echo "0 $gio * * * root /bin/vpssim-backupcode-$website >/dev/null 2>&1" >> /etc/cron.d/vpssim.code.cron
+echo "0 $gio * * * root /bin/kpanel-backupcode-$website >/dev/null 2>&1" >> /etc/cron.d/kpanel.code.cron
 fi
 service crond restart
 clear
@@ -309,17 +309,17 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$website/$website-$randomcode.zip"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban da huy bo yeu cau tu dong backup $website !"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 ;;
 esac
 #Huy Bo
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-sao-luu
+clear && /etc/kpanel/menu/kpanel-sao-luu
 fi

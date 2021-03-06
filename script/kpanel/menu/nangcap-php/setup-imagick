@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 . /tmp/change_php_config
 
 ###Imagick & Zend Opcache
@@ -10,7 +10,7 @@ echo "pecl install imagick..."
 yes "" | pecl install imagick
 
 if [ ! -f /home/$mainsite/private_html/check-imagick.php ]; then
-cp -r /etc/vpssim/menu/inc/check-imagick.php.zip /home/$mainsite/private_html/check-imagick.php
+cp -r /etc/kpanel/menu/inc/check-imagick.php.zip /home/$mainsite/private_html/check-imagick.php
 fi
 
 php_version=$(php -r "echo PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;")

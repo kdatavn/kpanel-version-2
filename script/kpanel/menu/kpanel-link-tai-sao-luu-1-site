@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 code=-`date |md5sum |cut -c '1-15'`
 nhapwebsite ()
 {
@@ -38,8 +38,8 @@ fi
 
 
 if [ -f /home/$mainsite/private_html/backup/$website/*.zip ]; then
-find /home/$mainsite/private_html/backup/$website/ -name '*.zip' -type f -exec basename {} \;  > /etc/vpssim/linkbackup
-filename=`cat /etc/vpssim/linkbackup`
+find /home/$mainsite/private_html/backup/$website/ -name '*.zip' -type f -exec basename {} \;  > /etc/kpanel/linkbackup
+filename=`cat /etc/kpanel/linkbackup`
 echo "-------------------------------------------------------------------------"
 echo "Please wait..."
 sleep 1
@@ -50,7 +50,7 @@ find /home/$mainsite/private_html/backup/$website/ -type f -exec basename {} \; 
 backupall=$(cat /tmp/linkbackupall)
 if [ "$(cat /tmp/linkbackupall | wc -l)" -gt 1 ]; then
 echo "========================================================================================================================" > /home/$mainsite/private_html/ListBackup-$website$code.txt
-echo "                                Link Download Backup Files For $website - Created by VPSSIM"  >> /home/$mainsite/private_html/ListBackup-$website$code.txt
+echo "                                Link Download Backup Files For $website - Created by kpanel"  >> /home/$mainsite/private_html/ListBackup-$website$code.txt
 echo "========================================================================================================================" >> /home/$mainsite/private_html/ListBackup-$website$code.txt
 echo ""  >> /home/$mainsite/private_html/ListBackup-$website$code.txt
 echo "File Backup Gan Day Nhat (Backup vao $(date -r /home/$mainsite/private_html/backup/$website/$filename +%H:%M/%F)): " >> /home/$mainsite/private_html/ListBackup-$website$code.txt
@@ -83,15 +83,15 @@ echo "Danh Sach Tat Cac Cac File Backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/ListBackup-$website$code.txt"
 fi
-rm -rf /etc/vpssim/linkbackup
+rm -rf /etc/kpanel/linkbackup
 rm -rf /tmp/linkbackupall
 echo "" >> /home/$mainsite/private_html/ListBackup-$website$code.txt
 echo "===================================================The End==============================================================" >> /home/$mainsite/private_html/ListBackup-$website$code.txt
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 else
 clear
 echo "========================================================================="
 echo "Ban chua tao backup cho $website !"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 exit
 fi

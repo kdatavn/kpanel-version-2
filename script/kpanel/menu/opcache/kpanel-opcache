@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 if [ -f /etc/php.d/opcache.ini ]; then
 echo "========================================================================="
@@ -18,13 +18,13 @@ fi
 clear
 echo "========================================================================="
 	echo "Disable Zend OPcache successfully !"
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
         ;;
     *)
         clear
 echo "========================================================================="
 echo "You typed wrong, Please fill accurately"
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
         ;;
 esac
 exit
@@ -45,7 +45,7 @@ if [ "$test_php" == "stopped" ]; then
 clear
 echo "========================================================================="
 echo "PHP-FPM can not restart! Maybe you did a wrong config  !"
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
 exit
 fi
 fi
@@ -56,7 +56,7 @@ if [ "$test_php" == "inacctive" ]; then
 clear
 echo "========================================================================="
 echo "PHP-FPM can not restart! Maybe you did a wrong config  !"
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
 exit
 fi
 fi
@@ -67,19 +67,19 @@ if [ "$test_php" == "failed" ]; then
 clear
 echo "========================================================================="
 echo "PHP-FPM can not restart! Maybe you did a wrong config  !"
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
 exit
 fi
 fi
 clear
 echo "========================================================================="
 	echo "Enable Zend OPcache successfully  !"
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
         ;;
     *)
         clear
 echo "========================================================================="
 echo "You typed wrong, Please fill accurately"
-/etc/vpssim/menu/vpssim-opcache-menu
+/etc/kpanel/menu/kpanel-opcache-menu
         ;;
 esac

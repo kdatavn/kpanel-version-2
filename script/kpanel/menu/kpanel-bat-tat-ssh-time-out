@@ -1,14 +1,14 @@
 
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 if [ ! -f /etc/ssh/sshd_config ]; then
 clear
 echo "========================================================================="
 echo "Can not find file /etc/ssh/sshd_config"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM can not run this function on this server"
+echo "kpanel can not run this function on this server"
 echo "-------------------------------------------------------------------------"
-/etc/vpssim/menu/vpssim-tien-ich
+/etc/kpanel/menu/kpanel-tien-ich
 exit
 fi
 if [ "$(grep vpssimsshconfig /etc/ssh/sshd_config)" == "" ]; then
@@ -27,7 +27,7 @@ case $response in
     echo "-------------------------------------------------------------------------"
     echo "Please wait ... "
     sleep 3
-sed -i '1 i\#vpssimsshconfig\ #Do\ not\ edit\ or\ remove\ this\ line\ or\ VPSSIM \will\ not\ run' /etc/ssh/sshd_config
+sed -i '1 i\#vpssimsshconfig\ #Do\ not\ edit\ or\ remove\ this\ line\ or\ kpanel \will\ not\ run' /etc/ssh/sshd_config
 sed -i "s/.*TCPKeepAlive.*/TCPKeepAlive\ no/g" /etc/ssh/sshd_config
 sed -i "s/.*ClientAliveInterval.*/ClientAliveInterval\ 30/g" /etc/ssh/sshd_config
 sed -i "s/.*ClientAliveCountMax.*/ClientAliveCountMax\ 100/g" /etc/ssh/sshd_config
@@ -42,13 +42,13 @@ echo "========================================================================="
 echo "TAT SSH Timeout thanh cong! "
 echo "-------------------------------------------------------------------------"
 echo "Trinh SSH chi ngat ket noi toi Server sau 24 h neu khong co thao tac."
- /etc/vpssim/menu/vpssim-tien-ich
+ /etc/kpanel/menu/kpanel-tien-ich
     ;;
 *)
 clear
 echo "========================================================================="
 echo "You choosed NO "
- /etc/vpssim/menu/vpssim-tien-ich
+ /etc/kpanel/menu/kpanel-tien-ich
   exit
 ;;
 esac
@@ -87,13 +87,13 @@ echo "========================================================================="
 echo "BAT SSH Timeout thanh cong! "
 echo "-------------------------------------------------------------------------"
 echo "Ket noi SSH toi server thoat voi config mac dinh"
- /etc/vpssim/menu/vpssim-tien-ich
+ /etc/kpanel/menu/kpanel-tien-ich
     ;;
 *)
 clear
 echo "========================================================================="
 echo "You choosed NO "
- /etc/vpssim/menu/vpssim-tien-ich
+ /etc/kpanel/menu/kpanel-tien-ich
   exit
 ;;
 esac

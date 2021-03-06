@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 time=$(date +"%m-%d-%Y-%H-%M")
 svram=$( free -m | awk 'NR==2 {print $2}' )
 memlimitmax=$(calc $svram/3)
@@ -26,7 +26,7 @@ prompt="Lua chon cua ban: "
 options=("Max Execution Time" "Max Input Time" "On/Off Allow Url Fopen" "On/Off Display Errors" "Memory Limit" "On/Off Allow Url Include" "On/Off File Upload" "Upload Max Filesize" "Max Input Vars" "Enable/Disable PHP Function" "Config Mac Dinh" "Thoat")
 PS3="$prompt"
 echo "========================================================================="
-echo "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN"
+echo "                kpanel - Quan Ly VPS/Server by HostingAZ.VN"
 echo "========================================================================="
 echo "                         Change PHP Settings                                "
 echo "========================================================================="
@@ -62,7 +62,7 @@ select opt in "${options[@]}"; do
     10) luachon="enabledisablephpfunction"; break;; 
     11) luachon="phpinimacdinh"; break;;
     12) luachon="cancel"; break;;
-    0) clear && vpssim;;
+    0) clear && kpanel;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;
     esac  
 done
@@ -70,12 +70,12 @@ done
 #enabledisablephpfunction
 ###################################
 if [ "$luachon" = "enabledisablephpfunction" ]; then
-/etc/vpssim/menu/vpssim-config-enable-disaable-php-funtion-php.ini
+/etc/kpanel/menu/kpanel-config-enable-disaable-php-funtion-php.ini
 ###################################
 #OnOffDisplayErrors
 ###################################
 elif [ "$luachon" = "OnOffDisplayErrors" ]; then
-/etc/vpssim/menu/vpssim-befor-bat-tat-display-eroor
+/etc/kpanel/menu/kpanel-befor-bat-tat-display-eroor
 
 
 elif [ "$luachon" = "fileuploads" ]; then
@@ -105,13 +105,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [file_uploads = Off] thanh cong !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [file_uploads] !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -139,13 +139,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [file_uploads = Off] thanh cong !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [file_uploads] !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -174,13 +174,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [allow_url_fopen = Off] thanh cong !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [allow_url_fopen] !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -208,13 +208,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [allow_url_fopen = Off] thanh cong !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [allow_url_fopen] !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -243,13 +243,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [allow_url_include = Off] thanh cong !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [allow_url_include] !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -277,13 +277,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [allow_url_include = Off] thanh cong !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [allow_url_include] !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -306,7 +306,7 @@ if [ "$maxexecutiontime" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 exit
 fi
 
@@ -318,7 +318,7 @@ echo "-------------------------------------------------------------------------"
 echo "Max Execution Time phai la so tu nhien nho nhat 20"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -335,7 +335,7 @@ echo "========================================================================="
 echo "Cau hinh Max Execution Time thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Max Execution Time: $maxexecutiontime"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 
 
 ###################################
@@ -356,7 +356,7 @@ if [ "$maxinputtime" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 exit
 fi
 
@@ -368,7 +368,7 @@ echo "-------------------------------------------------------------------------"
 echo "Max Input Time phai la so tu nhien nho nhat 20"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -385,7 +385,7 @@ echo "========================================================================="
 echo "Cau hinh Max Input Time thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Max Input Time: $maxinputtime"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 
 ###################################
 #MemoryLimit
@@ -405,7 +405,7 @@ if [ "$memorylimit" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 exit
 fi
 
@@ -417,7 +417,7 @@ echo "-------------------------------------------------------------------------"
 echo "Memory Limit phai la so tu nhien nam trong khoang (20 - $memlimitmax)"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -434,7 +434,7 @@ echo "========================================================================="
 echo "Cau hinh Memory Limit thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Memory Limit: $memorylimit"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 ###################################
 #UploadMaxFilesize
 ###################################
@@ -453,7 +453,7 @@ if [ "$uploadmaxfilesize" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 exit
 fi
 
@@ -465,7 +465,7 @@ echo "-------------------------------------------------------------------------"
 echo "Upload Max Filesize phai la so tu nhien nam trong khoang (20 - 10000)"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -488,7 +488,7 @@ echo "========================================================================="
 echo "Cau hinh Upload Max Filesize thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Upload Max Filesize: $uploadmaxfilesize MB"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 ###################################
 #max_input_vars
 elif [ "$luachon" = "max_input_vars" ]; then
@@ -506,7 +506,7 @@ if [ "$maxinputvars" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 exit
 fi
 
@@ -518,7 +518,7 @@ echo "-------------------------------------------------------------------------"
 echo "Max Input Vars phai la so tu nhien nam trong khoang (20 - 10000)"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -535,14 +535,14 @@ echo "========================================================================="
 echo "Cau hinh Max Input Vars thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Max Input Vars: $maxinputvars"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 ###################################
 #phpinimacdinh
 elif [ "$luachon" = "phpinimacdinh" ]; then
 echo "========================================================================="
 echo "Sau khi su dung chuc nang nay, tat ca config cua ban se bi mat."
 echo "-------------------------------------------------------------------------"
-     read -r -p "Ban muon config PHP theo cau hinh mac dinh cua VPSSIM ? [y/N] " response
+     read -r -p "Ban muon config PHP theo cau hinh mac dinh cua kpanel ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
@@ -768,16 +768,16 @@ service php-fpm restart
 fi
 clear
 echo "========================================================================="
-echo "Cau hinh PHP theo mac dinh cua VPSSIM thanh cong"
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+echo "Cau hinh PHP theo mac dinh cua kpanel thanh cong"
+/etc/kpanel/menu/kpanel-config-php.ini-menu
 ;;
     *)
 clear 
 echo "========================================================================="
-echo "Huy bo thay doi cau hinh PHP theo mac dinh cua VPSSIM."
-/etc/vpssim/menu/vpssim-config-php.ini-menu
+echo "Huy bo thay doi cau hinh PHP theo mac dinh cua kpanel."
+/etc/kpanel/menu/kpanel-config-php.ini-menu
         ;;
 esac
 else 
-clear && vpssim
+clear && kpanel
 fi

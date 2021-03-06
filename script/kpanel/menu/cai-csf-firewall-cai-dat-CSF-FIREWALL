@@ -1,5 +1,5 @@
 #!/bin/bash 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 rm -rf csf.tgz
 wget --no-check-certificate https://download.configserver.com/csf.tgz
@@ -234,8 +234,8 @@ echo "user:memcached" >> /etc/csf/csf.pignore
             echo -e "\t$IP already in csf.ignore, skipping."
         fi
     done  
-if [ -f /etc/vpssim/csf.conf_bak ]; then
-cp /etc/vpssim/csf.conf_bak /etc/csf/csf.conf_bak
+if [ -f /etc/kpanel/csf.conf_bak ]; then
+cp /etc/kpanel/csf.conf_bak /etc/csf/csf.conf_bak
 fi
 ################################################
 	# Googlebot
@@ -261,7 +261,7 @@ chmod +x /tmp/csf-port
 rm -rf /tmp/csf-port
 
 #####################################################
-/etc/vpssim/menu/CSF-Fiwall/vpssim-re-start-khoi-dong-lai-csf-lfd
+/etc/kpanel/menu/CSF-Fiwall/kpanel-re-start-khoi-dong-lai-csf-lfd
 rm -f csf.tgz
 rm -rf csf
 rm -rf /root/csf.tgz

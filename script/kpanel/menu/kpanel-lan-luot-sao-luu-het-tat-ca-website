@@ -1,22 +1,22 @@
 #!/bin/bash
-. /home/vpssim.conf
-if [ ! -f /etc/cron.d/vpssim.code.cron ]; then
-touch /etc/cron.d/vpssim.code.cron
+. /home/kpanel.conf
+if [ ! -f /etc/cron.d/kpanel.code.cron ]; then
+touch /etc/cron.d/kpanel.code.cron
 fi
 rm -rf /tmp/*hostingaz*
 mkdir -p /tmp/saoluuwebsitethanhconghostingaz
 mkdir -p /tmp/saoluuwebsitethatbaihostingaz
-ls /etc/nginx/conf.d > /tmp/vpssim-websitelist
-sed -i 's/\.conf//g' /tmp/vpssim-websitelist 
- cat > "/tmp/vpssim-replace" <<END
-sed -i '/$mainsite/d' /tmp/vpssim-websitelist
+ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
+sed -i 's/\.conf//g' /tmp/kpanel-websitelist 
+ cat > "/tmp/kpanel-replace" <<END
+sed -i '/$mainsite/d' /tmp/kpanel-websitelist
 END
-chmod +x /tmp/vpssim-replace
-/tmp/vpssim-replace
-rm -rf /tmp/vpssim-replace
+chmod +x /tmp/kpanel-replace
+/tmp/kpanel-replace
+rm -rf /tmp/kpanel-replace
 rm -rf /tmp/checksite-list
-sowebsitetrenserver=$(cat /tmp/vpssim-websitelist | wc -l)
-acction1="/tmp/vpssim-websitelist"
+sowebsitetrenserver=$(cat /tmp/kpanel-websitelist | wc -l)
+acction1="/tmp/kpanel-websitelist"
 while read -r checksite
     do
 if [ -f /home/$checksite/public_html/index.php ]; then
@@ -28,15 +28,15 @@ if [ ! -f /tmp/checksite-list ]; then
 clear
 echo "========================================================================="
 echo "Khong tim thay website co du lieu tren server"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 fi
 sowebsitecodulieu=$(cat /tmp/checksite-list | wc -l)
 randomcode=-`date |md5sum |cut -c '1-15'`
 ls /bin/ > /tmp/checkautobackuphostingaz.txt
 saoluucode () { 
-if [ ! "$(grep vpssim-backupcode-$website /tmp/checkautobackuphostingaz.txt)" == "" ]; then
-	if [ ! "$(grep vpssim-backupcode-$website /etc/cron.d/vpssim.code.cron)" == "" ]; then
-pathname=$(grep "\/home\/$mainsite\/private_html\/backup\/$website" /bin/vpssim-backupcode-$website | awk 'NR==6 {print $3}')
+if [ ! "$(grep kpanel-backupcode-$website /tmp/checkautobackuphostingaz.txt)" == "" ]; then
+	if [ ! "$(grep kpanel-backupcode-$website /etc/cron.d/kpanel.code.cron)" == "" ]; then
+pathname=$(grep "\/home\/$mainsite\/private_html\/backup\/$website" /bin/kpanel-backupcode-$website | awk 'NR==6 {print $3}')
 filename=$(basename $pathname)
 thongbao=$(echo "(Dang BAT auto backup)")
 	else
@@ -94,11 +94,11 @@ fi
 echo "========================================================================="
 echo "Su dung chuc nang nay de sao luu tat ca cac website tren server"
 echo "-------------------------------------------------------------------------"
-echo "Sau khi duoc kich hoat, VPSSIM se lan luot sao luu tat ca cac website"
+echo "Sau khi duoc kich hoat, kpanel se lan luot sao luu tat ca cac website"
 echo "-------------------------------------------------------------------------"
 echo "Tuy thuoc vao so luong va dung luong cac website ma thoi gian backup co"
 echo "-------------------------------------------------------------------------"
-echo "the nhanh hoac cham. VPSSIM se khong backup: $mainsite"
+echo "the nhanh hoac cham. kpanel se khong backup: $mainsite"
 echo "=========================================================================" 
 read -r -p "Ban muon backup tat ca website ? [y/N] " response
 case $response in
@@ -109,7 +109,7 @@ echo "========================================================================="
 sleep 2
 rm -rf /home/$mainsite/private_html/listbackup*
 echo "========================================================================================================================" > /home/$mainsite/private_html/listbackup-AW$randomcode.txt
-echo "                                      Link Download All Backup Files - Created by VPSSIM" >> /home/$mainsite/private_html/listbackup-AW$randomcode.txt
+echo "                                      Link Download All Backup Files - Created by kpanel" >> /home/$mainsite/private_html/listbackup-AW$randomcode.txt
 echo "========================================================================================================================" >> /home/$mainsite/private_html/listbackup-AW$randomcode.txt
 echo "" >> /home/$mainsite/private_html/listbackup-AW$randomcode.txt
 dobackup=$(cat /tmp/checksite-list)
@@ -140,7 +140,7 @@ echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/listbackup-AW$randomcode.txt"
 fi
 rm -rf /tmp/*hostingaz*
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 
    ;;
     *)
@@ -148,6 +148,6 @@ rm -rf /tmp/*hostingaz*
     rm -rf /tmp/*hostingaz*
         echo "========================================================================= "
         echo "Huy bo backup tat ca website"
-        /etc/vpssim/menu/vpssim-sao-luu
+        /etc/kpanel/menu/kpanel-sao-luu
         ;;
 esac 

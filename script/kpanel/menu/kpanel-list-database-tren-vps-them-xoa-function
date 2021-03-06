@@ -1,11 +1,11 @@
 #!/bin/bash
-. /home/vpssim.conf
+. /home/kpanel.conf
 rm -rf /home/$mainsite/private_html/ListDatabase*
 randomcode=-`date |md5sum |cut -c '1-12'`
 clear
 echo "========================================================================="
 echo "==================================================================================================================" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
-echo "                                        Database Information Created by VPSSIM" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
+echo "                                        Database Information Created by kpanel" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
 echo "==================================================================================================================" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
 
 echo "" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
@@ -84,4 +84,4 @@ echo "Tong Database: $sodatabasetrenserver | Database has data: $databasedulieu 
 echo "------------------------------------------------------------------------------------------------------------------" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
 rm -rf /tmp/abc
 rm -rf /tmp/*check*
-/etc/vpssim/menu/vpssim-them-xoa-database
+/etc/kpanel/menu/kpanel-them-xoa-database

@@ -1,9 +1,9 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Bat Zend Opcache" "Cau Hinh Zend Opcache" "Them Website Vao BlackList" "Xoa Website Khoi Blacklist" "Clear Zend OPcache")
 printf "=========================================================================\n"
-printf "                VPSSIM - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
 printf "=========================================================================\n"
 printf "                          Zend OPcache Manage \n"
 printf "=========================================================================\n"
@@ -15,13 +15,13 @@ PS3="$prompt"
 select opt in "${options[@]}"; do 
 
     case "$REPLY" in
-	1 ) /etc/vpssim/menu/opcache/vpssim-bat-opcache;;
-	2 ) /etc/vpssim/menu/opcache/vpssim-opcache-change-size;;
-	3) /etc/vpssim/menu/opcache/vpssim-them-website-vao-blacklist;;
-	4) /etc/vpssim/menu/opcache/vpssim-xoa-website-khoi-blacklist;;
-	5) /etc/vpssim/menu/opcache/vpssim-clear-opcache;;
-	#$(( ${#options[@]}+1 )) ) echo "";  clear && /bin/vpssim;;
-	0) echo "";  clear && /bin/vpssim;;
+	1 ) /etc/kpanel/menu/opcache/kpanel-bat-opcache;;
+	2 ) /etc/kpanel/menu/opcache/kpanel-opcache-change-size;;
+	3) /etc/kpanel/menu/opcache/kpanel-them-website-vao-blacklist;;
+	4) /etc/kpanel/menu/opcache/kpanel-xoa-website-khoi-blacklist;;
+	5) /etc/kpanel/menu/opcache/kpanel-clear-opcache;;
+	#$(( ${#options[@]}+1 )) ) echo "";  clear && /bin/kpanel;;
+	0) echo "";  clear && /bin/kpanel;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;
 
     esac

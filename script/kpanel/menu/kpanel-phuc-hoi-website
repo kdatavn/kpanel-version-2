@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/vpssim.conf
+. /home/kpanel.conf
 nhapwebsite ()
 {
 echo -n "Nhap ten website [ENTER]: " 
@@ -38,7 +38,7 @@ echo "-------------------------------------------------------------------------"
 echo "Hay upload file backup .ZIP cua ban vao folder duoi va lam lai: "
 echo "-------------------------------------------------------------------------"
 echo "/home/$mainsite/private_html/backup/$website"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 exit
 fi
 find /home/$mainsite/private_html/backup/$website/ -name '*.zip' -type f -exec basename {} \;  > /tmp/backupname
@@ -50,7 +50,7 @@ echo "-------------------------------------------------------------------------"
 echo "/home/$mainsite/private_html/backup/$website"
 echo "-------------------------------------------------------------------------"
 echo "Vui long de lai 1 file duy nhat .ZIP trong folder nay"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 exit
 fi
 filename=`cat /tmp/backupname`
@@ -70,8 +70,8 @@ select opt in "${options[@]}"; do
 case "$REPLY" in
 1) luachon="restore1"; break;;
 2) luachon="restore2"; break;;
-3) clear && /etc/vpssim/menu/vpssim-sao-luu;;  
-0) clear && /etc/vpssim/menu/vpssim-sao-luu;;  
+3) clear && /etc/kpanel/menu/kpanel-sao-luu;;  
+0) clear && /etc/kpanel/menu/kpanel-sao-luu;;  
 *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 esac   
 done
@@ -79,7 +79,7 @@ if [ "$luachon" = "restore2" ]; then
 echo "========================================================================="
 echo "Trong qua trinh phuc hoi website, KHONG DUOC tat man hinh SSH !"
 echo "========================================================================="
-echo "VPSSIM se xoa toan bo du lieu website hien tai (Code,images,files..) "
+echo "kpanel se xoa toan bo du lieu website hien tai (Code,images,files..) "
 echo "-------------------------------------------------------------------------"
 echo "Va thay the bang du lieu tu file backup. Qua trinh nay khong the quay lai"
 echo "-------------------------------------------------------------------------"
@@ -92,7 +92,7 @@ if [[ ! $key = "" ]]; then
 clear
 echo "========================================================================="
 echo "Huy bo phuc hoi $website"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 fi
 echo ""
 echo "Please wait..."
@@ -119,7 +119,7 @@ rm -rf /home/$website/public_html_backup
 clear
 echo "========================================================================="
 echo "Ban da phuc hoi xong $website"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 else
 rm -rf /home/$website/public_html
 mv /home/$website/public_html_backup /home/$website/public_html
@@ -128,7 +128,7 @@ echo "========================================================================="
 echo "Co dieu gi do khong on voi file backup cua ban"
 echo "-------------------------------------------------------------------------"
 echo "Phuc hoi website that bai."
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 fi
 fi
 
@@ -136,7 +136,7 @@ if [ "$luachon" = "restore1" ]; then
 echo "========================================================================="
 echo "Trong qua trinh phuc hoi website, KHONG DUOC tat man hinh SSH !"
 echo "========================================================================="
-echo "VPSSIM se thay the cac file hien tai cua website (Code,images,files..) "
+echo "kpanel se thay the cac file hien tai cua website (Code,images,files..) "
 echo "-------------------------------------------------------------------------"
 echo "Bang du lieu tu file backup. Qua trinh nay khong the quay lai ! "
 echo "-------------------------------------------------------------------------"
@@ -149,7 +149,7 @@ if [[ ! $key = "" ]]; then
 clear
 echo "========================================================================="
 echo "Huy bo phuc hoi $website"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 fi
 echo ""
 echo "Please wait..."
@@ -166,7 +166,7 @@ echo "========================================================================="
 echo "Co dieu gi do khong on voi file backup cua ban"
 echo "-------------------------------------------------------------------------"
 echo "Phuc hoi website that bai."
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 else
 yes | cp -rf /tmp/websiterestore/*.* /home/$website/public_html
 yes | cp -rf /tmp/websiterestore/* /home/$website/public_html
@@ -186,7 +186,7 @@ chown -R nginx:nginx /home/$website/public_html
 clear
 echo "========================================================================="
 echo "Ban da phuc hoi xong $website"
-/etc/vpssim/menu/vpssim-sao-luu
+/etc/kpanel/menu/kpanel-sao-luu
 fi 
 fi
 

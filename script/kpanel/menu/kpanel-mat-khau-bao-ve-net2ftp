@@ -1,25 +1,25 @@
 #!/bin/sh
-. /home/vpssim.conf
-. /etc/vpssim/pwprotect.default
+. /home/kpanel.conf
+. /etc/kpanel/pwprotect.default
 if [ ! -d /etc/nginx/pwprotect ]; then
 mkdir -p /etc/nginx/pwprotect
 fi
 
-if [ ! -f /etc/vpssim/net2ftpsite.info ]; then
+if [ ! -f /etc/kpanel/net2ftpsite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat Net2FTP cho Server !"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 exit
 fi
-net2ftpsite=$(cat /etc/vpssim/net2ftpsite.info)
+net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
 if [ ! -f /etc/nginx/.htpasswd ]; then
 clear
 echo "========================================================================="
 echo "Ban phai tao User va Mat khau mac dinh truoc khi chay chuc nang nay. Tao "
 echo "-------------------------------------------------------------------------"
-echo "User va Mat Khau mac dinh: VPSSIM Menu => User & Password Mac Dinh."
-/etc/vpssim/menu/vpssim-net2ftp-menu
+echo "User va Mat Khau mac dinh: kpanel Menu => User & Password Mac Dinh."
+/etc/kpanel/menu/kpanel-net2ftp-menu
 exit
 fi
 
@@ -55,7 +55,7 @@ fi
        clear 
 echo "========================================================================= "
 echo "Huy bo dat mat khau bao ve domain Net2FTP. "
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
         ;;
 esac
 clear 
@@ -65,7 +65,7 @@ echo "-------------------------------------------------------------------------"
 echo "Thong tin truy cap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $userdefault | Password: $passdefault"
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 
 else
 
@@ -93,11 +93,11 @@ fi
        clear 
 echo "========================================================================= "
 echo "Huy bo TAT bao ve domain Net2FTP."
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
         ;;
 esac
 clear 
 echo "========================================================================= "
 echo "Hoan thanh TAT mat khau bao ve domain Net2FTP. "
-/etc/vpssim/menu/vpssim-net2ftp-menu
+/etc/kpanel/menu/kpanel-net2ftp-menu
 fi

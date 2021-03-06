@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. /etc/vpssim/pwprotect.default
+. /etc/kpanel/pwprotect.default
 
 if [ ! -d /etc/nginx/pwprotect ]; then
 mkdir -p /etc/nginx/pwprotect
@@ -47,7 +47,7 @@ if [ "$username" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap username"
-vpssim
+kpanel
 exit
 fi
 checkpass="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -55,7 +55,7 @@ if [[ ! "$username" =~ $checkpass ]]; then
 clear
 echo "========================================================================="
 echo "Ban chi duoc dung chu cai va so de dat Username."
-vpssim
+kpanel
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -65,7 +65,7 @@ if [ "$matkhau" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap mat khau"
-vpssim
+kpanel
 exit
 fi
 
@@ -74,7 +74,7 @@ if [[ ! "$matkhau" =~ $checkpass ]]; then
 clear
 echo "========================================================================="
 echo "Ban chi duoc dung chu cai va so de dat mat khau."
-vpssim
+kpanel
 exit
 fi
 
@@ -83,7 +83,7 @@ echo "Thong tin ban nhap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se config dang nhap mac dinh moi theo thong tin nay "
+echo "kpanel se config dang nhap mac dinh moi theo thong tin nay "
 echo "-------------------------------------------------------------------------"
 echo "please wait ...."; sleep 3
 
@@ -99,11 +99,11 @@ htpasswd.py -c -b /etc/nginx/.htpasswd $username $matkhau
 fi
 
 chmod -R 644 /etc/nginx/.htpasswd
-cat > "/etc/vpssim/pwprotect.default" <<END
+cat > "/etc/kpanel/pwprotect.default" <<END
 userdefault="$username"
 passdefault="$matkhau"
 END
-cat > "/etc/vpssim/defaulpassword.php" <<END
+cat > "/etc/kpanel/defaulpassword.php" <<END
 <?php
 define('ADMIN_USERNAME','$username');   // Admin Username
 define('ADMIN_PASSWORD','$matkhau');    // Admin Password
@@ -121,10 +121,10 @@ echo "========================================================================="
 echo "Thay thong tin dang nhap mac dinh thanh cong."
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
-vpssim
+kpanel
 exit
 else 
-clear && vpssim
+clear && kpanel
 fi
 fi
 
@@ -139,7 +139,7 @@ if [ "$username" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap username"
-vpssim
+kpanel
 exit
 fi
 
@@ -148,7 +148,7 @@ if [[ ! "$username" =~ $checkpass ]]; then
 clear
 echo "========================================================================="
 echo "Ban chi duoc dung chu cai va so de dat Username."
-vpssim
+kpanel
 exit
 fi
 
@@ -159,7 +159,7 @@ if [ "$matkhau" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap mat khau"
-vpssim
+kpanel
 exit
 fi
 
@@ -168,7 +168,7 @@ if [[ ! "$matkhau" =~ $checkpass ]]; then
 clear
 echo "========================================================================="
 echo "Ban chi duoc dung chu cai va so de dat mat khau."
-vpssim
+kpanel
 exit
 fi
 
@@ -177,14 +177,14 @@ echo "Thong tin ban nhap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
 echo "-------------------------------------------------------------------------"
-echo "VPSSIM se config  dang nhap mac dinh theo thong tin nay "
+echo "kpanel se config  dang nhap mac dinh theo thong tin nay "
 echo "-------------------------------------------------------------------------"
 echo "please wait ...."; sleep 3
-cat > "/etc/vpssim/pwprotect.default" <<END
+cat > "/etc/kpanel/pwprotect.default" <<END
 userdefault="$username"
 passdefault="$matkhau"
 END
-cat > "/etc/vpssim/defaulpassword.php" <<END
+cat > "/etc/kpanel/defaulpassword.php" <<END
 <?php
 define('ADMIN_USERNAME','$username');   // Admin Username
 define('ADMIN_PASSWORD','$matkhau');    // Admin Password
@@ -205,5 +205,5 @@ echo "========================================================================="
 echo "Tao thong tin dang nhap mac dinh thanh cong."
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
-vpssim
+kpanel
 exit

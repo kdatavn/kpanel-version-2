@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /opt/echbay_vpssim/script/vpssim/nginx-setup.conf
+. /opt/kdata_kpanel/script/kpanel/nginx-setup.conf
 echo $moduledir
 echo $opensslversion
 echo $withopensslopt
@@ -12,11 +12,11 @@ echo "Install after 3s"
 sleep 3
 
 
-/opt/echbay_vpssim/script/vpssim/menu/nginx-setup-download
+/opt/kdata_kpanel/script/kpanel/menu/nginx-setup-download
 
 
 # module for centos6 + google page speed
-urlForDownloadNginxModule="https://vpssim.echbay.com/script/vpssim/module-nginx/"
+urlForDownloadNginxModule="https://kpanel.echbay.com/script/kpanel/module-nginx/"
 
 
 install_devtoolset_gcc () {
@@ -24,11 +24,11 @@ sudo yum -y install gcc-c++ pcre-devel zlib-devel
 
 #sudo rpm --import https://linux.web.cern.ch/linux/scientific6/docs/repository/cern/slc6X/i386/RPM-GPG-KEY-cern
 #sudo rpm --import ${urlForDownloadNginxModule}RPM-GPG-KEY-cern
-sudo rpm --import /opt/echbay_vpssim/script/vpssim/module-nginx/RPM-GPG-KEY-cern
+sudo rpm --import /opt/kdata_kpanel/script/kpanel/module-nginx/RPM-GPG-KEY-cern
 
 #sudo wget -O /etc/yum.repos.d/slc6-devtoolset.repo https://linux.web.cern.ch/linux/scientific6/docs/repository/cern/devtoolset/slc6-devtoolset.repo
 #sudo wget -O /etc/yum.repos.d/slc6-devtoolset.repo ${urlForDownloadNginxModule}slc6-devtoolset.repo
-yes | cp -rf /opt/echbay_vpssim/script/vpssim/module-nginx/slc6-devtoolset.repo /etc/yum.repos.d/slc6-devtoolset.repo
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/module-nginx/slc6-devtoolset.repo /etc/yum.repos.d/slc6-devtoolset.repo
 
 sudo yum -y install devtoolset-2-gcc-c++ devtoolset-2-binutils
 }
@@ -58,14 +58,14 @@ PS_NGX_EXTRA_FLAGS="--with-cc=/opt/rh/devtoolset-2/root/usr/bin/gcc"
 
 
 cd
-cd /usr/local/vpssim
+cd /usr/local/kpanel
 #cai dat nginx
 wget -q http://nginx.org/download/nginx-${Nginx_VERSION}.tar.gz
 tar -xzf nginx-${Nginx_VERSION}.tar.gz
-rm -rf /usr/local/vpssim/nginx-${Nginx_VERSION}.tar.gz
-cd /usr/local/vpssim/nginx-${Nginx_VERSION}
-#sed -i 's/"Server: nginx"/"Server: Nginx-VPSSIM"/g' /usr/local/vpssim/nginx-${Nginx_VERSION}/src/http/ngx_http_header_filter_module.c
-#sed -i 's/"Server: "/"Server: Nginx-VPSSIM"/g' /usr/local/vpssim/nginx-${Nginx_VERSION}/src/http/ngx_http_header_filter_module.c
+rm -rf /usr/local/kpanel/nginx-${Nginx_VERSION}.tar.gz
+cd /usr/local/kpanel/nginx-${Nginx_VERSION}
+#sed -i 's/"Server: nginx"/"Server: Nginx-kpanel"/g' /usr/local/kpanel/nginx-${Nginx_VERSION}/src/http/ngx_http_header_filter_module.c
+#sed -i 's/"Server: "/"Server: Nginx-kpanel"/g' /usr/local/kpanel/nginx-${Nginx_VERSION}/src/http/ngx_http_header_filter_module.c
 ./configure --prefix=/usr/share/nginx \
 --sbin-path=/usr/sbin/nginx \
 --group=nginx --user=nginx \

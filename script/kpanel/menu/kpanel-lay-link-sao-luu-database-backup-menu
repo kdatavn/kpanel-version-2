@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /home/vpssim.conf
+. /home/kpanel.conf
 
 prompt="Nhap lua chon cua ban: "
 options=( "1 Database" "Tat Ca Database" "Huy Bo")
@@ -21,15 +21,15 @@ done
 #
 ###################################
 if [ "$laylink" = "1database" ]; then
-/etc/vpssim/menu/vpssim-link-database-sao-luu
+/etc/kpanel/menu/kpanel-link-database-sao-luu
 ###################################
 #
 ###################################
 elif [ "$laylink" = "tatca" ]; then
-/etc/vpssim/menu/vpssim-link-download-tat-ca-backup-database-sao-luu
+/etc/kpanel/menu/kpanel-link-download-tat-ca-backup-database-sao-luu
 ###################################
 #
 ###################################
 else 
-clear && /etc/vpssim/menu/vpssim-them-xoa-database
+clear && /etc/kpanel/menu/kpanel-them-xoa-database
 fi
