@@ -1,0 +1,7 @@
+#!/bin/bash 
+. /home/kpanel.conf
+if [ ! -f /etc/csf/csf.conf ]; then
+/etc/kpanel/menu/CSF-Fiwall/kpanel-cai-dat-csf-csf
+else
+/etc/kpanel/menu/CSF-Fiwall/kpanel-update-csf-firewall
+fi

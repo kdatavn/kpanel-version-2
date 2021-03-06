@@ -1,0 +1,34 @@
+#!/bin/bash 
+
+. /home/kpanel.conf
+if [ -f /etc/csf/csf.conf ]; then
+test_csf=$(/sbin/service csf status | awk 'NR==1 {print $3}')
+if [ "$test_csf" == "csf:csf" ]; then
+clear
+echo "========================================================================= "
+echo "CSF dang tat tren server ! "
+/etc/kpanel/menu/CSF-Fiwall/kpanel-csf-firewall-menu
+else
+echo "========================================================================= "
+echo "CSF Firewall nen duoc bat de bao ve VPS/Server!!"
+echo "-------------------------------------------------------------------------"
+read -r -p "Ban muon tat CSF FireWall ? [y/N] " response
+case $response in
+    [yY][eE][sS]|[yY]) 
+csf -x
+clear
+echo "========================================================================= "
+echo "Tat CSF firewall thanh cong ! "
+/etc/kpanel/menu/CSF-Fiwall/kpanel-csf-firewall-menu
+;;
+esac
+clear
+echo "========================================================================= "
+echo "Ban huy bo tat CSF Firewall ! "
+/etc/kpanel/menu/CSF-Fiwall/kpanel-csf-firewall-menu
+exit
+fi
+else
+/etc/kpanel/menu/CSF-Fiwall/kpanel-tat-csf
+exit
+fi

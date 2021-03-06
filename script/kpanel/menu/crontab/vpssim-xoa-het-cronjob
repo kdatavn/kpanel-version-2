@@ -1,0 +1,31 @@
+#!/bin/bash 
+. /home/kpanel.conf
+
+if [ "$(crontab -l | awk 'NR==1 {print $1}')" == "" ]; then
+clear
+echo "========================================================================= "
+echo "Ban chua tao crontab tren VPS !"
+/etc/kpanel/menu/crontab/kpanel-cronjob-menu
+else
+echo "========================================================================= "
+read -r -p "Ban muon xoa het cac crontab dang chay? [y/N] " response
+case $response in
+    [yY][eE][sS]|[yY]) 
+echo "Chuan bi xoa... "
+sleep 3
+crontab -r
+clear
+echo "========================================================================= "
+echo "KPANEL hoan tat xoa cac crontab hien tai"
+/etc/kpanel/menu/crontab/kpanel-cronjob-menu
+;;
+    *)
+        echo ""
+        ;;
+esac
+clear 
+echo "========================================================================="
+echo "Huy bo viec xoa het crontab !"
+/etc/kpanel/menu/crontab/kpanel-cronjob-menu
+exit
+fi

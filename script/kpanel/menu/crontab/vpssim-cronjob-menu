@@ -1,0 +1,32 @@
+#!/bin/sh
+prompt="Nhap lua chon cua ban (0-Thoat):"
+options=("Them Crontab" "Xoa 1 Crontab" "Xoa Tat Ca Crontab" "List Crontab")
+printf "=========================================================================\n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
+printf "=========================================================================\n"
+printf "                              Quan Ly Cronjob \n"
+echo "========================================================================="
+if [ ! -f /var/spool/cron/root ]; then
+printf "                           Crontab running: 0 \n"
+else
+printf "                           Crontab running: $(wc -l /var/spool/cron/root | awk '{print $1}') \n"
+fi
+printf "=========================================================================\n"
+
+PS3="$prompt"
+select opt in "${options[@]}" ; do 
+
+    case "$REPLY" in
+
+    1 ) /etc/kpanel/menu/crontab/kpanel-them-cronjob;;
+    2 ) /etc/kpanel/menu/crontab/kpanel-xoa-mot-crontab;;
+    3 ) /etc/kpanel/menu/crontab/kpanel-befor-xoa-het-cronjob;;
+    4 ) /etc/kpanel/menu/crontab/kpanel-crontab-hien-tai;;
+    #5 ) clear && /bin/kpanel;;
+    0 ) clear && /bin/kpanel;;
+    
+    *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;
+
+    esac
+done
+

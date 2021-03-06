@@ -59,7 +59,7 @@ Lâu không dùng 2 bản cũ kia, mà nọ có việc nên xem lại câu lện
 > 2020/09/11
 #### Thêm chức năng cài đặt Varnish Cache: https://packagecloud.io/varnishcache/
 #### Ngoài việc sử dụng KPANEL làm VPS chạy website thông thường, giờ đây bạn cũng có thể sử dụng để làm VPS chạy Varnish Cache rất tiện dụng. Hiện tại mình đang chạy thành công trên Varnish 4.1, bản 6.xx mới hơn chút xíu nhưng mình chưa thử nghiệm ngon lành, nên khuyên dùng vẫn là Varnish 4.1
-#### Mã thực thi: https://github.com/itvn9online/vpssim-free/tree/master/script/vpssim/menu/varnish
+#### Mã thực thi: https://github.com/kdatavn/kpanel-version-2/tree/master/script/vpssim/menu/varnish
 > Cách sử dụng: Trong KPANEL menu -> 25) Tien ich - Addons -> 23) Varnish Cache -> Chọn phiên bản Varnish mà bạn muốn cài đặt
 #### Không nên sử dụng VPS vừa làm VPS cache vừa làm VPS chạy web để tránh các xung đột không cần thiết.
 
@@ -68,14 +68,14 @@ Lâu không dùng 2 bản cũ kia, mà nọ có việc nên xem lại câu lện
 ### OpenSSL
 > 2020/09/01
 #### Cập nhật OpenSSL lên bản mới nhất và build nginx từ bản này: https://linuxscriptshub.com/update-openssl-1-1-0-centos-6-9-7-0/
-#### Mã thực thi: https://github.com/itvn9online/vpssim-free/blob/master/script/vpssim/menu/nang-cap-openssl
+#### Mã thực thi: https://github.com/kdatavn/kpanel-version-2/blob/master/script/vpssim/menu/nang-cap-openssl
 > Cách sử dụng: Trong KPANEL menu -> 26) Update System -> 7) Thay phien phien ban OpenSSL
 
 ----------------------------------------------
 
 ### Nginx
 > 2020/09/01
-#### Nguồn cài đặt: https://github.com/itvn9online/vpssim-free/blob/master/script/vpssim/nginx-setup.conf
+#### Nguồn cài đặt: https://github.com/kdatavn/kpanel-version-2/blob/master/script/vpssim/nginx-setup.conf
 - Cài đặt nginx-1.18.0, đây là phiên bản ổn định và mới nhất của nginx tính đến thời điểm hiện tại, kết hợp với OpenSSL-1.1.1i thay cho bản openssl cũ của KPANEL, phiên bản này mới hỗ trợ đầy đủ HTTP/2.
 	- Phiên bản nginx được xem và cập nhật tại: http://nginx.org/en/download.html . Mặc định mình chỉ chọn phiên bản Stable version, các bản Mainline là đang phát triển nên không chọn.
 	- Chuyển sang sử dụng OpenSSL-1.1.1i, đây cũng là bản openssl mới nhất hiện nay. Hỗ trợ HTTP/2 hoàn chỉnh, TLSv1.3 và rất nhiều cải tiến khác so với các bản tiền nhiệm. Các phiên bản OpenSSL khác có thể xem thêm tại đây: https://www.openssl.org/source/

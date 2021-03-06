@@ -1,0 +1,61 @@
+#!/bin/bash
+. /home/kpanel.conf
+
+cd ~
+
+if [ ! -d /etc/kpanel/.tmp ]; then
+mkdir -p /etc/kpanel/.tmp
+fi
+
+
+#checkketnoi=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://kpanel.vn/script/kpanel/kpanel.newversion" )
+checkketnoi=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/version" )
+#echo $checkketnoi
+if [[ "$checkketnoi" == "000" ]]; then
+clear
+echo "========================================================================="
+echo "Co loi xay ra trong qua trinh update"
+echo "-------------------------------------------------------------------------"
+echo "Ban vui long thu lai !"
+kpanel
+exit
+fi
+
+#
+install_yum_cron_update(){
+yum -y remove yum-updatesd
+yum -y install yum-cron
+
+current_os_version=$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))
+if [ "$current_os_version" == "6" ]; then
+service yum-cron start
+chkconfig yum-cron on
+else
+sudo systemctl enable yum-cron
+sudo systemctl start yum-cron
+systemctl restart yum-cron
+fi
+#cd /etc/yum
+cat /var/log/cron | grep yum-daily
+cat /var/log/yum.log | grep Updated
+}
+
+#
+rm -rf /etc/kpanel/.tmp/kpanel-update-*
+
+# update glibc
+### Check GLIBC 2.17 tren centos6 - Fix loi KPANEL tu phien ban 4.2.0.8 tro ve cai dat san tren server
+if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/script/kpanel/kpanel-update-glibc -O /etc/kpanel/.tmp/kpanel-update-glibc
+chmod +x /etc/kpanel/.tmp/kpanel-update-glibc
+bash /etc/kpanel/.tmp/kpanel-update-glibc
+fi
+
+
+## Bat dau thuc hien update KPANEL
+#wget -q https://kpanel.vn/script/kpanel/kpanel-update-run -O /etc/kpanel/.tmp/kpanel-update-run && chmod +x /etc/kpanel/.tmp/kpanel-update-run
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/script/kpanel/kpanel-update-run -O /etc/kpanel/.tmp/kpanel-update-run
+chmod +x /etc/kpanel/.tmp/kpanel-update-run
+bash /etc/kpanel/.tmp/kpanel-update-run
+
+

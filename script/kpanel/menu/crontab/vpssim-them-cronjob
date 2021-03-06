@@ -1,0 +1,49 @@
+#!/bin/bash 
+. /home/kpanel.conf
+if [ ! -d "/etc/kpanel/crontab" ]; then
+mkdir -p /etc/kpanel/crontab
+else
+rm -rf /etc/kpanel/crontab/*
+fi
+echo "========================================================================="
+echo "Xem cach tao lenh crontab tai: http://cronjob.kdata.vn"
+echo "-------------------------------------------------------------------------"
+echo -n "Crontab ban muon them [ENTER]: " 
+read cronjob
+if [ "$cronjob" = "" ]; then
+clear
+echo "========================================================================="
+echo "Ban nhap sai, vui long nhap chinh xac!"
+/etc/kpanel/menu/crontab/kpanel-cronjob-menu
+exit
+fi
+if [ "$(grep "$cronjob" /var/spool/cron/root)" == "$cronjob" ]; then
+clear
+echo "========================================================================= "
+echo "Crontab ban vua nhap da ton tai tren he thong!"
+/etc/kpanel/menu/crontab/kpanel-cronjob-menu
+exit
+fi
+crontab -l > /etc/kpanel/crontab/test4.txt
+(crontab -u root -l ; echo "$cronjob") | crontab -u root -
+crontab -l > /etc/kpanel/crontab/test5.txt
+if [ "$(wc -l /etc/kpanel/crontab/test4.txt | awk '{print $1}')" == "$(wc -l /etc/kpanel/crontab/test5.txt | awk '{print $1}')" ]; then
+rm -rf /etc/kpanel/crontab/*
+clear
+echo "========================================================================= "
+echo "Them crontab that bai! Crontab cua ban co the khong chinh xac"
+echo "-------------------------------------------------------------------------"
+echo "Tao lenh crontab tai http://cronjob.kdata.vn"
+/etc/kpanel/menu/crontab/kpanel-cronjob-menu
+else
+rm -rf /etc/kpanel/crontab/*
+clear
+echo "========================================================================= "
+echo "Ban da them thanh cong crontab vao he thong."
+echo "-------------------------------------------------------------------------"
+echo "List Crontab hien tai:"
+echo "-------------------------------------------------------------------------"
+crontab -l
+/etc/kpanel/menu/crontab/kpanel-cronjob-menu
+exit
+fi

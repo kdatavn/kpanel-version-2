@@ -1,0 +1,18 @@
+#!/bin/bash
+. /home/kpanel.conf
+
+if [ "$(crontab -l | awk 'NR==1 {print $1}')" == "" ]; then
+clear
+echo "========================================================================= "
+echo "Ban chua tao crontab tren VPS !"
+/etc/kpanel/menu/crontab/kpanel-cronjob-menu
+exit
+fi
+clear
+echo "========================================================================= "
+echo "Danh sach Crontab dang chay:"
+echo "-------------------------------------------------------------------------"
+crontab -l
+/etc/kpanel/menu/crontab/kpanel-cronjob-menu
+exit
+fi

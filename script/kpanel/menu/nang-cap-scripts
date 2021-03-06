@@ -1,0 +1,104 @@
+#!/bin/bash
+. /home/vpssim.conf
+
+if [ ! -f /etc/vpssim/vpssim.version ]; then
+clear
+echo "========================================================================="
+echo "Xin loi, chung toi khong the biet phien ban hien tai cua ban"
+echo "-------------------------------------------------------------------------"
+echo "Hay chac rang ban chay script offical tu website https://github.com/kdatavn/kpanel-version-2"
+vpssim
+exit
+fi
+
+maximumsize=10
+rm -rf /etc/vpssim/vpssim.newversion
+cd /etc/vpssim
+#timeout 3 wget -q http://hostingaz.vn/script/vpssim/vpssim.newversion
+timeout 3 wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/vpssim-free/master/version -O /etc/vpssim/vpssim.newversion
+
+cd
+if [ -f /etc/vpssim/vpssim.newversion ]; then
+checksizeversion=$(du -sb /etc/vpssim/vpssim.newversion | awk 'NR==1 {print $1}')
+if [ "$checksizeversion" == "0" ];then
+rm -rf /etc/vpssim/vpssim.newversion
+fi
+if [ $checksizeversion -gt $maximumsize ]; then
+rm -rf /etc/vpssim/vpssim.newversion
+fi
+fi
+
+if [ ! -f /etc/vpssim/vpssim.newversion ]; then
+clear
+printf "=========================================================================\n"
+echo "Khong the kiem tra phien ban update KPANEL"
+echo "-------------------------------------------------------------------------"
+echo "Ban vui long thu lai"
+/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+else
+LOCALVER=`cat /etc/vpssim/vpssim.version`
+REMOVER=`cat /etc/vpssim/vpssim.newversion`
+fi
+
+
+chuaCoBanMoi="n"
+if [ "$LOCALVER" == "$REMOVER" ]; then
+clear
+rm -rf /etc/vpssim/vpssim.newversion
+echo "========================================================================="
+echo "Ban dang su dung phien ban moi nhat cua KPANEL - Phien ban: $LOCALVER"
+echo "-------------------------------------------------------------------------"
+echo "Xem KPANEL update Log tai: https://github.com/kdatavn/kpanel-version-2"
+
+echo -n "Ban van muon cap nhat lai KPANEL chu? [y/N] "
+read vanCapNhat
+if [ "$vanCapNhat" = "y" ]; then
+echo "OK sir! tien trinh cap nhat se duoc tiep tuc..."
+sleep 3
+chuaCoBanMoi="y"
+else
+/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+exit
+fi
+fi
+
+printf "=========================================================================\n"
+printf "Xem KPANEL update Log tai: https://github.com/kdatavn/kpanel-version-2\n"
+printf "=========================================================================\n"
+printf "Da phat hien update cho KPANEL\n"
+echo "-------------------------------------------------------------------------"
+printf "Phien ban ban dang su dung: $LOCALVER\n"
+echo "-------------------------------------------------------------------------"
+printf "Phien ban ban moi nhat tai thoi diem hien tai: $REMOVER\n"
+printf "=========================================================================\n"
+
+if [ "$chuaCoBanMoi" = "y" ]; then
+response="y"
+else
+read -r -p "Ban chac chan muon update KPANEL ? [y/N] " response
+fi
+
+if [ "$response" = "y" ] || [ "$response" = "Y" ]; then
+echo "-------------------------------------------------------------------------" 
+echo "Chuan bi update KPANEL..... "
+sleep 1
+
+rm -rf /etc/vpssim/vpssim-update
+#wget -q http://hostingaz.vn/script/vpssim/vpssim-update -O /etc/vpssim/vpssim-update && chmod +x /etc/vpssim/vpssim-update
+wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/vpssim-free/master/script/vpssim/vpssim-update -O /etc/vpssim/vpssim-update
+chmod +x /etc/vpssim/vpssim-update
+bash /etc/vpssim/vpssim-update
+
+else
+
+clear
+printf "=========================================================================\n"
+echo "Ban da huy bo update KPANEL"
+/etc/vpssim/menu/vpssim-update-upgrade-service-menu
+
+fi
+
+#
+clear && /etc/vpssim/menu/vpssim-update-upgrade-service-menu
+
+exit

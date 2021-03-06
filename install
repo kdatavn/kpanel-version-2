@@ -1,9 +1,9 @@
 #!/bin/sh
 
 cd ~
-if [ -d /opt/echbay_vpssim ]; then
-rm -rf /opt/echbay_vpssim/*
-rm -rf /opt/echbay_vpssim
+if [ -d /opt/vps_kdata ]; then
+rm -rf /opt/vps_kdata/*
+rm -rf /opt/vps_kdata
 sleep 2
 fi
 
@@ -11,10 +11,10 @@ sudo yum -y install wget
 
 #
 cd ~
-wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/scripts/vpssim/menu/git-clone
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/scripts/kpanel/menu/git-clone
 chmod +x /root/git-clone
 bash /root/git-clone
 
-cd /opt/echbay_vpssim
+cd /opt/vps_kdata
 chmod +x setup
 bash setup

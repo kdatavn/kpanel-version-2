@@ -1,6 +1,0 @@
-#!/bin/sh
-echo "Please wait....";sleep 1
-clear
-echo "========================================================================="
-df -h
-/etc/vpssim/menu/vpssim-check-thong-tin-server

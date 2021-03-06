@@ -1,0 +1,52 @@
+#!/bin/bash
+. /home/kpanel.conf
+
+# copy code tu file install sang
+cd ~
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/script/kpanel/menu/git-clone
+chmod +x /root/git-clone
+bash /root/git-clone
+
+
+# BEGIN update KPANEL main
+#rm -rf /etc/motd
+yes | cp -rf /opt/vps_kdata/script/kpanel/motd /etc/motd
+
+yes | cp -rf /opt/vps_kdata/script/kpanel/calc /bin/calc && chmod +x /bin/calc
+
+yes | cp -rf /opt/vps_kdata/script/kpanel/kpanel /bin/kpanel && chmod +x /bin/kpanel
+# BEGIN update KPANEL main
+
+
+rm -rf /home/kpanel.demo/errorpage_html/*
+yes | cp -rf /opt/vps_kdata/script/kpanel/errorpage_html/. /home/kpanel.demo/errorpage_html/
+
+
+# BEGIN update KPANEL menu
+#rm -rf /etc/kpanel/menu/*
+#yes | cp -rf /opt/vps_kdata/script/kpanel/menu/. /etc/kpanel/menu/
+
+# Chmod 755 Menu
+#/opt/vps_kdata/script/kpanel/menu/chmod-755-menu
+# END update KPANEL menu
+
+
+# confirm done update
+yes | cp -rf /opt/vps_kdata/version /etc/kpanel/kpanel.version
+
+
+#rm -rf /opt/vps_kdata/*
+#rm -rf /opt/vps_kdata
+sleep 1
+
+# enable auto update system
+if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then
+if [ -f /etc/kpanel/menu/auto-update-system ]; then
+clear && bash /etc/kpanel/menu/auto-update-system
+fi
+else
+echo "Auto update system in CentOS 7 only"
+/etc/kpanel/menu/kpanel-update-upgrade-service-menu
+fi
+
+#exit
