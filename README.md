@@ -2,7 +2,7 @@
 ```
 bash <( curl -k https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/install )
 ```
-
+test
 ----------------------------------------------
 
 ### Phiên bản hệ điều hành khuyên dùng:
