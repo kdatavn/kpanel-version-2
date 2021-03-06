@@ -3,7 +3,7 @@
 
 # copy code tu file install sang
 cd ~
-wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/script/kpanel/menu/git-clone
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/main/script/kpanel/menu/git-clone
 chmod +x /root/git-clone
 bash /root/git-clone
 

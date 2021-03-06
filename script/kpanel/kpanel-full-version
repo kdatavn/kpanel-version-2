@@ -17,7 +17,7 @@ fileTime=$(date -r /tmp/00-all-nginx-version.txt +%d)
 if [ ! "$fileTime" == "$curTime" ]; then
 rm -rf /tmp/00-all-nginx-version.txt
 #wget -q https://kpanel.echbay.com/script/kpanel/00-all-nginx-version.txt -O /tmp/00-all-nginx-version.txt
-wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/script/kpanel/00-all-nginx-version.txt -O /tmp/00-all-nginx-version.txt
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/main/script/kpanel/00-all-nginx-version.txt -O /tmp/00-all-nginx-version.txt
 touch /tmp/00-all-nginx-version.txt
 Nginx1=`cat /etc/kpanel/nginx.version`
 checksize=$(du -sb /tmp/00-all-nginx-version.txt | awk 'NR==1 {print $1}')
@@ -54,7 +54,7 @@ fileTime2=$(date -r /tmp/kpanel.newversion +%d)
 if [ ! "$fileTime2" == "$curTime" ]; then
 rm -rf /tmp/kpanel.newversion
 #wget -q https://kpanel.echbay.com/script/kpanel/kpanel.newversion -O /tmp/kpanel.newversion
-wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/version -O /tmp/kpanel.newversion
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/main/version -O /tmp/kpanel.newversion
 touch /tmp/kpanel.newversion
 LOCALVER=`cat /etc/kpanel/kpanel.version`
 checksize=$(du -sb /tmp/kpanel.newversion | awk 'NR==1 {print $1}')
