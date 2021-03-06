@@ -65,7 +65,7 @@ sudo sed -i "s/mirrorlist=https/mirrorlist=http/" /etc/yum.repos.d/epel.repo
 fi
 
 #wget -q https://kpanel.echbay.com/script/kpanel/calc -O /bin/calc && chmod +x /bin/calc
-yes | cp -rf /opt/vps_kdata/script/kpanel/calc /bin/calc && chmod +x /bin/calc
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/calc /bin/calc && chmod +x /bin/calc
 clear  
 rm -rf /root/kpanel*
 
@@ -107,22 +107,22 @@ echo "Please wait ..."
 sleep 2
 #wget -q --no-check-certificate https://kpanel.com/script/kpanel/centos${current_os_version}/kpanel-setup && chmod +x kpanel-setup && clear && ./kpanel-setup
 #wget -q --no-check-certificate https://kpanel.echbay.com/script/kpanel/centos${current_os_version}/kpanel-setup && chmod +x kpanel-setup && clear && ./kpanel-setup
-cd /opt/vps_kdata/script/kpanel/centos${current_os_version} ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
-yes | cp -rf /opt/vps_kdata/script/kpanel/centos${current_os_version}/kpanel-setup ~/kpanel-setup ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
+cd /opt/kdata_kpanel/script/kpanel/centos${current_os_version} ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/centos${current_os_version}/kpanel-setup ~/kpanel-setup ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
 elif [ "$yourlanguage" = "vietnamese" ]; then
 echo "----------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 2
 #wget -q --no-check-certificate https://kpanel.echbay.com/script/kpanel/centos${current_os_version}/kpanel-setup && chmod +x kpanel-setup && clear && ./kpanel-setup
 if [ "$current_os_version" == "6" ]; then
-#cd /opt/vps_kdata/script/kpanel/centos6 ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
-yes | cp -rf /opt/vps_kdata/script/kpanel/centos6/kpanel-setup ~/kpanel-setup ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
+#cd /opt/kdata_kpanel/script/kpanel/centos6 ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/centos6/kpanel-setup ~/kpanel-setup ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
 elif [ "$current_os_version" == "7" ]; then
-#cd /opt/vps_kdata/script/kpanel/centos7 ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
-yes | cp -rf /opt/vps_kdata/script/kpanel/centos7/kpanel-setup ~/kpanel-setup ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
+#cd /opt/kdata_kpanel/script/kpanel/centos7 ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/centos7/kpanel-setup ~/kpanel-setup ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
 else
-#cd /opt/vps_kdata/script/kpanel/centos8 ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
-yes | cp -rf /opt/vps_kdata/script/kpanel/centos8/kpanel-setup ~/kpanel-setup ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
+#cd /opt/kdata_kpanel/script/kpanel/centos8 ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/centos8/kpanel-setup ~/kpanel-setup ; chmod +x kpanel-setup ; clear ; bash kpanel-setup
 fi
 else 
 rm -rf /root/install* && rm -rf /root/kpanel* && clear

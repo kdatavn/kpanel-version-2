@@ -165,7 +165,7 @@ rm -rf 00-all-phpmyadmin-version.txt
 ###########################
 download_version_nginx () {
 #wget --no-check-certificate -q https://kdata.vn/script/kpanel/00-all-nginx-version.txt
-yes | cp -rf /opt/vps_kdata/script/kpanel/00-all-nginx-version.txt 00-all-nginx-version.txt
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/00-all-nginx-version.txt 00-all-nginx-version.txt
 }
 download_version_nginx
 checkdownload_version_nginx=`cat /tmp/00-all-nginx-version.txt`
@@ -175,7 +175,7 @@ fi
 ###########################
 download_version_phpmyadmin () {
 #wget --no-check-certificate -q https://kdata.vn/script/kpanel/00-all-phpmyadmin-version.txt
-yes | cp -rf /opt/vps_kdata/script/kpanel/00-all-phpmyadmin-version.txt 00-all-phpmyadmin-version.txt
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/00-all-phpmyadmin-version.txt 00-all-phpmyadmin-version.txt
 }
 download_version_phpmyadmin
 checkdownload_version_phpmyadmin=`cat /tmp/00-all-phpmyadmin-version.txt`
@@ -185,7 +185,7 @@ fi
 ###########################
 download_version_kpanel () {
 #wget -q --no-check-certificate https://kdata.vn/script/kpanel/kpanel.newversion
-yes | cp -rf /opt/vps_kdata/script/kpanel/kpanel.newversion kpanel.newversion
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/kpanel.newversion kpanel.newversion
 }
 download_version_kpanel
 checkdownload_version_kpanel=`cat /tmp/kpanel.newversion`
@@ -194,7 +194,7 @@ download_version_kpanel
 fi
 ###########################
 cd
-. /opt/vps_kdata/script/kpanel/nginx-setup.conf
+. /opt/kdata_kpanel/script/kpanel/nginx-setup.conf
 phpmyadmin_version=`cat /tmp/00-all-phpmyadmin-version.txt | awk 'NR==2 {print $1}' | sed 's/|//' | sed 's/|//'`
 #Nginx_VERSION=`cat /tmp/00-all-nginx-version.txt | awk 'NR==2 {print $1}' | sed 's/|//' | sed 's/|//'`
 kpanel_version=`cat /tmp/kpanel.newversion`
@@ -248,7 +248,7 @@ exit
 fi
 download_nginx_conf () {
 #wget --no-check-certificate -q https://kdata.vn/script/kpanel/nginx.conf -O /tmp/nginx.conf
-yes | cp -rf /opt/vps_kdata/script/kpanel/nginx.conf /tmp/nginx.conf
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/nginx.conf /tmp/nginx.conf
 }
 download_nginx_conf
 checkdownload_nginx_conf=`cat /tmp/nginx.conf`
@@ -268,7 +268,7 @@ if [ -s /etc/selinux/config ]; then
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 fi
 
-/opt/vps_kdata/script/kpanel/menu/yum-first-install
+/opt/kdata_kpanel/script/kpanel/menu/yum-first-install
 
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-8.rpm
 if [ -f /etc/yum.repos.d/epel.repo ]; then
@@ -382,8 +382,8 @@ cd
 #fi
 
 
-/opt/vps_kdata/script/kpanel/menu/nginx-setup8
-/opt/vps_kdata/script/kpanel/menu/nginx-setup-done
+/opt/kdata_kpanel/script/kpanel/menu/nginx-setup8
+/opt/kdata_kpanel/script/kpanel/menu/nginx-setup-done
 # check ssl/ tls in serrver
 #openssl s_client -connect $svip:443 -ssl2
 #openssl s_client -connect $svip:443 -ssl3
@@ -468,7 +468,7 @@ mkdir -p /home/kpanel.demo/public_html
 cd /home/kpanel.demo/public_html
 #wget http://kdata.vn/script/kpanel/robots.txt
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/html/install/vietnam/index.html
-yes | cp -rf /opt/vps_kdata/script/kpanel/html/install/vietnam/index.html index.html
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/html/install/vietnam/index.html index.html
 cd
 mkdir /home/kpanel.demo/private_html
 
@@ -508,7 +508,7 @@ sed -i -e '/^\s*#.*$/d' $1
 
 rm -rf /etc/nginx/conf.d
 mkdir -p /etc/nginx/conf.d
-yes | cp -rf /opt/vps_kdata/script/kpanel/conf-webserver/kpanel.demo.txt /etc/nginx/conf.d/kpanel.demo.conf
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/conf-webserver/kpanel.demo.txt /etc/nginx/conf.d/kpanel.demo.conf
 # config
 cat > "/tmp/kpanelSetConfigFile" <<END
 #!/bin/bash 
@@ -568,7 +568,7 @@ fi
 
 
 rm -f /etc/php-fpm.d/www.conf
-yes | cp -rf /opt/vps_kdata/script/kpanel/conf-webserver/www.txt /etc/php-fpm.d/www.conf
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/conf-webserver/www.txt /etc/php-fpm.d/www.conf
 # config
 cat > "/tmp/kpanelSetConfigFile" <<END
 #!/bin/bash 
@@ -586,7 +586,7 @@ kpanel_setup_cleanup_config_file "/etc/php-fpm.d/www.conf"
 
 
 rm -rf /etc/php.ini
-yes | cp -rf /opt/vps_kdata/script/kpanel/conf-webserver/php.ini /etc/php.ini
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/conf-webserver/php.ini /etc/php.ini
 # config
 cat > "/tmp/kpanelSetConfigFile" <<END
 #!/bin/bash 
@@ -601,7 +601,7 @@ kpanel_setup_cleanup_config_file "/etc/php.ini"
 
 if [ ! -d /home/0-KPANEL-SHORTCUT ];then
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/check-imagick.php.zip -O /home/kpanel.demo/private_html/check-imagick.php
-yes | cp -rf /opt/vps_kdata/script/kpanel/check-imagick.php.zip /home/kpanel.demo/private_html/check-imagick.php
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/check-imagick.php.zip /home/kpanel.demo/private_html/check-imagick.php
 mkdir -p /home/0-KPANEL-SHORTCUT
 mkdir -p /home/kpanel.demo/private_html/backup
 ln -s /home/kpanel.demo/private_html/backup /home/0-KPANEL-SHORTCUT/Backup\ \(Website\ +\ Database\)
@@ -612,19 +612,19 @@ fi
 
 
 rm -rf /etc/php.d/*opcache*
-yes | cp -rf /opt/vps_kdata/script/kpanel/conf-webserver/opcache.ini /etc/php.d/opcache.ini
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/conf-webserver/opcache.ini /etc/php.d/opcache.ini
 # cleanup
 kpanel_setup_cleanup_config_file "/etc/php.d/opcache.ini"
 
 
 rm -rf /etc/sysctl.conf
-yes | cp -rf /opt/vps_kdata/script/kpanel/conf-webserver/sysctl.txt /etc/sysctl.conf
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/conf-webserver/sysctl.txt /etc/sysctl.conf
 # cleanup
 kpanel_setup_cleanup_config_file "/etc/sysctl.conf"
 
 
 rm -rf /etc/php-fpm.conf
-yes | cp -rf /opt/vps_kdata/script/kpanel/conf-webserver/php-fpm.txt /etc/php-fpm.conf
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/conf-webserver/php-fpm.txt /etc/php-fpm.conf
 # cleanup
 kpanel_setup_cleanup_config_file "/etc/php-fpm.conf"
 
@@ -910,7 +910,7 @@ service mysql start
 rm -f /bin/mysql_secure_installation
 download_mysql_secure_installation () {
 #wget --no-check-certificate -q https://kdata.vn/script/kpanel/mysql_secure_installation -O /bin/mysql_secure_installation && chmod +x /bin/mysql_secure_installation
-yes | cp -rf /opt/vps_kdata/script/kpanel/mysql_secure_installation /bin/mysql_secure_installation && chmod +x /bin/mysql_secure_installation
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/mysql_secure_installation /bin/mysql_secure_installation && chmod +x /bin/mysql_secure_installation
 }
 download_mysql_secure_installation
 checkmysql_secure_installation=`cat /bin/mysql_secure_installation`
@@ -919,7 +919,7 @@ download_mysql_secure_installation
 fi
 
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/Softwear/wp-cli.phar
-#yes | cp -rf /opt/vps_kdata/script/kpanel/Softwear/wp-cli.phar wp-cli.phar
+#yes | cp -rf /opt/kdata_kpanel/script/kpanel/Softwear/wp-cli.phar wp-cli.phar
 wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/master/wp-cli.phar
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
@@ -942,7 +942,7 @@ cd /home/kpanel.demo/private_html/
 #wget -q https://gist.github.com/ck-on/4959032/raw/0b871b345fd6cfcd6d2be030c1f33d1ad6a475cb/ocp.php
 wget -q https://gist.githubusercontent.com/ck-on/4959032/raw/0b871b345fd6cfcd6d2be030c1f33d1ad6a475cb/ocp.php
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/memcache.php.zip -O /home/kpanel.demo/private_html/memcache.php
-yes | cp -rf /opt/vps_kdata/script/kpanel/memcache.php.zip /home/kpanel.demo/private_html/memcache.php
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/memcache.php.zip /home/kpanel.demo/private_html/memcache.php
 wget -q https://files.phpmyadmin.net/phpMyAdmin/${phpmyadmin_version}/phpMyAdmin-${phpmyadmin_version}-all-languages.zip
 unzip -q phpMyAdmin-*.zip
 yes | cp -rf phpMyAdmin-*/* .
@@ -959,13 +959,13 @@ echo "==========================================================================
 rm -rf /etc/motd
 
 #wget --no-check-certificate -q https://kdata.vn/script/kpanel/motd -O /etc/motd
-yes | cp -rf /opt/vps_kdata/script/kpanel/motd /etc/motd
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/motd /etc/motd
 
 
 # Download kpanel_main_menu
 download_kpanel_main_menu () {
 #wget --no-check-certificate -q https://kdata.vn/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
-yes | cp -rf /opt/vps_kdata/script/kpanel/kpanel /bin/kpanel && chmod +x /bin/kpanel
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/kpanel /bin/kpanel && chmod +x /bin/kpanel
 }
 download_kpanel_main_menu
 checkkpanel_main_menu=`cat /bin/kpanel`
@@ -984,7 +984,7 @@ download_kpanel_data () {
 #unzip -q menu.zip
 #rm -rf menu.zip
 mkdir -p /etc/kpanel/menu ; chmod 755 /etc/kpanel/menu
-yes | cp -rf /opt/vps_kdata/script/kpanel/menu/. /etc/kpanel/menu/
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/menu/. /etc/kpanel/menu/
 }
 #download_kpanel_data
 #if [ ! -f /etc/kpanel/menu/kpanel-tien-ich ]; then
@@ -996,16 +996,16 @@ yes | cp -rf /opt/vps_kdata/script/kpanel/menu/. /etc/kpanel/menu/
 #rm -rf errorpage_html.zip
 #cp -r /etc/kpanel/errorpage_html /home/kpanel.demo/
 mkdir -p /home/kpanel.demo/errorpage_html ; chmod 755 /home/kpanel.demo/errorpage_html
-yes | cp -rf /opt/vps_kdata/script/kpanel/errorpage_html/. /home/kpanel.demo/errorpage_html/
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/errorpage_html/. /home/kpanel.demo/errorpage_html/
 mkdir -p /etc/kpanel/errorpage_html ; chmod 755 /etc/kpanel/errorpage_html
-yes | cp -rf /opt/vps_kdata/script/kpanel/errorpage_html/. /etc/kpanel/errorpage_html/
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/errorpage_html/. /etc/kpanel/errorpage_html/
 
 # tao thu muc cho phpmyadmin dung lam cache
 mkdir -p /home/kpanel.demo/private_html/tmp ; chmod 777 /home/kpanel.demo/private_html/tmp
 
 cd
 # Chmod 755 Menu
-#/opt/vps_kdata/script/kpanel/menu/chmod-755-menu
+#/opt/kdata_kpanel/script/kpanel/menu/chmod-755-menu
 
 # Download /etc/nginx/conf
 cd /etc/nginx/
@@ -1015,7 +1015,7 @@ download_etc_nginx_conf () {
 #unzip -q conf.zip
 #rm -rf conf.zip
 mkdir -p /etc/nginx/conf ; chmod 755 /etc/nginx/conf
-yes | cp -rf /opt/vps_kdata/script/kpanel/conf/. /etc/nginx/conf/
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/conf/. /etc/nginx/conf/
 }
 download_etc_nginx_conf
 #if [ ! -f /etc/nginx/conf/staticfiles.conf ]; then
@@ -1046,7 +1046,7 @@ userdefault="$usernamebv"
 passdefault="$matkhaubv"
 END
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/Softwear/status.zip -O /home/kpanel.demo/public_html/status.php
-yes | cp -rf /opt/vps_kdata/script/kpanel/Softwear/status.zip /home/kpanel.demo/public_html/status.php
+yes | cp -rf /opt/kdata_kpanel/script/kpanel/Softwear/status.zip /home/kpanel.demo/public_html/status.php
 rm -rf /etc/kpanel/defaulpassword.php
 cat > "/etc/kpanel/defaulpassword.php" <<END
 <?php
