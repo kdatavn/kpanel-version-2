@@ -26,7 +26,7 @@ options=( "Varnish 4.0" "Varnish 4.1 (Khuyen dung)" "Varnish 6.0" "Varnish 6.1" 
 fi
 
 printf "=========================================================================\n"
-printf "         KPANEL - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "         KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                           Varnish Cache\n"
 echo "========================================================================="

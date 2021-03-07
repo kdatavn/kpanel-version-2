@@ -35,7 +35,7 @@ show_menu_lets-encrypt () {
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Cai Dat SSL Cho Domain" "Kiem Tra SSL Cua Domain " "Auto Renew SSL" "Renew SSL Cho Domain" "List Domain Cai Dat SSL" "Remove SSL (Back to HTTP)" "Upgrade Acme.sh")
 printf "=========================================================================\n"
-printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                        Cai Dat SSL - Let's Encrypt \n"
 echo "========================================================================="

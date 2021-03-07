@@ -1,6 +1,6 @@
 #!/bin/sh
 . /home/kpanel.conf
-if [ "$(grep HostingAZ.VN /bin/kpanel)" != "" ]; then
+if [ "$(grep KDATA.VN /bin/kpanel)" != "" ]; then
 clear
 echo "========================================================================= "
 echo "You are using Vietnamese Version"

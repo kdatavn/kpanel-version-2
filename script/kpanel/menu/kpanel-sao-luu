@@ -25,7 +25,7 @@ rm -rf /tmp/*kpanel*
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Backup Code 1 Website" "Backup Code All Website" "Tu Dong Backup Website" "Phuc Hoi Website" "Lay Link File Backup" "Xoa Tat Ca File Backup")
 printf "=========================================================================\n"
-printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                         Sao Luu & Phuc Hoi Code\n"
 printf "=========================================================================\n"

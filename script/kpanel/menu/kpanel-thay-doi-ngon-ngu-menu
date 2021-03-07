@@ -32,7 +32,7 @@ options=("EngLish" "VietNamese (Current)" "Exit")
 fi
 prompt="Nhap lua chon cua ban:" 
 printf "=========================================================================\n"
-printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"             
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"             
 printf "=========================================================================\n"
 printf "                       Lua Chon Ngon Ngu Cho kpanel                                \n"
 printf "=========================================================================\n"

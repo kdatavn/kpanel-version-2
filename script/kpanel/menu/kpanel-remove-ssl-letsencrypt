@@ -4,7 +4,7 @@
 if [ ! -f /etc/kpanel/menu/kpanel-remove-ssl-letsencrypt-read ]; then
 clear
 printf "=========================================================================\n"
-printf "               kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "               KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                      Cai Dat SSL - Let's Encrypt \n"
 echo "========================================================================="

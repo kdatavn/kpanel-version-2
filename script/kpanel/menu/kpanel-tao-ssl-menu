@@ -2,7 +2,7 @@
 prompt="Lua chon cua ban (0-Thoat):"
 options=( "Tao domain key & Sign SSL certificate" "Tai Domain CSR va Vhost Mau " "Fix Khong the download files")
 printf "=========================================================================\n"
-printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                            Setup SSL (https) \n"
 printf "=========================================================================\n"

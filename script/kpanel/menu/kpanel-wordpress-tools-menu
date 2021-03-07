@@ -7,8 +7,8 @@ fi
 if [ ! -f /etc/kpanel/pwprotect.default ]; then
 echo "" > /etc/kpanel/pwprotect.default
 fi
-if [ -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
-rm -rf /var/lib/mysql/vpssimCheckDB
+if [ -f /var/lib/mysql/kpanelCheckDB/db.opt ]; then
+rm -rf /var/lib/mysql/kpanelCheckDB
 fi
 
 menu_wordpress_blog_tools () {
@@ -16,7 +16,7 @@ menu_wordpress_blog_tools () {
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Update Wordpress An Toan" "Update Themes & Plugins" "Tat/Bat Auto Update WP Code" "Tat/Bat WP-Cron.php" "Xem Themes & Plugins Status" "Enable Redis Cache" "Disable Redis Cache" "Sao Luu Database" "Phuc Hoi Database" "Cai Dat Wordpress Multisite" "Tao Vhost Cho WP MultiSite" "Cau Hinh Vhost Cho PLugin Cache" "Xem Thong Tin Database" "Toi Uu - Sua Loi Database" "Password Bao Ve wp-login.php" "Fix Loi Missed Schedule" "Fix Loi Permission"  ) 
 printf "=========================================================================\n"
-printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                           Wordpress Blog Tools\n"
 printf "=========================================================================\n"
@@ -95,16 +95,16 @@ fi
 
 
 check_mariaDB_service () {
-if [ -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
-rm -rf /var/lib/mysql/vpssimCheckDB
+if [ -f /var/lib/mysql/kpanelCheckDB/db.opt ]; then
+rm -rf /var/lib/mysql/kpanelCheckDB
 fi
  cat > "/tmp/config.temp" <<END
-CREATE DATABASE vpssimCheckDB COLLATE utf8_general_ci;
+CREATE DATABASE kpanelCheckDB COLLATE utf8_general_ci;
 END
 mysql -u root -p$mariadbpass < /tmp/config.temp
 rm -f /tmp/config.temp
 
-if [ ! -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
+if [ ! -f /var/lib/mysql/kpanelCheckDB/db.opt ]; then
 clear
 echo "========================================================================"
 echo "MySQL service is not running"
@@ -129,14 +129,14 @@ echo "------------------------------------------------------------------------"
 echo "please wait ..."
 sleep 5 ; clear
 cat > "/tmp/config.temp" <<END
-CREATE DATABASE vpssimCheckDB COLLATE utf8_general_ci;
+CREATE DATABASE kpanelCheckDB COLLATE utf8_general_ci;
 END
 mysql -u root -p$mariadbpass < /tmp/config.temp
 rm -f /tmp/config.temp
-	if [ ! -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
+	if [ ! -f /var/lib/mysql/kpanelCheckDB/db.opt ]; then
 clear
 echo "========================================================================"
-echo "kpanel can not start MySQL Service"
+echo "KPANEL can not start MySQL Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -144,11 +144,11 @@ sleep 4 ;
 		#echo "Sorry, MySQL stopped. Start it before use this function!"
 	kpanel
 	else
-	rm -rf /var/lib/mysql/vpssimCheckDB
+	rm -rf /var/lib/mysql/kpanelCheckDB
 check_wpcli_version 
 	fi
 else
-rm -rf /var/lib/mysql/vpssimCheckDB
+rm -rf /var/lib/mysql/kpanelCheckDB
 check_wpcli_version 
 fi
 }
@@ -180,7 +180,7 @@ check_mariaDB_service
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start PHP-FPM Service"
+echo "KPANEL can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -200,7 +200,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -217,7 +217,7 @@ check_mariaDB_service
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start PHP-FPM Service"
+echo "KPANEL can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -237,7 +237,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -254,7 +254,7 @@ check_php_fpm_service
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -273,7 +273,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -290,7 +290,7 @@ check_php_fpm_service
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="

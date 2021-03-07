@@ -29,7 +29,7 @@ fi
 prompt="Nhap lua chon cua ban (0-Thoat):"
 options=("Tat Opcache" "Cau Hinh Zend Opcache" "Them Website Vao BlackList" "Xoa Website Khoi Blacklist" "Clear Zend OPcache")
 printf "=========================================================================\n"
-printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                      Quan Ly Zend OPcache (Enable)\n"
 printf "=========================================================================\n"
