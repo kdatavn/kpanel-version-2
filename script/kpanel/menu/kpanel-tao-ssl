@@ -201,7 +201,7 @@ echo "Link download $domainssl.csr:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/$domainssl.csr"
 echo "-------------------------------------------------------------------------"
-echo "Xem huong dan tren HostingAZ.VN"
+echo "Xem huong dan tren KDATA.VN"
 echo "========================================================================= "
 read -p "Press [Enter] de quay tro lai kpanel ..."
 clear

@@ -22,7 +22,7 @@ versionshow=`echo "| Version: Unknown"`
 fi
 
 printf "=========================================================================\n"
-printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                            Quan Ly phpMyAdmin \n"
 printf "=========================================================================\n"
