@@ -125,18 +125,18 @@ sleep 10
     mkdir -p "/home/$website/public_html"
     mkdir -p "/home/$website/logs"
     cd /home/$website/public_html
-#wget --no-check-certificate -q https://hostingaz.vn/script/kpanel/eXtplorer/eXtplorer_2.1.9.zip
-wget --no-check-certificate -q https://github.com/kdatavn/kdata-vps-software/raw/master/eXtplorer_2.1.9.zip
+#wget --no-check-certificate -q https://hostingaz.vn/script/kpanel/eXtplorer/eXtplorer_2.1.14.zip
+wget --no-check-certificate -q https://github.com/kdatavn/kdata-vps-software/raw/master/eXtplorer_2.1.14.zip
 
-if [ ! -f eXtplorer_2.1.9.zip ]; then
+if [ ! -f eXtplorer_2.1.14.zip ]; then
 echo "========================================================================="
 echo "Loi download file cai dat, vui long bao loi voi chung toi"
 echo "-------------------------------------------------------------------------"
 /etc/kpanel/menu/kpanel-web-upload-menu
 fi
 
-unzip -q eXtplorer_2.1.9.zip
-rm -rf eXtplorer_2.1.9.zip
+unzip -q eXtplorer_2.1.14.zip
+rm -rf eXtplorer_2.1.14.zip
 echo "please wait... "; sleep 2
 cd
 rm -rf /home/$website/public_html/config/.htusers.php
