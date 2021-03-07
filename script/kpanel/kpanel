@@ -57,7 +57,7 @@ select opt in "${options[@]}" ; do
     15) /etc/kpanel/menu/CSF-Fiwall/kpanel-csf-firewall-before-menu;;
     16) clear && /etc/kpanel/menu/kpanel-iptables-firewall-manager-menu;;
     17) clear && /etc/kpanel/menu/kpanel-bitsync-menu;;
-    18) clear && /etc/kpanel/menu/kpanel-befor-rsync;;
+    18) clear && /etc/kpanel/menu/backup/kpanel-befor-rsync;;
     19) clear && /etc/kpanel/menu/kpanel-maldet-menu;;
     20) clear && /etc/kpanel/menu/kpanel-web-upload-menu;;
     21) clear && /etc/kpanel/menu/kpanel-net2ftp-menu;;
