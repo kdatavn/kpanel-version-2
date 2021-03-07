@@ -1,12 +1,12 @@
 #!/bin/bash 
-. /home/kpanel.conf
+. /home/kdata.conf
 if [ ! "$(redis-cli ping)" = "PONG" ]; then
 clear
 echo "========================================================================="
 echo "Redis dang stop"
 echo "-------------------------------------------------------------------------"
 echo "Ban phai bat Redis len bang lenh [ service redis start ]"
-/etc/kpanel/menu/kpanel-redis-menu
+/etc/kdata/menu/redis/kdata-redis-menu
 exit
 fi
 echo "========================================================================="
@@ -21,7 +21,7 @@ if [ "$maxredis" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai"
-/etc/kpanel/menu/kpanel-redis-menu
+/etc/kdata/menu/redis/kdata-redis-menu
 exit
 fi
 
@@ -31,7 +31,7 @@ echo "========================================================================="
 echo "$maxredis khong dung!"
 echo "-------------------------------------------------------------------------"
 echo "RAM cho Redis phai la so tu nhien nam trong khoan (40 - $(calc $( free -m | awk 'NR==2 {print $2}' )/5))."
-/etc/kpanel/menu/kpanel-redis-menu
+/etc/kdata/menu/redis/kdata-redis-menu
 exit
 fi  
 echo "-------------------------------------------------------------------------"
@@ -52,5 +52,6 @@ echo "========================================================================="
 echo "Cau hinh Max Ram cho Redis thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Redis co the su dung luong RAM toi da la: $maxredis MB "
-/etc/kpanel/menu/kpanel-redis-menu
+/etc/kdata/menu/redis/kdata-redis-menu
+
 

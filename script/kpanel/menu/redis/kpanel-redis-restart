@@ -1,0 +1,37 @@
+#!/bin/bash
+. /home/kdata.conf
+
+if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
+if [ "$(/sbin/service redis status | awk 'NR==1 {print $5}')" == "running..." ]; then
+echo "Please wait....";sleep 1
+service redis restart
+clear
+echo "========================================================================= "
+echo "Restart redis thanh cong !"
+/etc/kdata/menu/redis/kdata-before-redis-menu
+else
+clear
+echo "========================================================================= "
+echo "Redis Cached dang Disable tren server."
+/etc/kdata/menu/redis/kdata-before-redis-menu
+exit
+fi
+fi
+
+#if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then 
+if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
+if [ "`systemctl is-active redis.service`" == "active" ]; then
+echo "Please wait....";sleep 1
+systemctl restart redis.service
+clear
+echo "========================================================================= "
+echo "Restart Redis thanh cong !"
+/etc/kdata/menu/redis/kdata-before-redis-menu
+else
+clear
+echo "========================================================================= "
+echo "Redis Cached dang Disable tren server."
+/etc/kdata/menu/redis/kdata-before-redis-menu
+exit
+fi
+fi

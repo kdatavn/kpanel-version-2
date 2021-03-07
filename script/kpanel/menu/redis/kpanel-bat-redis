@@ -1,0 +1,20 @@
+#!/bin/bash
+. /home/kdata.conf
+
+if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
+echo "-------------------------------------------------------------------------"
+echo "Please wait....";sleep 1
+chkconfig redis on
+service redis start
+fi
+#if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then 
+if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
+echo "-------------------------------------------------------------------------"
+echo "Please wait....";sleep 1
+systemctl start redis.service
+systemctl enable redis.service 
+fi
+clear
+echo "========================================================================= "
+echo "Bat Redis Cache thanh cong."
+/etc/kdata/menu/redis/kdata-redis-menu

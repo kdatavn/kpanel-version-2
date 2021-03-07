@@ -1,5 +1,5 @@
 #!/bin/sh
-. /home/kpanel.conf
+. /home/kdata.conf
 if [ ! "$(redis-cli ping)" = "PONG" ]; then
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 service redis start
@@ -7,10 +7,8 @@ else
 systemctl start redis.service
 fi
 clear
-/etc/kpanel/menu/kpanel-redis-menu
+/etc/kdata/menu/redis/kdata-install-redis
 else
-/etc/kpanel/menu/kpanel-redis-menu
+/etc/kdata/menu/redis/kdata-remove-redis
 fi
-
-
 

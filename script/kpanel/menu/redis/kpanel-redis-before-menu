@@ -1,0 +1,14 @@
+#!/bin/sh
+. /home/kdata.conf
+if [ ! "$(redis-cli ping)" = "PONG" ]; then
+if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
+service redis start
+else 
+systemctl start redis.service
+fi
+clear
+/etc/kdata/menu/redis/kdata-redis-menu-no-config
+else
+/etc/kdata/menu/redis/kdata-redis-menu
+fi
+

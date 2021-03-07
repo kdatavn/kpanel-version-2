@@ -1,0 +1,15 @@
+#!/bin/bash
+clear
+echo "-------------------------------------------------------------------------"
+echo "Chuan bi qua trinh cai dat Redis"
+echo "Please wait....";sleep 1
+yum -y install redis
+echo "-------------------------------------------------------------------------"
+echo "Please wait....";sleep 1
+systemctl start redis.service
+systemctl enable redis.service
+clear
+echo "========================================================================= "
+echo "Cai dat Redis Cache thanh cong."
+/etc/kdata/menu/redis/kdata-redis-before-menu
+

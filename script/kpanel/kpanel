@@ -46,7 +46,7 @@ select opt in "${options[@]}" ; do
     5) clear && /etc/kpanel/menu/kpanel-phpmyadmin-menu;;
     6) clear && /etc/kpanel/menu/opcache/kpanel-before-opcache;;
     7) clear && /etc/kpanel/menu/memcache/kpanel-before-memcache-menu;;
-    8) clear && /etc/kpanel/menu/kpanel-redis-befor-menu;;
+    8) clear && /etc/kpanel/menu/redis/kpanel-redis-before-menu;;
     9) clear &&/etc/kpanel/menu/kpanel-ftpserver-menu;;
     10 )clear && /etc/kpanel/menu/swap/kpanel-them-xoa-swap-vps-menu;;
     11) clear && /etc/kpanel/menu/crontab/kpanel-cronjob-menu;;

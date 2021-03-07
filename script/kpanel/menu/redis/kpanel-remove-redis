@@ -1,0 +1,10 @@
+#!/bin/bash
+clear
+echo "-------------------------------------------------------------------------"
+echo "Bat dau go cai dat Redis Cache"
+echo "Please wait....";sleep 1
+yum -y remove redis*
+clear
+echo "========================================================================= "
+echo "Go cai dat Redis Cache thanh cong."
+/etc/kdata/menu/redis/kdata-redis-before-menu

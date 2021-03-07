@@ -1,0 +1,39 @@
+#!/bin/bash
+. /home/kdata.conf
+prompt="Nhap lua chon cua ban:"
+if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then
+if [ "$(/sbin/service redis status | awk 'NR==1 {print $5}')" == "running..." ]; then
+options=("Install Redis Cache" )
+fi
+if [ "$(/sbin/service redis status | awk 'NR==1 {print $3}')" == "stopped" ]; then
+options=("Install Redis Cache" )
+fi
+fi
+#if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then
+if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then
+if [ ! "`systemctl is-active redis.service`" == "active" ]; then
+options=("Install Redis Cache" )
+fi
+fi
+printf "=========================================================================\n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
+printf "=========================================================================\n"
+printf "                           Quan Ly Redis Cache                                \n"
+printf "=========================================================================\n"
+printf "          		   Redis: Chua cai dat				      \n" 
+printf "=========================================================================\n"
+
+PS3="$prompt"
+select opt in "${options[@]}" "Thoat"; do
+
+    case "$REPLY" in
+
+    1 ) /etc/kdata/menu/redis/kdata-install-remove-redis;;
+
+
+$(( ${#options[@]}+1 )) ) echo "";  clear && /bin/kdata;;
+     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
+
+    esac
+
+done
