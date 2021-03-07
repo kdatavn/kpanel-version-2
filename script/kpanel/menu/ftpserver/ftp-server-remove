@@ -27,18 +27,18 @@ service iptables save
        clear 
 echo "========================================================================= "
 echo "Huy bo remove FTP Server "
-/etc/kpanel/menu/kpanel-ftpserver-menu
+/etc/kpanel/menu/ftpserver/kpanel-ftpserver-menu
         ;;
 esac
 clear 
 echo "========================================================================= "
 echo "kpanel hoan thanh remove FTP Server "
-/etc/kpanel/menu/kpanel-ftpserver-menu
+/etc/kpanel/menu/ftpserver/kpanel-ftpserver-menu
 fi
 clear
 echo "========================================================================= "
 echo "Ban chua cai dat FTP server "
-/etc/kpanel/menu/kpanel-ftpserver-menu
+/etc/kpanel/menu/ftpserver/kpanel-ftpserver-menu
 exit
 fi
 
