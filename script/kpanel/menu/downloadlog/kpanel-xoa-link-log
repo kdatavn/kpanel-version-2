@@ -7,12 +7,12 @@ if [ "$(ls -1 /home/$mainsite/private_html/server-log | wc -l)" == "0" ]; then
 clear
 echo "========================================================================= "
 echo "Khong ton tai ban download cua cac file log."
-/etc/kpanel/menu/kpanel-eroor-menu
+/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
 fi
 rm -rf /home/$mainsite/private_html/server-log/*.*
 clear
 echo "========================================================================= "
 echo "Xoa tat ca link download file Log thanh cong"
-/etc/kpanel/menu/kpanel-eroor-menu
+/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
 
 

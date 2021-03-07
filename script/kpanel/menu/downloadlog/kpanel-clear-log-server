@@ -269,6 +269,6 @@ echo "Clear Exim Log thanh cong"
 elif [ "$chooseclearcase" = "clearalllog" ]; then
 /etc/kpanel/menu/downloadlog/kpanel-clear-all-log
 else 
-clear && /etc/kpanel/menu/kpanel-eroor-menu
+clear && /etc/kpanel/menu/downloadlog/kpanel-eroor-menu
 fi
 
