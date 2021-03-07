@@ -2,20 +2,20 @@
 . /home/kpanel.conf
 . /etc/sysconfig/memcached
 prompt="Nhap lua chon cua ban:"
-if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
+if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then
 if [ "$(/sbin/service memcached status | awk 'NR==1 {print $5}')" == "running..." ]; then
-options=("Disable Memcached" "Restart Memcached" "Config Memcached" "Clear Memcached")
+options=("Disable Memcached" "Restart Memcached" "Config Memcached" "Clear Memcached" "Remove Memcached")
 fi
 if [ "$(/sbin/service memcached status | awk 'NR==1 {print $3}')" == "stopped" ]; then
-options=("Enable Memcached" "Restart Memcached" "Config Memcached" "Clear Memcached" )
+options=("Enable Memcached" "Restart Memcached" "Config Memcached" "Clear Memcached" "Remove Memcached")
 fi
 fi
-#if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then 
-if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
+#if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then
+if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then
 if [ "`systemctl is-active memcached.service`" == "active" ]; then
-options=("Disable Memcached" "Restart Memcached" "Config Memcached" "Clear Memcached" )
+options=("Disable Memcached" "Restart Memcached" "Config Memcached" "Clear Memcached" "Remove Memcached")
 else
-options=("Enable Memcached" "Restart Memcached" "Config Memcached" "Clear Memcached")
+options=("Enable Memcached" "Restart Memcached" "Config Memcached" "Clear Memcached" "Remove Memcached")
 fi
 fi
 printf "=========================================================================\n"
@@ -54,7 +54,8 @@ select opt in "${options[@]}" "Thoat"; do
     2 ) /etc/kpanel/menu/memcache/kpanel-memcache-restart;;
     3 ) /etc/kpanel/menu/memcache/kpanel-memcache-change-size;;
     4 ) /etc/kpanel/menu/memcache/kpanel-clear-memcache;; 
-  
+    5 ) /etc/kpanel/menu/memcache/kpanel-install-remove-memcache;;
+
 $(( ${#options[@]}+1 )) ) echo "";  clear && /bin/kpanel;;
      *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 

@@ -79,3 +79,4 @@ echo "Khong phat hien Memcached tren VPS"
 /etc/kpanel/menu/memcache/kpanel-before-memcache-menu
 exit
 fi
+

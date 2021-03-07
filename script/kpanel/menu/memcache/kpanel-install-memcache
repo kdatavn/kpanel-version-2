@@ -1,0 +1,14 @@
+#!/bin/bash
+clear
+echo "-------------------------------------------------------------------------"
+echo "Chuan bi qua trinh cai dat Memcached"
+echo "Please wait....";sleep 1
+yum -y install memcached
+echo "-------------------------------------------------------------------------"
+echo "Please wait....";sleep 1
+systemctl start memcached.service
+systemctl enable memcached.service
+clear
+echo "========================================================================= "
+echo "Cai dat Memcached thanh cong."
+/etc/kpanel/menu/memcache/kpanel-before-memcache-menu

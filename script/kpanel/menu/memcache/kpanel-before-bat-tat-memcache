@@ -31,3 +31,4 @@ echo "Sorry, KPANEL khong phat hien Memcached tren he thong !"
 kpanel
 exit
 fi
+
