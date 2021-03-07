@@ -1164,6 +1164,7 @@ rm -f /tmp/finishedemail.sh
 
 #rm -rf /opt/kdata_kpanel/*
 #rm -rf /opt/kdata_kpanel
+#rm -rf /etc/sysconfig/memcached
 sleep 1
 
 
