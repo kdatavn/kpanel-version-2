@@ -6,7 +6,7 @@ echo "========================================================================="
 echo "Server hien tai chua duoc ket noi voi VPS backup"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long ket noi voi VPS backup truoc khi thuc hien thao tac nay."
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 echo "========================================================================="
@@ -25,7 +25,7 @@ echo "========================================================================="
 echo "Ket noi toi VPS Backup that bai"
 echo "-------------------------------------------------------------------------"
 echo "kpanel khong the thuc hien chuc nang nay"
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -35,7 +35,7 @@ if [ "$PASS1" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -47,7 +47,7 @@ echo "========================================================================="
 echo "Mat khau ban nhap hai lan khong giong nhau !"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai"
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -90,7 +90,7 @@ echo "========================================================================="
 echo "Ket noi toi VPS Backup that bai"
 echo "-------------------------------------------------------------------------"
 echo "kpanel khong the thuc hien chuc nang nay"
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 clear
@@ -102,13 +102,14 @@ echo "-------------------------------------------------------------------------"
 echo "Neu dang nhap VPS tren may tinh that bai, truoc khi dang nhap"
 echo "-------------------------------------------------------------------------"
 echo "ban thu chay lenh sau:  ssh-keygen -R $ipvpsbackup"
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
     ;;
 *)
 clear
 echo "========================================================================="
 echo "You cancel change password for root user in vps backup!"
-  /etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+  /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 ;;
 esac
+
