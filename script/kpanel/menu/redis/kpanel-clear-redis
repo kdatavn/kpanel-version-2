@@ -1,12 +1,12 @@
 #!/bin/bash 
-. /home/kdata.conf
+. /home/kpanel.conf
 if [ ! "$(redis-cli ping)" = "PONG" ]; then
 clear
 echo "========================================================================="
 echo "Redis dang stop"
 echo "-------------------------------------------------------------------------"
 echo "Ban phai bat Redis len bang lenh [ service redis start ]"
-/etc/kdata/menu/redis/kdata-redis-menu
+/etc/kpanel/menu/redis/kpanel-redis-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -16,5 +16,5 @@ sleep 1
 clear
 echo "========================================================================="
 echo "Clear Redis Cache thanh cong"
-/etc/kdata/menu/redis/kdata-redis-menu
+/etc/kpanel/menu/redis/kpanel-redis-menu
 

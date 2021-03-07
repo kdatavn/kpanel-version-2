@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/kdata.conf
+. /home/kpanel.conf
 
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 echo "-------------------------------------------------------------------------"
@@ -17,4 +17,4 @@ fi
 clear
 echo "========================================================================= "
 echo "Bat Redis Cache thanh cong."
-/etc/kdata/menu/redis/kdata-redis-menu
+/etc/kpanel/menu/redis/kpanel-redis-menu

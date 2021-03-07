@@ -1,5 +1,5 @@
 #!/bin/bash
-. /home/kdata.conf
+. /home/kpanel.conf
 
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 if [ "$(/sbin/service redis status | awk 'NR==1 {print $5}')" == "running..." ]; then
@@ -8,12 +8,12 @@ service redis restart
 clear
 echo "========================================================================= "
 echo "Restart redis thanh cong !"
-/etc/kdata/menu/redis/kdata-before-redis-menu
+/etc/kpanel/menu/redis/kpanel-before-redis-menu
 else
 clear
 echo "========================================================================= "
 echo "Redis Cached dang Disable tren server."
-/etc/kdata/menu/redis/kdata-before-redis-menu
+/etc/kpanel/menu/redis/kpanel-before-redis-menu
 exit
 fi
 fi
@@ -26,12 +26,12 @@ systemctl restart redis.service
 clear
 echo "========================================================================= "
 echo "Restart Redis thanh cong !"
-/etc/kdata/menu/redis/kdata-before-redis-menu
+/etc/kpanel/menu/redis/kpanel-before-redis-menu
 else
 clear
 echo "========================================================================= "
 echo "Redis Cached dang Disable tren server."
-/etc/kdata/menu/redis/kdata-before-redis-menu
+/etc/kpanel/menu/redis/kpanel-before-redis-menu
 exit
 fi
 fi

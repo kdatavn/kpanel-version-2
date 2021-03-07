@@ -1,12 +1,12 @@
 #!/bin/sh
-. /home/kdata.conf
+. /home/kpanel.conf
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 if [ "$(/sbin/service redis status | awk 'NR==1 {print $5}')" == "running..." ]; then
-/etc/kdata/menu/redis/kdata-tat-redis
+/etc/kpanel/menu/redis/kpanel-tat-redis
 exit
 fi
 if [ "$(/sbin/service redis status | awk 'NR==1 {print $3}')" == "stopped" ]; then
-/etc/kdata/menu/redis/kdata-bat-redis
+/etc/kpanel/menu/redis/kpanel-bat-redis
 clear
 exit
 fi
@@ -16,18 +16,18 @@ fi
 if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 if [ "`systemctl is-active redis.service`" == "active" ]; then
 clear
-/etc/kdata/menu/redis/kdata-tat-redis
+/etc/kpanel/menu/redis/kpanel-tat-redis
 exit
 fi
 if [ ! "`systemctl is-active redis.service`" == "active" ]; then
 clear
-/etc/kdata/menu/redis/kdata-bat-redis
+/etc/kpanel/menu/redis/kpanel-bat-redis
 exit
 fi
 fi
 clear
 echo "========================================================================="
 echo "Sorry, KPANEL khong phat hien Redis Cache tren he thong !"
-kdata
+kpanel
 exit
 fi

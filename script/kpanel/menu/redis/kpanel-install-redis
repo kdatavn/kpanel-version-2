@@ -11,5 +11,5 @@ systemctl enable redis.service
 clear
 echo "========================================================================= "
 echo "Cai dat Redis Cache thanh cong."
-/etc/kdata/menu/redis/kdata-redis-before-menu
+/etc/kpanel/menu/redis/kpanel-redis-before-menu
 
