@@ -70,12 +70,12 @@ done
 #enabledisablephpfunction
 ###################################
 if [ "$luachon" = "enabledisablephpfunction" ]; then
-/etc/kpanel/menu/kpanel-config-enable-disaable-php-funtion-php.ini
+/etc/kpanel/menu/config-php/kpanel-config-enable-disaable-php-funtion-php.ini
 ###################################
 #OnOffDisplayErrors
 ###################################
 elif [ "$luachon" = "OnOffDisplayErrors" ]; then
-/etc/kpanel/menu/kpanel-befor-bat-tat-display-eroor
+/etc/kpanel/menu/config-php/kpanel-befor-bat-tat-display-eroor
 
 
 elif [ "$luachon" = "fileuploads" ]; then
@@ -105,13 +105,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [file_uploads = Off] thanh cong !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [file_uploads] !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -139,13 +139,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [file_uploads = Off] thanh cong !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [file_uploads] !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -174,13 +174,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [allow_url_fopen = Off] thanh cong !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [allow_url_fopen] !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -208,13 +208,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [allow_url_fopen = Off] thanh cong !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [allow_url_fopen] !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -243,13 +243,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [allow_url_include = Off] thanh cong !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [allow_url_include] !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -277,13 +277,13 @@ fi
     clear
    echo "========================================================================="
 echo "Thiet lap [allow_url_include = Off] thanh cong !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
     *)
        clear
     echo "========================================================================="
 echo "Ban huy thay doi gia tri [allow_url_include] !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
 esac
 fi
@@ -306,7 +306,7 @@ if [ "$maxexecutiontime" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi
 
@@ -318,7 +318,7 @@ echo "-------------------------------------------------------------------------"
 echo "Max Execution Time phai la so tu nhien nho nhat 20"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -335,7 +335,7 @@ echo "========================================================================="
 echo "Cau hinh Max Execution Time thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Max Execution Time: $maxexecutiontime"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 
 
 ###################################
@@ -356,7 +356,7 @@ if [ "$maxinputtime" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi
 
@@ -368,7 +368,7 @@ echo "-------------------------------------------------------------------------"
 echo "Max Input Time phai la so tu nhien nho nhat 20"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -385,7 +385,7 @@ echo "========================================================================="
 echo "Cau hinh Max Input Time thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Max Input Time: $maxinputtime"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 
 ###################################
 #MemoryLimit
@@ -405,7 +405,7 @@ if [ "$memorylimit" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi
 
@@ -417,7 +417,7 @@ echo "-------------------------------------------------------------------------"
 echo "Memory Limit phai la so tu nhien nam trong khoang (20 - $memlimitmax)"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -434,7 +434,7 @@ echo "========================================================================="
 echo "Cau hinh Memory Limit thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Memory Limit: $memorylimit"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 ###################################
 #UploadMaxFilesize
 ###################################
@@ -453,7 +453,7 @@ if [ "$uploadmaxfilesize" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi
 
@@ -465,7 +465,7 @@ echo "-------------------------------------------------------------------------"
 echo "Upload Max Filesize phai la so tu nhien nam trong khoang (20 - 10000)"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -488,7 +488,7 @@ echo "========================================================================="
 echo "Cau hinh Upload Max Filesize thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Upload Max Filesize: $uploadmaxfilesize MB"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 ###################################
 #max_input_vars
 elif [ "$luachon" = "max_input_vars" ]; then
@@ -506,7 +506,7 @@ if [ "$maxinputvars" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, hay nhap chinh xac."
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi
 
@@ -518,7 +518,7 @@ echo "-------------------------------------------------------------------------"
 echo "Max Input Vars phai la so tu nhien nam trong khoang (20 - 10000)"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi 
 echo "-------------------------------------------------------------------------"
@@ -535,7 +535,7 @@ echo "========================================================================="
 echo "Cau hinh Max Input Vars thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "Max Input Vars: $maxinputvars"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 ###################################
 #phpinimacdinh
 elif [ "$luachon" = "phpinimacdinh" ]; then
@@ -769,15 +769,16 @@ fi
 clear
 echo "========================================================================="
 echo "Cau hinh PHP theo mac dinh cua kpanel thanh cong"
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 ;;
     *)
 clear 
 echo "========================================================================="
 echo "Huy bo thay doi cau hinh PHP theo mac dinh cua kpanel."
-/etc/kpanel/menu/kpanel-config-php.ini-menu
+/etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
 esac
 else 
 clear && kpanel
 fi
+

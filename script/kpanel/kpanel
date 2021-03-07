@@ -51,7 +51,7 @@ select opt in "${options[@]}" ; do
     10 )clear && /etc/kpanel/menu/swap/kpanel-them-xoa-swap-vps-menu;;
     11) clear && /etc/kpanel/menu/crontab/kpanel-cronjob-menu;;
     12) clear && /etc/kpanel/menu/downloadlog/kpanel-eroor-menu;;
-    13) clear && /etc/kpanel/menu/kpanel-befor-kpanel-config-php.ini-menu;;
+    13) clear && /etc/kpanel/menu/config-php/kpanel-befor-kpanel-config-php.ini-menu;;
     14) clear && /etc/kpanel/menu/kpanel-wordpress-tools-menu;;
     #14) clear && /etc/kpanel/menu/pagespeed/before-kpanel-pagespeed-menu;;"Nginx Pagespeed Manage" 
     15) /etc/kpanel/menu/CSF-Fiwall/kpanel-csf-firewall-before-menu;;
