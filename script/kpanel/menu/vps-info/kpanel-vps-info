@@ -1,6 +1,6 @@
 #!/bin/sh
 . /home/kpanel.conf
-/etc/kpanel/menu/kpanel-befor-vps-info
+/etc/kpanel/menu/vps-info/kpanel-befor-vps-info
 clear
 printf "=========================================================================\n"
 printf "               kpanel - Quan Ly VPS/Server by WebGiaRe.org \n"

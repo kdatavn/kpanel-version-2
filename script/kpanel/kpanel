@@ -68,7 +68,7 @@ select opt in "${options[@]}" ; do
     26) clear && /etc/kpanel/menu/kpanel-update-upgrade-service-menu;;
     27) /etc/kpanel/menu/kpanel-clear-cache-xoa-cache-server;;
     28) /etc/kpanel/menu/dat-mat-khau-bao-ve-folder-mac-dinh;;
-    29) clear && /etc/kpanel/menu/kpanel-vps-info;;
+    29) clear && /etc/kpanel/menu/vps-info/kpanel-vps-info;;
 	30) clear && cat /etc/motd && killall -g kpanel;; 
 	0) clear && cat /etc/motd && killall -g kpanel;; 
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
