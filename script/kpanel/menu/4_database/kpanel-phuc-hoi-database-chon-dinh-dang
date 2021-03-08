@@ -11,7 +11,7 @@ if [ "$dataname" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap chinh xac!"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 if [ ! -f /var/lib/mysql/$dataname/db.opt ]; then
@@ -20,7 +20,7 @@ echo "========================================================================="
 echo "Khong tim thay database $dataname tren server "
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -31,7 +31,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}$";
@@ -42,7 +42,7 @@ echo "========================================================================="
 echo "$website co le khong phai domain !"
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
@@ -51,23 +51,23 @@ echo "========================================================================="
 echo "Khong tim thay website $website !"
 echo "-------------------------------------------------------------------------"
 echo "Vui long thu lai !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 echo "$website" > /tmp/kpanel-tensitephuchoi
 echo "$dataname" > /tmp/kpanel-tendatabasephuchoi
-date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim1
+date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel1
 randomcode=`date |md5sum |cut -c '1-13'`
 if [ ! -f /home/$mainsite/private_html/backup/$dataname/*.sql.gz ]; then
      
    if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-tar-gz
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-tar-gz
    elif [ -f /home/$website/public_html/kpanel-DATABASE.sql.gz ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-gz
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-sql-gz
    elif [ -f /home/$website/public_html/kpanel-DATABASE.zip ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-zip
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-zip
    elif [ -f /home/$website/public_html/kpanel-DATABASE.sql ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-sql
    else
 	clear
 	echo "========================================================================="
@@ -91,23 +91,23 @@ if [ ! -f /home/$mainsite/private_html/backup/$dataname/*.sql.gz ]; then
 	echo "========================================================================="
 	read -p "Khi upload hoan thanh. Nhan [Enter] de phuc hoi..."
 	echo "-------------------------------------------------------------------------"
-	echo "kpanel dang tim kiem file backup .... "
+	echo "KPANEL dang tim kiem file backup .... "
 	sleep 4
 	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-tar-gz
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-tar-gz
     elif [ -f /home/$website/public_html/kpanel-DATABASE.sql.gz ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-gz
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-sql-gz
     elif [ -f /home/$website/public_html/kpanel-DATABASE.zip ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-zip
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-zip
     elif [ -f /home/$website/public_html/kpanel-DATABASE.sql ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-sql
     else
 	clear
 		echo "========================================================================="
 		echo "Khong tim thay file backup cua database $dataname !"
 		echo "-------------------------------------------------------------------------"
 		echo "Hay upload file Backup len server roi thu lai"
-		/etc/kpanel/menu/kpanel-them-xoa-database
+		/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 		exit
 		fi
 		fi
@@ -121,7 +121,7 @@ echo "-------------------------------------------------------------------------"
 echo "/home/$mainsite/private_html/backup/$dataname"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long chi de mot file .SQL.GZ duy nhat trong thu muc nay"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 filename=`cat /tmp/backupname`
@@ -152,12 +152,12 @@ if [ "$luachonphuchoi" = "phuchoitufilebackup" ]; then
 echo "--------------------------------------------------------------------------"
 echo "Please wait ...."
 echo "--------------------------------------------------------------------------"
-echo "kpanel dang Restore $dataname ..."
+echo "KPANEL dang Restore $dataname ..."
 sleep 3
 gunzip < /home/$mainsite/private_html/backup/$dataname/$filename | mysql -u root -p$mariadbpass $dataname
-date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-check1=`cat /tmp/vpssim1`
-check2=`cat /tmp/vpssim2`
+date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+check1=`cat /tmp/kpanel1`
+check2=`cat /tmp/kpanel2`
 	if [ "$check1" == "$check2" ]; then
 	rm -rf /tmp/*kpanel*
 	sleep 8
@@ -166,14 +166,14 @@ check2=`cat /tmp/vpssim2`
 		echo "Phuc hoi database $dataname that bai "
 		echo "-------------------------------------------------------------------------"
 		echo "Vui long kiem tra file backup va thu lai !"
-	/etc/kpanel/menu/kpanel-them-xoa-database
+	/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 	else	
    rm -rf /tmp/*kpanel*
 	
 	clear
 	echo "========================================================================="
 	echo "Phuc hoi database $dataname thanh cong !"
-	/etc/kpanel/menu/kpanel-them-xoa-database
+	/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 	fi
 ###################################
 #Upload file backup len va Restore tu file nay
@@ -181,13 +181,13 @@ check2=`cat /tmp/vpssim2`
 elif [ "$luachonphuchoi" = "uploadsaudophuchoi" ]; then
 randomcode=`date |md5sum |cut -c '1-12'`
 	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-tar-gz
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-tar-gz
     elif [ -f /home/$website/public_html/kpanel-DATABASE.sql.gz ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-gz
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-sql-gz
     elif [ -f /home/$website/public_html/kpanel-DATABASE.zip ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-zip
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-zip
     elif [ -f /home/$website/public_html/kpanel-DATABASE.sql ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-sql
     else
 	clear
 	echo "========================================================================="
@@ -214,20 +214,20 @@ randomcode=`date |md5sum |cut -c '1-12'`
 	echo "kpanel dang tim kiem file backup ... "
 	sleep 4
 	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-tar-gz
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-tar-gz
     elif [ -f /home/$website/public_html/kpanel-DATABASE.sql.gz ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql-gz
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-sql-gz
     elif [ -f /home/$website/public_html/kpanel-DATABASE.zip ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-zip
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-zip
     elif [ -f /home/$website/public_html/kpanel-DATABASE.sql ]; then
-   /etc/kpanel/menu/kpanel-phuc-hoi-database-kpanel-database-sql
+   /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-kpanel-database-sql
     else
 	clear
 		echo "========================================================================="
 		echo "Khong tim thay file backup cua database $dataname !"
 		echo "-------------------------------------------------------------------------"
 		echo "Hay upload file Backup len server roi thu lai"
-		/etc/kpanel/menu/kpanel-them-xoa-database
+		/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 		exit
 		fi
 fi
@@ -235,6 +235,6 @@ fi
 #Huy bo phuchoi
 ###################################
 else 
-clear && /etc/kpanel/menu/kpanel-them-xoa-database
+clear && /etc/kpanel/menu/4_database/kpanel-them-xoa-database
 fi
 fi

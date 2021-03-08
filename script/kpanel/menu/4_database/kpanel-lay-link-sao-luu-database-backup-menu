@@ -21,15 +21,15 @@ done
 #
 ###################################
 if [ "$laylink" = "1database" ]; then
-/etc/kpanel/menu/kpanel-link-database-sao-luu
+/etc/kpanel/menu/4_database/kpanel-link-database-sao-luu
 ###################################
 #
 ###################################
 elif [ "$laylink" = "tatca" ]; then
-/etc/kpanel/menu/kpanel-link-download-tat-ca-backup-database-sao-luu
+/etc/kpanel/menu/4_database/kpanel-link-download-tat-ca-backup-database-sao-luu
 ###################################
 #
 ###################################
 else 
-clear && /etc/kpanel/menu/kpanel-them-xoa-database
+clear && /etc/kpanel/menu/4_database/kpanel-them-xoa-database
 fi

@@ -8,4 +8,4 @@ echo "-------------------------------------------------------------------------"
 echo "User: root"
 echo "-------------------------------------------------------------------------"
 echo "Password: $mariadbpass"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database

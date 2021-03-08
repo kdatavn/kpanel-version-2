@@ -8,7 +8,7 @@ checksize=$(du -sb /tmp/listdabasehostingaz | awk 'NR==1 {print $1}')
    clear
    echo "========================================================================="
    echo "Khong tim thay database co du lieu tren server"
-   /etc/kpanel/menu/kpanel-them-xoa-database
+   /etc/kpanel/menu/4_database/kpanel-them-xoa-database
    exit
    fi
 sodatabasetrenserver=$(cat /tmp/listdabasehostingaz | wc -l)
@@ -29,7 +29,7 @@ rm -rf /tmp/*list*
 clear
 echo "========================================================================="
 echo "Khong tim thay database co du lieu tren server"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
  
@@ -49,7 +49,7 @@ if [ -f /home/$mainsite/private_html/backup/$dataname/*.sql.gz ]; then
 for file in *.sql.gz; do
 time=$(date -r /home/$mainsite/private_html/backup/$dataname/$file +%H%M-%d%m%y)
     mv "$file" "`basename $file .sql.gz`.sql.gz.$time"
-    echo "$file.$time" > /tmp/vpssim_ten_file_cu_data
+    echo "$file.$time" > /tmp/kpanel_ten_file_cu_data
 done
 fi
 if [ "$(grep "default_storage_engine = MyISAM" /etc/my.cnf.d/server.cnf | awk 'NR==1 {print $3}')" = "MyISAM" ]; then
@@ -66,12 +66,12 @@ echo "Sao Luu Database $dataname  (Dang duoc BAT Auto Backup) :"
 sleep 1
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$dataname/$filename"
-if [ -f /tmp/vpssim_ten_file_cu_data ]; then
+if [ -f /tmp/kpanel_ten_file_cu_data ]; then
 echo "-------------------------------------------------------------------------"
 echo "File backup cu duoc doi ten thanh:"
 echo "-------------------------------------------------------------------------"
-echo "`cat /tmp/vpssim_ten_file_cu_data`"
-rm -rf /tmp/vpssim_ten_file_cu_data
+echo "`cat /tmp/kpanel_ten_file_cu_data`"
+rm -rf /tmp/kpanel_ten_file_cu_data
 fi
 sleep 3
 echo "========================================================================================================================" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
@@ -84,7 +84,7 @@ echo "========================================================================="
 echo "Sao luu Database $dataname that bai !"
 echo "========================================================================================================================" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "Sao luu Database $dataname that bai !" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
-touch /tmp/saoluudatabasethatbaihostingaz/$dataname
+touch /tmp/saoluudatabasethatbaikdatavn/$dataname
 fi
 fi
 fi
@@ -99,7 +99,7 @@ if [ -f /home/$mainsite/private_html/backup/$dataname/*.sql.gz ]; then
 for file in *.sql.gz; do
 time=$(date -r /home/$mainsite/private_html/backup/$dataname/$file +%H%M-%d%m%y)
     mv "$file" "`basename $file .sql.gz`.sql.gz.$time"
-    echo "$file.$time" > /tmp/vpssim_ten_file_cu_data
+    echo "$file.$time" > /tmp/kpanel_ten_file_cu_data
 done
 fi
 if [ "$(grep "default_storage_engine = MyISAM" /etc/my.cnf.d/server.cnf | awk 'NR==1 {print $3}')" = "MyISAM" ]; then
@@ -115,12 +115,12 @@ echo "Sao Luu Database $dataname :"
 sleep 3
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$dataname/$dataname$randomcode.sql.gz"
-if [ -f /tmp/vpssim_ten_file_cu_data ]; then
+if [ -f /tmp/kpanel_ten_file_cu_data ]; then
 echo "-------------------------------------------------------------------------"
 echo "File backup cu duoc doi ten thanh:"
 echo "-------------------------------------------------------------------------"
-echo "`cat /tmp/vpssim_ten_file_cu_data`"
-rm -rf /tmp/vpssim_ten_file_cu_data
+echo "`cat /tmp/kpanel_ten_file_cu_data`"
+rm -rf /tmp/kpanel_ten_file_cu_data
 fi
 sleep 3
 echo "========================================================================================================================" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
@@ -141,7 +141,7 @@ fi
 echo "========================================================================="
 echo "Su dung chuc nang nay de backup tat ca database tren server"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se lan luot backup tung database mot tren server cho den het."
+echo "KPANEL se lan luot backup tung database mot tren server cho den het."
 echo "-------------------------------------------------------------------------"
 echo "Tuy thuoc vao so luong database va dung luong tung database ma thoi gian"
 echo "-------------------------------------------------------------------------"
@@ -190,14 +190,14 @@ echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/Listbackupall-DB-$code.txt"
 fi
 rm -rf /tmp/*hostingaz*
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
    ;;
     *)
     clear
     rm -rf /tmp/*hostingaz*
         echo "========================================================================= "
         echo "Huy bo lan luot sao luu tat ca database"
-        /etc/kpanel/menu/kpanel-them-xoa-database
+        /etc/kpanel/menu/4_database/kpanel-them-xoa-database
         ;;
 esac
 

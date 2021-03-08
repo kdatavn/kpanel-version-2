@@ -7,36 +7,36 @@ checknumbera='^[0-9]+$'
 if ! [[ $svram =~ $checknumbera ]] ; then 
 clear
 echo "========================================================================="
-echo "kpanel gap loi khi chay chuc nang nay"
+echo "KPANEL gap loi khi chay chuc nang nay"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai"
- /etc/kpanel/menu/kpanel-them-xoa-database
+ /etc/kpanel/menu/4_database/kpanel-them-xoa-database
  exit
 fi
 if ! [[ $cpucores =~ $checknumbera ]] ; then 
 clear
 echo "========================================================================="
-echo "kpanel gap loi khi chay chuc nang nay"
+echo "KPANEL gap loi khi chay chuc nang nay"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai"
- /etc/kpanel/menu/kpanel-them-xoa-database
+ /etc/kpanel/menu/4_database/kpanel-them-xoa-database
  exit
 fi
 
 if [ ! -d /home/$mainsite/public_html ]; then
 clear
 echo "========================================================================="
-echo "kpanel gap loi khi chay chuc nang nay"
+echo "KPANEL gap loi khi chay chuc nang nay"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai"
- /etc/kpanel/menu/kpanel-them-xoa-database
+ /etc/kpanel/menu/4_database/kpanel-them-xoa-database
  exit
 fi
 
 echo "========================================================================="
 echo "Su dung chuc nang nay de config lai MySQL theo cau hinh server."
 echo "-------------------------------------------------------------------------"
-echo "kpanel se tu dong config dua theo so thong so CPU & RAM cua Server."
+echo "KPANEL se tu dong config dua theo so thong so CPU & RAM cua Server."
 echo "-------------------------------------------------------------------------"
 echo "Khi nang hoac ha cap Server, Ban nen chay chuc nang nay !"
 echo "-------------------------------------------------------------------------"
@@ -50,7 +50,7 @@ if [ ! "$xacnhan" = "OK" ]; then
 clear
 echo "========================================================================="
 echo "Ban phai nhap OK de xac nhan !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
     echo "-------------------------------------------------------------------------"
@@ -274,16 +274,16 @@ echo "-------------------------------------------------------------------------"
 echo "Check MySQl voi Config moi"; sleep 2
 echo "-------------------------------------------------------------------------"
 
-if [ -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
-rm -rf /var/lib/mysql/vpssimCheckDB
+if [ -f /var/lib/mysql/kpanelCheckDB/db.opt ]; then
+rm -rf /var/lib/mysql/kpanelCheckDB
 fi
  cat > "/tmp/config.temp" <<END
-CREATE DATABASE vpssimCheckDB COLLATE utf8_general_ci;
+CREATE DATABASE kpanelCheckDB COLLATE utf8_general_ci;
 END
 mysql -u root -p$mariadbpass < /tmp/config.temp
 rm -f /tmp/config.temp
 
-if [ ! -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
+if [ ! -f /var/lib/mysql/kpanelCheckDB/db.opt ]; then
 mv /etc/my.cnf.d/server.cnf /etc/my.cnf.d/server.cnf_fail_$time
 mv /etc/my.cnf.d/server.cnf_bak_$time /etc/my.cnf.d/server.cnf 
 rm -rf /var/lib/mysql/ib_logfile0
@@ -299,21 +299,21 @@ clear
 echo "========================================================================="
 echo "Re-config MySQL that bai !"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se giu nguyen config MySQL nhu ban dau"
- /etc/kpanel/menu/kpanel-them-xoa-database
+echo "KPANEL se giu nguyen config MySQL nhu ban dau"
+ /etc/kpanel/menu/4_database/kpanel-them-xoa-database
 else
-rm -rf /var/lib/mysql/vpssimCheckDB
+rm -rf /var/lib/mysql/kpanelCheckDB
 clear
 echo "========================================================================="
 echo "Config lai MySQL thanh cong ! "
 echo "-------------------------------------------------------------------------"
 echo "File config cu: /etc/my.cnf.d/server.cnf_bak_$time "
- /etc/kpanel/menu/kpanel-them-xoa-database
+ /etc/kpanel/menu/4_database/kpanel-them-xoa-database
  fi
     ;;
 *)
 clear
- /etc/kpanel/menu/kpanel-them-xoa-database
+ /etc/kpanel/menu/4_database/kpanel-them-xoa-database
   exit
 ;;
 esac

@@ -13,7 +13,7 @@ if [ "$dataname" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 
@@ -23,7 +23,7 @@ echo "========================================================================="
 echo "Ban crazy ? Ban muon xoa data he thong ? ?"
 echo "-------------------------------------------------------------------------"
 echo "Bye...!"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 
@@ -61,7 +61,7 @@ fi
 clear
 echo "========================================================================="
 echo "Xoa data $dataname thanh cong !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
         ;;
     *)
         echo "========================================================================= "
@@ -71,7 +71,7 @@ else
 clear
 echo "========================================================================="
 echo "Data $dataname khong ton tai tren he thong hoac trong rong"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 

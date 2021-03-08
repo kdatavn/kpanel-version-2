@@ -10,7 +10,7 @@ echo "==========================================================================
 
 echo "" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
 rm -rf /tmp/abc
-ls -l /var/lib/mysql | grep "^d" | awk -F" " '{print $9}' | grep -Ev "(Database|information_schema|mysql|performance_schema|vpssimCheckDB)" > /tmp/abc
+ls -l /var/lib/mysql | grep "^d" | awk -F" " '{print $9}' | grep -Ev "(Database|information_schema|mysql|performance_schema|kpanelCheckDB)" > /tmp/abc
 listdatabasetrenserver=$(cat /tmp/abc)
 checksizeabc=$(du -sb /tmp/abc | awk 'NR==1 {print $1}')
 sodatabasetrenserver=$(cat /tmp/abc | wc -l)
@@ -44,9 +44,9 @@ echo "--------------------------------------------------------------------------
  echo "Database Co Du Lieu:" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
 echo "------------------------------------------------------------------------------------------------------------------" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
  
-vpssim_check_size=`cat /tmp/checkdatabase-list`
+kpanel_check_size=`cat /tmp/checkdatabase-list`
 rm -rf /tmp/checksiztungdb
-for datbase123 in $vpssim_check_size 
+for datbase123 in $kpanel_check_size 
 do
 sizetungdb=`du -sh /var/lib/mysql/$datbase123 | awk 'NR==1 {print $1}'`
 echo "$datbase123 (Size: $sizetungdb)" >> /tmp/checksiztungdb
@@ -84,4 +84,4 @@ echo "Tong Database: $sodatabasetrenserver | Database has data: $databasedulieu 
 echo "------------------------------------------------------------------------------------------------------------------" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
 rm -rf /tmp/abc
 rm -rf /tmp/*check*
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database

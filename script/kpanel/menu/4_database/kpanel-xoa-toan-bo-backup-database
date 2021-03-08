@@ -5,7 +5,7 @@ if [ ! -d /home/$mainsite/private_html ]; then
 clear
 echo "========================================================================="
 echo "You can not use this function"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 echo "========================================================================="
@@ -27,7 +27,7 @@ sleep 1
 	clear
 	echo "========================================================================= "
 	echo "Khong tim thay backup cua cac database tren server"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 	exit
 	fi
 listfolder=$(cat /tmp/deletebackupdb)
@@ -46,7 +46,7 @@ sleep 1
 clear
 echo "========================================================================= "
 echo "Xoa backup tat ca database thanh cong"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 ;;
     *)
         echo ""
@@ -55,4 +55,4 @@ esac
 clear
 echo "========================================================================="
 echo "Huy bo xoa cac ban backup database"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database

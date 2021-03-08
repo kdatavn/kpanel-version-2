@@ -2,13 +2,13 @@
 . /home/kpanel.conf
 rm -rf /tmp/*hostingaz*
 code=`date |md5sum |cut -c '1-12'`
-ls -l /var/lib/mysql | grep "^d" | awk -F" " '{print $9}' | grep -Ev "(Database|information_schema|mysql|performance_schema|vpssimCheckDB)" > /tmp/listdabasehostingaz
+ls -l /var/lib/mysql | grep "^d" | awk -F" " '{print $9}' | grep -Ev "(Database|information_schema|mysql|performance_schema|kpanelCheckDB)" > /tmp/listdabasehostingaz
 checksize=$(du -sb /tmp/listdabasehostingaz | awk 'NR==1 {print $1}')
    if [ "$checksize" == "0" ]; then
    clear
    echo "========================================================================="
    echo "Khong phat hien thay database dang duoc su dung tren server"
-   /etc/kpanel/menu/kpanel-them-xoa-database
+   /etc/kpanel/menu/4_database/kpanel-them-xoa-database
    exit
    fi
 sodatabasetrenserver=$(cat /tmp/listdabasehostingaz | wc -l)
@@ -29,7 +29,7 @@ rm -rf /tmp/*list*
 clear
 echo "========================================================================="
 echo "Khong tim thay database co du lieu tren server"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
  
@@ -41,9 +41,9 @@ PS3="$prompt"
 select opt in "${options[@]}" "Thoat"; do 
 
     case "$REPLY" in
-    1 ) /etc/kpanel/menu/kpanel-befor-chon-tat-bat-tu-dong-sao-luu-database;;
-    2 ) /etc/kpanel/menu/kpanel-danh-sach-data-tu-dong-sao-luu-database;;
-    $(( ${#options[@]}+1 )) ) echo "";  clear && /etc/kpanel/menu/kpanel-them-xoa-database;;
+    1 ) /etc/kpanel/menu/4_database/kpanel-befor-chon-tat-bat-tu-dong-sao-luu-database;;
+    2 ) /etc/kpanel/menu/4_database/kpanel-danh-sach-data-tu-dong-sao-luu-database;;
+    $(( ${#options[@]}+1 )) ) echo "";  clear && /etc/kpanel/menu/4_database/kpanel-them-xoa-database;;
     *) echo "Ban nhap sai ! Ban vui long chon so trong danh sach.";continue;;
 
     esac

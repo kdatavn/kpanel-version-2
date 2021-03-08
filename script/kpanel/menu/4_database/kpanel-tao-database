@@ -13,7 +13,7 @@ if [ "$dataname" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 if [[ $dataname =~ ^[0-9]+$ ]]; then
@@ -22,7 +22,7 @@ echo "========================================================================="
 echo "Ban khong the su dung toan chu so de dat ten database."
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 
@@ -32,7 +32,7 @@ echo "========================================================================="
 echo "Ten database toi da la 16 ky tu"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long nhap lai !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 
@@ -44,7 +44,7 @@ echo "========================================================================="
 echo "Tao database $dataname that bai!"
 echo "-------------------------------------------------------------------------"
 echo "Ban chi duoc su dung so, chu cai va ki tu: _  . Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi 
 
@@ -54,14 +54,14 @@ echo "========================================================================="
 echo "Tao $dataname that bai ! Ten cua database toi thieu phai co 5 ki tu."
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi  
 if [ -f /var/lib/mysql/$dataname/db.opt ]; then
 clear
 echo "========================================================================="
 echo "Data $dataname da ton tai tren server."
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
     cat > "/tmp/config.temp" <<END
@@ -76,7 +76,7 @@ echo "========================================================================="
 echo "Tao Data $dataname that bai."
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long kiem tra lai dich vu MySQL"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -113,7 +113,7 @@ echo "-------------------------------------------------------------------------"
 echo "Mat khau ban su dung phai tu 6 den 16 ky tu."
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi  
 echo "-------------------------------------------------------------------------"
@@ -150,7 +150,7 @@ echo "========================================================================="
 echo "Tao database $dataname that bai !"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long kiem tra lai"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 clear
@@ -162,7 +162,7 @@ echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $password" 
 echo "-------------------------------------------------------------------------"
 echo "Thong tin database da duoc luu vao: /home/DBinfo.txt"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
             ;;
     *)
 
@@ -183,7 +183,7 @@ echo "========================================================================="
 echo "Tao database $dataname that bai !"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long kiem tra lai"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 clear
@@ -195,6 +195,6 @@ echo "-------------------------------------------------------------------------"
 echo "Username: root | Password: $mariadbpass" 
 echo "-------------------------------------------------------------------------"
 echo "Thong tin database da duoc luu vao: /home/DBinfo.txt"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi

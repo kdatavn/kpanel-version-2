@@ -13,13 +13,13 @@ case $response in
     clear
     echo "========================================================================="
 echo "Disable [Auto re-start MySQL Server] thanh cong !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
         ;;
     *)
        clear
     echo "========================================================================="
    echo "Ban khong disable [Auto re-start MySQL Server]"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
         ;;
 esac
 

@@ -2,13 +2,13 @@
 . /home/kpanel.conf
 rm -rf /tmp/*hostingaz*
 code=`date |md5sum |cut -c '1-12'`
-ls -l /var/lib/mysql | grep "^d" | awk -F" " '{print $9}' | grep -Ev "(Database|information_schema|mysql|performance_schema|vpssimCheckDB)" > /tmp/listdabasehostingaz
+ls -l /var/lib/mysql | grep "^d" | awk -F" " '{print $9}' | grep -Ev "(Database|information_schema|mysql|performance_schema|kpanelCheckDB)" > /tmp/listdabasehostingaz
 checksize=$(du -sb /tmp/listdabasehostingaz | awk 'NR==1 {print $1}')
    if [ "$checksize" == "0" ]; then
    clear
    echo "========================================================================="
    echo "Khong tim thay database co du lieu tren server"
-   /etc/kpanel/menu/kpanel-them-xoa-database
+   /etc/kpanel/menu/4_database/kpanel-them-xoa-database
    exit
    fi
 sodatabasetrenserver=$(cat /tmp/listdabasehostingaz | wc -l)
@@ -29,7 +29,7 @@ rm -rf /tmp/*list*
 clear
 echo "========================================================================="
 echo "Khong tim thay database co du lieu tren server"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 abc456=-`date |md5sum |cut -c '1-10'`
@@ -68,11 +68,11 @@ echo "========================================================================="
 echo "Link file backup$thongbao:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$dataname/$filename2"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 else
 echo "========================================================================="
 echo "Backup Database $dataname failed"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 fi
 }
 echo "========================================================================="
@@ -101,7 +101,7 @@ case $response in
 	saoluudata
         ;;
     *)
-rm -rf /tmp/vpssim_ten_file_cu
+rm -rf /tmp/kpanel_ten_file_cu
 if [ ! -d /home/$mainsite/private_html/backup/$dataname ]; then
 mkdir -p /home/$mainsite/private_html/backup/$dataname
 fi
@@ -110,14 +110,14 @@ if [ -f /home/$mainsite/private_html/backup/$dataname/*.sql.gz ]; then
 for file in *.sql.gz; do
 time=$(date -r /home/$mainsite/private_html/backup/$dataname/$file +%H%M-%d%m%y)
     mv "$file" "`basename $file .sql.gz`.sql.gz.$time"
-    echo "$file.$time" > /tmp/vpssim_ten_file_cu
+    echo "$file.$time" > /tmp/kpanel_ten_file_cu
 done
 fi
 cd
 echo "========================================================================="
-echo "kpanel se doi ten file backup cu thanh:"
+echo "KPANEL se doi ten file backup cu thanh:"
 echo "-------------------------------------------------------------------------"
-echo "`cat /tmp/vpssim_ten_file_cu`"
+echo "`cat /tmp/kpanel_ten_file_cu`"
 echo "-------------------------------------------------------------------------"
 echo "Sau de se tien hanh sao luu $dataname"
 echo "-------------------------------------------------------------------------"
@@ -158,13 +158,13 @@ echo "http://$serverip:$priport/backup/$dataname/$filename2"
 echo "-------------------------------------------------------------------------"
 echo "File Backup Cu Duoc Doi Ten Thanh:"
 echo "-------------------------------------------------------------------------"
-echo "$(cat /tmp/vpssim_ten_file_cu)"
+echo "$(cat /tmp/kpanel_ten_file_cu)"
 rm -rf /tmp/*kpanel*
 else
 echo "========================================================================="
 echo "Backup Database $dataname failed"
 fi
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
         ;;
 esac
 else
@@ -176,6 +176,6 @@ else
 clear
 echo "========================================================================="
 echo "Khong tim thay $dataname tren server, vui long check lai!"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi

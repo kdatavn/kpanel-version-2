@@ -1,7 +1,7 @@
 #!/bin/sh
 . /home/kpanel.conf
 if [ ! -f /usr/local/bin/htpasswd.py ]; then
-cp -r /etc/kpanel/menu/kpanel-tao-mat-khau-bao-ve-folder.py /usr/local/bin/htpasswd.py
+cp -r /etc/kpanel/menu/4_database/kpanel-tao-mat-khau-bao-ve-folder.py /usr/local/bin/htpasswd.py
 chmod 755 /usr/local/bin/htpasswd.py
 fi
 if [ ! -f /etc/kpanel/pwprotect.default ]; then
@@ -67,20 +67,20 @@ PS3="$prompt"
 select opt in "${options[@]}" ; do 
 
     case "$REPLY" in   
-    1) /etc/kpanel/menu/kpanel-tao-database;;
-    2) /etc/kpanel/menu/kpanel-xoa-database;; 
-    3 ) /etc/kpanel/menu/kpanel-sao-luu-data;;
-    4 ) /etc/kpanel/menu/kpanel-lan-luot-sao-luu-het-tat-ca-database;;
-    #4) clear && /etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-tat-ca-database-menu;; "Full Backup & Restore Database" 
-    5) /etc/kpanel/menu/kpanel-tu-dong-sao-luu-database-menu;;
-    6 ) /etc/kpanel/menu/kpanel-phuc-hoi-database-chon-dinh-dang;;
+    1) /etc/kpanel/menu/4_database/kpanel-tao-database;;
+    2) /etc/kpanel/menu/4_database/kpanel-xoa-database;; 
+    3 ) /etc/kpanel/menu/4_database/kpanel-sao-luu-data;;
+    4 ) /etc/kpanel/menu/4_database/kpanel-lan-luot-sao-luu-het-tat-ca-database;;
+    #4) clear && /etc/kpanel/menu/4_database/kpanel-sao-luu-phuc-hoi-tat-ca-database-menu;; "Full Backup & Restore Database" 
+    5) /etc/kpanel/menu/4_database/kpanel-tu-dong-sao-luu-database-menu;;
+    6 ) /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-chon-dinh-dang;;
     7) /etc/kpanel/menu/tienich/befor-auto-start-mysql;;
-    8) /etc/kpanel/menu/kpanel-hien-mat-khau-root-mysql;;
-    9) /etc/kpanel/menu/kpanel-change-root-mysql-password;;
-    10) /etc/kpanel/menu/kpanel-re-config-database-cau-hinh-lai-mysql;;
-    11 ) /etc/kpanel/menu/kpanel-lay-link-sao-luu-database-backup-menu;;
-    12 ) /etc/kpanel/menu/kpanel-xoa-toan-bo-backup-database;;
-    13) /etc/kpanel/menu/kpanel-list-database-tren-vps-them-xoa-function;; 
+    8) /etc/kpanel/menu/4_database/kpanel-hien-mat-khau-root-mysql;;
+    9) /etc/kpanel/menu/4_database/kpanel-change-root-mysql-password;;
+    10) /etc/kpanel/menu/4_database/kpanel-re-config-database-cau-hinh-lai-mysql;;
+    11 ) /etc/kpanel/menu/4_database/kpanel-lay-link-sao-luu-database-backup-menu;;
+    12 ) /etc/kpanel/menu/4_database/kpanel-xoa-toan-bo-backup-database;;
+    13) /etc/kpanel/menu/4_database/kpanel-list-database-tren-vps-them-xoa-function;; 
     14) clear && /bin/kpanel;;
     0) clear && kpanel;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
