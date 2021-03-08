@@ -27,7 +27,7 @@ fi
 echo "========================================================================="
 echo "Su dung chuc nang nay de remove SSL (Let's Encrypt) hay quay tro lai HTTP"
 echo "-------------------------------------------------------------------------"
-echo "tu HTTPS cho Domain da setup SSL by Let's Encrypt bang kpanel."
+echo "tu HTTPS cho Domain da setup SSL by Let's Encrypt bang KPANEL."
 echo "-------------------------------------------------------------------------"
 echo -n "Nhap ten domain [ENTER]: " 
 read website

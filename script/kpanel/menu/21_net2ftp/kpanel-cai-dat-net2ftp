@@ -73,7 +73,7 @@ sleep 10
     mkdir -p "/home/$website/logs"
     cd /home/$website/public_html
 #wget -q --no-check-certificate http://kpanel.com/script/kpanel/net2ftp_v1.3.zip
-wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/blob/main/net2ftp_v1.3.zip
+wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/main/net2ftp_v1.3.zip
 
 if [ ! -f net2ftp_v1.3.zip ]; then
 echo "========================================================================="

@@ -31,7 +31,7 @@ fi
 echo "========================================================================="
 echo "Su dung chuc nang nay de cai dat SSL (Let's Encrypt) cho website."
 echo "-------------------------------------------------------------------------"
-echo "Xem huong dan tai: https://hostingaz.vn/letsencrypt"
+echo "Xem huong dan tai: https://kdata.vn/letsencrypt"
 echo "-------------------------------------------------------------------------"
 echo -n "Nhap ten website [ENTER]: " 
 read website
