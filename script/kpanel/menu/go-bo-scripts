@@ -1,12 +1,12 @@
 #!/bin/bash
 echo "========================================================================="
-echo "Su dung chuc nang nay de Remove kpanel khoi Server"
+echo "Su dung chuc nang nay de Remove KPANEL khoi Server"
 echo "-------------------------------------------------------------------------"
 echo "Trong qua trinh remove, toan bo du lieu website, database ... se bi xoa"
 echo "-------------------------------------------------------------------------"
 echo "Server se quay tro lai trang thai nhu moi."
 echo "========================================================================="
-read -r -p "Ban chac chan muon go bo kpanel? [y/N] " response
+read -r -p "Ban chac chan muon go bo KPANEL? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
 echo "-------------------------------------------------------------------------"
@@ -15,12 +15,12 @@ read xacnhan
 if [ ! "$xacnhan" = "OK" ]; then
 clear
 echo "========================================================================="
-echo "Cancle Remove kpanel"
-/etc/kpanel/menu/kpanel-tien-ich
+echo "Cancle Remove KPANEL"
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"
-echo "Chuan bi go bo kpanel, vui long doi ...."
+echo "Chuan bi go bo KPANEL, vui long doi ...."
 sleep 2
 
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
@@ -123,7 +123,7 @@ exit
     *)
     clear
     echo "========================================================================="
-echo "Cancel Remove kpanel"
-/etc/kpanel/menu/kpanel-tien-ich
+echo "Cancel Remove KPANEL"
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac

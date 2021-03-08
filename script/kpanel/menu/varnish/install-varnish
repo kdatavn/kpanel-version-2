@@ -58,7 +58,7 @@ case "$REPLY" in
 8) clear && /etc/kpanel/menu/varnish/reset-disk-cache-varnish;;
 9) clear && /etc/kpanel/menu/varnish/uninstall-varnish;;
 #0) clear && kpanel;;
-0) clear && /etc/kpanel/menu/kpanel-tien-ich;;
+0) clear && /etc/kpanel/menu/tienich/kpanel-tien-ich;;
 *) echo "Ban nhap sai ! Ban vui long chon so trong danh sach";continue;;
 esac
 done

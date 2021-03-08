@@ -3,8 +3,8 @@
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 1
-rm -rf /tmp/*hostingaz*
-mkdir -p /tmp/sitedangdenyrunscripthostingaz
+rm -rf /tmp/*kdatavn*
+mkdir -p /tmp/sitedangdenyrunscriptkdatavn
 ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
 sed -i 's/\.conf//g' /tmp/kpanel-websitelist 
 sowebsitetrenserver=$(cat /tmp/kpanel-websitelist | wc -l)
@@ -13,12 +13,12 @@ for website in $sowebsite
 do
 if [ -f /etc/nginx/conf.d/$website.conf ]; then
 if [ "$(grep deny-script-writeable-folder.conf /etc/nginx/conf.d/$website.conf)" == "include /etc/nginx/conf/deny-script-writeable-folder.conf;" ]; then
-touch /tmp/sitedangdenyrunscripthostingaz/$website
+touch /tmp/sitedangdenyrunscriptkdatavn/$website
 fi
 fi
 if [ -f /etc/nginx/conf.d/www.$website.conf ]; then
 if [ "$(grep deny-script-writeable-folder.conf /etc/nginx/conf.d/www.$website.conf)" == "include /etc/nginx/conf/deny-script-writeable-folder.conf;" ]; then
-touch /tmp/sitedangdenyrunscripthostingaz/www.$website
+touch /tmp/sitedangdenyrunscriptkdatavn/www.$website
 fi
 fi
 done
@@ -26,12 +26,12 @@ clear
 echo "========================================================================="
 echo "Website tren server: $sowebsitetrenserver"
 echo "-------------------------------------------------------------------------"
-if [ "$(ls -1 /tmp/sitedangdenyrunscripthostingaz | wc -l)" == "0" ]; then
+if [ "$(ls -1 /tmp/sitedangdenyrunscriptkdatavn | wc -l)" == "0" ]; then
 echo "Website KHONG CHO PHEP chay script trong writeable folder: 0"
 else
-echo "Website KHONG CHO PHEP chay script trong writeable folder: $(ls -1 /tmp/sitedangdenyrunscripthostingaz | wc -l)"
+echo "Website KHONG CHO PHEP chay script trong writeable folder: $(ls -1 /tmp/sitedangdenyrunscriptkdatavn | wc -l)"
 echo "-------------------------------------------------------------------------"
-ls /tmp/sitedangdenyrunscripthostingaz | pr -3 -t
-rm -rf /tmp/*hostingaz*
+ls /tmp/sitedangdenyrunscriptkdatavn | pr -3 -t
+rm -rf /tmp/*kdatavn*
 fi
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich

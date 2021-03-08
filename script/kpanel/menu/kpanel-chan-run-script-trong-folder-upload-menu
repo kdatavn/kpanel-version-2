@@ -29,7 +29,7 @@ elif [ "$luachon" = "danhsach" ]; then
 #
 ###################################
 else 
-clear && /etc/kpanel/menu/kpanel-tien-ich
+clear && /etc/kpanel/menu/tienich/kpanel-tien-ich
 fi
 }
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
@@ -45,7 +45,7 @@ Show_menu
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
 	#echo "Sorry, Nginx is stopped. Please start it before use this function !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 		fi
 fi
 fi
@@ -63,7 +63,7 @@ Show_menu
 	echo "========================================================================="
 	echo "Rat tiec, Nginx dang stopped. Hay bat len truoc khi dung chuc nang nay!"
 	#echo "Sorry, Nginx is stopped. Please start it before use this function !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 		fi
 fi
 fi

@@ -9,7 +9,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 
@@ -21,7 +21,7 @@ echo "========================================================================="
 echo "$website Co the khong dung dinh dang domain!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -36,14 +36,14 @@ echo "-------------------------------------------------------------------------"
 echo "Nameserver:"
 echo "-------------------------------------------------------------------------"
 host -t ns $website
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 else
 clear
 echo "========================================================================="
 echo "Co the domain $website ban nhap"
 echo "-------------------------------------------------------------------------"
 echo "Khong tro toi bat ky IP nao hoac chua dang ky."
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 

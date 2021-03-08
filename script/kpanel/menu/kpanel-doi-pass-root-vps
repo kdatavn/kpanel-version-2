@@ -13,10 +13,10 @@ clear
 echo "========================================================================= "
 
 echo "Ban da thay mat khau cho user root thanh cong."
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 ;;
 esac
 clear
 echo "========================================================================="
-echo "Ban da cancle thay doi mat khau user root!"
-/etc/kpanel/menu/kpanel-tien-ich
+echo "Ban da cancel thay doi mat khau user root!"
+/etc/kpanel/menu/tienich/kpanel-tien-ich

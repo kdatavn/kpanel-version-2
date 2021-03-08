@@ -8,7 +8,7 @@ select opt in "${options[@]}" "Thoat"; do
     case "$REPLY" in
     1) /etc/kpanel/menu/tienich/kpanel-xem-danh-sach-max-dung-luong-file-domain;;
     2) /etc/kpanel/menu/tienich/kpanel-danh-sach-max-dung-luong-file-folder-home;;
-$(( ${#options[@]}+1 )) ) echo "";  clear && /etc/kpanel/menu/kpanel-tien-ich;;
+$(( ${#options[@]}+1 )) ) echo "";  clear && /etc/kpanel/menu/tienich/kpanel-tien-ich;;
      *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 
     esac

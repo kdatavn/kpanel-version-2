@@ -14,7 +14,7 @@ echo "========================================================================="
 echo "PHP-FPM Khong the khoi dong"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong the cai dat hay Remove Ioncube Loader."
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 		fi
 fi
 fi
@@ -33,7 +33,7 @@ echo "========================================================================="
 echo "PHP-FPM Khong the khoi dong"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong the cai dat hay Remove Ioncube Loader."
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 		fi
 fi
 fi

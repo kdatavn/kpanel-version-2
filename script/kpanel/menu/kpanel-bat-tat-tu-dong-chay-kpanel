@@ -7,9 +7,9 @@ clear
 echo "========================================================================="
 echo "Can not find file /root/.bash_profile"
 echo "-------------------------------------------------------------------------"
-echo "kpanel can not run this function on this server"
+echo "KPANEL can not run this function on this server"
 echo "-------------------------------------------------------------------------"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 
@@ -28,14 +28,14 @@ case $response in
 echo "/bin/kpanel" >> /root/.bash_profile
 clear
 echo "========================================================================="
-echo "BAT chuc nang Auto Run kpanel thanh cong ! "
- /etc/kpanel/menu/kpanel-tien-ich
+echo "BAT chuc nang Auto Run KPANEL thanh cong ! "
+ /etc/kpanel/menu/tienich/kpanel-tien-ich
     ;;
 *)
 clear
 echo "========================================================================="
 echo "You choosed NO "
- /etc/kpanel/menu/kpanel-tien-ich
+ /etc/kpanel/menu/tienich/kpanel-tien-ich
   exit
 ;;
 esac
@@ -55,13 +55,13 @@ case $response in
 clear
 echo "========================================================================="
 echo "TAT chuc nang Auto Run kpanel thanh cong ! "
- /etc/kpanel/menu/kpanel-tien-ich
+ /etc/kpanel/menu/tienich/kpanel-tien-ich
     ;;
 *)
 clear
 echo "========================================================================="
 echo "You choosed NO "
- /etc/kpanel/menu/kpanel-tien-ich
+ /etc/kpanel/menu/tienich/kpanel-tien-ich
   exit
 ;;
 esac

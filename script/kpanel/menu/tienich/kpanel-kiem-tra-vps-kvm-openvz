@@ -6,4 +6,4 @@ echo "========================================================================="
 echo "Your VPS  Virtualization:"
 echo "-------------------------------------------------------------------------"
 virt-what
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich

@@ -425,7 +425,7 @@ cd ~
 
 
 if [ ! -f /tmp/server_wp_all_update ] && [ -f /home/kpanel.conf ]; then
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 fi
 
 

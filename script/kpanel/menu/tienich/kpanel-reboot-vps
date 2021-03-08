@@ -12,4 +12,4 @@ esac
 clear
 echo "========================================================================="
 echo "Ban khong reboot VPS!!!"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich

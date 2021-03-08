@@ -15,7 +15,7 @@ rm -rf /home/$mainsite/private_html/ServiceandRamuseage*
 /etc/kpanel/menu/tienich/kpanel-tien-trinh-dang-chay-ram-use > /home/$mainsite/private_html/ServiceandRamuseage-$randomcode.txt 
 sed -i '/kpanel/d' /home/$mainsite/private_html/ServiceandRamuseage-$randomcode.txt
 sed -i '1s/^/====================================================================================================================================\n/' /home/$mainsite/private_html/ServiceandRamuseage-$randomcode.txt
-sed -i '2s/^/List Service Running And Ram Useage  -  Created by kpanel\n/' /home/$mainsite/private_html/ServiceandRamuseage-$randomcode.txt
+sed -i '2s/^/List Service Running And Ram Useage  -  Created by KPANEL\n/' /home/$mainsite/private_html/ServiceandRamuseage-$randomcode.txt
 sed -i '3s/^/====================================================================================================================================\n/' /home/$mainsite/private_html/ServiceandRamuseage-$randomcode.txt
 echo "============================================================The End=================================================================" >> /home/$mainsite/private_html/ServiceandRamuseage-$randomcode.txt
 
@@ -25,10 +25,10 @@ echo "========================================================================="
 echo "Link xem Service dang chay & Ram su dung:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/ServiceandRamuseage-$randomcode.txt"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
     *)
        clear
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac

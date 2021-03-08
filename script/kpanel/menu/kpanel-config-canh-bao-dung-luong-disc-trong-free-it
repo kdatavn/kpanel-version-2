@@ -16,9 +16,9 @@ clear
 echo "========================================================================="
 echo "Rat tiec ! "
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the chay chuc nang nay tren server cua ban"
+echo "KPANEL khong the chay chuc nang nay tren server cua ban"
 echo "-------------------------------------------------------------------------"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if [ "$disfreehientai" -lt "1000" ]; then
@@ -27,7 +27,7 @@ echo "========================================================================="
 echo "Rat tiec ! FFREE DISC hien tai < 1000 MB"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong the su dung chuc nang nay "
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 
@@ -47,7 +47,7 @@ if [ "$minfreedisca" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap gia tri FREE DISC Canh Bao!"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 
@@ -59,11 +59,11 @@ echo "-------------------------------------------------------------------------"
 echo "Gia tri ban nhap phai la so tu nhien nam trong khoang (1000 - ${disfreehientai}) "
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"  
-echo "kpanel se canh bao DISC FULL khi dung luong disc cua server < ${minfreedisca} MB"
+echo "KPANEL se canh bao DISC FULL khi dung luong disc cua server < ${minfreedisca} MB"
 echo "-------------------------------------------------------------------------" 
 echo "Please wait ..." ; sleep 2
 echo "${minfreedisca}" > /etc/kpanel/minfreedisc.info 
@@ -72,4 +72,4 @@ echo "========================================================================="
 echo "Cau hinh canh bao FULL DISC cho server hoan tat"
 echo "-------------------------------------------------------------------------" 
 echo "Dung luong FREE DISC Canh Bao: ${minfreedisca} MB "
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich

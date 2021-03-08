@@ -29,13 +29,13 @@ clear
 echo "========================================================================="
 
 	echo "Uninstall Imagick thanh cong !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
     *)
        clear
     echo "========================================================================="
    echo "You huy remove IMAGICK"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac
 exit
@@ -63,7 +63,7 @@ else
 echo "extension=imagick.so" > /etc/php.d/imagick.ini
 fi
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/check-imagick.php.zip -O /home/$mainsite/private_html/check-imagick.php
-wget --no-check-certificate -q https://github.com/itvn9online/kpanel-free/raw/master/script/kpanel/check-imagick.php.zip -O /home/$mainsite/private_html/check-imagick.php
+wget --no-check-certificate -q https://github.com/kdatavn/kpanel-version-2/raw/main/script/kpanel/check-imagick.php.zip -O /home/$mainsite/private_html/check-imagick.php
 /etc/kpanel/menu/kpanel-re-config-cac-ham-php-disable-php.ini
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 service php-fpm restart
@@ -79,13 +79,13 @@ echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/check-imagick.php"
 echo "-------------------------------------------------------------------------"
 echo "Neu Imagick cai thanh cong, trang nay se hien anh thong bao cua kpanel"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
        ;;
     *)
     clear
     echo "========================================================================="
    echo "Ban huy install IMAGICK"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac
 exit

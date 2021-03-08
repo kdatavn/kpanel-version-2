@@ -5,4 +5,4 @@ cd ~
 sudo curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich

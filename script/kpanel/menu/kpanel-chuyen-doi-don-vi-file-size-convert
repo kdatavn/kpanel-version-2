@@ -43,7 +43,7 @@ clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
 #echo "You typed wrong, please type in accurately!"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if [[ ! "$nhapso" =~ $checknumber ]]; then
@@ -53,7 +53,7 @@ echo "$nhapso khong phai la so"
 #echo "$nhapso maybe not a number!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay nhap lai !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 clear
@@ -69,7 +69,7 @@ echo "-------------------------------------------------------------------------"
 echo "Gigabyte: $(sizeconvert ${nhapso}/1024/1024/1024) GB"
 echo "-------------------------------------------------------------------------"
 echo "Terabyte: $(sizeconvert ${nhapso}/1024/1024/1024/1024) TB"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 elif [ "$donvicanchuyen" = "Kilobyte" ]; then
 
 echo -n "Nhap FileSize (Not include KB): " 
@@ -80,7 +80,7 @@ clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
 #echo "You typed wrong, please type in accurately!"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if [[ ! "$nhapso" =~ $checknumber ]]; then
@@ -90,7 +90,7 @@ echo "$nhapso khong phai la so"
 #echo "$nhapso maybe not a number!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay nhap lai !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 clear
@@ -106,7 +106,7 @@ echo "-------------------------------------------------------------------------"
 echo "Gigabyte: $(sizeconvert ${nhapso}/1024/1024) GB"
 echo "-------------------------------------------------------------------------"
 echo "Terabyte: $(sizeconvert ${nhapso}/1024/1024/1024) TB"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 elif [ "$donvicanchuyen" = "Megabyte" ]; then
 echo -n "Nhap FileSize (Not include MB): " 
 read nhapso
@@ -116,7 +116,7 @@ clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
 #echo "You typed wrong, please type in accurately!"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if [[ ! "$nhapso" =~ $checknumber ]]; then
@@ -126,7 +126,7 @@ echo "$nhapso khong phai la so"
 #echo "$nhapso maybe not a number!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay nhap lai !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 clear
@@ -142,7 +142,7 @@ echo "-------------------------------------------------------------------------"
 echo "Gigabyte: $(sizeconvert ${nhapso}/1024) GB"
 echo "-------------------------------------------------------------------------"
 echo "Terabyte: $(sizeconvert ${nhapso}/1024/1024) TB"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 elif [ "$donvicanchuyen" = "Gigabyte" ]; then
 echo -n "Nhap FileSize (Not include GB): " 
 read nhapso
@@ -152,7 +152,7 @@ clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
 #echo "You typed wrong, please type in accurately!"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if [[ ! "$nhapso" =~ $checknumber ]]; then
@@ -162,7 +162,7 @@ echo "$nhapso khong phai la so"
 #echo "$nhapso maybe not a number!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay nhap lai !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 clear
@@ -178,7 +178,7 @@ echo "-------------------------------------------------------------------------"
 echo "Megabyte: $(sizeconvert ${nhapso}*1024) MB"
 echo "-------------------------------------------------------------------------"
 echo "Terabyte: $(sizeconvert ${nhapso}/1024) TB"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 elif [ "$donvicanchuyen" = "Terabyte" ]; then
 echo -n "Nhap FileSize (Not include TB): " 
 read nhapso
@@ -188,7 +188,7 @@ clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
 #echo "You typed wrong, please type in accurately!"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if [[ ! "$nhapso" =~ $checknumber ]]; then
@@ -198,7 +198,7 @@ echo "$nhapso khong phai la so"
 #echo "$nhapso maybe not a number!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay nhap lai !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 clear
@@ -214,7 +214,7 @@ echo "-------------------------------------------------------------------------"
 echo "Megabyte: $(sizeconvert ${nhapso}*1024*1024) MB"
 echo "-------------------------------------------------------------------------"
 echo "GigabyteB: $(sizeconvert ${nhapso}*1024) GB"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 else 
-clear && /etc/kpanel/menu/kpanel-tien-ich
+clear && /etc/kpanel/menu/tienich/kpanel-tien-ich
 fi

@@ -17,7 +17,7 @@ select opt in "${options[@]}" ; do
     2) /etc/kpanel/menu/tienich/kpanel-restart-nginx;;
     3) /etc/kpanel/menu/tienich/kpanel-restart-php;;
     4) /etc/kpanel/menu/tienich/kpanel-reboot-vps;;
-    5) clear && /etc/kpanel/menu/kpanel-tien-ich;;
+    5) clear && /etc/kpanel/menu/tienich/kpanel-tien-ich;;
 
             *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
 

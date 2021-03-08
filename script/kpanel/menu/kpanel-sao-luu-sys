@@ -31,7 +31,7 @@ echo "========================================================================="
 echo "Link Download File Backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/Backupconfigandvhost-$backupsys.zip"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 
 
 ;;
@@ -39,7 +39,7 @@ echo "http://$serverip:$priport/Backupconfigandvhost-$backupsys.zip"
        clear
 echo "========================================================================= "
 echo "Huy bo tao backup cho file config & Vhost."
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac
 

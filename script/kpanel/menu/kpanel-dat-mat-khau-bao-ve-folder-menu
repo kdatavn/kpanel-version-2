@@ -34,5 +34,5 @@ elif [ "$luachonacction" = "taomatkhaumacdinh" ]; then
 /etc/kpanel/menu/dat-mat-khau-bao-ve-folder-mac-dinh
 ###################################
 else 
-clear && /etc/kpanel/menu/kpanel-tien-ich
+clear && /etc/kpanel/menu/tienich/kpanel-tien-ich
 fi

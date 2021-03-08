@@ -18,4 +18,4 @@ echo "-------------------------------------------------------------------------"
 echo "5 Folder Lon Nhat Trong /home:"
 cat /tmp/listfolder
 rm -rf /tmp/*list*
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich

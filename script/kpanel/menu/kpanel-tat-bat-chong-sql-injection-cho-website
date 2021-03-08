@@ -24,7 +24,7 @@ echo "========================================================================="
 echo "$website la domain Net2FTP"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong the su dung chuc nang nay."
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 fi
 fi
 if [ "$website" = "" ]; then
@@ -117,13 +117,13 @@ fi
 clear
 echo "========================================================================="
 	echo "BAT [Block Exploits, SQL Injections] cho $website thanh cong !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
     *)
       clear 
     echo "========================================================================="
    echo "Ban huy BAT [Block Exploits, SQL Injections] cho $website"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac
 exit
@@ -158,13 +158,13 @@ fi
 clear
 echo "========================================================================="
 	echo "TAT [Block Exploits, SQL Injections] cho $website thanh cong !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
        ;;
     *)
  clear   
     echo "========================================================================="
    echo "Huy TAT [Block Exploits, SQL Injections] cho $website"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac
 exit

@@ -27,13 +27,13 @@ clear
 echo "========================================================================="
 
 	echo "Go bo Ioncube Loader thanh cong !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
     *)
        clear
     echo "========================================================================="
    echo "Ban huy bo remove Ioncube Loader"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac
 exit
@@ -45,7 +45,7 @@ echo "========================================================================="
 echo "Ban dang dung PHP 7.0"
 echo "-------------------------------------------------------------------------"
 echo "Chuc nang nay khong ho tro PHP 7.0"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 echo "========================================================================="
@@ -77,13 +77,13 @@ fi
 clear
 echo "========================================================================="
 echo "Cai dat Ioncube Loader vao server thanh cong !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
        ;;
     *)
     clear
     echo "========================================================================="
    echo "Ban huy install Ioncube Loader"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac
 exit

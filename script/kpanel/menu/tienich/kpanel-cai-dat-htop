@@ -6,7 +6,7 @@ echo "========================================================================= 
 echo "HTOP da cai dat tren server  "
 echo "-------------------------------------------------------------------------"
 echo "Chay HTOP bang command: htop "
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if [ -f /usr/bin/htop ]; then
@@ -15,7 +15,7 @@ echo "========================================================================= 
 echo "HTOP da cai dat tren server  "
 echo "-------------------------------------------------------------------------"
 echo "Chay HTOP bang command: htop "
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 echo "========================================================================="
@@ -31,7 +31,7 @@ case $response in
 yum -y install ncurses ncurses-devel
 cd /tmp
 #wget -q --no-check-certificate https://kpanel.com/script/kpanel/Softwear/htop-2.0.0.tar.gz
-wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/master/htop-2.0.0.tar.gz
+wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/main/htop-2.0.0.tar.gz
 tar xvfvz htop-2.0.0.tar.gz
 cd /tmp/htop-2.0.0
 ./configure
@@ -51,12 +51,12 @@ echo "Cai dat htop that bai"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai."
 fi
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 
         ;;
     *)
        clear
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac
 

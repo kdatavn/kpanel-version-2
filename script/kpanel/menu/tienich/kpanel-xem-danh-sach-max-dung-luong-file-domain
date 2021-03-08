@@ -37,7 +37,7 @@ echo "5 Folder Lon Nhat Trong /home/$website/public_html:"
 echo "-------------------------------------------------------------------------"
 cat /tmp/listfolder
 rm -rf /tmp/*list*
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 }
 nhapduieu

@@ -37,8 +37,8 @@ select opt in "${options[@]}"; do
     23) muigio="GMT-10"; break;;
     24) muigio="GMT-11"; break;;
     25) muigio="GMT-12"; break;;
-    26) clear && /etc/kpanel/menu/kpanel-tien-ich;;
-    0) clear && /etc/kpanel/menu/kpanel-tien-ich;;
+    26) clear && /etc/kpanel/menu/tienich/kpanel-tien-ich;;
+    0) clear && /etc/kpanel/menu/tienich/kpanel-tien-ich;;
 
   
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;

@@ -7,7 +7,7 @@ clear
 echo "Ban da thay doi port SSH ma khong su dung kpanel"
 echo "-------------------------------------------------------------------------"
 echo "Chuc nang nay khong the hoat dong duoc !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if [[ ${portcu} =~ ^[0-9]+$ ]] ;then
@@ -36,7 +36,7 @@ echo "========================================================================="
 echo "Port ban nhap: ${sshport} khong phai la so tu nhien."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !" 
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if ! [[ $sshport -ge 30000 && $sshport -le 50000  ]] ; then 
@@ -45,7 +45,7 @@ echo "========================================================================="
 echo "Port ban nhap: ${sshport} khong hop le."
 echo "-------------------------------------------------------------------------"
 echo "PortSSH phai khac $priport va nam trong khoang (30000 - 50000) !" 
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if [ "$priport" = "$sshport" ]; then
@@ -54,7 +54,7 @@ echo "========================================================================="
 echo "Port SSH ban muon thay trung voi port phpmyadmin !"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi 
 if [ "$portcu" = "$sshport" ]; then
@@ -63,7 +63,7 @@ echo "========================================================================="
 echo "Port SSH ban nhap trung voi port hien tai !"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi 
 
@@ -102,7 +102,7 @@ echo "-------------------------------------------------------------------------"
 echo "Upload qua SFTP:"
 echo "-------------------------------------------------------------------------"
 echo "Host: sftp://$serverip, User & Pass: Root's info , Port: $sshport" 
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 
@@ -136,10 +136,10 @@ echo "-------------------------------------------------------------------------"
 echo "Upload qua SFTP:"
 echo "-------------------------------------------------------------------------"
 echo "Host: sftp://$serverip, User & Pass: Root's info, Port: $sshport" 
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 esac
 clear
 echo "========================================================================="
 echo "Ban da cancle thay doi SSH Port !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 

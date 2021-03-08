@@ -74,11 +74,11 @@ echo "========================================================================="
 echo "Link Xem Thong Tin Server:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/servervpsinfo-$randomcode.txt"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
     *)
        clear
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac
 

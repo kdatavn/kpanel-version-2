@@ -6,7 +6,7 @@ clear
 echo "========================================================================="
 echo "PHP-FPM dang stop!"
 echo "Ban khong the install / Remove Imagick"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 fi
@@ -19,7 +19,7 @@ clear
 echo "========================================================================="
 echo "PHP-FPM  Stopped!"
 echo "Ban khong the install / Remove Imagick"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 if [ "$(/bin/systemctl status  php-fpm.service | awk 'NR==3 {print $2}')" == "failed" ]; then
@@ -27,7 +27,7 @@ clear
 echo "========================================================================="
 echo "PHP-FPM dang Stop!"
 echo "Ban khong the install / Remove Imagick"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 fi
@@ -68,18 +68,18 @@ echo "-------------------------------------------------------------------------"
 echo "Kiem tra install Imagick status:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/check-imagick.php"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
  ;;
     *)
     clear
     echo "========================================================================="
    echo "You cancel install / re-install Imagick"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
         ;;
 esac
 clear
     echo "========================================================================="
     echo "You cancel install / re-install Imagick"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi

@@ -15,7 +15,7 @@ echo "========================================================================="
 echo "PHP-FPM khong the khoi dong !"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong the install / Remove imagick"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 		fi
 fi
 fi
@@ -34,7 +34,7 @@ echo "========================================================================="
 echo "PHP-FPM khong the khoi dong !"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong the install / Remove imagick"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 		fi
 fi
 fi
