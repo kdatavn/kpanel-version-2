@@ -25,12 +25,12 @@ fi
 clear
 echo "========================================================================="
 echo "TAT che do Auto backup cho $website thanh cong."
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
         ;;
     *)
         clear
 echo "========================================================================= "
 echo "Huy TAT Auto Backup cho $website"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
         ;;
 esac

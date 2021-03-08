@@ -245,13 +245,13 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$website/$website-$randomcode.zip"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban da huy bo yeu cau tu dong backup $website !"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 ;;
 esac
 ###################################
@@ -309,17 +309,17 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$website/$website-$randomcode.zip"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban da huy bo yeu cau tu dong backup $website !"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 ;;
 esac
 #Huy Bo
 ###################################
 else 
-clear && /etc/kpanel/menu/kpanel-sao-luu
+clear && /etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 fi

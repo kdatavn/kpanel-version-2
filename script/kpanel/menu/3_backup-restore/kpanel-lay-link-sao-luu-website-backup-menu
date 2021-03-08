@@ -21,15 +21,15 @@ done
 #
 ###################################
 if [ "$laylink" = "1website" ]; then
-/etc/kpanel/menu/kpanel-link-tai-sao-luu-1-site
+/etc/kpanel/menu/3_backup-restore/kpanel-link-tai-sao-luu-1-site
 ###################################
 #
 ###################################
 elif [ "$laylink" = "tatca" ]; then
-/etc/kpanel/menu/kpanel-link-download-tat-ca-backup-website-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-link-download-tat-ca-backup-website-sao-luu
 ###################################
 #
 ###################################
 else 
-clear && /etc/kpanel/menu/kpanel-sao-luu
+clear && /etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 fi

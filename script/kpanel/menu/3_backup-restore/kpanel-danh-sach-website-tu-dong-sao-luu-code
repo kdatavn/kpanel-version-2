@@ -60,4 +60,4 @@ echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/linkAUTOBackupWeb-$randomcode.txt"
 fi
 rm -rf /tmp/*kpanel*
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu

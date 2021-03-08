@@ -1,7 +1,7 @@
 #!/bin/bash
 . /home/kpanel.conf
-rm -rf /tmp/*hostingaz*
-mkdir -p /tmp/danhsachwebsitebackuphostingaz
+rm -rf /tmp/*kdatavn*
+mkdir -p /tmp/danhsachwebsitebackupkdatavn
 ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
 sed -i 's/\.conf//g' /tmp/kpanel-websitelist
  cat > "/tmp/kpanel-replace" <<END
@@ -22,7 +22,7 @@ if [ ! -f /tmp/checksite-list ]; then
 clear
 echo "========================================================================="
 echo "kpanel khong tim thay cac ban backup tren server"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 fi
 sowebsitecobackup=$(cat /tmp/checksite-list | wc -l)
 code=-`date |md5sum |cut -c '1-15'`
@@ -65,7 +65,7 @@ fi
 #########################
 rm -rf /tmp/linkbackupall
 rm -rf /tmp/linkbackup
-touch /tmp/danhsachwebsitebackuphostingaz/$website
+touch /tmp/danhsachwebsitebackupkdatavn/$website
 }
 
 echo "========================================================================="
@@ -89,22 +89,22 @@ clear
 echo "========================================================================="
 echo "Danh Sach Cac Website Co Backup:"
 echo "-------------------------------------------------------------------------"
-ls /tmp/danhsachwebsitebackuphostingaz | pr -2 -t
+ls /tmp/danhsachwebsitebackupkdatavn | pr -2 -t
 echo "-------------------------------------------------------------------------"
 echo "Link download Tat Ca Cac File Backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/listbackup-AW$code.txt"
 echo "" >> /home/$mainsite/private_html/listbackup-AW$code.txt
 echo "===================================================The End==============================================================" >> /home/$mainsite/private_html/listbackup-AW$code.txt
-rm -rf /tmp/*hostingaz*
-/etc/kpanel/menu/kpanel-sao-luu
+rm -rf /tmp/*kdatavn*
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
    ;;
     *)
     clear
         echo "========================================================================= "
         echo "Huy bo lay link download cac file backup"
-        /etc/kpanel/menu/kpanel-sao-luu
-        rm -rf /tmp/*hostingaz*
+        /etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
+        rm -rf /tmp/*kdatavn*
         ;;
 esac
 

@@ -13,11 +13,11 @@ fi
 if [ ! -d /home/$mainsite/private_html/backup ]; then
 mkdir -p /home/$mainsite/private_html/backup
 fi
-find /home/$mainsite/private_html/backup/ -name "*.zip*" > /tmp/vpssim_check_backup_code_size
+find /home/$mainsite/private_html/backup/ -name "*.zip*" > /tmp/kpanel_check_backup_code_size
 
-numberfiles=$(cat /tmp/vpssim_check_backup_code_size | wc -l)
+numberfiles=$(cat /tmp/kpanel_check_backup_code_size | wc -l)
 if [ ! "$numberfiles" = "0" ]; then
-backupcodesize=$(du -ch $(cat /tmp/vpssim_check_backup_code_size) | tail -1 | cut -f 1)
+backupcodesize=$(du -ch $(cat /tmp/kpanel_check_backup_code_size) | tail -1 | cut -f 1)
 else
 backupcodesize=0KB
 fi
@@ -47,14 +47,14 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1 ) /etc/kpanel/menu/kpanel-sao-luu-code;;
-    2 ) /etc/kpanel/menu/kpanel-lan-luot-sao-luu-het-tat-ca-website;;
-    #3 ) /etc/kpanel/menu/kpanel-sao-luu-home;; "Backup Folder Home" 
-    3 ) /etc/kpanel/menu/kpanel-tu-dong-sao-luu-code-menu;;
-    4 ) /etc/kpanel/menu/kpanel-phuc-hoi-website;;
-    5 ) /etc/kpanel/menu/kpanel-lay-link-sao-luu-website-backup-menu;;
-    #6 ) /etc/kpanel/menu/kpanel-link-tai-sao-luu-tat-ca-cac-site;; "Link File Backup Home" 
-    6 ) /etc/kpanel/menu/kpanel-xoa-toan-bo-backup-website;;
+    1 ) /etc/kpanel/menu/3_backup-restore/kpanel-sao-luu-code;;
+    2 ) /etc/kpanel/menu/3_backup-restore/kpanel-lan-luot-sao-luu-het-tat-ca-website;;
+    #3 ) /etc/kpanel/menu/3_backup-restore/kpanel-sao-luu-home;; "Backup Folder Home" 
+    3 ) /etc/kpanel/menu/3_backup-restore/kpanel-tu-dong-sao-luu-code-menu;;
+    4 ) /etc/kpanel/menu/3_backup-restore/kpanel-phuc-hoi-website;;
+    5 ) /etc/kpanel/menu/3_backup-restore/kpanel-lay-link-sao-luu-website-backup-menu;;
+    #6 ) /etc/kpanel/menu/3_backup-restore/kpanel-link-tai-sao-luu-tat-ca-cac-site;; "Link File Backup Home" 
+    6 ) /etc/kpanel/menu/3_backup-restore/kpanel-xoa-toan-bo-backup-website;;
     7 ) clear && kpanel;;
     0) clear && kpanel;;
     

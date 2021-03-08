@@ -1,8 +1,8 @@
 #!/bin/sh
 . /home/kpanel.conf
-rm -rf /tmp/*hostingaz*
-mkdir -p /tmp/saoluuwebsitethanhconghostingaz
-mkdir -p /tmp/saoluuwebsitethatbaihostingaz
+rm -rf /tmp/*kdatavn*
+mkdir -p /tmp/saoluuwebsitethanhcongkdatavn
+mkdir -p /tmp/saoluuwebsitethatbaikdatavn
 ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
 sed -i 's/\.conf//g' /tmp/kpanel-websitelist 
  cat > "/tmp/kpanel-replace" <<END
@@ -24,11 +24,11 @@ fi
 
 if [ ! -f /tmp/checksite-list ]; then
 rm -rf /tmp/*kpanel*
-rm -rf /tmp/*hostingaz*
+rm -rf /tmp/*kdatavn*
 clear
 echo "========================================================================="
 echo "Khong tim thay website co du lieu tren server"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 fi
 prompt="Nhap lua chon cua ban :"
 options=("BAT/TAT Tu Dong Backup Website" "List Website BAT Tu Dong Backup")
@@ -37,9 +37,9 @@ PS3="$prompt"
 select opt in "${options[@]}" "Thoat"; do 
 
     case "$REPLY" in
-    1 ) /etc/kpanel/menu/kpanel-befor-chon-tat-bat-tu-dong-sao-luu-code;;
-    2 ) /etc/kpanel/menu/kpanel-danh-sach-website-tu-dong-sao-luu-code;;
-    $(( ${#options[@]}+1 )) ) echo "";  clear && /etc/kpanel/menu/kpanel-sao-luu;;
+    1 ) /etc/kpanel/menu/3_backup-restore/kpanel-befor-chon-tat-bat-tu-dong-sao-luu-code;;
+    2 ) /etc/kpanel/menu/3_backup-restore/kpanel-danh-sach-website-tu-dong-sao-luu-code;;
+    $(( ${#options[@]}+1 )) ) echo "";  clear && /etc/kpanel/menu/3_backup-restore/kpanel-sao-luu;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;
 
     esac

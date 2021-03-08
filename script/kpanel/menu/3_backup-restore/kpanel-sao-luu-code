@@ -1,8 +1,8 @@
 #!/bin/bash
 . /home/kpanel.conf
-rm -rf /tmp/*hostingaz*
-mkdir -p /tmp/saoluuwebsitethanhconghostingaz
-mkdir -p /tmp/saoluuwebsitethatbaihostingaz
+rm -rf /tmp/*kdatavn*
+mkdir -p /tmp/saoluuwebsitethanhcongkdatavn
+mkdir -p /tmp/saoluuwebsitethatbaikdatavn
 ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
 sed -i 's/\.conf//g' /tmp/kpanel-websitelist 
  cat > "/tmp/kpanel-replace" <<END
@@ -24,11 +24,11 @@ fi
 
 if [ ! -f /tmp/checksite-list ]; then
 rm -rf /tmp/*kpanel*
-rm -rf /tmp/*hostingaz*
+rm -rf /tmp/*kdatavn*
 clear
 echo "========================================================================="
 echo "Khong tim thay website co du lieu tren server"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 fi
 nhapwebsite ()
 {
@@ -112,7 +112,7 @@ fi
 fi
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$website/$filename2"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
         ;;
     *)
         ;;
@@ -122,14 +122,14 @@ if [ -f /home/$mainsite/private_html/backup/$website/*.zip ]; then
 for file in *.zip; do
 time=$(date -r /home/$mainsite/private_html/backup/$website/$file +%H%M-%d%m%y)
     mv "$file" "`basename $file .zip`.zip.$time"
-    echo "$file.$time" > /tmp/vpssim_ten_file_cu
+    echo "$file.$time" > /tmp/kpanel_ten_file_cu
 done
 fi
 cd
 echo "-------------------------------------------------------------------------"
 echo "kpanel se doi ten file backup cu thanh:"
 echo "-------------------------------------------------------------------------"
-echo "`cat /tmp/vpssim_ten_file_cu`"
+echo "`cat /tmp/kpanel_ten_file_cu`"
 echo "-------------------------------------------------------------------------"
 echo "Sau do se sao luu $website"
 echo "-------------------------------------------------------------------------"
@@ -159,9 +159,9 @@ echo "http://$serverip:$priport/backup/$website/$filename2"
 echo "-------------------------------------------------------------------------"
 echo "File Backup Cu Duoc Doi Ten Thanh:"
 echo "-------------------------------------------------------------------------"
-echo "$(cat /tmp/vpssim_ten_file_cu)"
+echo "$(cat /tmp/kpanel_ten_file_cu)"
 rm -rf /tmp/*kpanel*
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 else
 echo "-------------------------------------------------------------------------"
 	echo "kpanel dang sao luu $website, ban cho xiu...."
@@ -189,12 +189,12 @@ echo "========================================================================="
 echo "Link Backup File:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$website/$filename2"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 fi
 else
 clear
 echo "========================================================================="
 echo "Khong tim thay $website tren server hoac web chua co du lieu!"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 fi
 
