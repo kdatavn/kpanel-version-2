@@ -18,7 +18,7 @@ echo "Can not find file /root/.bash_profile"
 echo "-------------------------------------------------------------------------"
 echo "kpanel can not run this function on this server"
 echo "-------------------------------------------------------------------------"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 
@@ -41,49 +41,49 @@ done
 ###################################
 if [ "$cauhinh" = "battatemail" ]; then
 
-if [ "$(grep timeloginvpssimcheck /root/.bash_profile)" == "" ]; then
+if [ "$(grep timeloginkpanelcheck /root/.bash_profile)" == "" ]; then
 echo "========================================================================="
 echo "Su dung chuc nang nay de BAT/TAT chuc nang gui thong bao qua email"
 echo "-------------------------------------------------------------------------"
 echo "moi khi co dang nhap SSH vao Server."
 echo "-------------------------------------------------------------------------"
 echo -n "Nhap dia chi email [ENTER]: " 
-read vpssimemail
-if [ "$vpssimemail" = "" ]; then
+read kpanelemail
+if [ "$kpanelemail" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 
-if [[ ! "$vpssimemail" =~ $kiemtraemail3 ]]; then
+if [[ ! "$kpanelemail" =~ $kiemtraemail3 ]]; then
 clear
 echo "========================================================================="
-echo "$vpssimemail co le khong dung dinh dang email!"
+echo "$kpanelemail co le khong dung dinh dang email!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 4
-rm -rf /tmp/checkautorunvpssim
+rm -rf /tmp/checkautorunkpanel
 if [ ! "$(grep "/bin/kpanel" /root/.bash_profile)" == "" ]; then
-echo "1" > /tmp/checkautorunvpssim
+echo "1" > /tmp/checkautorunkpanel
  sed -i '/\/bin\/kpanel/d' /root/.bash_profile
 fi
     cat >> "/root/.bash_profile" <<END
-IPvpssimcheck="\$(echo \$SSH_CONNECTION | cut -d " " -f 1)"
-timeloginvpssimcheck=\$(date +"%e %b %Y, %a %r")
-echo 'Someone has IP address '\$IPvpssimcheck' login to $serverip on '\$timeloginvpssimcheck'.' | mail -s 'eMail Notifications From kpanel On $serverip' ${vpssimemail}
+IPkpanelcheck="\$(echo \$SSH_CONNECTION | cut -d " " -f 1)"
+timeloginkpanelcheck=\$(date +"%e %b %Y, %a %r")
+echo 'Someone has IP address '\$IPkpanelcheck' login to $serverip on '\$timeloginkpanelcheck'.' | mail -s 'eMail Notifications From kpanel On $serverip' ${kpanelemail}
 END
-#echo 'Someone has IP address '\$IPvpssimcheck' login to $serverip on '\$timeloginvpssimcheck'.' | mail -s 'eMail Notifications From kpanel On $serverip' ${vpssimemail}
+#echo 'Someone has IP address '\$IPkpanelcheck' login to $serverip on '\$timeloginkpanelcheck'.' | mail -s 'eMail Notifications From kpanel On $serverip' ${kpanelemail}
 
-if [ -f /tmp/checkautorunvpssim ]; then
+if [ -f /tmp/checkautorunkpanel ]; then
 echo "/bin/kpanel" >> /root/.bash_profile
-rm -rf /tmp/checkautorunvpssim
+rm -rf /tmp/checkautorunkpanel
 fi
 
 clear
@@ -91,13 +91,13 @@ clear
 echo "========================================================================="
 echo "Hoan thanh cau hinh gui email thong bao khi co dang nhap SSH vao Server"
 echo "-------------------------------------------------------------------------"
-echo "eMail nhan thong bao: $vpssimemail"
+echo "eMail nhan thong bao: $kpanelemail"
 echo "-------------------------------------------------------------------------"
 echo "Neu khong thay email trong thu muc Inbox. Ban hay check thu muc SPAM "
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 fi
 
-if [ ! "$(grep timeloginvpssimcheck /root/.bash_profile)" == "" ]; then
+if [ ! "$(grep timeloginkpanelcheck /root/.bash_profile)" == "" ]; then
 echo "========================================================================="
 echo "Su dung chuc nang nay de BAT/TAT chuc nang gui thong bao qua email"
 echo "-------------------------------------------------------------------------"
@@ -111,17 +111,17 @@ case $response in
     echo "-------------------------------------------------------------------------"
     echo "Please wait ... "
     sleep 3
-sed -i '/vpssimcheck/d' /root/.bash_profile
+sed -i '/kpanelcheck/d' /root/.bash_profile
 clear
 echo "========================================================================="
 echo "TAT chuc nang gui email thong bao login thanh cong! "
- /etc/kpanel/menu/kpanel-tien-ich
+ /etc/kpanel/menu/tienich/kpanel-tien-ich
     ;;
 *)
 clear
 echo "========================================================================="
 echo "You choosed NO "
- /etc/kpanel/menu/kpanel-tien-ich
+ /etc/kpanel/menu/tienich/kpanel-tien-ich
   exit
 ;;
 esac
@@ -132,11 +132,11 @@ fi
 ###################################
 elif [ "$cauhinh" = "thaydoiemail" ]; then
 
-if [ "$(grep timeloginvpssimcheck /root/.bash_profile)" == "" ]; then
+if [ "$(grep timeloginkpanelcheck /root/.bash_profile)" == "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cau hinh gui email thong bao khi co dang nhap SSH vao server"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 emailhientai=$(grep "mail -s" /root/.bash_profile | awk 'NR==1 {print $NF}')
@@ -146,21 +146,21 @@ echo "-------------------------------------------------------------------------"
 echo "Hien tai eMail nhan thong bao: $emailhientai"
 echo "-------------------------------------------------------------------------"
 echo -n "Nhap dia chi email moi [ENTER]: " 
-read vpssimemailmoi
-if [ "$vpssimemailmoi" = "" ]; then
+read kpanelemailmoi
+if [ "$kpanelemailmoi" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
-if [[ ! "$vpssimemailmoi" =~ $kiemtraemail3 ]]; then
+if [[ ! "$kpanelemailmoi" =~ $kiemtraemail3 ]]; then
 clear
 echo "========================================================================="
-echo "$vpssimemailmoi co le khong dung dinh dang email!"
+echo "$kpanelemailmoi co le khong dung dinh dang email!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -170,25 +170,25 @@ case $response in
     echo "-------------------------------------------------------------------------"
     echo "Please wait ... "
     sleep 3
-sed -i "s/${emailhientai}/${vpssimemailmoi}/g" /root/.bash_profile
+sed -i "s/${emailhientai}/${kpanelemailmoi}/g" /root/.bash_profile
 clear
 echo "========================================================================="
 echo "Thay dia chi email nhan thong bao login thanh cong! "
     echo "-------------------------------------------------------------------------"
-    echo "Dia chi eMail moi la: ${vpssimemailmoi}"
+    echo "Dia chi eMail moi la: ${kpanelemailmoi}"
     echo "-------------------------------------------------------------------------"
 echo "Neu khong thay email trong thu muc Inbox. Ban hay check thu muc SPAM "
- /etc/kpanel/menu/kpanel-tien-ich
+ /etc/kpanel/menu/tienich/kpanel-tien-ich
     ;;
 *)
 clear
 echo "========================================================================="
 echo "You choosed NO "
- /etc/kpanel/menu/kpanel-tien-ich
+ /etc/kpanel/menu/tienich/kpanel-tien-ich
   exit
 ;;
 esac
 ###################################
 else 
-clear && /etc/kpanel/menu/kpanel-tien-ich
+clear && /etc/kpanel/menu/tienich/kpanel-tien-ich
 fi
