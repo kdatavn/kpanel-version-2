@@ -186,8 +186,8 @@ select opt in "${options[@]}" ; do
     18) clear && /etc/kpanel/menu/kpanel-befor-rsync;;
     19) clear && /etc/kpanel/menu/kpanel-maldet-menu;;
     20) clear && /etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu;;
-    21) clear && /etc/kpanel/menu/kpanel-net2ftp-menu;;
-    22) clear && /etc/kpanel/menu/kpanel-netdata-menu;;
+    21) clear && /etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu;;
+    22) clear && /etc/kpanel/menu/22_netdata/kpanel-netdata-menu;;
     23) clear && /etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu;;
     24) clear && /etc/kpanel/menu/kpanel-kiem-tra-ddos;;
     25) clear && /etc/kpanel/menu/tienich/kpanel-tien-ich;;

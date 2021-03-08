@@ -58,7 +58,7 @@ clear
 echo "========================================================================="
 echo "Khong tim thay folder public_html cua $website"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien thuc nang nay."
+echo "KPANEL khong the thuc hien thuc nang nay."
 /etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi
@@ -107,7 +107,7 @@ clear
 echo "========================================================================="
 echo "Ban da thay doi cau hinh file Vhost khong dung voi config kpanel yeu cau"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the chay chuc nang nay."
+echo "KPANEL khong the chay chuc nang nay."
 /etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi
@@ -117,7 +117,7 @@ clear
 echo "========================================================================="
 echo "Ban da thay doi cau hinh file Vhost khong dung voi config kpanel yeu cau"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the chay chuc nang nay"
+echo "KPANEL khong the chay chuc nang nay"
 /etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi
@@ -127,7 +127,7 @@ echo "Tim thay $website tren he thong."
 echo "-------------------------------------------------------------------------"
 echo "Neu domain BAT cloudflare hoac chua TRO ve IP server"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se khong the thuc hien chuc nang nay."
+echo "KPANEL se khong the thuc hien chuc nang nay."
 echo "========================================================================="
 echo "========================================================================="
 echo ""
@@ -182,7 +182,7 @@ echo "========================================================================="
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
-echo "kpanel bat dau cai dat Let's Encrypt ..."
+echo "KPANEL bat dau cai dat Let's Encrypt ..."
 sleep 3
 
 if [ ! -d /home/$website/public_html/.well-known/acme-challenge ]; then
@@ -216,7 +216,7 @@ clear
 echo "========================================================================="
 echo "Qua trinh cai dat SSL cho $website gap loi."
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien chuc nang nay."
+echo "KPANEL khong the thuc hien chuc nang nay."
 /etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi
@@ -232,7 +232,7 @@ clear
 echo "========================================================================="
 echo "Qua trinh cai dat SSL cho $website gap loi."
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the cai dat SSL Let's Encrypt cho domain nay."
+echo "KPANEL khong the cai dat SSL Let's Encrypt cho domain nay."
 /etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi

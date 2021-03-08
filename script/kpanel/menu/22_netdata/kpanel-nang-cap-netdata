@@ -9,14 +9,14 @@ echo "========================================================================="
 echo "Your Server has a problem with /tmp "
 echo "-------------------------------------------------------------------------"
 echo "Please fix it before use this function"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 rm -rf /tmp/checktmp
 echo "-------------------------------------------------------------------------"
-echo "kpanel dang kiem tra. Please wait ..."
+echo "KPANEL dang kiem tra. Please wait ..."
 #checkketnoi=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://kpanel.com/script/kpanel/Softwear/00-all-netdata-version.txt" )
-checkketnoi=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/kpanel/Softwear/00-all-netdata-version.txt" )
+checkketnoi=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://raw.githubusercontent.com/kdatavn/kdata-vps-software/master/script/kpanel/Softwear/00-all-netdata-version.txt" )
 if [[ "$checkketnoi" == "000" ]]; then
 clear
 echo "========================================================================="
@@ -26,14 +26,14 @@ echo "Ban vui long thu lai"
 #echo "Can not check NetData version"
 #echo "-------------------------------------------------------------------------"
 #echo "Please try again !"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 rm -rf /tmp/00-all-netdata*
 cd /tmp
 download_version_netdata () {
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/Softwear/00-all-netdata-version.txt
-wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/kpanel/Softwear/00-all-netdata-version.txt
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kdata-vps-software/master/script/kpanel/Softwear/00-all-netdata-version.txt
 }
 download_version_netdata
 checkdownload_version_netdata=`cat /tmp/00-all-netdata-version.txt`
@@ -47,7 +47,7 @@ printf "========================================================================
 echo "Khong the kiem tra phien ban update NetData"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 else
 LOCALVER=`cat /etc/kpanel/netdata.version`
 REMOVER=`cat /tmp/00-all-netdata-version.txt | awk 'NR==2 {print $1}' | sed 's/|//' | sed 's/|//'`
@@ -57,7 +57,7 @@ clear
 rm -f /tmp/00-all-netdata-version.txt
 echo "========================================================================="
 echo "Ban dang su dung phien ban moi nhat NetData ma kpanel ho tro ."
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 
@@ -121,17 +121,17 @@ rm -rf /tmp/00-all-netdata-version.txt
 clear
 printf "=========================================================================\n"
 printf "Nang cap NetData len phien ban $REMOVER thanh cong\n"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
  ;;
     *)
         clear
 printf "=========================================================================\n"
 echo "Ban da huy bo update NetData"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
         ;;
 esac
-clear && /etc/kpanel/menu/kpanel-netdata-menu
+clear && /etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 
 
 

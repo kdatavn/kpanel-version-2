@@ -10,26 +10,26 @@ echo "-------------------------------------------------------------------------"
 echo "Hay tro $(cat /etc/kpanel/netdatasite.info) toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de su dung NetData"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 
 #checkketnoi=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://kpanel.com/script/kpanel/Softwear/00-all-netdata-version.txt" )
-checkketnoi=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/kpanel/Softwear/00-all-netdata-version.txt" )
+checkketnoi=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://raw.githubusercontent.com/kdatavn/kpanel-version-2/main/script/kpanel/Softwear/00-all-netdata-version.txt" )
 if [[ "$checkketnoi" == "000" ]]; then
 clear
 echo "========================================================================="
 echo "Can not check NetData version"
 echo "-------------------------------------------------------------------------"
 echo "Please try again !"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 
 cd /tmp
 download_version_netdata () {
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/Softwear/00-all-netdata-version.txt
-wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/kpanel/Softwear/00-all-netdata-version.txt
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/main/script/kpanel/Softwear/00-all-netdata-version.txt
 }
 download_version_netdata
 checkdownload_version_netdata=`cat /tmp/00-all-netdata-version.txt`
@@ -52,7 +52,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 
@@ -64,7 +64,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 
@@ -72,7 +72,7 @@ if [ -f /etc/nginx/conf.d/$website.conf ]; then
 clear
 echo "========================================================================="
 echo "Phat hien $website da ton tai tren he thong!"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 backend=kpanel-`date |md5sum |cut -c '1-12'`
@@ -165,4 +165,4 @@ echo "-------------------------------------------------------------------------"
 echo "Hay tro $website toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de su dung NetData"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu

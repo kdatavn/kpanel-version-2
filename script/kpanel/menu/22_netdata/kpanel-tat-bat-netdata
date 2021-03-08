@@ -4,7 +4,7 @@ if [ ! -f /etc/kpanel/netdatasite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat NetData tren server !"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 
@@ -40,13 +40,13 @@ fi
 clear
 echo "========================================================================="
 echo "NetData da duoc TAT thanh cong !"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
         ;;
     *)
 clear
  echo "========================================================================="
 echo "Ban lua chon NO  !"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
         ;;
 esac
 exit
@@ -66,13 +66,13 @@ fi
 clear
         echo "========================================================================="
         echo "NetData da duoc BAT thanh cong !"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
         ;;
     *)
                clear
  echo "========================================================================="
 echo "Ban lua chon NO!"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 
         ;;
 esac

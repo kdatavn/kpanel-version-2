@@ -10,14 +10,14 @@ if [ "$php_version1" == "7.0" ]; then
 clear
 echo "========================================================================="
 echo "Net2FTP chi tuong thich voi php 5.4, 5.5 va 5.6"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 if [ ! -f /etc/kpanel/net2ftpsite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat domain Net2FTP cho Server !"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
@@ -27,7 +27,7 @@ echo "========================================================================="
 echo "Qua trinh thay Domain Net2FTP gap loi!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long kiem tra lai"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 echo "========================================================================= "
@@ -45,7 +45,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 
@@ -57,7 +57,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 
@@ -65,7 +65,7 @@ if [ "$net2ftpsite" = "$website" ]; then
 clear
 echo "========================================================================="
 echo "Please type in the other domain"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 
@@ -75,7 +75,7 @@ echo "========================================================================="
 echo "Phat hien $website da ton tai tren he thong!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -151,10 +151,10 @@ echo "-------------------------------------------------------------------------"
 echo "Hay tro $website toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de su dung net2FTP"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 ;;
 esac
 clear
 echo "========================================================================="
 echo "Ban da cancel thay doi domain Net2FTP."
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu

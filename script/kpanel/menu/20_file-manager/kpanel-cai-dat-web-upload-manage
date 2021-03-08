@@ -126,7 +126,7 @@ sleep 10
     mkdir -p "/home/$website/logs"
     cd /home/$website/public_html
 #wget --no-check-certificate -q https://hostingaz.vn/script/kpanel/eXtplorer/eXtplorer_2.1.14.zip
-wget --no-check-certificate -q https://github.com/kdatavn/kdata-vps-software/raw/master/eXtplorer_2.1.14.zip
+wget --no-check-certificate -q https://github.com/kdatavn/kdata-vps-software/blob/main/eXtplorer_2.1.14.zip
 
 if [ ! -f eXtplorer_2.1.14.zip ]; then
 echo "========================================================================="

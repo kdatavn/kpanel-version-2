@@ -9,7 +9,7 @@ if [ ! -f /etc/kpanel/netdatasite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat domain NetData cho Server !"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 netdatasite=$(cat /etc/kpanel/netdatasite.info)
@@ -19,7 +19,7 @@ echo "========================================================================="
 echo "Ban phai tao User va Mat khau mac dinh truoc khi chay chuc nang nay. Tao "
 echo "-------------------------------------------------------------------------"
 echo "User va Mat Khau mac dinh: kpanel Menu => User & Password Mac Dinh."
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
 
@@ -55,7 +55,7 @@ fi
        clear 
 echo "========================================================================= "
 echo "Huy bo dat mat khau bao ve domain NetData "
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
         ;;
 esac
 clear 
@@ -65,7 +65,7 @@ echo "-------------------------------------------------------------------------"
 echo "Thong tin truy cap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $userdefault | Password: $passdefault"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 
 else
 
@@ -93,11 +93,11 @@ fi
        clear 
 echo "========================================================================= "
 echo "Huy bo TAT bao ve domain NetData"
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
         ;;
 esac
 clear 
 echo "========================================================================= "
 echo "Hoan thanh TAT mat khau bao ve domain NetData "
-/etc/kpanel/menu/kpanel-netdata-menu
+/etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 fi

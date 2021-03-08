@@ -1,40 +1,65 @@
 #!/bin/sh
 . /home/kpanel.conf
-
-if [ -f /etc/kpanel/net2ftpsite.info ]; then
-net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
- if [ ! -d /home/$net2ftpsite/public_html ]; then
-rm -rf /etc/kpanel/net2ftpsite.info
+if [ ! -f /etc/kpanel/pwprotect.default ]; then
+echo "" > /etc/kpanel/pwprotect.default
+fi
+if [ ! -f /usr/local/bin/htpasswd.py ]; then
+cp -r /etc/kpanel/menu/kpanel-tao-mat-khau-bao-ve-folder.py /usr/local/bin/htpasswd.py
+chmod 755 /usr/local/bin/htpasswd.py
+fi
+if [ -f /etc/kpanel/netdatasite.info ]; then
+netdatasite=$(cat /etc/kpanel/netdatasite.info)
+ if [ ! -f /etc/nginx/conf.d/$netdatasite.conf ]; then
+rm -rf /etc/kpanel/netdatasite.info
+ fi
+ if [ ! -d /etc/netdata ]; then
+rm -rf /etc/kpanel/netdatasite.info
  fi
 fi
 
-if [ -f /etc/kpanel/net2ftpsite.info ]; then
-net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
-checknet2ftpconfig=$(grep auth_basic /etc/nginx/conf.d/$net2ftpsite.conf)
-if [ "$checknet2ftpconfig" == "" ]; then
+if [ ! -f /etc/kpanel/netdata.version ]; then
+echo "1.2" > /etc/kpanel/netdata.version
+fi
+show_menu_netdata () {
+	
+prompt="Lua chon cua ban (0-Thoat):"
+options=("Setup NetData" "Tat / Bat NetData" "Thay Domain NetData" "Bao Ve Domain NetData      " "Nang Cap NetData")
+printf "=========================================================================\n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
+printf "=========================================================================\n"
+printf "                            Quan Ly NetData \n"
+printf "=========================================================================\n"
+if [ ! -f /etc/kpanel/netdatasite.info ]; then
+printf "                      NetData status: Not Install \n"
+else
+if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
+	if [ "$(/sbin/service netdata status | awk 'NR==1 {print $5}')" == "running..." ]; then
+printf "               Status: Installed and Enable | Version: $(cat /etc/kpanel/netdata.version)\n"
+	else
+printf "               Status: Installed but Disable | Version: $(cat /etc/kpanel/netdata.version)\n"
+	fi
+fi
+#if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then
+if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
+	if [ "`systemctl is-active netdata.service`" == "active" ]; then
+printf "               Status: Installed and Enable | Version: $(cat /etc/kpanel/netdata.version)\n"
+	else
+printf "               Status: Installed but Disable | Version: $(cat /etc/kpanel/netdata.version)\n"
+	fi
+fi
+fi
+printf "=========================================================================\n"
+if [ -f /etc/kpanel/netdatasite.info ]; then
+netdatasite=$(cat /etc/kpanel/netdatasite.info)
+checknetdataconfig=$(grep auth_basic /etc/nginx/conf.d/$netdatasite.conf)
+if [ "$checknetdataconfig" == "" ]; then
 Protection=Disable
 else
 Protection=Enable
 fi
-fi
 
-show_menu_net2ftp () {
-prompt="Lua chon cua ban (0-Thoat):"
-options=("Setup Net2FTP" "Cau hinh Upload Max Filesize" "Bao Ve Net2FTP" "Thay Domain Net2FTP          "  "Remove Net2FTP         ")
-printf "=========================================================================\n"
-printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
-printf "=========================================================================\n"
-printf "                            Quan Ly Net2FTP \n"
-printf "=========================================================================\n"
-if [ ! -f /etc/kpanel/net2ftpsite.info ]; then
-printf "                      Net2FTP status: Not Install \n"
-else
-printf "              Net2FTP status: Installed | Protection: $Protection\n"
-fi
-printf "=========================================================================\n"
-if [ -f /etc/kpanel/net2ftpsite.info ]; then
-net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
-printf "Link Net2FTP: http://$net2ftpsite\n"
+
+printf "Link: http://$netdatasite | Protection: $Protection \n"
 printf "=========================================================================\n"
 fi
 PS3="$prompt"
@@ -42,13 +67,11 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1) /etc/kpanel/menu/kpanel-cai-dat-net2ftp;;
-    2) /etc/kpanel/menu/kpanel-change-upload-file-size-limit-net2ftp;;
-    #2) /etc/kpanel/menu/kpanel-tat-bat-net2ftp;;
-    #3) /etc/kpanel/menu/kpanel-thong-tin-quan-ly-net2ftp;;
-    3) /etc/kpanel/menu/kpanel-mat-khau-bao-ve-net2ftp;; 
-    4) /etc/kpanel/menu/kpanel-thay-domain-net2ftp;;
-    5) /etc/kpanel/menu/kpanel-xoa-website-net2ftp;;
+    1) /etc/kpanel/menu/22_netdata/kpanel-cai-dat-netdata;;
+    2) /etc/kpanel/menu/22_netdata/kpanel-tat-bat-netdata;;
+    3) /etc/kpanel/menu/22_netdata/kpanel-thay-domain-netdata;;
+    4) /etc/kpanel/menu/22_netdata/kpanel-mat-khau-bao-ve-netdata;;
+    5) /etc/kpanel/menu/22_netdata/kpanel-nang-cap-netdata;;
     #6) clear && /bin/kpanel;;
     0) clear && kpanel;;
     
@@ -57,18 +80,21 @@ select opt in "${options[@]}" ; do
     esac
 
 done
+
 }
+
+
 
 check_nginx_service () {
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "$(/sbin/service nginx status | awk 'NR==1 {print $5}')" == "running..." ]; then
-show_menu_net2ftp 
+show_menu_netdata 
 	else
 clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -80,11 +106,11 @@ echo "------------------------------------------------------------------------"
 echo "please wait ..."
 sleep 5 ; clear
 		if [ "$(/sbin/service nginx status | awk 'NR==1 {print $5}')" == "running..." ]; then
-show_menu_net2ftp 
+show_menu_netdata 
 		else
 				clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -97,13 +123,13 @@ fi
 #if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then 
 if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 	if [ "`systemctl is-active nginx.service`" == "active" ]; then
-show_menu_net2ftp 
+show_menu_netdata 
 	else
 clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -115,11 +141,11 @@ echo "------------------------------------------------------------------------"
 echo "please wait ..."
 sleep 5 ; clear
 	if [ "`systemctl is-active nginx.service`" == "active" ]; then
-show_menu_net2ftp 
+show_menu_netdata 
 		else
 				clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -137,7 +163,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -154,7 +180,7 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start PHP-FPM Service"
+echo "KPANEL can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -174,7 +200,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -191,7 +217,7 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start PHP-FPM Service"
+echo "KPANEL can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -201,4 +227,3 @@ sleep 4 ;
 		fi
 fi
 fi
-

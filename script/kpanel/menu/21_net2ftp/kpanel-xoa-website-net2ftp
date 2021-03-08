@@ -6,7 +6,7 @@ if [ ! -f /etc/kpanel/net2ftpsite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat domain Net2FTP cho Server !"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
@@ -14,16 +14,16 @@ net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
 if [ ! -f /etc/nginx/conf.d/$net2ftpsite.conf ]; then
 clear
 echo "========================================================================="
-echo "kpanel khong the xoa domain $net2ftpsite !"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+echo "KPANEL khong the xoa domain $net2ftpsite !"
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 
 if [ ! -d /home/$net2ftpsite/public_html ]; then
 clear
 echo "========================================================================="
-echo "kpanel khong the xoa domain $net2ftpsite !"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+echo "KPANEL khong the xoa domain $net2ftpsite !"
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 
@@ -65,7 +65,7 @@ if [ ! "$(grep /home/$net2ftpsite/ /etc/kpanel/FTP-Account.info)" == "" ];then
 echo "========================================================================="
 echo "Phat hien tai khoan FTP: $(grep /home/$net2ftpsite/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}') cua $net2ftpsite  "
 echo "-------------------------------------------------------------------------"
-echo "kpanel se remove tai khoan FTP: $(grep /home/$net2ftpsite/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')"
+echo "KPANEL se remove tai khoan FTP: $(grep /home/$net2ftpsite/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 echo "-------------------------------------------------------------------------"
@@ -95,7 +95,7 @@ if [ ! "$(grep /home/$net2ftpsite /etc/kpanel/opcache.blacklist)" == "" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Phat hien $net2ftpsite trong Zend Opcache Blacklist"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se xoa $net2ftpsite trong blacklist nay"
+echo "KPANEL se xoa $net2ftpsite trong blacklist nay"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 6
@@ -115,7 +115,7 @@ check_and_delete_auto_backup_website()
 echo "========================================================================="
 echo "Phat hien $net2ftpsite dang bat auto backup code"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se tat che do auto backup code khi remove khoi server"
+echo "KPANEL se tat che do auto backup code khi remove khoi server"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 5
@@ -143,19 +143,19 @@ fi
 clear
 echo "========================================================================= "
 echo "Remove Domain Net2FTP thanh cong ! "
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 ;;
     *)
        clear 
 echo "========================================================================= "
 echo "Ban huy remove Domain Net2FTP."
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
         ;;
 esac
 clear 
 echo "========================================================================= "
 echo "Ban huy remove Domain Net2FTP"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 
 
 

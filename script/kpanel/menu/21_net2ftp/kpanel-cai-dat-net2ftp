@@ -9,7 +9,7 @@ if [ "$php_version1" == "7.0" ]; then
 clear
 echo "========================================================================="
 echo "Net2FTP chi tuong thich voi php 5.4, 5.5 va 5.6"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 if [ -f /etc/kpanel/net2ftpsite.info ]; then
@@ -22,7 +22,7 @@ echo "-------------------------------------------------------------------------"
 echo "Hay tro $(cat /etc/kpanel/net2ftpsite.info ) toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de su dung Net2FTP"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 echo "========================================================================="
@@ -38,7 +38,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 
@@ -50,7 +50,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 
@@ -58,7 +58,7 @@ if [ -f /etc/nginx/conf.d/$website.conf ]; then
 clear
 echo "========================================================================="
 echo "Phat hien $website da ton tai tren he thong!"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 
@@ -73,13 +73,13 @@ sleep 10
     mkdir -p "/home/$website/logs"
     cd /home/$website/public_html
 #wget -q --no-check-certificate http://kpanel.com/script/kpanel/net2ftp_v1.3.zip
-wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/master/net2ftp_v1.3.zip
+wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/blob/main/net2ftp_v1.3.zip
 
 if [ ! -f net2ftp_v1.3.zip ]; then
 echo "========================================================================="
 echo "Loi download file cai dat, vui long bao loi voi chung toi"
 echo "-------------------------------------------------------------------------"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 fi
 
 unzip -q net2ftp_v1.3.zip
@@ -147,14 +147,14 @@ include /etc/nginx/conf/drop.conf;
     }
 END
 
-echo "$website" > /tmp/vpssimtmp.txt
-sed -i 's/\./_/g' /tmp/vpssimtmp.txt
-sed -i 's/\-/_/g' /tmp/vpssimtmp.txt
+echo "$website" > /tmp/kpaneltmp.txt
+sed -i 's/\./_/g' /tmp/kpaneltmp.txt
+sed -i 's/\-/_/g' /tmp/kpaneltmp.txt
 random=`date |md5sum |cut -c '1-4'`
 random32=`date |md5sum |cut -c '1-32'`
-username=`cat /tmp/vpssimtmp.txt | sed "s/\_//" | sed "s/\_//" | sed "s/\_//" | sed "s/\_//" | cut -c1-10`$random
+username=`cat /tmp/kpaneltmp.txt | sed "s/\_//" | sed "s/\_//" | sed "s/\_//" | sed "s/\_//" | cut -c1-10`$random
 password=`date |md5sum |cut -c '14-29'`
-rm -rf /tmp/vpssimtmp.txt
+rm -rf /tmp/kpaneltmp.txt
 
 checkOsVersion=$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release));
 if [ "$checkOsVersion" == "6" ] || [ "$checkOsVersion" == "7" ]; then
@@ -178,7 +178,7 @@ echo "But you can not delete this file: /home/$website/.htpasswd_temp" >> /home/
 echo "Or your server will error !" >> /home/$website/readme.txt
 chmod -R 644 /home/$website/.htpasswd_temp
 # thongtindangnhap:
-sed -i "s/\$net2ftp_settings\[\"admin_username\"\] = \"admin\";/\$net2ftp_settings\[\"admin_username\"\] = \"vpssim_${random}\";/g" /home/$website/public_html/settings.inc.php
+sed -i "s/\$net2ftp_settings\[\"admin_username\"\] = \"admin\";/\$net2ftp_settings\[\"admin_username\"\] = \"kpanel_${random}\";/g" /home/$website/public_html/settings.inc.php
 sed -i "s/\$net2ftp_settings\[\"admin_password\"\] = \"\";/\$net2ftp_settings\[\"admin_password\"\] = \"${password}\";/g" /home/$website/public_html/settings.inc.php
 sed -i "s/.*net2ftp_settings\[\"email_feedback\"\].*/\$net2ftp_settings\[\"email_feedback\"\] = \"${emailadmin}\";/g" /home/$website/public_html/settings.inc.php
 sed -i "s/.*net2ftp_settings\[\"encryption_string\"\].*/\$net2ftp_settings\[\"encryption_string\"\] = \"${random32}\";/g" /home/$website/public_html/settings.inc.php
@@ -211,4 +211,4 @@ echo "-------------------------------------------------------------------------"
 echo "Hay tro $website toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de su dung net2FTP"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu

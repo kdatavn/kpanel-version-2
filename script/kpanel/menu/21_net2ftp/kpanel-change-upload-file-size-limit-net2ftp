@@ -5,7 +5,7 @@ if [ ! -f /etc/kpanel/net2ftpsite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat Net2FTP tren server !"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
@@ -125,7 +125,7 @@ sed -i "s/.*client_max_body_size.*/client_max_body_size 2000m;/g" /etc/nginx/ngi
 sed -i "s/.*net2ftp_settings\[\"max_filesize\"\].*/\$net2ftp_settings\[\"max_filesize\"\]  = \"2097152000\";/g" /home/$net2ftpsite/public_html/settings.inc.php
 ###################################
 else 
-clear && /etc/kpanel/menu/kpanel-net2ftp-menu
+clear && /etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 fi
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 service nginx reload
@@ -139,4 +139,4 @@ echo "========================================================================="
 echo "Thay doi gia tri Upload Max filesize thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "upload_max_filesize = $maxfilezize MB"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
