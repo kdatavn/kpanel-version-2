@@ -168,7 +168,7 @@ select opt in "${options[@]}" ; do
 	1) clear && /etc/kpanel/menu/kpanel-befor-them-website-menu;;
     2) /etc/kpanel/menu/kpanel-befor-xoa-website;;
     3) clear && /etc/kpanel/menu/kpanel-sao-luu;;
-    4) clear && /etc/kpanel/menu/kpanel-befor-them-xoa-database;;
+    4) clear && /etc/kpanel/menu/4_database/kpanel-befor-them-xoa-database;;
     5) clear && /etc/kpanel/menu/5_phpmyadmin/kpanel-phpmyadmin-menu;;
     6) clear && /etc/kpanel/menu/opcache/kpanel-before-opcache;;
     7) clear && /etc/kpanel/menu/memcache/kpanel-before-memcache-menu;;
@@ -188,7 +188,7 @@ select opt in "${options[@]}" ; do
     20) clear && /etc/kpanel/menu/kpanel-web-upload-menu;;
     21) clear && /etc/kpanel/menu/kpanel-net2ftp-menu;;
     22) clear && /etc/kpanel/menu/kpanel-netdata-menu;;
-    23) clear && /etc/kpanel/menu/kpanel-letsencrypt-menu;;
+    23) clear && /etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu;;
     24) clear && /etc/kpanel/menu/kpanel-kiem-tra-ddos;;
     25) clear && /etc/kpanel/menu/kpanel-tien-ich;;
     26) clear && /etc/kpanel/menu/kpanel-update-upgrade-service-menu;;
