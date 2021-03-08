@@ -946,7 +946,7 @@ fi
 
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/Softwear/wp-cli.phar
 #yes | cp -rf /opt/kdata_kpanel/script/kpanel/Softwear/wp-cli.phar wp-cli.phar
-wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/master/wp-cli.phar
+wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/blob/main/wp-cli.phar
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 #clear
