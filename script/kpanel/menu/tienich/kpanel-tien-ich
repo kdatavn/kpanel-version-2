@@ -18,7 +18,7 @@ select opt in "${options[@]}" ; do
 
 
 	1) /etc/kpanel/menu/kpanel-doi-pass-root-vps;;
-	2) /etc/kpanel/menu/kpanel-sua-loi-chown;;
+	2) /etc/kpanel/menu/tienich/kpanel-sua-loi-chown;;
 	3) /etc/kpanel/menu/tienich/kpanel-xem-danh-sach-max-dung-luong-file-menu;;
 	4) /etc/kpanel/menu/tienich/kpanel-dich-vu-dang-chay-va-ram-dung;;
 	5) /etc/kpanel/menu/tienich/kpanel-tim-ip-nameserver-website;;

@@ -24,5 +24,5 @@ echo "========================================================================="
 echo "Loi Session da duoc fix thanh cong "
 echo "-------------------------------------------------------------------------"
 echo "Ban co the truy cap Phpmyadmin de kiem tra."
-/etc/kpanel/menu/kpanel-phpmyadmin-menu
+/etc/kpanel/menu/5_phpmyadmin/kpanel-phpmyadmin-menu
 

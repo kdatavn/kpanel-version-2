@@ -21,5 +21,5 @@ echo "========================================================================="
 echo "Loi Chmod & Chown da duoc fix thanh cong "
 echo "-------------------------------------------------------------------------"
 echo "Ban co the truy cap website de kiem tra."
-/etc/kpanel/menu/kpanel-tien-ich
+/etc/kpanel/menu/tienich/kpanel-tien-ich
 

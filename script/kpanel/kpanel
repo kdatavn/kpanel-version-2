@@ -64,7 +64,7 @@ select opt in "${options[@]}" ; do
     22) clear && /etc/kpanel/menu/kpanel-netdata-menu;;
     23) clear && /etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu;;
     24) clear && /etc/kpanel/menu/kpanel-kiem-tra-ddos;;
-    25) clear && /etc/kpanel/menu/kpanel-tien-ich;;
+    25) clear && /etc/kpanel/menu/tienich/kpanel-tien-ich;;
     26) clear && /etc/kpanel/menu/kpanel-update-upgrade-service-menu;;
     27) /etc/kpanel/menu/clear-cache/kpanel-clear-cache-xoa-cache-server;;
     28) /etc/kpanel/menu/user-secure/dat-mat-khau-bao-ve-folder-mac-dinh;;
