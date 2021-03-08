@@ -13,7 +13,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap ten website"
-/etc/kpanel/menu/kpanel-letsencrypt-menu
+/etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi
 
@@ -21,7 +21,7 @@ if [ ! -f /etc/nginx/conf.d/$website.conf ]; then
 clear
 echo "========================================================================="
 echo "Khong tim thay $website tren server "
-/etc/kpanel/menu/kpanel-letsencrypt-menu
+/etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi  
 
@@ -30,8 +30,8 @@ clear
 echo "========================================================================="
 echo "Khong tim thay folder public_html cua $website"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien thuc nang nay."
-/etc/kpanel/menu/kpanel-letsencrypt-menu
+echo "KPANEL khong the thuc hien thuc nang nay."
+/etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi
 ##############
@@ -40,7 +40,7 @@ if [ ! -f /root/.acme.sh/$website/$website.conf ]; then
 clear
 echo "========================================================================="
 echo "$website chua duoc cai dat SSL Let's Encrypt."
-/etc/kpanel/menu/kpanel-letsencrypt-menu
+/etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi
 
@@ -68,12 +68,12 @@ echo "-------------------------------------------------------------------------"
 echo "Chung chi SSL het han sau: $thoigianconlai ngay."
 if [ -f /etc/kpanel/Renew.SSL.Letencrypt ] && [ -f /etc/cron.d/kpanel.autorenew.ssl.cron ]; then
 echo "-------------------------------------------------------------------------"
-echo "kpanel se tu dong gia han chung chi sau: $thoigiannengiahanlai ngay."
+echo "KPANEL se tu dong gia han chung chi sau: $thoigiannengiahanlai ngay."
 else
 echo "-------------------------------------------------------------------------"
 echo "BAN CHUA BAT TINH NANG TU DONG GIA HAN SSL."
 fi
-/etc/kpanel/menu/kpanel-letsencrypt-menu
+/etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi
 
@@ -95,7 +95,7 @@ echo "-------------------------------------------------------------------------"
 echo "Backup Vhost: /home/$website/$website.conf_HTTP"
 echo "-------------------------------------------------------------------------"
 echo "SSL Vhost: /home/$website/$website.conf_HTTPS"
-/etc/kpanel/menu/kpanel-letsencrypt-menu
+/etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 exit
 fi
 fi

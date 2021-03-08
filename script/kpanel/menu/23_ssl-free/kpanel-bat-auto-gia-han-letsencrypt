@@ -7,8 +7,8 @@ clear
 echo "========================================================================="
 echo "Chuc nang tu dong gia han chung chi SSL Let's Encrypt da duoc BAT."
 echo "-------------------------------------------------------------------------"
-echo "kpanel se auto renew SSL 10 ngay truoc khi SSL het han."
-/etc/kpanel/menu/kpanel-letsencrypt-menu
+echo "KPANEL se auto renew SSL 10 ngay truoc khi SSL het han."
+/etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 fi
 echo "========================================================================="
 echo "Su dung chuc nang nay BAT chuc nang tu dong gia han chung chi SSL cho"
@@ -34,12 +34,12 @@ echo "========================================================================="
 echo "Hoan thanh cai dat tu dong gia han chung chi SSL Let's Encrypt."
 echo "-------------------------------------------------------------------------"
 echo "kpanel se auto renew SSL 10 ngay truoc khi SSL het han."
-/etc/kpanel/menu/kpanel-letsencrypt-menu
+/etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 ;;
     *)
 clear 
 echo "========================================================================= "
 echo "Cancel !"
-/etc/kpanel/menu/kpanel-letsencrypt-menu
+/etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
         ;;
 esac

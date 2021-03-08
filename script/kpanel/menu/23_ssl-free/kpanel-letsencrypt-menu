@@ -12,7 +12,7 @@ fi
 if [ ! -f /root/.acme.sh/acme.sh ]; then
 clear
 echo "========================================================================="
-echo "kpanel se cai dat tien ich Acme.Sh truoc khi chay chuc nang nay"
+echo "KPANEL se cai dat tien ich Acme.Sh truoc khi chay chuc nang nay"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."; sleep 5
 wget -O -  https://get.acme.sh | sh
@@ -28,7 +28,7 @@ echo "========================================================================="
 echo "Cai dat acme.sh hoan thanh"
 echo "-------------------------------------------------------------------------"
 echo "Bay gio ban co the su dung chuc nang cai dat SSL cho website cua minh."
-/etc/kpanel/menu/kpanel-letsencrypt-menu
+/etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 fi
 version=`/root/.acme.sh/acme.sh --version | awk 'NR==2' | sed 's/v//'`
 show_menu_lets-encrypt () {
@@ -46,13 +46,13 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1) /etc/kpanel/menu/kpanel-cai-dat-ssl-letsencrypt;;
-    2) /etc/kpanel/menu/kpanel-kiem-tra-ssl-letsencrypt;;
-    3) /etc/kpanel/menu/kpanel-bat-auto-gia-han-letsencrypt;; 
-    4) /etc/kpanel/menu/kpanel-renew-ssl-letsencrypt;;
-    5) /etc/kpanel/menu/kpanel-list-domain-cai-dat-letsencrypt;;
-    6) /etc/kpanel/menu/kpanel-remove-ssl-letsencrypt;;
-    7) /etc/kpanel/menu/kpanel-update-letsencrypt;;
+    1) /etc/kpanel/menu/23_ssl-free/kpanel-cai-dat-ssl-letsencrypt;;
+    2) /etc/kpanel/menu/23_ssl-free/kpanel-kiem-tra-ssl-letsencrypt;;
+    3) /etc/kpanel/menu/23_ssl-free/kpanel-bat-auto-gia-han-letsencrypt;; 
+    4) /etc/kpanel/menu/23_ssl-free/kpanel-renew-ssl-letsencrypt;;
+    5) /etc/kpanel/menu/23_ssl-free/kpanel-list-domain-cai-dat-letsencrypt;;
+    6) /etc/kpanel/menu/23_ssl-free/kpanel-remove-ssl-letsencrypt;;
+    7) /etc/kpanel/menu/23_ssl-free/kpanel-update-letsencrypt;;
     8) clear && /bin/kpanel;;
     0) clear && /bin/kpanel;;
     
@@ -72,7 +72,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -88,7 +88,7 @@ show_menu_lets-encrypt
 		else
 				clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -107,7 +107,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -123,7 +123,7 @@ show_menu_lets-encrypt
 		else
 				clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
