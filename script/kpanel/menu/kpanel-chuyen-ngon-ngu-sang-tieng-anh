@@ -22,7 +22,7 @@ echo "-------------------------------------------------------------------------"
 
 cd /etc/kpanel/
 rm -rf /etc/kpanel/menu.zip
-wget -q --no-check-certificate https://kpanel.com/script/kpanel/menu.zip
+wget -q --no-check-certificate https://kdata.vn/script/kpanel/menu.zip
 
 #Check menu.zip files
 
@@ -45,7 +45,7 @@ rm -rf /etc/kpanel/menu.zip
 cd
 download_main_menu () {
 #wget -q --no-check-certificate https://kpanel.com/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
-wget -q --no-check-certificate https://github.com/itvn9online/kpanel-free/raw/master/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
+wget -q --no-check-certificate https://github.com/kdatavn/kpanel-version-2/raw/main/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
 }
 download_main_menu
 checkvpssim_mainmenu=`cat /bin/kpanel`
@@ -53,7 +53,7 @@ if [ -z "$checkvpssim_mainmenu" ]; then
 download_main_menu
 fi
 #wget -q --no-check-certificate https://kpanel.com/script/kpanel/motd -O /etc/motd
-wget -q --no-check-certificate https://github.com/itvn9online/kpanel-free/raw/master/script/kpanel/motd -O /etc/motd
+wget -q --no-check-certificate https://github.com/kdatavn/kpanel-version-2/raw/main/script/kpanel/motd -O /etc/motd
 find /etc/kpanel/menu -type f -exec chmod 755 {} \;
 clear 
 echo "========================================================================= "

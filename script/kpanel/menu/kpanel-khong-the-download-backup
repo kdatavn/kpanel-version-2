@@ -18,4 +18,4 @@ echo "Hoac them IP cua ban vao Csf.allow bang chuc nang [Add IP to CSF.Allow]"
 echo "========================================================================="
 read -p "Nhan [Enter] de thoat ..."
 clear
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu

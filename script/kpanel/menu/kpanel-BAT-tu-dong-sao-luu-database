@@ -9,7 +9,7 @@ options=( "3 Ngay" "7 Ngay" "10 Ngay" "15 Ngay" "20 Ngay" "25 Ngay" "30 Ngay")
 echo "========================================================================="
 echo "Lua Chon Server Se Luu Tru File Backup Trong Thoi Gian Bao Lau"
 echo "-------------------------------------------------------------------------"
-echo "kpanel Se Tu Dong Xoa File Backup Khi Dat Toi Gioi Han Nay" 
+echo "KPANEL Se Tu Dong Xoa File Backup Khi Dat Toi Gioi Han Nay" 
 echo "========================================================================="
 PS3="$prompt"
 select opt in "${options[@]}"; do 
@@ -48,7 +48,7 @@ options=( "7 Ngay" "14 Ngay" "21 Ngay" "28 Ngay" "35 Ngay" "42 Ngay" "49 Ngay")
 echo "========================================================================="
 echo "Lua Chon Server Se Luu Tru File Backup Trong Thoi Gian Bao Lau"
 echo "-------------------------------------------------------------------------"
-echo "kpanel Se Tu Dong Xoa File Backup Khi Dat Toi Gioi Han Nay"
+echo "KPANEL Se Tu Dong Xoa File Backup Khi Dat Toi Gioi Han Nay"
 echo "========================================================================="
 PS3="$prompt"
 select opt in "${options[@]}"; do 
@@ -83,7 +83,7 @@ fi
 
 chongio()
 {
-echo -n "Ban muon kpanel backup database nay luc may gio ? [0-23]: " 
+echo -n "Ban muon KPANEL backup database nay luc may gio ? [0-23]: " 
 read gio
 if [ "$gio" = "" ]; then
 echo "========================================================================="
@@ -113,7 +113,7 @@ fi
 chonthu()
 {
 echo "-------------------------------------------------------------------------"
-echo -n "Ban muon kpanel backup database vao thu may ?[2-8]: " 
+echo -n "Ban muon KPANEL backup database vao thu may ?[2-8]: " 
 read thu
 if [ "$thu" = "" ]; then
 echo "========================================================================="
@@ -199,7 +199,7 @@ chonthoigianluubackupfilehangtuan
 echo "-------------------------------------------------------------------------"
 echo "Thoi Gian Luu Tru Toi Da Cua 1 File Backup Tren Server La $songayxoa Ngay"
 echo "-------------------------------------------------------------------------"
-read -r -p "Cho phep kpanel backup $dataname vao $gio gio $thu12 hang tuan ? [y/N] " response
+read -r -p "Cho phep KPANEL backup $dataname vao $gio gio $thu12 hang tuan ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
         echo "-------------------------------------------------------------------------"
@@ -330,7 +330,7 @@ chonthoigianluubackupfile
 echo "-------------------------------------------------------------------------"
 echo "Thoi Gian Luu Tru Toi Da Cua 1 File Backup Tren Server La $songayxoa Ngay"
 echo "========================================================================="
-read -r -p "Cho phep kpanel backup $dataname moi tieng mot lan ? [y/N] " response
+read -r -p "Cho phep KPANEL backup $dataname moi tieng mot lan ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
         echo "-------------------------------------------------------------------------"

@@ -1,6 +1,6 @@
    #!/bin/bash
-    rm -rf /tmp/vpssimdishammuondis
-    grep "disable_functions =" /etc/php.ini | awk 'NR==1 {print $3}' > /tmp/vpssimdishamdisable
+    rm -rf /tmp/kpaneldishammuondis
+    grep "disable_functions =" /etc/php.ini | awk 'NR==1 {print $3}' > /tmp/kpaneldishamdisable
     options=("escapeshellarg" "escapeshellcmd" "exec" "ini_alter" "passthru" "pcntl_exec" "popen" "proc_close" "proc_get_status" "proc_nice" "proc_open" "proc_terminate" "show_source" "shell_exec" "symlink" "system" "Config Mac Dinh")
     menu() {
         clear
@@ -59,9 +59,9 @@ fi
         [[ "${choices[num]}" ]] && choices[num]="" || choices[num]="[X]"
     done
     for i in ${!options[@]}; do 
-        [[ "${choices[i]}" ]] && echo "${options[i]}" >> /tmp/vpssimdishammuondis #&& { echo " %s" "${options[i]}"; msg="";} 
+        [[ "${choices[i]}" ]] && echo "${options[i]}" >> /tmp/kpaneldishammuondis #&& { echo " %s" "${options[i]}"; msg="";} 
     done
-     if [ ! -f /tmp/vpssimdishammuondis ]; then
+     if [ ! -f /tmp/kpaneldishammuondis ]; then
 echo "========================================================================="
 echo "Ban khong chon ham php nao."
     echo "-------------------------------------------------------------------------"
@@ -98,21 +98,21 @@ esac
      echo "========================================================================="
      echo "Danh sach php function ban chon:"
      echo "-------------------------------------------------------------------------"
-     cat /tmp/vpssimdishammuondis | pr -4 -t
+     cat /tmp/kpaneldishammuondis | pr -4 -t
      echo "========================================================================="
      read -r -p "Ban chac chan muon disable nhung ham nay? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...";sleep 1
-awk -F'\n' '{if(NR == 1) {printf $0} else {printf ","$0}}' /tmp/vpssimdishammuondis > /tmp/vpssimdislisthamdis
-cat > "/tmp/vpssimdischange-disable-php-function.sh" <<END
+awk -F'\n' '{if(NR == 1) {printf $0} else {printf ","$0}}' /tmp/kpaneldishammuondis > /tmp/kpaneldislisthamdis
+cat > "/tmp/kpaneldischange-disable-php-function.sh" <<END
 #!/bin/sh
-sed -i 's/.*disable_functions\ =.*/disable_functions = `cat  /tmp/vpssimdislisthamdis`/g' /etc/php.ini
+sed -i 's/.*disable_functions\ =.*/disable_functions = `cat  /tmp/kpaneldislisthamdis`/g' /etc/php.ini
 END
-chmod +x /tmp/vpssimdischange-disable-php-function.sh
-/tmp/vpssimdischange-disable-php-function.sh
-rm -f /tmp/vpssimdischange-disable-php-function.sh
+chmod +x /tmp/kpaneldischange-disable-php-function.sh
+/tmp/kpaneldischange-disable-php-function.sh
+rm -f /tmp/kpaneldischange-disable-php-function.sh
 #if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "7" ]; then 
 if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 systemctl restart php-fpm.service
@@ -120,10 +120,10 @@ else
 service php-fpm restart
 fi
 clear
-grep "disable_functions =" /etc/php.ini | sed 's/disable_functions =\ //' > /tmp/vpssimdislisthamdisfinish
+grep "disable_functions =" /etc/php.ini | sed 's/disable_functions =\ //' > /tmp/kpaneldislisthamdisfinish
 echo "========================================================================= "
 echo "Config Disable ham PHP thanh cong "
-rm -rf /tmp/vpssimdis*
+rm -rf /tmp/kpaneldis*
 /etc/kpanel/menu/kpanel-config-php.ini-menu
 ;;
     *)

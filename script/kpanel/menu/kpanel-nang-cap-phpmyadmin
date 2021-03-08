@@ -39,7 +39,7 @@ if [ ! "$curTime" = "$fileTime2" ]; then
 echo "Download 0-all-phpmyadmin-version.txt..."
 cd /tmp
 rm -rf 00-all-phpmyadmin-version*
-wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/script/kpanel/00-all-phpmyadmin-version.txt
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/main/script/kpanel/00-all-phpmyadmin-version.txt
 fi
 
 cd ~

@@ -22,11 +22,11 @@ case $response in
 echo "Please wait ... "
 sleep 1
 echo "-------------------------------------------------------------------------"
-wget -q --no-check-certificate https://hostingaz.vn/script/kpanel/motd -O /etc/motd
-wget -q --no-check-certificate https://hostingaz.vn/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
+wget -q --no-check-certificate https://kdata.vn/script/kpanel/motd -O /etc/motd
+wget -q --no-check-certificate https://kdata.vn/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
 cd /etc/kpanel/
 rm -rf /etc/kpanel/menu.zip
-wget -q --no-check-certificate https://hostingaz.vn/script/kpanel/menu.zip
+wget -q --no-check-certificate https://kdata.vn/script/kpanel/menu.zip
 
 #Check menu.zip files
 
@@ -47,9 +47,9 @@ rm -rf /tmp/menu
 unzip -q -o menu.zip
 rm -rf /etc/kpanel/menu.zip
 cd
-wget -q --no-check-certificate https://hostingaz.vn/script/kpanel/motd -O /etc/motd
+wget -q --no-check-certificate https://kdata.vn/script/kpanel/motd -O /etc/motd
 download_main_menu () {
-wget -q --no-check-certificate https://hostingaz.vn/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
+wget -q --no-check-certificate https://kdata.vn/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
 }
 download_main_menu
 checkvpssim_mainmenu=`cat /bin/kpanel`
