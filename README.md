@@ -68,14 +68,14 @@ Lâu không dùng 2 bản cũ kia, mà nọ có việc nên xem lại câu lện
 ### OpenSSL
 > 2020/09/01
 #### Cập nhật OpenSSL lên bản mới nhất và build nginx từ bản này: https://linuxscriptshub.com/update-openssl-1-1-0-centos-6-9-7-0/
-#### Mã thực thi: https://github.com/kdatavn/kpanel-version-2/blob/master/script/kpanel/menu/nang-cap-openssl
+#### Mã thực thi: https://github.com/kdatavn/kpanel-version-2/blob/main/script/kpanel/menu/nang-cap-openssl
 > Cách sử dụng: Trong KPANEL menu -> 26) Update System -> 7) Thay phien phien ban OpenSSL
 
 ----------------------------------------------
 
 ### Nginx
 > 2020/09/01
-#### Nguồn cài đặt: https://github.com/kdatavn/kpanel-version-2/blob/master/script/kpanel/nginx-setup.conf
+#### Nguồn cài đặt: https://github.com/kdatavn/kpanel-version-2/blob/main/script/kpanel/nginx-setup.conf
 - Cài đặt nginx-1.18.0, đây là phiên bản ổn định và mới nhất của nginx tính đến thời điểm hiện tại, kết hợp với OpenSSL-1.1.1i thay cho bản openssl cũ của KPANEL, phiên bản này mới hỗ trợ đầy đủ HTTP/2.
 	- Phiên bản nginx được xem và cập nhật tại: http://nginx.org/en/download.html . Mặc định mình chỉ chọn phiên bản Stable version, các bản Mainline là đang phát triển nên không chọn.
 	- Chuyển sang sử dụng OpenSSL-1.1.1i, đây cũng là bản openssl mới nhất hiện nay. Hỗ trợ HTTP/2 hoàn chỉnh, TLSv1.3 và rất nhiều cải tiến khác so với các bản tiền nhiệm. Các phiên bản OpenSSL khác có thể xem thêm tại đây: https://www.openssl.org/source/
