@@ -48,12 +48,12 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1) /etc/kpanel/menu/kpanel-phpmyadmin;;
-    2) /etc/kpanel/menu/tienich/kpanel-mo-phpmyadmin-port;;
-    3) /etc/kpanel/menu/tienich/kpanel-dong-phpmyadmin-port;;
-    4) /etc/kpanel/menu/tienich/kpanel-change-port-bi-mat;;
-    #5) /etc/kpanel/menu/kpanel-hien-link-phpmyadmin;;
-    5) /etc/kpanel/menu/dat-mat-khau-bao-ve-phpmyadmin-backup-files;;
+    1) /etc/kpanel/menu/5_phpmyadmin/kpanel-phpmyadmin;;
+    2) /etc/kpanel/menu/5_phpmyadmin/kpanel-mo-phpmyadmin-port;;
+    3) /etc/kpanel/menu/5_phpmyadmin/kpanel-dong-phpmyadmin-port;;
+    4) /etc/kpanel/menu/5_phpmyadmin/kpanel-change-port-bi-mat;;
+    #5) /etc/kpanel/menu/5_phpmyadmin/kpanel-hien-link-phpmyadmin;;
+    5) /etc/kpanel/menu/5_phpmyadmin/dat-mat-khau-bao-ve-phpmyadmin-backup-files;;
     6) clear && /bin/kpanel;;
     0) clear && kpanel;;
     

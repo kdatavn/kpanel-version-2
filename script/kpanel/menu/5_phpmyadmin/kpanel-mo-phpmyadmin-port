@@ -7,7 +7,7 @@ echo "========================================================================="
 echo "Port Phpmyadmin port ($priport) dang OPEN."
 echo "-------------------------------------------------------------------------"
 echo "Ban khong can mo lai no! " 
-/etc/kpanel/menu/kpanel-phpmyadmin-menu
+/etc/kpanel/menu/5_phpmyadmin/kpanel-phpmyadmin-menu
 exit
 fi
 
@@ -28,13 +28,13 @@ echo "========================================================================="
 	echo "-------------------------------------------------------------------------"
 	iptables -I INPUT -p tcp --dport $priport -j ACCEPT
 	service iptables save
-/etc/kpanel/menu/kpanel-phpmyadmin-menu
+/etc/kpanel/menu/5_phpmyadmin/kpanel-phpmyadmin-menu
         ;;
     *)
         clear
 echo "========================================================================="
 echo "Ban huy OPEN Phpmyadmin Port (Port $priport)"
-/etc/kpanel/menu/kpanel-phpmyadmin-menu
+/etc/kpanel/menu/5_phpmyadmin/kpanel-phpmyadmin-menu
         ;;
 esac
 

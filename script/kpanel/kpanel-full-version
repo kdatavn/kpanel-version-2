@@ -169,7 +169,7 @@ select opt in "${options[@]}" ; do
     2) /etc/kpanel/menu/kpanel-befor-xoa-website;;
     3) clear && /etc/kpanel/menu/kpanel-sao-luu;;
     4) clear && /etc/kpanel/menu/kpanel-befor-them-xoa-database;;
-    5) clear && /etc/kpanel/menu/kpanel-phpmyadmin-menu;;
+    5) clear && /etc/kpanel/menu/5_phpmyadmin/kpanel-phpmyadmin-menu;;
     6) clear && /etc/kpanel/menu/opcache/kpanel-before-opcache;;
     7) clear && /etc/kpanel/menu/memcache/kpanel-before-memcache-menu;;
     8) clear && /etc/kpanel/menu/kpanel-redis-befor-menu;;
