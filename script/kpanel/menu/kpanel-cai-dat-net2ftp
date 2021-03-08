@@ -72,19 +72,19 @@ sleep 10
     mkdir -p "/home/$website/public_html"
     mkdir -p "/home/$website/logs"
     cd /home/$website/public_html
-#wget -q --no-check-certificate http://kpanel.com/script/kpanel/net2ftp_v1.0.zip
-wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/master/net2ftp_v1.0.zip
+#wget -q --no-check-certificate http://kpanel.com/script/kpanel/net2ftp_v1.3.zip
+wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/master/net2ftp_v1.3.zip
 
-if [ ! -f net2ftp_v1.0.zip ]; then
+if [ ! -f net2ftp_v1.3.zip ]; then
 echo "========================================================================="
 echo "Loi download file cai dat, vui long bao loi voi chung toi"
 echo "-------------------------------------------------------------------------"
 /etc/kpanel/menu/kpanel-net2ftp-menu
 fi
 
-unzip -q net2ftp_v1.0.zip
+unzip -q net2ftp_v1.3.zip
 mv -f net2ftp_v1.0/files_to_upload/* ././
-rm -rf net2ftp_v1.0.zip
+rm -rf net2ftp_v1.3.zip
 echo "please wait... "; sleep 2
 cd
 cat > "/home/$website/public_html/robots.txt" <<END

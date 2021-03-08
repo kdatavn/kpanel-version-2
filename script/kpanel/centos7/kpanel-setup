@@ -1134,6 +1134,7 @@ sleep 3
 #systemctl enable memcached.service 
 rm -rf /root/install*
 rm -rf /root/kpanel-setup
+rm -rf rm -rf /etc/sysconfig/memcached
 cat >> "/home/KPANEL-manage-info.txt" <<END
 =========================================================================
                            VPS MANAGE INFOMATION                         

@@ -69,7 +69,7 @@ fi
 fi
 
 
-# /etc/kpanel/menu/kpanel-befor-vps-info-redis
+# /etc/kpanel/menu/vps-info/kpanel-befor-vps-info-redis
 
 
 if [ -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then

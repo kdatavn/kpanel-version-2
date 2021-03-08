@@ -6,7 +6,7 @@ echo "========================================================================="
 echo "Server hien tai chua duoc ket noi voi VPS backup"
 echo "-------------------------------------------------------------------------"
 echo "Ban khong can chay chuc nang nay."
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 
@@ -38,14 +38,15 @@ service crond restart
 clear
 echo "========================================================================="
 echo "Ngat ket noi voi VPS backup thanh cong! "
-  /etc/kpanel/menu/kpanel-befor-rsync
+  /etc/kpanel/menu/backup/kpanel-befor-rsync
     ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban huy disable backup by Rsync !"
-  /etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+  /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
   exit
 ;;
 esac
 exit
+

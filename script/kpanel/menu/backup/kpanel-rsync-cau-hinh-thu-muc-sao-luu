@@ -6,7 +6,7 @@ echo "========================================================================="
 echo "Server hien tai chua duoc ket noi voi VPS backup"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long ket noi voi VPS backup truoc khi thuc hien thao tac nay."
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 if [ -f /etc/kpanel/vpssim_backup_VPS_by_rsync ]; then
@@ -29,7 +29,7 @@ echo "-------------------------------------------------------------------------"
 echo "Neu muon thay doi thoi gian nay, ban phai [Disable Sync To VPS Backup] "
 echo "-------------------------------------------------------------------------"
 echo "truoc, sau do dung chuc nang [ Ket Noi VPS Backup ]"
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 ipvpsbackup=$(grep "ipaddress" /etc/kpanel/vps_backup_rsync.info | awk '{print $3}')
@@ -42,7 +42,7 @@ echo "========================================================================="
 echo "Ket noi toi VPS Backup that bai"
 echo "-------------------------------------------------------------------------"
 echo "kpanel khong the thuc hien chuc nang nay"
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 
@@ -78,7 +78,7 @@ ssh root@$ipvpsbackup yum -y -q install rsync wget tar
 echo "Createfolder = thanhcong" >> /etc/kpanel/vps_backup_rsync.info
 fi
 echo "Thoi gian thuc hien backup gan nhat: $(date +%T/%d/%m/%Y)" > /home/00-Time-Backup.txt
-rsync -avzq -e ssh /etc/kpanel/menu/kpanel-rsync-motd root@$ipvpsbackup:/etc/motd
+rsync -avzq -e ssh /etc/kpanel/menu/backup/kpanel-rsync-motd root@$ipvpsbackup:/etc/motd
 rsync -avz -e ssh --exclude={cache,.cache,kpanel.conf} /home/ root@$ipvpsbackup:/home/VPS-$serverip/home/
 rsync -avz -e ssh /var/lib/mysql/ root@$ipvpsbackup:/home/VPS-$serverip/mysql/
 rsync -avz -e ssh /etc/nginx/ root@$ipvpsbackup:/home/VPS-$serverip/etc/nginx/
@@ -105,7 +105,7 @@ ssh root@$ipvpsbackup yum -y -q install rsync wget tar
 echo "Createfolder = thanhcong" >> /etc/kpanel/vps_backup_rsync.info
 fi
 echo "Thoi gian thuc hien backup gan nhat: $(date +%T/%d/%m/%Y)" > /home/00-Time-Backup.txt
-rsync -avzq -e ssh /etc/kpanel/menu/kpanel-rsync-motd root@$ipvpsbackup:/etc/motd
+rsync -avzq -e ssh /etc/kpanel/menu/backup/kpanel-rsync-motd root@$ipvpsbackup:/etc/motd
 rsync -avz -e ssh --exclude={$mainsite,cache,.cache,kpanel.conf} /home/ root@$ipvpsbackup:/home/VPS-$serverip/home/
 rsync -avz -e ssh /var/lib/mysql/ root@$ipvpsbackup:/home/VPS-$serverip/mysql/
 rsync -avz -e ssh /etc/nginx/ root@$ipvpsbackup:/home/VPS-$serverip/etc/nginx/
@@ -135,7 +135,7 @@ echo "-------------------------------------------------------------------------"
 echo "($mainsite chua toan bo backup cac website va database)"
 ###################################
 else 
-clear && /etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+clear && /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 fi
 
 prompt="Nhap lua chon cua ban: "
@@ -204,7 +204,7 @@ set_time_run_rsync
 else
 rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync
 clear
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 ###################################
 fi
@@ -225,7 +225,7 @@ clear
   echo "Cu $phut phut 1 lan, kpanel auto sync data toi VPS backup."
   echo "-------------------------------------------------------------------------"
   echo "Thu muc luu tru backup tren VPS backup: /home/VPS-$serverip"
-  /etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+  /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
  
 ;;
 *)
@@ -234,8 +234,9 @@ rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync
 clear
 echo "========================================================================="
 echo "Ban huy thiet lap cau hinh thoi gian backup VPS !"
-  /etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+  /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
   exit
 ;;
 esac
 exit
+

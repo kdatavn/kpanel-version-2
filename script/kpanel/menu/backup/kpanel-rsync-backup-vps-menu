@@ -27,12 +27,12 @@ PS3="$prompt"
 select opt in "${options[@]}" ; do 
 
     case "$REPLY" in
-    1) /etc/kpanel/menu/kpanel-rsync-ket-noi-vps-backup;;
-    2) /etc/kpanel/menu/kpanel-rsync-cau-hinh-thu-muc-sao-luu;;
-    3) /etc/kpanel/menu/kpanel-rsync-sync-toi-vps-backup-ngay;;
-    4) /etc/kpanel/menu/kpanel-rsync-cai-dat-csf-firewall-cho-vps-backup;;
-    5) /etc/kpanel/menu/kpanel-rsync-doi-mat-khau-tai-khoan-root-vps-backup;;
-    6) /etc/kpanel/menu/kpanel-rsync-ngat-ket-noi-vps-backup;;
+    1) /etc/kpanel/menu/backup/kpanel-rsync-ket-noi-vps-backup;;
+    2) /etc/kpanel/menu/backup/kpanel-rsync-cau-hinh-thu-muc-sao-luu;;
+    3) /etc/kpanel/menu/backup/kpanel-rsync-sync-toi-vps-backup-ngay;;
+    4) /etc/kpanel/menu/backup/kpanel-rsync-cai-dat-csf-firewall-cho-vps-backup;;
+    5) /etc/kpanel/menu/backup/kpanel-rsync-doi-mat-khau-tai-khoan-root-vps-backup;;
+    6) /etc/kpanel/menu/backup/kpanel-rsync-ngat-ket-noi-vps-backup;;
     7) clear && kpanel;;
     0) clear && kpanel;;
         *) echo "Ban nhap sai, vui long nhap so thu tu trong danh sach";continue;;
@@ -41,6 +41,7 @@ select opt in "${options[@]}" ; do
     esac
 
 done
+
 
 
 

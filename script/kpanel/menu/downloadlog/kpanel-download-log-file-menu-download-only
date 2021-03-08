@@ -47,5 +47,5 @@ elif [ "$downloadcase" = "securelog" ]; then
 elif [ "$downloadcase" = "eximlog" ]; then
 /etc/kpanel/menu/downloadlog/kpanel-download-log-exim
 else 
-clear && /etc/kpanel/menu/kpanel-eroor-menu
+clear && /etc/kpanel/menu/downloadlog/kpanel-eroor-menu
 fi

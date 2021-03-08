@@ -6,7 +6,7 @@ echo "========================================================================="
 echo "Server hien tai chua duoc ket noi voi VPS backup"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long ket noi voi VPS backup truoc khi thuc hien thao tac nay."
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 csfstatus=$(grep "CSF-Firewall" /etc/kpanel/vps_backup_rsync.info | awk '{print $3}')
@@ -14,7 +14,7 @@ if [ "$csfstatus" == "installed" ]; then
 clear
 echo "========================================================================="
 echo "VPS backup da duoc cai dat CSF FireWall"
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 echo "========================================================================="
@@ -33,7 +33,7 @@ echo "========================================================================="
 echo "Ket noi toi VPS Backup that bai"
 echo "-------------------------------------------------------------------------"
 echo "kpanel khong the thuc hien chuc nang nay"
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
@@ -52,7 +52,7 @@ cat > "/tmp/config-csf-firewall1.sh" <<END
 echo "$serverip" >> /etc/csf/csf.allow
 echo "$serverip" >> /etc/csf/csf.ignore
 END
-rsync -avzq -e ssh /etc/kpanel/menu/Setup-csf-firewall-vps-backup-rsync root@$ipvpsbackup:/tmp/Setup-csf-firewall-vps-backup-rsync
+rsync -avzq -e ssh /etc/kpanel/menu/backup/Setup-csf-firewall-vps-backup-rsync root@$ipvpsbackup:/tmp/Setup-csf-firewall-vps-backup-rsync
 rsync -avzq -e ssh /tmp/config-csf-firewall1.sh root@$ipvpsbackup:/tmp/config-csf-firewall1.sh
 ssh root@$ipvpsbackup chmod +x /tmp/Setup-csf-firewall-vps-backup-rsync
 ssh root@$ipvpsbackup chmod +x /tmp/config-csf-firewall1.sh
@@ -79,7 +79,7 @@ echo "CSF-Firewall = installed" >> /etc/kpanel/vps_backup_rsync.info
 clear
 echo "========================================================================="
 echo "Cai dat va cau hinh CSF Firewall Cho VPS Backup thanh cong "
-/etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+/etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 
 ;;
 *)
@@ -88,8 +88,9 @@ rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync
 clear
 echo "========================================================================="
 echo "Ban huy cai dat CSF Firewall cho VPS backup !"
-  /etc/kpanel/menu/kpanel-rsync-backup-vps-menu
+  /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
   exit
 ;;
 esac
 exit
+
