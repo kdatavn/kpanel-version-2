@@ -10,9 +10,9 @@ echo "========================================================================="
 	sleep 2
 	mysql -u root -p$mariadbpass $dataname < /home/$website/public_html/kpanel-DATABASE.sql
 	#gunzip < /home/$website/public_html/kpanel-DATABASE.gz | mysql -u root -p$mariadbpass $dataname
-	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-	check1=`cat /tmp/vpssim1`
-	check2=`cat /tmp/vpssim2`
+	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+	check1=`cat /tmp/kpanel1`
+	check2=`cat /tmp/kpanel2`
 		if [ "$check1" == "$check2" ]; then
 		rm -rf /tmp/*kpanel*
 		sleep 8
@@ -21,7 +21,7 @@ echo "========================================================================="
 		echo "Phuc hoi database $dataname that bai "
 		echo "-------------------------------------------------------------------------"
 		echo "Vui long kiem tra file backup va thu lai !"
-		/etc/kpanel/menu/kpanel-them-xoa-database
+		/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 		else	
         rm -rf /tmp/*kpanel*
 		mv /home/$website/public_html/kpanel-DATABASE.sql /home/$website/public_html/kpanel-DATABASE.sql.$randomcode
@@ -30,6 +30,6 @@ echo "========================================================================="
 		echo "Phuc hoi database $dataname thanh cong !"
 		echo "-------------------------------------------------------------------------"
 		echo "File backup duoc doi ten thanh kpanel-DATABASE.sql.$randomcode"
-		/etc/kpanel/menu/kpanel-them-xoa-database
+		/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 		exit
 		fi

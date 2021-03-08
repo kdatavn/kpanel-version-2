@@ -39,7 +39,7 @@ if [ ! "$curTime" = "$fileTime2" ]; then
 echo "Download 0-all-phpmyadmin-version.txt..."
 cd /tmp
 rm -rf 00-all-phpmyadmin-version*
-wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/kpanel/00-all-phpmyadmin-version.txt
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/master/script/kpanel/00-all-phpmyadmin-version.txt
 fi
 
 cd ~
@@ -83,9 +83,9 @@ exit
 fi
 
 if  [ "$php_version1" == "5.4" ]; then
-echo "$phpmyadmin_version" > /tmp/vpssim_phpmyadminforphp54
- if [ "$(grep 4.4.15 /tmp/vpssim_phpmyadminforphp54)" == "" ]; then
-rm -rf /tmp/vpssim_phpmyadminforphp54
+echo "$phpmyadmin_version" > /tmp/kpanel_phpmyadminforphp54
+ if [ "$(grep 4.4.15 /tmp/kpanel_phpmyadminforphp54)" == "" ]; then
+rm -rf /tmp/kpanel_phpmyadminforphp54
 clear 
 echo "========================================================================="
 echo "Ban dang su dung PHP 5.4, ban chi co the su dung phpMyAdmin 4.4.15.X"

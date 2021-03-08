@@ -247,13 +247,13 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$dataname/$dataname-$randomcode.sql.gz"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban da huy bo yeu cau tu dong backup $dataname !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 ;;
 esac
 ###################################
@@ -314,13 +314,13 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$dataname/$dataname-$randomcode.sql.gz"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban da huy bo yeu cau tu dong backup $dataname !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 ;;
 esac
 #Sao luu hang gio
@@ -378,17 +378,17 @@ echo "-------------------------------------------------------------------------"
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/$dataname/$dataname-$randomcode.sql.gz"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 ;;
 *)
 clear
 echo "========================================================================="
 echo "Ban da huy bo yeu cau auto backup $dataname !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 ;;
 esac
 else 
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 fi
 
 

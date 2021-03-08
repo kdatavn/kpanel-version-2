@@ -57,4 +57,4 @@ echo "http://$serverip:$priport/linkAUTOBackupData-$randomcode.txt"
 fi
 rm -rf /tmp/*kpanel*
 rm -rf /tmp/chitietbackupauto
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database

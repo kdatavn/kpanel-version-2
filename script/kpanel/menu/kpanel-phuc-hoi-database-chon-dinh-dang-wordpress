@@ -57,7 +57,7 @@ dataname=`cat /home/$website/public_html/wp-config.php | grep DB_NAME | cut -d \
 randomwp=`date |md5sum |cut -c '1-18'`
 echo "$website" > /tmp/kpanel-tensitephuchoi
 echo "$dataname" > /tmp/kpanel-tendatabasephuchoi
-date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim1
+date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel1
 randomcode=`date |md5sum |cut -c '1-12'`
 if [ ! -f /home/$mainsite/private_html/backup/$dataname/*.sql.gz ]; then
      
@@ -92,7 +92,7 @@ if [ ! -f /home/$mainsite/private_html/backup/$dataname/*.sql.gz ]; then
 	echo "========================================================================="
 	read -p "Khi upload hoan thanh. Nhan [Enter] de phuc hoi..."
 	echo "-------------------------------------------------------------------------"
-	echo "kpanel dang tim kiem file backup .... "
+	echo "KPANEL dang tim kiem file backup .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 4
 	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
@@ -157,9 +157,9 @@ echo "--------------------------------------------------------------------------
 echo "kpanel dang Restore $dataname.........."
 sleep 3
 gunzip < /home/$mainsite/private_html/backup/$dataname/$filename | mysql -u root -p$mariadbpass $dataname
-date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-check1=`cat /tmp/vpssim1`
-check2=`cat /tmp/vpssim2`
+date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+check1=`cat /tmp/kpanel1`
+check2=`cat /tmp/kpanel2`
 	if [ "$check1" == "$check2" ]; then
 	rm -rf /tmp/*kpanel*
 	sleep 8
@@ -213,7 +213,7 @@ randomcode=`date |md5sum |cut -c '1-12'`
 	echo "========================================================================="
 	read -p "Khi upload hoan thanh. Nhan [Enter] de phuc hoi..."
 	echo "-------------------------------------------------------------------------"
-	echo "kpanel dang tim kiem file backup .... "
+	echo "KPANEL dang tim kiem file backup .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 4
 	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then

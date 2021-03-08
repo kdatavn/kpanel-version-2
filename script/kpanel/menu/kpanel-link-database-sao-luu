@@ -10,7 +10,7 @@ if [ "$databasename" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 if [ ! -f /var/lib/mysql/$databasename/db.opt ]; then
@@ -19,7 +19,7 @@ echo "========================================================================="
 echo "Database $databasename khong ton tai tren he thong !"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay kiem tra lai !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 
@@ -29,7 +29,7 @@ echo "========================================================================="
 echo "$databasename chua duoc backup tren server !"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay kiem tra lai !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 else
 find /home/$mainsite/private_html/backup/$databasename/ -name '*.sql.gz' -type f -exec basename {} \;  > /tmp/linkdatabasename
 filename=`cat /tmp/linkdatabasename`
@@ -83,6 +83,6 @@ rm -rf /tmp/linkdatabasename
 echo "" >> /home/$mainsite/private_html/ListBackup-$databasename$code.txt
 echo "===================================================The End==============================================================" >> /home/$mainsite/private_html/ListBackup-$databasename$code.txt
 
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi

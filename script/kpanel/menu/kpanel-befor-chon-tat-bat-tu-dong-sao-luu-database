@@ -9,21 +9,21 @@ if [ "$dataname" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap ten database !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 if [ ! -f /var/lib/mysql/$dataname/db.opt ]; then
 clear
 echo "========================================================================="
 echo "Database: $dataname khong ton tai tren he thong"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 if [ "$(ls -1 /var/lib/mysql/$dataname | wc -l)" == 1 ]; then
 clear
 echo "========================================================================="
 echo "Database $dataname chua co du lieu"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 

@@ -2,7 +2,7 @@
 clear
 
 printf "=========================================================================\n"
-printf "            kpanel - Manage VPS/Server by KDATA.VN \n"
+printf "            KPANEL - Manage VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                       Fix Loi chmod & chown                               \n"
 printf "=========================================================================\n"

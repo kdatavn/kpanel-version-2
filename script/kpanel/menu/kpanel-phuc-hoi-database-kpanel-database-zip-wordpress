@@ -15,10 +15,10 @@ echo "========================================================================="
 	ls /tmp/kpanel-sql > /tmp/kpanel-datasql-name
 	tenbackup=$(cat /tmp/kpanel-datasql-name)
 	mysql -u root -p$mariadbpass $dataname < /tmp/kpanel-sql/$tenbackup > /tmp/abc
-	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
+	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
 	rm -rf /tmp/kpanel-sql/$tenbackup
-	check1=`cat /tmp/vpssim1`
-	check2=`cat /tmp/vpssim2`
+	check1=`cat /tmp/kpanel1`
+	check2=`cat /tmp/kpanel2`
 		if [ "$check1" == "$check2" ]; then
 		rm -rf /tmp/*kpanel*
 		sleep 8

@@ -52,7 +52,7 @@ echo "Vui long thu lai !"
 /etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 exit
 fi
-date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim1
+date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel1
 if [ ! -f /home/$mainsite/private_html/backup/$dataname/*.gz ]; then
 randomcode=`date |md5sum |cut -c '1-13'`
 	if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
@@ -63,12 +63,12 @@ randomcode=`date |md5sum |cut -c '1-13'`
 	echo "-------------------------------------------------------------------------"
 	sleep 2
 	gunzip < /home/$website/public_html/kpanel-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
-	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-	check1=`cat /tmp/vpssim1`
-	check2=`cat /tmp/vpssim2`
+	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+	check1=`cat /tmp/kpanel1`
+	check2=`cat /tmp/kpanel2`
 		if [ "$check1" == "$check2" ]; then
-		rm -rf /tmp/vpssim1
-		rm -rf /tmp/vpssim2
+		rm -rf /tmp/kpanel1
+		rm -rf /tmp/kpanel2
 		clear
 		echo "========================================================================="
 		echo "Phuc hoi database $dataname that bai "
@@ -76,8 +76,8 @@ randomcode=`date |md5sum |cut -c '1-13'`
 		echo "Vui long kiem tra file backup va thu lai !"
 		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		else	
-		rm -rf /tmp/vpssim1
-		rm -rf /tmp/vpssim2
+		rm -rf /tmp/kpanel1
+		rm -rf /tmp/kpanel2
 		mv /home/$website/public_html/kpanel-DATABASE.tar.gz /home/$website/public_html/kpanel-DATABASE.tar.gz.$randomcode
 		clear
 		echo "========================================================================="
@@ -100,7 +100,7 @@ randomcode=`date |md5sum |cut -c '1-13'`
 	echo "========================================================================="
 	read -p "Khi upload hoan thanh. Nhan [Enter] de phuc hoi..."
 	echo "-------------------------------------------------------------------------"
-	echo "kpanel dang tim kiem file backup .... "
+	echo "KPANEL dang tim kiem file backup .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 4
 		if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
@@ -111,12 +111,12 @@ randomcode=`date |md5sum |cut -c '1-13'`
 	echo "-------------------------------------------------------------------------"
 	sleep 2
 	gunzip < /home/$website/public_html/kpanel-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
-	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-	check1=`cat /tmp/vpssim1`
-	check2=`cat /tmp/vpssim2`
+	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+	check1=`cat /tmp/kpanel1`
+	check2=`cat /tmp/kpanel2`
 		if [ "$check1" == "$check2" ]; then
-		rm -rf /tmp/vpssim1
-		rm -rf /tmp/vpssim2
+		rm -rf /tmp/kpanel1
+		rm -rf /tmp/kpanel2
 		clear
 		echo "========================================================================="
 		echo "Phuc hoi database $dataname that bai "
@@ -124,8 +124,8 @@ randomcode=`date |md5sum |cut -c '1-13'`
 		echo "Vui long kiem tra file backup va thu lai !"
 		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		else	
-		rm -rf /tmp/vpssim1
-		rm -rf /tmp/vpssim2
+		rm -rf /tmp/kpanel1
+		rm -rf /tmp/kpanel2
 		mv /home/$website/public_html/kpanel-DATABASE.tar.gz /home/$website/public_html/kpanel-DATABASE.tar.gz.$randomcode
 		clear
 		echo "========================================================================="
@@ -176,14 +176,14 @@ if [ "$luachonphuchoi" = "phuchoitufilebackup" ]; then
 echo "--------------------------------------------------------------------------"
 echo "Please wait ...."
 echo "--------------------------------------------------------------------------"
-echo "kpanel dang Restore $dataname.........."
+echo "KPANEL dang Restore $dataname.........."
 gunzip < /home/$mainsite/private_html/backup/$dataname/$filename | mysql -u root -p$mariadbpass $dataname
-date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-check1=`cat /tmp/vpssim1`
-check2=`cat /tmp/vpssim2`
+date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+check1=`cat /tmp/kpanel1`
+check2=`cat /tmp/kpanel2`
 	if [ "$check1" == "$check2" ]; then
-	rm -rf /tmp/vpssim1
-	rm -rf /tmp/vpssim2
+	rm -rf /tmp/kpanel1
+	rm -rf /tmp/kpanel2
 	clear
 	echo "========================================================================="
 	echo "Phuc hoi database $dataname that bai "
@@ -191,8 +191,8 @@ check2=`cat /tmp/vpssim2`
 	echo "Vui long kiem tra file backup va thu lai !"
 	/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 	else	
-	rm -rf /tmp/vpssim1
-	rm -rf /tmp/vpssim2
+	rm -rf /tmp/kpanel1
+	rm -rf /tmp/kpanel2
 	clear
 	echo "========================================================================="
 	echo "Phuc hoi database $dataname thanh cong !"
@@ -211,12 +211,12 @@ randomcode=`date |md5sum |cut -c '1-18'`
 	echo "-------------------------------------------------------------------------"
 	sleep 2
 	gunzip < /home/$website/public_html/kpanel-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
-	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-	check1=`cat /tmp/vpssim1`
-	check2=`cat /tmp/vpssim2`
+	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+	check1=`cat /tmp/kpanel1`
+	check2=`cat /tmp/kpanel2`
 		if [ "$check1" == "$check2" ]; then
-		rm -rf /tmp/vpssim1
-		rm -rf /tmp/vpssim2
+		rm -rf /tmp/kpanel1
+		rm -rf /tmp/kpanel2
 		clear
 		echo "========================================================================="
 		echo "Phuc hoi database $dataname that bai "
@@ -224,8 +224,8 @@ randomcode=`date |md5sum |cut -c '1-18'`
 		echo "Vui long kiem tra file backup va thu lai !"
 		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		else	
-		rm -rf /tmp/vpssim1
-		rm -rf /tmp/vpssim2
+		rm -rf /tmp/kpanel1
+		rm -rf /tmp/kpanel2
         mv /home/$website/public_html/kpanel-DATABASE.tar.gz /home/$website/public_html/kpanel-DATABASE.tar.gz.$randomcode
 		clear
 		echo "========================================================================="
@@ -249,7 +249,7 @@ randomcode=`date |md5sum |cut -c '1-18'`
 	echo "========================================================================="
 	read -p "Khi upload hoan thanh. Nhan [Enter] de phuc hoi..."
 	echo "-------------------------------------------------------------------------"
-	echo "kpanel dang tim kiem file backup .... "
+	echo "KPANEL dang tim kiem file backup .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 4
 		if [ -f /home/$website/public_html/kpanel-DATABASE.tar.gz ]; then
@@ -260,12 +260,12 @@ randomcode=`date |md5sum |cut -c '1-18'`
 	echo "-------------------------------------------------------------------------"
 	sleep 2
 	gunzip < /home/$website/public_html/kpanel-DATABASE.tar.gz | mysql -u root -p$mariadbpass $dataname
-	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-	check1=`cat /tmp/vpssim1`
-	check2=`cat /tmp/vpssim2`
+	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+	check1=`cat /tmp/kpanel1`
+	check2=`cat /tmp/kpanel2`
 		if [ "$check1" == "$check2" ]; then
-		rm -rf /tmp/vpssim1
-		rm -rf /tmp/vpssim2
+		rm -rf /tmp/kpanel1
+		rm -rf /tmp/kpanel2
 		clear
 		echo "========================================================================="
 		echo "Phuc hoi database $dataname that bai "
@@ -273,8 +273,8 @@ randomcode=`date |md5sum |cut -c '1-18'`
 		echo "Vui long kiem tra file backup va thu lai !"
 		/etc/kpanel/menu/kpanel-sao-luu-phuc-hoi-database
 		else	
-		rm -rf /tmp/vpssim1
-		rm -rf /tmp/vpssim2
+		rm -rf /tmp/kpanel1
+		rm -rf /tmp/kpanel2
 		mv /home/$website/public_html/kpanel-DATABASE.tar.gz /home/$website/public_html/kpanel-DATABASE.tar.gz.$randomcode
 		clear
 		echo "========================================================================="

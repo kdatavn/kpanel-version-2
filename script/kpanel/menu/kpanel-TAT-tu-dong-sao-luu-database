@@ -25,12 +25,12 @@ fi
 clear
 echo "========================================================================="
 echo "TAT che do tu dong backup Database cho $dataname thanh cong."
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
         ;;
     *)
         clear
 echo "========================================================================= "
 echo "Huy TAT che do auto backup Database cho $dataname !"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
         ;;
 esac

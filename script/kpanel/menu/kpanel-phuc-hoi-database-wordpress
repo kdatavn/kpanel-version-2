@@ -55,7 +55,7 @@ exit
 fi
 tendatabase=`cat /home/$website/public_html/wp-config.php | grep DB_NAME | cut -d \' -f 4`
 randomwp=`date |md5sum |cut -c '1-18'`
-date -r /var/lib/mysql/$tendatabase +%H%M%S> /tmp/vpssim1
+date -r /var/lib/mysql/$tendatabase +%H%M%S> /tmp/kpanel1
 echo "-------------------------------------------------------------------------"
 echo "Tim thay $website tren he thong"
 echo "-------------------------------------------------------------------------"
@@ -71,13 +71,13 @@ echo "Chuan bi phuc hoi .... "
 echo "-------------------------------------------------------------------------"
 sleep 2
 gunzip < /home/$website/public_html/kpanel-DATABASE.sql.gz | mysql -u root -p$mariadbpass $tendatabase
-date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-check1=`cat /tmp/vpssim1`
-check2=`cat /tmp/vpssim2`
+date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+check1=`cat /tmp/kpanel1`
+check2=`cat /tmp/kpanel2`
 
 if [ "$check1" == "$check2" ]; then
-	rm -rf /tmp/vpssim1
-	rm -rf /tmp/vpssim2
+	rm -rf /tmp/kpanel1
+	rm -rf /tmp/kpanel2
 	clear
 	echo "========================================================================="
 	echo "Phuc hoi database $tendataname that bai "
@@ -85,8 +85,8 @@ if [ "$check1" == "$check2" ]; then
 	echo "Hay check file backup va lam lai !"
 	/etc/kpanel/menu/kpanel-wordpress-tools-menu
 	else	
-	rm -rf /tmp/vpssim1
-	rm -rf /tmp/vpssim2
+	rm -rf /tmp/kpanel1
+	rm -rf /tmp/kpanel2
 	clear
 	echo "========================================================================="
 	echo "Phuc hoi database $tendatabase thanh cong !"
@@ -108,7 +108,7 @@ else
 	echo "========================================================================="
 	read -p "Upload file xong. Nhan [Enter] de phuc hoi ..."
 	echo "-------------------------------------------------------------------------"
-	echo "kpanel dang tim file Backup .... "
+	echo "KPANEL dang tim file Backup .... "
 	echo "-------------------------------------------------------------------------"
 	sleep 4
 	if [ -f /home/$website/public_html/kpanel-DATABASE.sql.gz ]; then
@@ -118,13 +118,13 @@ echo "Chuan bi phuc hoi .... "
 echo "-------------------------------------------------------------------------"
 sleep 2
 gunzip < /home/$website/public_html/kpanel-DATABASE.sql.gz | mysql -u root -p$mariadbpass $tendatabase
-date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-check1=`cat /tmp/vpssim1`
-check2=`cat /tmp/vpssim2`
+date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+check1=`cat /tmp/kpanel1`
+check2=`cat /tmp/kpanel2`
 
 if [ "$check1" == "$check2" ]; then
-	rm -rf /tmp/vpssim1
-	rm -rf /tmp/vpssim2
+	rm -rf /tmp/kpanel1
+	rm -rf /tmp/kpanel2
 	clear
 	echo "========================================================================="
 	echo "Phuc hoi database $tendatabase that bai "
@@ -132,8 +132,8 @@ if [ "$check1" == "$check2" ]; then
 	echo "Hay check file backup va lam lai !"
 	/etc/kpanel/menu/kpanel-wordpress-tools-menu
 	else	
-	rm -rf /tmp/vpssim1
-	rm -rf /tmp/vpssim2
+	rm -rf /tmp/kpanel1
+	rm -rf /tmp/kpanel2
 	clear
 	echo "========================================================================="
 	echo "Phuc hoi database $tendatabase thanh cong !"

@@ -15,8 +15,8 @@ select opt in "${options[@]}" ; do
     1 ) /etc/kpanel/menu/kpanel-befor-sao-luu-tat-ca-database;;
     2 ) /etc/kpanel/menu/kpanel-link-sao-luu-all-database;;
     3 ) /etc/kpanel/menu/kpanel-befor-phuc-hoi-tat-ca-database;;
-    4 ) clear && /etc/kpanel/menu/kpanel-them-xoa-database;;
-    0 ) clear && /etc/kpanel/menu/kpanel-them-xoa-database;;
+    4 ) clear && /etc/kpanel/menu/4_database/kpanel-them-xoa-database;;
+    0 ) clear && /etc/kpanel/menu/4_database/kpanel-them-xoa-database;;
 
     
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;

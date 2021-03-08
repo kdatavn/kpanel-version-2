@@ -12,13 +12,13 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1 ) /etc/kpanel/menu/kpanel-sao-luu-data;;
-    2 ) /etc/kpanel/menu/kpanel-lan-luot-sao-luu-het-tat-ca-database;;
-    3 ) /etc/kpanel/menu/kpanel-phuc-hoi-database-chon-dinh-dang;;
-    4 ) /etc/kpanel/menu/kpanel-lay-link-sao-luu-database-backup-menu;;
-    #5 ) /etc/kpanel/menu/kpanel-list-database-tren-vps;; "Danh Sach Database Tren Server"
-    5 ) clear && /etc/kpanel/menu/kpanel-them-xoa-database;;
-    0 ) clear && /etc/kpanel/menu/kpanel-them-xoa-database;;
+    1 ) /etc/kpanel/menu/4_database/kpanel-sao-luu-data;;
+    2 ) /etc/kpanel/menu/4_database/kpanel-lan-luot-sao-luu-het-tat-ca-database;;
+    3 ) /etc/kpanel/menu/4_database/kpanel-phuc-hoi-database-chon-dinh-dang;;
+    4 ) /etc/kpanel/menu/4_database/kpanel-lay-link-sao-luu-database-backup-menu;;
+    #5 ) /etc/kpanel/menu/4_database/kpanel-list-database-tren-vps;; "Danh Sach Database Tren Server"
+    5 ) clear && /etc/kpanel/menu/4_database/kpanel-them-xoa-database;;
+    0 ) clear && /etc/kpanel/menu/4_database/kpanel-them-xoa-database;;
 
     
     *) echo "Ban nhap sai, vui long nhap theo danh sach";continue;;

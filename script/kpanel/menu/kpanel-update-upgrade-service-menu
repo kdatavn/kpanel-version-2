@@ -5,7 +5,7 @@ prompt="Lua chon cua ban (0-Thoat):"
 options=( "Update System" "Update KPANEL" "Update Nginx" "Change phpMyAdmin Version" "Change PHP Version" "Update OpenSSL version" \
 "Pull code form git" "Reset code form git" "List soft version" "Nginx quiche" "Auto update system")
 printf "=========================================================================\n"
-printf "                kpanel - Quan Ly VPS/Server by WebGiaRe.org \n"
+printf "                KPANEL - Quan Ly VPS/Server by WebGiaRe.org \n"
 printf "=========================================================================\n"
 printf "                        Update / Upgrade Service \n"
 printf "=========================================================================\n"

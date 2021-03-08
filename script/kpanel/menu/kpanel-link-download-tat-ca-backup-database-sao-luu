@@ -16,7 +16,7 @@ if [ ! -f /tmp/checksite-list ]; then
 clear
 echo "========================================================================="
 echo "kpanel khong tim thay file backup database tren server"
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 exit
 fi
 sodatabasecobackup=$(cat /tmp/checksite-list | wc -l)
@@ -93,14 +93,14 @@ echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/Listbackupall-DB-$code.txt"
 echo "" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "===================================================The End==============================================================" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
-/etc/kpanel/menu/kpanel-them-xoa-database
+/etc/kpanel/menu/4_database/kpanel-them-xoa-database
 rm -rf /tmp/*hostingaz*
    ;;
     *)
     clear
         echo "========================================================================= "
         echo "Huy bo lay link download backup cua tat ca database"
-        /etc/kpanel/menu/kpanel-them-xoa-database
+        /etc/kpanel/menu/4_database/kpanel-them-xoa-database
         ;;
 esac
 

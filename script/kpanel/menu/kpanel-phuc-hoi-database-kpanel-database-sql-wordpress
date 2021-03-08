@@ -10,9 +10,9 @@ echo "========================================================================="
 	echo "-------------------------------------------------------------------------"
 	sleep 2
 	mysql -u root -p$mariadbpass $dataname < /home/$website/public_html/kpanel-DATABASE.sql
-	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/vpssim2
-	check1=`cat /tmp/vpssim1`
-	check2=`cat /tmp/vpssim2`
+	date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
+	check1=`cat /tmp/kpanel1`
+	check2=`cat /tmp/kpanel2`
 		if [ "$check1" == "$check2" ]; then
 		rm -rf /tmp/*kpanel*
 		sleep 8
