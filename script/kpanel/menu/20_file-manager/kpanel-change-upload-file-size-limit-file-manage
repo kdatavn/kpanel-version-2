@@ -5,7 +5,7 @@ if [ ! -f /etc/kpanel/uploadsite ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat File Manager tren server !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 echo "========================================================================="
@@ -111,7 +111,7 @@ sed -i "s/.*upload_max_filesize =.*/upload_max_filesize = 2000M/g" /etc/php.ini
 sed -i "s/.*client_max_body_size.*/client_max_body_size 2000m;/g" /etc/nginx/nginx.conf 
 ###################################
 else 
-clear && /etc/kpanel/menu/kpanel-web-upload-menu
+clear && /etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 fi
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 service nginx reload
@@ -125,4 +125,4 @@ echo "========================================================================="
 echo "Thay doi gia tri Upload Max filesize thanh cong"
 echo "-------------------------------------------------------------------------"
 echo "upload_max_filesize = $maxfilezize MB"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu

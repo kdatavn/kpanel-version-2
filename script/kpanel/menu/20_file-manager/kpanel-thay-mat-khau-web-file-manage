@@ -5,7 +5,7 @@ if [ ! -f /etc/kpanel/uploadsite ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat File Manager cho Server !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 uploadsite=$(cat /etc/kpanel/uploadsite)
@@ -26,7 +26,7 @@ read adminupload
 if [ "$adminupload" = "" ]; then
 echo "========================================================================="
 echo "Ban phai nhap tai khoan admin."
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 if [[ ! ${#adminupload} -ge 5 ]]; then
@@ -35,7 +35,7 @@ echo "========================================================================="
 echo "User admin toi thieu phai co 5 ki tu "
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi 
 checkuseradmin="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -45,7 +45,7 @@ echo "========================================================================="
 echo "Ban chi duoc su dung chu cai va so cho tai khoan admin"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi 
 
@@ -56,7 +56,7 @@ if [ "$matkhau" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap mat khau"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 #checkpass="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -66,7 +66,7 @@ fi
 #echo "Ban chi duoc dung chu cai va so de dat mat khau."
 #echo "-------------------------------------------------------------------------"
 #echo "Ban vui long thu lai  !"
-#/etc/kpanel/menu/kpanel-web-upload-menu
+#/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 #exit
 #fi
 if [[ ! ${#matkhau} -ge 8 ]]; then
@@ -75,7 +75,7 @@ echo "========================================================================="
 echo "Mat khau toi thieu phai co 8 ky tu "
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi 
 #######
@@ -105,10 +105,10 @@ echo "========================================================================="
 echo "Thay doi thong tin dang nhap File Manager thanh cong."
 echo "-------------------------------------------------------------------------"
 echo "Username: $adminupload | Password: $matkhau"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 ;;
 esac
 clear
 echo "========================================================================="
 echo "Cancel !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu

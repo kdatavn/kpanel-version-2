@@ -10,7 +10,7 @@ echo "-------------------------------------------------------------------------"
 echo "Hay tro $(cat /etc/kpanel/uploadsite) toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de quan ly file tren server"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 echo "========================================================================="
@@ -27,7 +27,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 
@@ -39,7 +39,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 
@@ -47,7 +47,7 @@ if [ -f /etc/nginx/conf.d/$website.conf ]; then
 clear
 echo "========================================================================="
 echo "Phat hien $website da ton tai tren he thong!"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 
@@ -58,7 +58,7 @@ read adminupload
 if [ "$adminupload" = "" ]; then
 echo "========================================================================="
 echo "Ban phai nhap tai khoan admin."
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 if [[ ! ${#adminupload} -ge 5 ]]; then
@@ -67,7 +67,7 @@ echo "========================================================================="
 echo "User admin toi thieu phai co 5 ki tu "
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi 
 checkuseradmin="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -77,7 +77,7 @@ echo "========================================================================="
 echo "Ban chi duoc su dung chu cai va so cho user admin"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi 
 
@@ -88,7 +88,7 @@ if [ "$matkhau" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban chua nhap mat khau"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 #checkpass="^[a-zA-Z0-9_][-a-zA-Z0-9_]{0,61}[a-zA-Z0-9_]$";
@@ -98,7 +98,7 @@ fi
 #echo "Ban chi duoc dung chu cai va so de dat mat khau."
 #echo "-------------------------------------------------------------------------"
 #echo "Ban vui long thu lai  !"
-#/etc/kpanel/menu/kpanel-web-upload-menu
+#/etc/kpanel/menu/20_file-manager/20_file-manager/kpanel-web-upload-menu
 #exit
 #fi
 if [[ ! ${#matkhau} -ge 8 ]]; then
@@ -107,7 +107,7 @@ echo "========================================================================="
 echo "Mat khau toi thieu phai co 8 ky tu "
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi 
 #######
@@ -132,7 +132,7 @@ if [ ! -f eXtplorer_2.1.14.zip ]; then
 echo "========================================================================="
 echo "Loi download file cai dat, vui long bao loi voi chung toi"
 echo "-------------------------------------------------------------------------"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 fi
 
 unzip -q eXtplorer_2.1.14.zip
@@ -216,4 +216,4 @@ echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de quan ly file tren server."
 echo "========================================================================="
 echo "Thong tin quan ly: User: $adminupload | Password: $matkhau "
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu

@@ -42,14 +42,14 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1) /etc/kpanel/menu/kpanel-cai-dat-web-upload-manage;;
-    #2) /etc/kpanel/menu/kpanel-tat-bat-web-manage;;
-    #3) /etc/kpanel/menu/kpanel-hien-link-web-upload;;
-    2) /etc/kpanel/menu/kpanel-change-upload-file-size-limit-file-manage;;
-    3) /etc/kpanel/menu/kpanel-mat-khau-bao-ve-web-file-manage;;
-    4) /etc/kpanel/menu/kpanel-thay-mat-khau-web-file-manage;;
-    5) /etc/kpanel/menu/kpanel-thay-domain-web-file-manage;;
-    6) /etc/kpanel/menu/kpanel-xoa-website-upload-site;;
+    1) /etc/kpanel/menu/20_file-manager/kpanel-cai-dat-web-upload-manage;;
+    #2) /etc/kpanel/menu/20_file-manager/20_file-manager/kpanel-tat-bat-web-manage;;
+    #3) /etc/kpanel/menu/20_file-manager/20_file-manager/kpanel-hien-link-web-upload;;
+    2) /etc/kpanel/menu/20_file-manager/kpanel-change-upload-file-size-limit-file-manage;;
+    3) /etc/kpanel/menu/20_file-manager/kpanel-mat-khau-bao-ve-web-file-manage;;
+    4) /etc/kpanel/menu/20_file-manager/kpanel-thay-mat-khau-web-file-manage;;
+    5) /etc/kpanel/menu/20_file-manager/kpanel-thay-domain-web-file-manage;;
+    6) /etc/kpanel/menu/20_file-manager/kpanel-xoa-website-upload-site;;
     #7) clear && /bin/kpanel;;
     0) clear && /bin/kpanel;;
     
@@ -68,7 +68,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -103,7 +103,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -119,7 +119,7 @@ show_menu_filemanager
 		else
 				clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -137,7 +137,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -154,7 +154,7 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start PHP-FPM Service"
+echo "KPANEL can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -174,7 +174,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -191,7 +191,7 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start PHP-FPM Service"
+echo "KPANEL can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="

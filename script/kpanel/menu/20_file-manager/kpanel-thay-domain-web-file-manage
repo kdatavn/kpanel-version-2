@@ -5,7 +5,7 @@ if [ ! -f /etc/kpanel/uploadsite ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat File Manager cho Server !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 uploadsite=$(cat /etc/kpanel/uploadsite)
@@ -15,7 +15,7 @@ echo "========================================================================="
 echo "Qua trinh thay Domain File Manager gap loi!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long kiem tra lai"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 echo "========================================================================= "
@@ -32,7 +32,7 @@ if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai!"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 
@@ -44,7 +44,7 @@ echo "========================================================================="
 echo "$website co le khong phai la domain !!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 
@@ -54,7 +54,7 @@ echo "========================================================================="
 echo "Phat hien $website da ton tai tren he thong!"
 echo "-------------------------------------------------------------------------"
 echo "Ban vui long thu lai  !"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 exit
 fi
 
@@ -174,10 +174,10 @@ echo "========================================================================="
 echo "Hay tro domain $(cat /etc/kpanel/uploadsite) toi $serverip"
 echo "-------------------------------------------------------------------------"
 echo "va truy cap domain nay tren trinh duyet de quan ly file tren server."
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
 ;;
 esac
 clear
 echo "========================================================================="
 echo "Ban da cancel thay doi domain File Manager"
-/etc/kpanel/menu/kpanel-web-upload-menu
+/etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu
