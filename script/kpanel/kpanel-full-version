@@ -185,7 +185,7 @@ select opt in "${options[@]}" ; do
     17) clear && /etc/kpanel/menu/kpanel-bitsync-menu;;
     18) clear && /etc/kpanel/menu/kpanel-befor-rsync;;
     19) clear && /etc/kpanel/menu/kpanel-maldet-menu;;
-    20) clear && /etc/kpanel/menu/kpanel-web-upload-menu;;
+    20) clear && /etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu;;
     21) clear && /etc/kpanel/menu/kpanel-net2ftp-menu;;
     22) clear && /etc/kpanel/menu/kpanel-netdata-menu;;
     23) clear && /etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu;;
