@@ -50,7 +50,7 @@ find /home/$mainsite/private_html/backup/$website/ -type f -exec basename {} \; 
 backupall=$(cat /tmp/linkbackupall)
 if [ "$(cat /tmp/linkbackupall | wc -l)" -gt 1 ]; then
 echo "========================================================================================================================" > /home/$mainsite/private_html/ListBackup-$website$code.txt
-echo "                                Link Download Backup Files For $website - Created by kpanel"  >> /home/$mainsite/private_html/ListBackup-$website$code.txt
+echo "                                Link Download Backup Files For $website - Created by KPANEL"  >> /home/$mainsite/private_html/ListBackup-$website$code.txt
 echo "========================================================================================================================" >> /home/$mainsite/private_html/ListBackup-$website$code.txt
 echo ""  >> /home/$mainsite/private_html/ListBackup-$website$code.txt
 echo "File Backup Gan Day Nhat (Backup vao $(date -r /home/$mainsite/private_html/backup/$website/$filename +%H:%M/%F)): " >> /home/$mainsite/private_html/ListBackup-$website$code.txt

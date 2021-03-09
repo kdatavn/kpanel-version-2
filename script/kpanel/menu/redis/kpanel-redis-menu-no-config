@@ -16,7 +16,7 @@ options=("Install Redis Cache" )
 fi
 fi
 printf "=========================================================================\n"
-printf "                KPANEL - Quan Ly VPS/Server by kpanel.VN \n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                           Quan Ly Redis Cache                                \n"
 printf "=========================================================================\n"

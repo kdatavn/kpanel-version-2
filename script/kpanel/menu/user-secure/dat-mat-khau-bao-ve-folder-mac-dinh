@@ -177,7 +177,7 @@ echo "Thong tin ban nhap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se config  dang nhap mac dinh theo thong tin nay "
+echo "KPANEL se config  dang nhap mac dinh theo thong tin nay "
 echo "-------------------------------------------------------------------------"
 echo "please wait ...."; sleep 3
 cat > "/etc/kpanel/pwprotect.default" <<END

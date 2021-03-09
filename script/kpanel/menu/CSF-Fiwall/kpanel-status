@@ -21,7 +21,7 @@ echo "Remove CSF Firewall from Server successfully "
     *)
        clear 
 echo "========================================================================= "
-echo "You cancle remove CSF FIREWALL"
+echo "You cancel remove CSF FIREWALL"
 /etc/kpanel/menu/CSF-Fiwall/kpanel-csf-firewall-menu
         ;;
 esac

@@ -37,7 +37,7 @@ echo "Ban hay lam lai !"
 exit
 fi  
 echo "-------------------------------------------------------------------------"
-echo "kpanel dang dem so luong file php tren VPS"
+echo "KPANEL dang dem so luong file php tren VPS"
 sleep 1
 echo "========================================================================="
 echo "So File PHP hien tai trong folder HOME cua VPS: $(find /home -type f | grep php | wc -l) files"

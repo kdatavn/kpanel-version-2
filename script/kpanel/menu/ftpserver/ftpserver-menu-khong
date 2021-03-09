@@ -2,7 +2,7 @@
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Tao Tai Khoan FTP Cho Website" "Vo Hieu Hoa Tai Khoan FTP" "Thay Mat Khau Tai Khoan FTP" "Xem Thong Tin FTP Cua Website" "Setup FTP Server Over TLS" )
 printf "=========================================================================\n"
-printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                           Quan Ly FTP Server \n"
 printf "=========================================================================\n"

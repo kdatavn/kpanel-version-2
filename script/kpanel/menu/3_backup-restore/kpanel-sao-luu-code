@@ -127,7 +127,7 @@ done
 fi
 cd
 echo "-------------------------------------------------------------------------"
-echo "kpanel se doi ten file backup cu thanh:"
+echo "KPANEL se doi ten file backup cu thanh:"
 echo "-------------------------------------------------------------------------"
 echo "`cat /tmp/kpanel_ten_file_cu`"
 echo "-------------------------------------------------------------------------"
@@ -164,7 +164,7 @@ rm -rf /tmp/*kpanel*
 /etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 else
 echo "-------------------------------------------------------------------------"
-	echo "kpanel dang sao luu $website, ban cho xiu...."
+	echo "KPANEL dang sao luu $website, ban cho xiu...."
 	sleep 1
 	if [  -f /bin/kpanel-backupcode-$website ]; then
 	if [ ! "$(grep kpanel-backupcode-$website /etc/cron.d/kpanel.code.cron)" == "" ]; then

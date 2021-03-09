@@ -8,7 +8,7 @@ echo "========================================================================= 
 echo "Pure-FTPD server chua duoc cai dat tren server. "
 echo "-------------------------------------------------------------------------"
 echo "Ban phai cai dat chuc nang Setup FTP server truoc"
-/etc/kpanel/menu/kpanel-ftpserver-menu
+/etc/kpanel/menu/ftpserver/kpanel-ftpserver-menu
 exit
 fi
 pure-pw list > /tmp/checkuser.tmp
@@ -17,7 +17,7 @@ rm -rf /tmp/listftpuser.tmp
 clear
 echo "========================================================================= "
 echo "Ban chua tao mot tai khoan FTP nao !"
-/etc/kpanel/menu/kpanel-ftpserver-menu
+/etc/kpanel/menu/ftpserver/kpanel-ftpserver-menu
 else
 echo "========================================================================= " > /home/$mainsite/private_html/ListFTPUser-$random.txt
 echo " FTPUser      |      Domain   " >> /home/$mainsite/private_html/ListFTPUser-$random.txt
@@ -32,5 +32,5 @@ echo "========================================================================= 
 echo "Link view List FTP User on $serverip:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/ListFTPUser-$random.txt"
-/etc/kpanel/menu/kpanel-ftpserver-menu
+/etc/kpanel/menu/ftpserver/kpanel-ftpserver-menu
 fi 

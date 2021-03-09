@@ -13,7 +13,7 @@ else
 clear
 echo "========================================================================= "
 echo "Khong co du lieu trong Exim log file"
-/etc/kpanel/menu/kpanel-eroor-menu
+/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
 fi
 checksize=$(du -sb $(cat /tmp/eximlog.list)  | tail -1 | cut -f 1)
 	if [ $checksize -ge $minimumsize ]; then
@@ -43,7 +43,7 @@ rm -rf /tmp/*exim*
 	echo "Link download Exim Log:"
 	echo "-------------------------------------------------------------------------"
 	echo "http://$serverip:$priport/server-log/exim.log-$random.zip"
-	/etc/kpanel/menu/kpanel-eroor-menu
+	/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
   else
 ls -t /var/log/exim/main.log* > /tmp/eximlog.list
 listemximlog=$(cat /tmp/eximlog.list)
@@ -87,5 +87,5 @@ done
 	echo "Link Xem Exim Log:"
 	echo "-------------------------------------------------------------------------"
 	echo "http://$serverip:$priport/server-log/exim.log-$random.txt"
-	/etc/kpanel/menu/kpanel-eroor-menu
+	/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
   fi 

@@ -1,7 +1,7 @@
 #!/bin/bash
 . /home/kpanel.conf
-rm -rf /tmp/*hostingaz*
-mkdir -p /tmp/sitedangbatpagespeedhostingaz
+rm -rf /tmp/*kdatavn*
+mkdir -p /tmp/sitedangbatpagespeedkdatavn
 ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
 sed -i 's/\.conf//g' /tmp/kpanel-websitelist 
 sowebsitetrenserver=$(cat /tmp/kpanel-websitelist | wc -l)
@@ -9,7 +9,7 @@ websitetrenserver=$(cat /tmp/kpanel-websitelist)
 for website in $websitetrenserver 
 do
 if [ "$(grep "ngx_pagespeed.conf" /etc/nginx/conf.d/$website.conf)" == "include /etc/nginx/ngx_pagespeed.conf;" ]; then
-touch /tmp/sitedangbatpagespeedhostingaz/$website
+touch /tmp/sitedangbatpagespeedkdatavn/$website
 fi
 done
 echo "-------------------------------------------------------------------------"
@@ -19,14 +19,14 @@ clear
 echo "========================================================================="
 echo "Website tren server: $sowebsitetrenserver"
 echo "-------------------------------------------------------------------------"
-if [ "$(ls -1 /tmp/sitedangbatpagespeedhostingaz | wc -l)" == "0" ]; then
+if [ "$(ls -1 /tmp/sitedangbatpagespeedkdatavn | wc -l)" == "0" ]; then
 echo "Website Enabled Nginx Pagespeed: 0"
 else
-echo "Website dang Bat Nginx Pagespeed: $(ls -1 /tmp/sitedangbatpagespeedhostingaz | wc -l)"
+echo "Website dang Bat Nginx Pagespeed: $(ls -1 /tmp/sitedangbatpagespeedkdatavn | wc -l)"
 echo "-------------------------------------------------------------------------"
-ls /tmp/sitedangbatpagespeedhostingaz | pr -3 -t
+ls /tmp/sitedangbatpagespeedkdatavn | pr -3 -t
 fi
-rm -rf /tmp/*hostingaz*
+rm -rf /tmp/*kdatavn*
 rm -rf /tmp/*kpanel*
 /etc/kpanel/menu/pagespeed/kpanel-pagespeed-menu
 

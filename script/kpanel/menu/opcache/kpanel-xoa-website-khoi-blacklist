@@ -54,7 +54,7 @@ fi
 echo "-------------------------------------------------------------------------"
 echo "Tim thay $website trong Zend Opcache Blacklist "
 echo "-------------------------------------------------------------------------"
-echo "kpanel se xoa $website khoi Zend Opcache Blacklist"
+echo "KPANEL se xoa $website khoi Zend Opcache Blacklist"
 echo "-------------------------------------------------------------------------"
 echo "Please wait..."; sleep 4
 echo "-------------------------------------------------------------------------"

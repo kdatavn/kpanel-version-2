@@ -78,7 +78,7 @@ clear
 echo "-------------------------------------------------------------------------"
 echo "Phat hien CSF FireWall dang duoc cai dat tren VPS"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se khoi dong lai CSF Firewall ...."
+echo "KPANEL se khoi dong lai CSF Firewall ...."
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 5

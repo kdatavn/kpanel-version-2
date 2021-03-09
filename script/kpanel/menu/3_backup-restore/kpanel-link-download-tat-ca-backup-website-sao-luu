@@ -77,7 +77,7 @@ case $response in
 echo "========================================================================="
 rm -rf /home/$mainsite/private_html/listbackup*
 echo "========================================================================================================================" > /home/$mainsite/private_html/listbackup-AW$code.txt
-echo "         Link Download All Backup Files - Created by kpanel" >> /home/$mainsite/private_html/listbackup-AW$code.txt
+echo "         Link Download All Backup Files - Created by KPANEL" >> /home/$mainsite/private_html/listbackup-AW$code.txt
 echo "========================================================================================================================" >> /home/$mainsite/private_html/listbackup-AW$code.txt
 echo "" >> /home/$mainsite/private_html/listbackup-AW$code.txt
 

@@ -64,22 +64,22 @@ echo "Tim thay $website tren he thong"
 echo "-------------------------------------------------------------------------"
 echo "$website chua tao tai khoan FTP"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se tao tai khoan FTP cho $website ngay bay gio"
+echo "KPANEL se tao tai khoan FTP cho $website ngay bay gio"
 echo "-------------------------------------------------------------------------"
 echo "Please wait..."; sleep 6
 
 
-echo "$website" > /tmp/vpssimftp.txt
-sed -i '  s/\./_/g' /tmp/vpssimftp.txt
-sed -i 's/\-/_/g' /tmp/vpssimftp.txt
-username=`cat /tmp/vpssimftp.txt | sed "s/\_//" | sed "s/\_//" | sed "s/\_//" | sed "s/\_//" | cut -c1-30`
+echo "$website" > /tmp/kpanelftp.txt
+sed -i '  s/\./_/g' /tmp/kpanelftp.txt
+sed -i 's/\-/_/g' /tmp/kpanelftp.txt
+username=`cat /tmp/kpanelftp.txt | sed "s/\_//" | sed "s/\_//" | sed "s/\_//" | sed "s/\_//" | cut -c1-30`
 password=`date |md5sum |cut -c '3-23'`
 #useradd -m -d /home/$website -g nginx -p $password $username
 #usermod -aG nginx $username
 #chmod g+rxw /home/$website
 ( echo ${password} ; echo ${password} ) | pure-pw useradd $username -u nginx -g nginx -d /home/$website -m 
 pure-pw mkdb
-rm -rf /tmp/ftpvpssim.temp;
+rm -rf /tmp/ftpkpanel.temp;
 pure-pw mkdb
 if [ ! -f /etc/kpanel/FTP-Account.info ]; then
 echo "=========================================================================" > /etc/kpanel/FTP-Account.info

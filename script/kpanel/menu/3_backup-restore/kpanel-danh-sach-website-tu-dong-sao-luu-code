@@ -6,8 +6,8 @@ sleep 1
 rm -rf /tmp/kpanel-websitelist
 ls /etc/nginx/conf.d > /tmp/kpanel-websitelist
 sed -i 's/\.conf//g' /tmp/kpanel-websitelist 
-rm -rf /tmp/checkautobackupvpssim
-mkdir -p /tmp/checkautobackupvpssim
+rm -rf /tmp/checkautobackupkpanel
+mkdir -p /tmp/checkautobackupkpanel
 checkautobackup=$(cat /tmp/kpanel-websitelist)
 rm -rf /tmp/chitietbackupauto
 randomcode=`date |md5sum |cut -c '1-12'`
@@ -16,13 +16,13 @@ do
 if [ -f /bin/kpanel-backupcode-$websitecheck ]; then
  if [ -f /etc/cron.d/kpanel.code.cron ]; then
      if [ ! "$(grep kpanel-backupcode-$websitecheck /etc/cron.d/kpanel.code.cron)" == "" ]; then
-     touch /tmp/checkautobackupvpssim/$websitecheck
+     touch /tmp/checkautobackupkpanel/$websitecheck
      if [ ! -f /tmp/chitietbackupauto ]; then
      touch /tmp/chitietbackupauto
      fi
-	if [ "$(grep kpanel /tmp/chitietbackupauto)" == "" ]; then
+	if [ "$(grep KPANEL /tmp/chitietbackupauto)" == "" ]; then
 	echo "=========================================================================" >> /tmp/chitietbackupauto
-	echo "Link Download Backup Cho Website - Created by kpanel" >> /tmp/chitietbackupauto
+	echo "Link Download Backup Cho Website - Created by KPANEL" >> /tmp/chitietbackupauto
 	echo "=========================================================================" >> /tmp/chitietbackupauto
 	echo "Luu Y:" >> /tmp/chitietbackupauto
 	echo "-------------------------------------------------------------------------" >> /tmp/chitietbackupauto
@@ -42,7 +42,7 @@ echo "" >> /tmp/chitietbackupauto
  fi
 fi  
 done
-if [  "$(ls -1 /tmp/checkautobackupvpssim | wc -l)" == "0" ]; then
+if [  "$(ls -1 /tmp/checkautobackupkpanel | wc -l)" == "0" ]; then
 clear
 echo "========================================================================="
 echo "Hien tai khong co website nao duoc BAT tu dong backup"
@@ -51,9 +51,9 @@ rm -rf /home/$mainsite/private_html/linkAUTOBackupWeb*
 mv /tmp/chitietbackupauto /home/$mainsite/private_html/linkAUTOBackupWeb-$randomcode.txt
 clear
 echo "========================================================================="
-echo "Hien tai co $(ls -1 /tmp/checkautobackupvpssim | wc -l) website dang bat Auto Backup code"
+echo "Hien tai co $(ls -1 /tmp/checkautobackupkpanel | wc -l) website dang bat Auto Backup code"
 echo "-------------------------------------------------------------------------"
-ls /tmp/checkautobackupvpssim  | pr -2 -t
+ls /tmp/checkautobackupkpanel  | pr -2 -t
 echo "========================================================================="
 echo "List Link Download File Backup:"
 echo "-------------------------------------------------------------------------"

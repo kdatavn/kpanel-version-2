@@ -6,16 +6,16 @@ rm -rf /etc/php.d/*opcache.ini
 fi 
 fi
 if [ -f /etc/php.d/opcache.ini ]; then
-find /etc/php.d -name '*opcache.ini' > /tmp/vpssimcheckopcache.tmp
-checkopcache=$(cat /tmp/vpssimcheckopcache.tmp | wc -l)
+find /etc/php.d -name '*opcache.ini' > /tmp/kpanelcheckopcache.tmp
+checkopcache=$(cat /tmp/kpanelcheckopcache.tmp | wc -l)
 if [ ! "$checkopcache" == "1" ]; then
-rm -rf /tmp/vpssimopcache
-mkdir -p /tmp/vpssimopcache
-cp -r /etc/php.d/opcache.ini /tmp/vpssimopcache
+rm -rf /tmp/kpanelopcache
+mkdir -p /tmp/kpanelopcache
+cp -r /etc/php.d/opcache.ini /tmp/kpanelopcache
 rm -rf /etc/php.d/*opcache.ini
-cp -r /tmp/vpssimopcache/opcache.ini /etc/php.d
-rm -rf /tmp/vpssimopcache
-rm -rf /tmp/vpssimcheckopcache.tmp
+cp -r /tmp/kpanelopcache/opcache.ini /etc/php.d
+rm -rf /tmp/kpanelopcache
+rm -rf /tmp/kpanelcheckopcache.tmp
 fi 
 fi
 if [ ! -f /etc/kpanel/opcache.blacklist ]; then
@@ -42,7 +42,7 @@ fi
 fi
 clear
 echo "========================================================================="
-echo "kpanel can not find zend opcache in your system"
+echo "KPANEL can not find zend opcache in your system"
 kpanel
 }
 

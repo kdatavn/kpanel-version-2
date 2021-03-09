@@ -12,7 +12,7 @@ minimumsize=1024000
 	clear
 	echo "========================================================================= "
 	echo "Khong co du lieu trong Nginx log file"
-	/etc/kpanel/menu/kpanel-eroor-menu
+	/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
 	fi
 	
 	if [ $checksize -ge $minimumsize ]; then
@@ -30,7 +30,7 @@ minimumsize=1024000
 	echo "Link download Log Nginx:"
 	echo "-------------------------------------------------------------------------"
 	echo "http://$serverip:$priport/server-log/nginx.log-$random.zip"
-	/etc/kpanel/menu/kpanel-eroor-menu
+	/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
   else
     rm -rf /home/$mainsite/private_html/server-log/nginx.log*
 	\cp -uf /var/log/nginx/error.log /home/$mainsite/private_html/server-log/
@@ -46,13 +46,13 @@ minimumsize=1024000
 	echo "Link Xem Nginx Log:"
 	echo "-------------------------------------------------------------------------"
 	echo "http://$serverip:$priport/server-log/nginx.log-$random.txt"
-	/etc/kpanel/menu/kpanel-eroor-menu
+	/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
   fi 
   
 else
 clear
 echo "========================================================================= "
 echo "File log khong ton tai hoac ban Disable chuc nang ghi log"
-/etc/kpanel/menu/kpanel-eroor-menu
+/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
 fi 
 

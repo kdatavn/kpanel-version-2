@@ -59,7 +59,7 @@ fi
 echo "-------------------------------------------------------------------------"
 echo "Tim thay $website tren he thong "
 echo "-------------------------------------------------------------------------"
-echo "kpanel se them $website vao Zend Opcache Blacklist"
+echo "KPANEL se them $website vao Zend Opcache Blacklist"
 echo "-------------------------------------------------------------------------"
 echo "Please wait..."; sleep 4
 echo "-------------------------------------------------------------------------"

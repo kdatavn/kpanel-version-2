@@ -41,7 +41,7 @@ cat /etc/kpanel/opcache.blacklist > /tmp/check_zendblacklist
 sed -i '/wp-content/d' /tmp/check_zendblacklist
 if [ ! "$(grep home /tmp/check_zendblacklist)" == "" ]; then
 echo "=========================================================================" > /home/$mainsite/private_html/OP-Blacklist.txt
-echo "Zend Opcache Black List - Created by kpanel " >> /home/$mainsite/private_html/OP-Blacklist.txt
+echo "Zend Opcache Black List - Created by KPANEL " >> /home/$mainsite/private_html/OP-Blacklist.txt
 echo "=========================================================================" >> /home/$mainsite/private_html/OP-Blacklist.txt
 echo "" >> /home/$mainsite/private_html/OP-Blacklist.txt
 cat /etc/kpanel/opcache.blacklist >> /home/$mainsite/private_html/OP-Blacklist.txt
@@ -55,7 +55,7 @@ rm -rf /tmp/viewzendcacheblacklist
 sed -i '/wp-content/d' /home/$mainsite/private_html/OP-Blacklist.txt
 else
 echo "=========================================================================" > /home/$mainsite/private_html/OP-Blacklist.txt
-echo "Zend Opcache Black List - Created by kpanel " >> /home/$mainsite/private_html/OP-Blacklist.txt
+echo "Zend Opcache Black List - Created by KPANEL " >> /home/$mainsite/private_html/OP-Blacklist.txt
 echo "=========================================================================" >> /home/$mainsite/private_html/OP-Blacklist.txt
 echo "" >> /home/$mainsite/private_html/OP-Blacklist.txt
 echo "Hien tai khong co website nao trong Zend Opcache Blacklist" >> /home/$mainsite/private_html/OP-Blacklist.txt

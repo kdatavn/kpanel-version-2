@@ -81,7 +81,7 @@ rm -rf /tmp/*.log
 prompt="Lua chon cua ban (0-Thoat):"
 options=("Download File Log" "Clear Log File" "Xoa Link Download")
 printf "=========================================================================\n"
-printf "                kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                             Quan Ly File Log                           \n"
 printf "=========================================================================\n"

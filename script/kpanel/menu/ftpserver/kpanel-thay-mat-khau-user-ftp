@@ -56,7 +56,7 @@ echo "Thong tin tai khoan FTP hien tai:"
 echo "-------------------------------------------------------------------------"
 echo "Username: $(grep "/home/$website/" /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')  |  Password: $(grep "/home/$website/" /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $10}')"
 echo "-------------------------------------------------------------------------"
-echo "Bay gio kpanel se thay mat khau moi cho: $(grep "/home/$website/" /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')"
+echo "Bay gio KPANEL se thay mat khau moi cho: $(grep "/home/$website/" /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')"
 echo "========================================================================="
 echo "Please wait ....."
 sleep 7

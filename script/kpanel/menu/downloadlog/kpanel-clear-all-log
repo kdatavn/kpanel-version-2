@@ -35,7 +35,7 @@ clear
 rm -rf /tmp/*check*
 echo "========================================================================= "
 echo "Khong co du lieu trong cac file log"
-/etc/kpanel/menu/kpanel-eroor-menu
+/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
 exit
 fi
 
@@ -81,6 +81,6 @@ clear
 rm -rf /tmp/*check*
 echo "========================================================================= "
 echo "Clear Tat Ca Logs Thanh Cong"
-/etc/kpanel/menu/kpanel-eroor-menu
+/etc/kpanel/menu/downloadlog/kpanel-eroor-menu
 
 
