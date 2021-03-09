@@ -83,7 +83,7 @@ echo "-------------------------------------------------------------------------"
 fi
 
 unzip -q net2ftp_v1.3.zip
-mv -f net2ftp_v1.0/files_to_upload/* ././
+mv -f net2ftp_v1.3/files_to_upload/* ././
 rm -rf net2ftp_v1.3.zip
 echo "please wait... "; sleep 2
 cd
