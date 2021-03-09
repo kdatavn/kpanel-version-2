@@ -6,7 +6,7 @@ else
 rm -rf /etc/kpanel/crontab/*
 fi
 echo "========================================================================="
-echo "Xem cach tao lenh crontab tai: http://cronjob.kdata.vn"
+echo "Xem cach tao lenh crontab tai: http://cronjob.vpssim.vn"
 echo "-------------------------------------------------------------------------"
 echo -n "Crontab ban muon them [ENTER]: " 
 read cronjob
@@ -33,7 +33,7 @@ clear
 echo "========================================================================= "
 echo "Them crontab that bai! Crontab cua ban co the khong chinh xac"
 echo "-------------------------------------------------------------------------"
-echo "Tao lenh crontab tai http://cronjob.kdata.vn"
+echo "Tao lenh crontab tai http://cronjob.vpssim.vn"
 /etc/kpanel/menu/crontab/kpanel-cronjob-menu
 else
 rm -rf /etc/kpanel/crontab/*
