@@ -55,12 +55,24 @@ if [[  "$checkurlsttSSL" == "200" ]]; then
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..." 
 sleep 2
-nextgiahan=`cat /root/.acme.sh/$website/$website.conf | grep NextRenewTimeStr | cut -d \" -f 2 `
-curTime=$(date +%s)
-thoigiangiahangiay=`cat /root/.acme.sh/$website/$website.conf | grep Le_NextRenewTime= | cut -d \" -f 2`
-hieuthoigianconlai=$(calc $thoigiangiahangiay-$curTime)
-thoigiannengiahanlai=$(calc $hieuthoigianconlai/60/60/24)
-thoigianconlai=$(calc $thoigiannengiahanlai+10)
+#nextgiahan=`cat /root/.acme.sh/$website/$website.conf | grep NextRenewTimeStr | cut -d \" -f 2 `
+#curTime=$(date +%s)
+#thoigiangiahangiay=`cat /root/.acme.sh/$website/$website.conf | grep Le_NextRenewTime= | cut -d \" -f 2`
+#hieuthoigianconlai=$(calc $thoigiangiahangiay-$curTime)
+#thoigiannengiahanlai=$(calc $hieuthoigianconlai/60/60/24)
+#thoigianconlai=$(calc $thoigiannengiahanlai+10)
+#-----------------------------Check SSL-----------------------------------------
+check_ssl () {
+	data=`echo | openssl s_client -servername $website -connect $website:${2:-443} 2>/dev/null | 
+openssl x509 -noout -enddate | sed -e 's#notAfter=##'`
+	ssldate=`date -d "${data}" '+%s'`
+	nowdate=`date '+%s'`
+	diff="$((${ssldate}-${nowdate}))"
+	echo $((${diff}/86400))
+}
+thoigianconlai=$(check_ssl $website)
+thoigiannengiahanlai=$(calc $thoigianconlai-10)
+#-------------------------------------------------------------------------------
 clear
 echo "========================================================================="
 echo "$websiteTO da cai dat thanh cong SSL Let's Encrypt."

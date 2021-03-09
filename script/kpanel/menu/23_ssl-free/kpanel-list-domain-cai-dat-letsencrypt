@@ -9,14 +9,19 @@ rm -rf /etc/kpanel/.tmp/thanh_cong_SSL
 curTime=$(date +%s)
 for domain in $domainlist; do
 if [ -f /root/.acme.sh/$domain/$domain.conf ] && [ -f /etc/nginx/auth-acme/$domain/$domain.crt ]; then
-echo "Check SSL by kpanel" > /home/$domain/public_html/kpanel.check
+echo "Check SSL by KPANEL" > /home/$domain/public_html/kpanel.check
 checkurlsttSSL=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://$domain/kpanel.check")
 rm -rf /home/$domain/public_html/kpanel.check
 if [[  "$checkurlsttSSL" == "200" ]]; then
-thoigiangiahangiay=`cat /root/.acme.sh/$domain/$domain.conf | grep Le_NextRenewTime= | cut -d \" -f 2`
-hieuthoigianconlai=$(calc $thoigiangiahangiay-$curTime)
-thoigiannengiahan=$(calc $hieuthoigianconlai/60/60/24)
-thoigianconlai=$(calc $thoigiannengiahan+10)
+check_ssl () {
+	data=`echo | openssl s_client -servername $domain -connect $domain:${2:-443} 2>/dev/null |
+	openssl x509 -noout -enddate | sed -e 's#notAfter=##'`
+	ssldate=`date -d "${data}" '+%s'`
+	nowdate=`date '+%s'`
+	diff="$((${ssldate}-${nowdate}))"
+	echo $((${diff}/86400))
+}
+thoigianconlai=$(check_ssl $domain)
 echo "$domain [$thoigianconlai]" >> /etc/kpanel/.tmp/thanh_cong_SSL
 else
 echo "$domain" >> /etc/kpanel/.tmp/that_bai_SSL
