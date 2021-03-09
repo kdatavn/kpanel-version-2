@@ -18,7 +18,7 @@ clear
 echo "========================================================================="
 echo "Ban phai tao User va Mat khau mac dinh truoc khi chay chuc nang nay. Tao "
 echo "-------------------------------------------------------------------------"
-echo "User va Mat Khau mac dinh: kpanel Menu => User & Password Mac Dinh."
+echo "User va Mat Khau mac dinh: KPANEL Menu => User & Password Mac Dinh."
 /etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi

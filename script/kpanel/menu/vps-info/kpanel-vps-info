@@ -3,7 +3,7 @@
 /etc/kpanel/menu/vps-info/kpanel-befor-vps-info
 clear
 printf "=========================================================================\n"
-printf "               kpanel - Quan Ly VPS/Server by WebGiaRe.org \n"
+printf "               KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                            Server Status \n"
 printf "=========================================================================\n"

@@ -60,8 +60,8 @@ fi
 if [ ! -f "/etc/csf/csf.conf" ]; then
 echo "CSF Firewall: Not install" > /tmp/kpanel-csf-firewall-info.txt
 else
-csf -v > /tmp/vpssimcheckcscfstatus
-if [ "$(grep disabled /tmp/vpssimcheckcscfstatus)" = "" ]; then
+csf -v > /tmp/kpanelcheckcscfstatus
+if [ "$(grep disabled /tmp/kpanelcheckcscfstatus)" = "" ]; then
 echo "CSF Firewall: installed | Version: $(csf -v | awk 'NR==1 {print $2}' | sed 's/v//') " > /tmp/kpanel-csf-firewall-info.txt
 else
 echo "CSF Firewall: Installed but Disable" > /tmp/kpanel-csf-firewall-info.txt
@@ -72,21 +72,21 @@ fi
 # /etc/kpanel/menu/vps-info/kpanel-befor-vps-info-redis
 
 
-if [ -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
-rm -rf /var/lib/mysql/vpssimCheckDB
+if [ -f /var/lib/mysql/kpanelCheckDB/db.opt ]; then
+rm -rf /var/lib/mysql/kpanelCheckDB
 fi
  cat > "/tmp/config.temp" <<END
-CREATE DATABASE vpssimCheckDB COLLATE utf8_general_ci;
+CREATE DATABASE kpanelCheckDB COLLATE utf8_general_ci;
 END
 mysql -u root -p$mariadbpass < /tmp/config.temp
 rm -f /tmp/config.temp
 
-if [ ! -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
+if [ ! -f /var/lib/mysql/kpanelCheckDB/db.opt ]; then
 clear
 echo "========================================================================"
 echo "MySQL service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5
@@ -106,22 +106,22 @@ echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5
 cat > "/tmp/config.temp" <<END
-CREATE DATABASE vpssimCheckDB COLLATE utf8_general_ci;
+CREATE DATABASE kpanelCheckDB COLLATE utf8_general_ci;
 END
 mysql -u root -p$mariadbpass < /tmp/config.temp
 rm -f /tmp/config.temp
-	if [ ! -f /var/lib/mysql/vpssimCheckDB/db.opt ]; then
+	if [ ! -f /var/lib/mysql/kpanelCheckDB/db.opt ]; then
 		clear
 echo "========================================================================"
-echo "kpanel can not start MySQL Service"
+echo "KPANEL can not start MySQL Service"
 sleep 4 ;
 echo "MySQL Status: Stopped" > /tmp/kpanel-mysql-info.txt
 	else
-	rm -rf /var/lib/mysql/vpssimCheckDB
+	rm -rf /var/lib/mysql/kpanelCheckDB
 echo "MySQL Status: Running" > /tmp/kpanel-mysql-info.txt
 	fi
 else
-rm -rf /var/lib/mysql/vpssimCheckDB
+rm -rf /var/lib/mysql/kpanelCheckDB
 echo "MySQL Status: Running" > /tmp/kpanel-mysql-info.txt
 fi
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
@@ -132,7 +132,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -148,7 +148,7 @@ echo "Nginx Status: Running" > /tmp/kpanel-nginx-info.txt
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 echo "Nginx Status: Stopped" > /tmp/kpanel-nginx-info.txt
 		fi
@@ -165,7 +165,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -197,7 +197,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -215,7 +215,7 @@ sleep 5 ; clear
 		else
 	clear
 echo "========================================================================"
-echo "kpanel can not start PHP-FPM Service"
+echo "KPANEL can not start PHP-FPM Service"
 sleep 4 ;
 	echo "PHP Status: Stopped" >> /tmp/kpanel-php-info.txt
 		fi
@@ -232,7 +232,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -250,7 +250,7 @@ if [ "`systemctl is-active php-fpm.service`" == "active" ]; then
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start PHP-FPM Service"
+echo "KPANEL can not start PHP-FPM Service"
 sleep 4 ;
 	echo "PHP Status: Stopped" >> /tmp/kpanel-php-info.txt
 		fi
