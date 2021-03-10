@@ -16,7 +16,7 @@ options=("Install Memcached" )
 fi
 fi
 printf "=========================================================================\n"
-printf "                KDATA - Quan Ly VPS/Server by KDATA.VN \n"
+printf "                KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                           Memcached Manage \n"
 printf "=========================================================================\n"
