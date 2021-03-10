@@ -1,8 +1,7 @@
 ========================================================================
 * VPS (Server) duoc Cai dat va Cau hinh boi KPANEL
-* https://github.com/kdatavn/kpanel-version-2
-* Mot phien ban khac cua KPANEL voi nhieu thay doi dang ke
-* https://kdata.vn/
+* Ma nguon cong cu: https://github.com/kdatavn/kpanel-version-2
+* Website chinh thuc cua KDATA: https://kdata.vn/
 ========================================================================
 * Lenh goi KPANEL menu :    kpanel 
 ========================================================================
@@ -12,7 +11,7 @@
 ------------------------------------------------------------------------
 * Neu Server ho tro tao SWAP, ban nen su dung chuc nang [Quan ly SWAP]
 ------------------------------------------------------------------------
-* de tao SWAP, nang cao hieu suat Server.
+* De tao SWAP, nang cao hieu suat Server.
 ------------------------------------------------------------------------
 * Mac dinh: CSF Firewall bi disable.
 *-----------------------------------------------------------------------
