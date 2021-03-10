@@ -16,7 +16,7 @@ sleep 3
 
 
 # module for centos6 + google page speed
-urlForDownloadNginxModule="https://kpanel.echbay.com/script/kpanel/module-nginx/"
+urlForDownloadNginxModule="https://github.com/kdatavn/kpanel-version-2/tree/main/script/kpanel/module-nginx/"
 
 
 install_devtoolset_gcc () {

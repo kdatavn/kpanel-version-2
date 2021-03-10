@@ -15,7 +15,7 @@ maximumsize=10
 rm -rf /etc/kpanel/kpanel.newversion
 cd /etc/kpanel
 #timeout 3 wget -q http://hostingaz.vn/script/kpanel/kpanel.newversion
-timeout 3 wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/kpanel-free/master/version -O /etc/kpanel/kpanel.newversion
+timeout 3 wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/main/version -O /etc/kpanel/kpanel.newversion
 
 cd
 if [ -f /etc/kpanel/kpanel.newversion ]; then
@@ -85,7 +85,7 @@ sleep 1
 
 rm -rf /etc/kpanel/kpanel-update
 #wget -q http://hostingaz.vn/script/kpanel/kpanel-update -O /etc/kpanel/kpanel-update && chmod +x /etc/kpanel/kpanel-update
-wget --no-check-certificate -q https://raw.githubusercontent.com/itvn9online/kpanel-free/master/script/kpanel/kpanel-update -O /etc/kpanel/kpanel-update
+wget --no-check-certificate -q https://raw.githubusercontent.com/kdatavn/kpanel-version-2/main/script/kpanel/kpanel-update -O /etc/kpanel/kpanel-update
 chmod +x /etc/kpanel/kpanel-update
 bash /etc/kpanel/kpanel-update
 

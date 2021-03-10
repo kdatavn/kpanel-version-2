@@ -56,7 +56,7 @@ if [ "$LOCALVER" == "$REMOVER" ]; then
 clear
 rm -f /tmp/00-all-netdata-version.txt
 echo "========================================================================="
-echo "Ban dang su dung phien ban moi nhat NetData ma kpanel ho tro ."
+echo "Ban dang su dung phien ban moi nhat NetData ma KPANEL ho tro ."
 /etc/kpanel/menu/22_netdata/kpanel-netdata-menu
 exit
 fi
@@ -66,7 +66,7 @@ printf "Da phat hien update cho NetData\n"
 echo "-------------------------------------------------------------------------"
 printf "Phien ban ban dang su dung: $LOCALVER\n"
 echo "-------------------------------------------------------------------------"
-printf "Phien ban ban moi nhat kpanel support: $REMOVER\n"
+printf "Phien ban ban moi nhat KPANEL support: $REMOVER\n"
 printf "=========================================================================\n"
 read -r -p "Ban chac chan muon update NetData ? [y/N] " response
 case $response in
