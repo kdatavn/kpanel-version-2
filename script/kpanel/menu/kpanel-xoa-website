@@ -52,7 +52,7 @@ if [ ! "$(grep /home/$website/ /etc/kpanel/FTP-Account.info)" == "" ];then
 echo "========================================================================="
 echo "Phat hien tai khoan FTP: $(grep /home/$website/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}') cua $website  "
 echo "-------------------------------------------------------------------------"
-echo "kpanel se remove tai khoan FTP: $(grep /home/$website/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')"
+echo "KPANEL se remove tai khoan FTP: $(grep /home/$website/ /etc/kpanel/FTP-Account.info | awk 'NR==1 {print $7}')"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 6
@@ -215,7 +215,7 @@ if [ ! "$(grep /home/$website /etc/kpanel/opcache.blacklist)" == "" ]; then
 echo "-------------------------------------------------------------------------"
 echo "Phat hien $website trong Zend Opcache Blacklist"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se xoa $website trong blacklist nay"
+echo "KPANEL se xoa $website trong blacklist nay"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 6
@@ -235,7 +235,7 @@ check_and_delete_auto_backup_website()
 echo "========================================================================="
 echo "Phat hien $website dang bat auto backup code"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se tat che do auto backup code khi remove khoi server"
+echo "KPANEL se tat che do auto backup code khi remove khoi server"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 5

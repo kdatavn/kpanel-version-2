@@ -31,12 +31,12 @@ select opt in "${options[@]}" ; do
 
     case "$REPLY" in
 
-    1) /etc/kpanel/menu/kpanel-tat-bat-bitsync;;
-    2) /etc/kpanel/menu/kpanel-hien-mat-khau-bitsync;;
-    3) /etc/kpanel/menu/kpanel-change-mat-khau-bitsync;;
-    4) /etc/kpanel/menu/kpanel-thay-doi-bitsync-port;;
-    5) /etc/kpanel/menu/kpanel-bitsync-thay-doi-phien-ban-bitsync;;
-    6) /etc/kpanel/menu/kpanel-befor-cai-dat-xoa-bitsync;;
+    1) /etc/kpanel/menu/17_bitsync/kpanel-tat-bat-bitsync;;
+    2) /etc/kpanel/menu/17_bitsync/kpanel-hien-mat-khau-bitsync;;
+    3) /etc/kpanel/menu/17_bitsync/kpanel-change-mat-khau-bitsync;;
+    4) /etc/kpanel/menu/17_bitsync/kpanel-thay-doi-bitsync-port;;
+    5) /etc/kpanel/menu/17_bitsync/kpanel-bitsync-thay-doi-phien-ban-bitsync;;
+    6) /etc/kpanel/menu/17_bitsync/kpanel-befor-cai-dat-xoa-bitsync;;
     #7) clear && kpanel;;
     0) clear && kpanel;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;

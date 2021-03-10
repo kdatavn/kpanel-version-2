@@ -182,7 +182,7 @@ select opt in "${options[@]}" ; do
     #14) clear && /etc/kpanel/menu/pagespeed/before-kpanel-pagespeed-menu;;"Nginx Pagespeed Manage" 
     15) /etc/kpanel/menu/CSF-Fiwall/kpanel-csf-firewall-before-menu;;
     16) clear && /etc/kpanel/menu/kpanel-iptables-firewall-manager-menu;;
-    17) clear && /etc/kpanel/menu/kpanel-bitsync-menu;;
+    17) clear && /etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu;;
     18) clear && /etc/kpanel/menu/kpanel-befor-rsync;;
     19) clear && /etc/kpanel/menu/kpanel-maldet-menu;;
     20) clear && /etc/kpanel/menu/20_file-manager/kpanel-web-upload-menu;;

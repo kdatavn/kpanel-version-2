@@ -4,7 +4,7 @@ if [ ! -f /etc/kpanel/btsync.info ]; then
 clear
 echo "========================================================================= "
 echo "Ban chua cai dat BTsync"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 else
 echo "========================================================================= "
 echo "Su dung chuc nang nay de thay User va Mat khau quan ly  BitTorrent Sync"
@@ -82,10 +82,10 @@ echo "-------------------------------------------------------------------------"
 echo "Link truy cap: http://$serverip:$(grep btport /etc/kpanel/btsync.info | awk 'NR==1 {print $3}')"
 echo "-------------------------------------------------------------------------"
 echo "User: $(grep username /etc/kpanel/btsync.info | awk 'NR==1 {print $3}') | Password: $(grep password /etc/kpanel/btsync.info | awk 'NR==1 {print $3}')"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 esac
 clear 
 echo "========================================================================= "
 echo "Huy bo thay mat khau BTsync "
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 fi

@@ -3,7 +3,7 @@ if [ ! -f /etc/kpanel/btsync.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat BTsync"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 exit 
 fi
 checksize=$(du -sb /usr/bin/btsync | awk 'NR==1 {print $1}')
@@ -19,14 +19,14 @@ case $response in
     echo "-------------------------------------------------------------------------"
     echo "Please wait...." && sleep 1
 #		checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://kpanel.com/script/kpanel/BTsync/1.4/$(uname -m)/btsync" )
-		checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://github.com/kdatavn/kdata-vps-software/raw/master/BTsync/1.4/$(uname -m)/btsync" )
+		checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://github.com/kdatavn/kdata-vps-software/raw/main/BTsync/1.4/$(uname -m)/btsync" )
 if [[ "$checkurlstt" == "000" ]]; then
 clear
 echo "========================================================================="
-echo "Can not connect to kpanel.COM"
+echo "Can not connect to https://github.com/kdatavn/kpanel-version-2/"
 echo "-------------------------------------------------------------------------"
 echo "Please check your server internet connection !"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 exit
 fi 
     rm -rf /etc/btsync-kpanel/.sync/*.pid
@@ -38,20 +38,20 @@ sed -i 's/\.sync/\.btsync/g' /etc/btsync-kpanel/sync.conf
 mkdir -p /etc/btsync-kpanel/.sync
 mkdir -p /etc/btsync-kpanel/.btsync
 #wget -q https://kpanel.com/script/kpanel/BTsync/1.4/$(uname -m)/btsync -O /usr/bin/btsync && chmod +x /usr/bin/btsync
-wget -q https://github.com/kdatavn/kdata-vps-software/raw/master/BTsync/1.4/$(uname -m)/btsync -O /usr/bin/btsync && chmod +x /usr/bin/btsync
+wget -q https://github.com/kdatavn/kdata-vps-software/raw/main/BTsync/1.4/$(uname -m)/btsync -O /usr/bin/btsync && chmod +x /usr/bin/btsync
 /usr/bin/btsync --config /etc/btsync-kpanel/sync.conf
 	clear
 	echo "========================================================================="
 	echo "Thay doi phien ban Bittorent Sync thanh cong"
 	    #echo "-------------------------------------------------------------------------"
 	   # echo "Bittorent Sync da bi tat. Ban hay bat lai truoc khi su dung"
-	/etc/kpanel/menu/kpanel-bitsync-menu
+	/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
         ;;
     *)
        clear
        echo "========================================================================="
 	echo "Huy thay doi phien ban Bittorent Sync"
-        /etc/kpanel/menu/kpanel-bitsync-menu
+        /etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
         ;;
 esac
 else
@@ -66,14 +66,14 @@ case $response in
     echo "-------------------------------------------------------------------------"
     echo "Please wait...." && sleep 1
 #		checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://kpanel.com/script/kpanel/BTsync/2.0/$(uname -m)/btsync" )
-		checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://github.com/kdatavn/kdata-vps-software/raw/master/BTsync/2.0/$(uname -m)/btsync" )
+		checkurlstt=$(curl -o /dev/null --silent --head --write-out '%{http_code}' "https://github.com/kdatavn/kdata-vps-software/raw/main/BTsync/2.0/$(uname -m)/btsync" )
 if [[ "$checkurlstt" == "000" ]]; then
 clear
 echo "========================================================================="
 echo "Can not connect to kpanel.COM"
 echo "-------------------------------------------------------------------------"
 echo "Please check your server internet connection !"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 exit
 fi
     rm -rf /etc/btsync-kpanel/.sync/*.pid
@@ -85,20 +85,20 @@ sed -i 's/\.btsync/.sync/g' /etc/btsync-kpanel/sync.conf
 mkdir -p /etc/btsync-kpanel/.sync
 mkdir -p /etc/btsync-kpanel/.btsync
 #wget -q https://kpanel.com/script/kpanel/BTsync/2.0/$(uname -m)/btsync -O /usr/bin/btsync && chmod +x /usr/bin/btsync
-wget -q https://github.com/kdatavn/kdata-vps-software/raw/master/BTsync/2.0/$(uname -m)/btsync -O /usr/bin/btsync && chmod +x /usr/bin/btsync
+wget -q https://github.com/kdatavn/kdata-vps-software/raw/main/BTsync/2.0/$(uname -m)/btsync -O /usr/bin/btsync && chmod +x /usr/bin/btsync
 /usr/bin/btsync --config /etc/btsync-kpanel/sync.conf
 	clear
 	echo "========================================================================="
 	echo "Thay doi phien ban Bittorent Sync thanh cong"
 	    #echo "-------------------------------------------------------------------------"
 	   # echo "Bittorent Sync da bi tat. Ban hay bat lai truoc khi su dung"
-	/etc/kpanel/menu/kpanel-bitsync-menu
+	/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
         ;;
     *)
         	clear
 	echo "========================================================================="
 	echo "Huy thay doi phien ban Bittorent Sync"
-	/etc/kpanel/menu/kpanel-bitsync-menu
+	/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
         ;;
 esac  
 exit

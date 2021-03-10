@@ -3,7 +3,7 @@ if [ ! -f /etc/kpanel/btsync.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat BTsync"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 exit 
 fi
 bitsyncstt=`pgrep -fu root /usr/bin/btsync`
@@ -25,13 +25,13 @@ rm -rf /etc/btsync-kpanel/.btsync/*.pid
 	clear
 	echo "========================================================================="
 	echo "BTsync da duoc TAT thanh cong !"
-	/etc/kpanel/menu/kpanel-bitsync-menu
+	/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
         ;;
     *)
        clear
        echo "========================================================================="
         echo "Huy bo TAT BTsync....!"
-        /etc/kpanel/menu/kpanel-bitsync-menu
+        /etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
         ;;
 esac
 else
@@ -52,24 +52,24 @@ if [ $checksize -gt 9000000 ]; then
 	clear
 	echo "========================================================================="
 	echo "BAT BTsync thanh cong!"
-	/etc/kpanel/menu/kpanel-bitsync-menu
+	/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 	else
 	clear
 	echo "========================================================================="
 	echo "Khong the BAT BTsync !!!!"
-	/etc/kpanel/menu/kpanel-bitsync-menu
+	/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 	fi
 else  
 	if [ -f /etc/btsync-kpanel/.btsync/*.pid ]; then
 	clear
 	echo "========================================================================="
 	echo "BAT BTsync thanh cong!"
-	/etc/kpanel/menu/kpanel-bitsync-menu
+	/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 	else
 	clear
 	echo "========================================================================="
 	echo "Khong the BAT BTsync !"
-	/etc/kpanel/menu/kpanel-bitsync-menu
+	/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 	fi
 fi
         ;;
@@ -77,7 +77,7 @@ fi
         	clear
 	echo "========================================================================="
 	echo "Huy BAT Bittorent Sync"
-	/etc/kpanel/menu/kpanel-bitsync-menu
+	/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
         ;;
 esac  
 exit

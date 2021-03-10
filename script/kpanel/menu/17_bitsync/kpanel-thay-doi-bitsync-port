@@ -4,7 +4,7 @@ if [ ! -f /etc/kpanel/btsync.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat BTsync"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 exit 
 fi
 echo "========================================================================="
@@ -20,7 +20,7 @@ if [ "$btsyncport" = "" ]; then
 clear
 echo "========================================================================="
 echo "Ban nhap sai, vui long nhap lai"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 exit
 fi
 if [ "$priport" = "$btsyncport" ]; then
@@ -29,7 +29,7 @@ echo "========================================================================="
 echo "Port ban nhap giong phpmyadmin port!"
 echo "-------------------------------------------------------------------------"
 echo "Ban hay nhap lai"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 exit
 fi
 if [[ ! ${btsyncport} =~ ^[0-9]+$ ]] ;then 
@@ -38,7 +38,7 @@ echo "========================================================================="
 echo "Port ban nhap: ${btsyncport} khong phai la so tu nhien."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !" 
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 exit
 fi
 if ! [[ $btsyncport -ge 30000 && $btsyncport -le 50000  ]] ; then  
@@ -49,7 +49,7 @@ echo "-------------------------------------------------------------------------"
 echo "Port cho BTsync phai la so tu nhien nam trong khoang (30000 - 50000)."
 echo "-------------------------------------------------------------------------"
 echo "Ban hay lam lai !"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 exit
 fi  
   echo "-------------------------------------------------------------------------"
@@ -93,19 +93,19 @@ rm -rf /tmp/btsync.info
 /usr/bin/btsync --config /etc/btsync-kpanel/sync.conf
 clear 
 echo "========================================================================= "
-echo "kpanel hoan thanh thay port BitTorrent sync "
+echo "KPANEL hoan thanh thay port BitTorrent sync "
 echo "-------------------------------------------------------------------------"
 echo "Thong tin quan ly:"
 echo "-------------------------------------------------------------------------"
 echo "Link truy cap: http://$serverip:$(grep btport /etc/kpanel/btsync.info | awk 'NR==1 {print $3}')"
 echo "-------------------------------------------------------------------------"
 echo "User: $(grep username /etc/kpanel/btsync.info | awk 'NR==1 {print $3}') | Password: $(grep password /etc/kpanel/btsync.info | awk 'NR==1 {print $3}')"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 esac
  clear 
 echo "========================================================================= "
 echo "Huy bo thay Port BTsync "
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 
 
 

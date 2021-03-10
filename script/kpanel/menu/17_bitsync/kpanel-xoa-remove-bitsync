@@ -20,10 +20,10 @@ sed -i "/\b\(btsync\)\b/d" /etc/rc.d/rc.local
        clear 
 echo "========================================================================= "
 echo "Huy bo remove BTsync "
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
         ;;
 esac
 clear 
 echo "========================================================================= "
-echo "kpanel hoan thanh remove BTsync "
-/etc/kpanel/menu/kpanel-bitsync-menu
+echo "KPANEL hoan thanh remove BTsync "
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu

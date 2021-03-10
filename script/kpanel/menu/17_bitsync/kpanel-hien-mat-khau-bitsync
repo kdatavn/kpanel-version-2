@@ -4,7 +4,7 @@ if [ ! -f /etc/kpanel/btsync.info ]; then
 clear
 echo "========================================================================= "
 echo "Ban chua cai dat BTsync"
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 else
 echo "Please wait..."; sleep 1
 clear
@@ -16,5 +16,5 @@ echo "-------------------------------------------------------------------------"
 echo "User: $(grep username /etc/kpanel/btsync.info | awk 'NR==1 {print $3}') | Password: $(grep password /etc/kpanel/btsync.info | awk 'NR==1 {print $3}')"
 echo "-------------------------------------------------------------------------"
 echo "BTsync phai duoc bat truoc khi truy cap ! "
-/etc/kpanel/menu/kpanel-bitsync-menu
+/etc/kpanel/menu/17_bitsync/kpanel-bitsync-menu
 fi

@@ -1,7 +1,0 @@
-
-#!/bin/sh
-if [ ! -f /etc/kpanel/btsync.info ]; then
-/etc/kpanel/menu/kpanel-cai-dat-bitsync
-else
-/etc/kpanel/menu/kpanel-xoa-remove-bitsync
-fi
