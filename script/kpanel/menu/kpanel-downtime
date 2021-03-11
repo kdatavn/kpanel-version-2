@@ -12,7 +12,7 @@ case $response in
     cat > "/tmp/sendmail.sh" <<END
 #!/bin/bash
 
-echo -e 'Subject: kpanel - Tat Downtime Statics thanh cong!\nChao ban!\n\nEmail thong bao cho ban biet rang yeu cau tat Downtime Statics cua ban da thuc hien thanh cong. Neu ban khong he yeu cau lam dieu nay, vui long doi lai toan bo thong tin lien quan den VPS va thuc hien bao mat cho VPS\n\n !' | exim  $email
+echo -e 'Subject: KPANEL - Tat Downtime Statics thanh cong!\nChao ban!\n\nEmail thong bao cho ban biet rang yeu cau tat Downtime Statics cua ban da thuc hien thanh cong. Neu ban khong he yeu cau lam dieu nay, vui long doi lai toan bo thong tin lien quan den VPS va thuc hien bao mat cho VPS\n\n !' | exim  $email
 END
 chmod +x /tmp/sendmail.sh
 /tmp/sendmail.sh
@@ -36,7 +36,7 @@ END
     cat > "/tmp/sendmail.sh" <<END
 #!/bin/bash
 
-echo -e 'Subject: kpanel - Bat Downtime Statics thanh cong!\nChao ban!\n\nEmail thong bao cho ban biet rang yeu cau bat Downtime Statics cua ban da thuc hien thanh cong. Neu ban khong he yeu cau lam dieu nay, vui long doi lai toan bo thong tin lien quan den VPS va thuc hien bao mat cho VPS\n\n !' | exim  $email
+echo -e 'Subject: KPANEL - Bat Downtime Statics thanh cong!\nChao ban!\n\nEmail thong bao cho ban biet rang yeu cau bat Downtime Statics cua ban da thuc hien thanh cong. Neu ban khong he yeu cau lam dieu nay, vui long doi lai toan bo thong tin lien quan den VPS va thuc hien bao mat cho VPS\n\n !' | exim  $email
 END
 chmod +x /tmp/sendmail.sh
 /tmp/sendmail.sh

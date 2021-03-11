@@ -18,7 +18,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -35,7 +35,7 @@ clear
 		else
 				clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -55,7 +55,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -72,7 +72,7 @@ clear
 		else
 				clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -90,7 +90,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -107,7 +107,7 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start PHP-FPM Service"
+echo "KPANEL can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
@@ -127,7 +127,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -144,7 +144,7 @@ check_nginx_service
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start PHP-FPM Service"
+echo "KPANEL can not start PHP-FPM Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="

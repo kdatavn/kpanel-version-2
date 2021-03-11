@@ -1,6 +1,6 @@
 #!/bin/sh
 . /home/kpanel.conf
-if [ "$(grep kpanel.COM /bin/kpanel)" != "" ]; then
+if [ "$(grep KDATA.VN /bin/kpanel)" != "" ]; then
 clear
 echo "========================================================================= "
 echo "You are using English Version"
@@ -10,9 +10,9 @@ fi
 echo "========================================================================= "
 echo "Use this function to change language for kpanel"
 echo "-------------------------------------------------------------------------"
-echo "kpanel support EngLish & Vietnamese"
+echo "KPANEL support EngLish & Vietnamese"
 echo "========================================================================= "
-read -r -p "You want to change kpanel language to English ? [y/N] " response
+read -r -p "You want to change KPANEL language to English ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
@@ -48,8 +48,8 @@ download_main_menu () {
 wget -q --no-check-certificate https://github.com/kdatavn/kpanel-version-2/raw/main/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
 }
 download_main_menu
-checkvpssim_mainmenu=`cat /bin/kpanel`
-if [ -z "$checkvpssim_mainmenu" ]; then
+checkkpanel_mainmenu=`cat /bin/kpanel`
+if [ -z "$checkkpanel_mainmenu" ]; then
 download_main_menu
 fi
 #wget -q --no-check-certificate https://kpanel.com/script/kpanel/motd -O /etc/motd

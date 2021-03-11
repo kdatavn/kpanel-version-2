@@ -4,7 +4,7 @@ if [ ! -f /etc/kpanel/net2ftpsite.info ]; then
 clear
 echo "========================================================================="
 echo "Ban chua cai dat domain Net2FTP cho Server !"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu
 exit
 fi
 echo "Please wait..."; sleep 1
@@ -12,4 +12,4 @@ net2ftpsite=$(cat /etc/kpanel/net2ftpsite.info)
 clear
 echo "========================================================================="
 echo "Domain Net2FTP: $net2ftpsite"
-/etc/kpanel/menu/kpanel-net2ftp-menu
+/etc/kpanel/menu/21_net2ftp/kpanel-net2ftp-menu

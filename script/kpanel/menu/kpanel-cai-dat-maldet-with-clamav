@@ -33,7 +33,7 @@ cd maldetect-*
 cd
 rm -rf /root/maldet
 rm -rf /root/maldetect-current.tar.gz
-wget -q http://kpanel.com/script/kpanel/maldet -O /etc/cron.daily/maldet && chmod +x /etc/cron.daily/maldet
+wget -q http://raw.githubusercontent.com/kdatavn/kpanel-version-2/main/script/kpanel/maldet -O /etc/cron.daily/maldet && chmod +x /etc/cron.daily/maldet
 
 #sed -i 's/email_alert=0/email_alert=1/g' /usr/local/maldetect/conf.maldet
 sed -i 's/quar_hits=0/quar_hits=1/g' /usr/local/maldetect/conf.maldet

@@ -8,7 +8,7 @@ exit
 fi
 
 if [ -f /etc/nginx/conf.d/$domain.conf ]; then
-if [ -f /etc/vpssimpagespeed-enable/$domain ]; then
+if [ -f /etc/kpanelpagespeed-enable/$domain ]; then
 echo "$domain da duoc BAT ngx_pagespeed !"
 read -r -p "Ban muon TAT ngx_pagespeed cho $domain  ? [y/N] " response
 case $response in
@@ -58,8 +58,8 @@ fi
 if [ ! "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 systemctl restart nginx.service
 fi
-mkdir -p /etc/vpssimpagespeed-enable
-    cat > "/etc/vpssimpagespeed-enable/$domain" <<END
+mkdir -p /etc/kpanelpagespeed-enable
+    cat > "/etc/kpanelpagespeed-enable/$domain" <<END
 1
 END
 echo "..... Thanh cong !"

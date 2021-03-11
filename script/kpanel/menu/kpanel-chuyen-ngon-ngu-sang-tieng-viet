@@ -11,19 +11,19 @@ exit
 fi
 
 echo "========================================================================= "
-echo "Su dung chuc nang nay de thay doi ngon ngu kpanel sang tieng Viet"
+echo "Su dung chuc nang nay de thay doi ngon ngu KPANEL sang tieng Viet"
 echo "-------------------------------------------------------------------------"
-echo "kpanel ho tro Tieng Anh & Tieng Viet"
+echo "KPANEL ho tro Tieng Anh & Tieng Viet"
 echo "========================================================================= "
-read -r -p "Ban muon thay doi ngon ngu kpanel sang Tieng Viet ? [y/N] " response
+read -r -p "Ban muon thay doi ngon ngu KPANEL sang Tieng Viet ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
 echo "Please wait ... "
 sleep 1
 echo "-------------------------------------------------------------------------"
-wget -q --no-check-certificate https://kdata.vn/script/kpanel/motd -O /etc/motd
-wget -q --no-check-certificate https://kdata.vn/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
+wget -q --no-check-certificate https://github.com/kdatavn/kpanel-version-2/raw/main/script/kpanel/motd -O /etc/motd
+wget -q --no-check-certificate https://github.com/kdatavn/kpanel-version-2/raw/main/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
 cd /etc/kpanel/
 rm -rf /etc/kpanel/menu.zip
 wget -q --no-check-certificate https://kdata.vn/script/kpanel/menu.zip
@@ -47,9 +47,9 @@ rm -rf /tmp/menu
 unzip -q -o menu.zip
 rm -rf /etc/kpanel/menu.zip
 cd
-wget -q --no-check-certificate https://kdata.vn/script/kpanel/motd -O /etc/motd
+wget -q --no-check-certificate https://github.com/kdatavn/kpanel-version-2/raw/main/script/kpanel/motd -O /etc/motd
 download_main_menu () {
-wget -q --no-check-certificate https://kdata.vn/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
+wget -q --no-check-certificate https://github.com/kdatavn/kpanel-version-2/raw/main/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
 }
 download_main_menu
 checkvpssim_mainmenu=`cat /bin/kpanel`
@@ -59,9 +59,9 @@ fi
 find /etc/kpanel/menu -type f -exec chmod 755 {} \;
 clear 
 echo "========================================================================= "
-echo "Change Language of kpanel to Vietnamese Finished"
+echo "Change Language of KPANEL to Vietnamese Finished"
 echo "-------------------------------------------------------------------------"
-echo "( Thay doi ngon ngu kpanel sang tieng Viet thanh cong )"
+echo "( Thay doi ngon ngu KPANEL sang tieng Viet thanh cong )"
 /etc/kpanel/menu/kpanel-thay-doi-ngon-ngu-menu
        ;;
     *)
@@ -71,7 +71,7 @@ esac
 clear
 clear
 echo "========================================================================="
-echo "Cancel Change Language for kpanel"
+echo "Cancel Change Language for KPANEL"
 echo "-------------------------------------------------------------------------"
-echo "Huy bo thay doi ngon ngu cho kpanel"
+echo "Huy bo thay doi ngon ngu cho KPANEL"
 /etc/kpanel/menu/kpanel-thay-doi-ngon-ngu-menu
