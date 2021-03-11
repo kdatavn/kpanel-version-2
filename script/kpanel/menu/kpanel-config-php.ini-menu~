@@ -64,7 +64,7 @@ if [ "$luachon" = "enabledisablephpfunction" ]; then
 #OnOffDisplayErrors
 ###################################
 elif [ "$luachon" = "OnOffDisplayErrors" ]; then
-/etc/kpanel/menu/kpanel-befor-bat-tat-display-eroor
+/etc/kpanel/menu/config-php/kpanel-befor-bat-tat-display-eroor
 ###################################
 #MaxExecutionTime
 ###################################
