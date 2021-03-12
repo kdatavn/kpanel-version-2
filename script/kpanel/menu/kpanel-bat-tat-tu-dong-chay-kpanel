@@ -15,7 +15,7 @@ fi
 
 if [ "$(grep "/bin/kpanel" /root/.bash_profile)" == "" ]; then
 echo "========================================================================="
-echo "Su dung chuc nang nay de BAT/TAT chuc nang tu dong chay kpanel khi login"
+echo "Su dung chuc nang nay de BAT/TAT chuc nang tu dong chay KPANEL khi login"
 echo "-------------------------------------------------------------------------"
 echo "SSH vao Server. Hien tai chuc nang nay dang TAT."
 echo "========================================================================="
@@ -41,7 +41,7 @@ echo "You choosed NO "
 esac
 else
 echo "========================================================================="
-echo "Su dung chuc nang nay de BAT/TAT chuc nang tu dong chay kpanel khi login"
+echo "Su dung chuc nang nay de BAT/TAT chuc nang tu dong chay KPANEL khi login"
 echo "-------------------------------------------------------------------------"
 echo "SSH vao Server. Hien tai chuc nang nay dang BAT."
 echo "========================================================================="
@@ -54,7 +54,7 @@ case $response in
     sed -i '/\/bin\/kpanel/d' /root/.bash_profile
 clear
 echo "========================================================================="
-echo "TAT chuc nang Auto Run kpanel thanh cong ! "
+echo "TAT chuc nang Auto Run KPANEL thanh cong ! "
  /etc/kpanel/menu/tienich/kpanel-tien-ich
     ;;
 *)

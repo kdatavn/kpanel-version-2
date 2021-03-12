@@ -61,7 +61,7 @@ echo "Tim thay $website tren he thong"
 echo "-------------------------------------------------------------------------"
 echo "$website su dung wordpress code"
 echo "-------------------------------------------------------------------------"
-echo "kpanel dang fix loi"
+echo "KPANEL dang fix loi"
 echo "-------------------------------------------------------------------------"
 echo "please wait ... "
 sleep 3
