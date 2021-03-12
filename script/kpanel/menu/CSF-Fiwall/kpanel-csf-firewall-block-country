@@ -16,7 +16,7 @@ echo "cach su dung dau [,] va khong co [space] giua cac ma nuoc. VD: “CN,RU,DE
 echo "-------------------------------------------------------------------------" 
 echo "de block China, Russia va Germany."
 echo "-------------------------------------------------------------------------" 
-echo "Xem danh sach ma nuoc tai: https://kdata.vn/country-codes.txt"
+echo "Xem danh sach ma nuoc tai: https://datahub.io/core/country-list/r/0.html"
 echo "========================================================================="
 echo -n "Nhap ma nuoc [ENTER]: " 
 read countrycode
