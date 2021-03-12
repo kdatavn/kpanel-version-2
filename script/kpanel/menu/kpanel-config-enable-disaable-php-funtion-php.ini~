@@ -26,7 +26,7 @@
          # { msg="Invalid choice: $num"; continue; }         # Tieng Anh
      if [ $num == ${#options[@]} ];then
 echo "========================================================================="
-     read -r -p "Ban muon config disable ham PHP theo mac dinh cua kpanel ? [y/N] " response
+     read -r -p "Ban muon config disable ham PHP theo mac dinh cua KPANEL ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"

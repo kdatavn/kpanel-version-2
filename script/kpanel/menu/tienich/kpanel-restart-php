@@ -12,7 +12,7 @@ clear
 echo "========================================================================"
 echo "php-fpm service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -32,11 +32,11 @@ service php-fpm restart
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start php-fpm Service"
+echo "KPANEL can not start php-fpm Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
-	echo "Rat tiec, kpanel khong the khoi dong lai duoc php-fpm service !"
+	echo "Rat tiec, KPANEL khong the khoi dong lai duoc php-fpm service !"
 	#echo "Sorry, kpanel can not restart php-fpm service !"
 	/etc/kpanel/menu/tienich/kpanel-restart-service
 		fi
@@ -55,7 +55,7 @@ clear
 echo "========================================================================"
 echo "php-fpm service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -76,11 +76,11 @@ service php-fpm start
 		else
 				clear
 echo "========================================================================"
-echo "kpanel can not start php-fpm Service"
+echo "KPANEL can not start php-fpm Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
-	echo "Rat tiec, kpanel khong the khoi dong lai duoc php-fpm!"
+	echo "Rat tiec, KPANEL khong the khoi dong lai duoc php-fpm!"
 	#echo "Sorry, kpanel can not restart php-fpm service !"
 	/etc/kpanel/menu/tienich/kpanel-restart-service
 		fi

@@ -30,7 +30,7 @@ if [ ! -f /etc/kpanel/FTP-Account.info ]; then
 echo "=========================================================================" > /etc/kpanel/FTP-Account.info
 echo "Please Do Not Delete This File " >> /etc/kpanel/FTP-Account.info
 echo "-------------------------------------------------------------------------" >> /etc/kpanel/FTP-Account.info
-echo "If you delete this file, kpanel will not run !" >> /etc/kpanel/FTP-Account.info
+echo "If you delete this file, KPANEL will not run !" >> /etc/kpanel/FTP-Account.info
 echo "-------------------------------------------------------------------------" >> /etc/kpanel/FTP-Account.info
 echo "All FTP User for all domain on VPS list below:" >> /etc/kpanel/FTP-Account.info
 echo "=========================================================================" >> /etc/kpanel/FTP-Account.info

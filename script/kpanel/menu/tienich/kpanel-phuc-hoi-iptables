@@ -3,7 +3,7 @@
 if [ ! -f /etc/kpanel/iptables.bak ]; then
 clear
 echo "========================================================================="
-echo "kpanel khong tim thay ban backup cua IPtables Firewall !"
+echo "KPANEL khong tim thay ban backup cua IPtables Firewall !"
 /etc/kpanel/menu/kpanel-iptables-firewall-manager-menu
 exit
 fi

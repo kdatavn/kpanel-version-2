@@ -22,7 +22,7 @@ exit
 fi
 
 
-if [ "$(grep "listen   ${portbimat}" /etc/nginx/conf.d/$mainsite.conf)" == "" ]; then
+if [ "$(grep "listen ${portbimat}" /etc/nginx/conf.d/$mainsite.conf)" == "" ]; then
 clear
 echo "========================================================================= "
 echo "Port bi mat ban nhap khong chinh xac"

@@ -16,7 +16,7 @@ clear
 echo "========================================================================="
 echo "Can not find file /root/.bash_profile"
 echo "-------------------------------------------------------------------------"
-echo "kpanel can not run this function on this server"
+echo "KPANEL can not run this function on this server"
 echo "-------------------------------------------------------------------------"
 /etc/kpanel/menu/tienich/kpanel-tien-ich
 exit

@@ -12,7 +12,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -32,11 +32,11 @@ service nginx restart
 		else
 		clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
-	echo "Rat tiec, kpanel khong the khoi dong lai duoc Nginx!"
+	echo "Rat tiec, KPANEL khong the khoi dong lai duoc Nginx!"
 	#echo "Sorry, Nginx is stopped. Please start it before use this function !"
 	/etc/kpanel/menu/tienich/kpanel-restart-service
 		fi
@@ -55,7 +55,7 @@ clear
 echo "========================================================================"
 echo "Nginx service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -76,11 +76,11 @@ service nginx start
 		else
 				clear
 echo "========================================================================"
-echo "kpanel can not start Nginx Service"
+echo "KPANEL can not start Nginx Service"
 sleep 4 ;
 	clear
 	echo "========================================================================="
-	echo "Rat tiec, kpanel khong the khoi dong lai duoc Nginx!"
+	echo "Rat tiec, KPANEL khong the khoi dong lai duoc Nginx!"
 	#echo "Sorry, kpanel can not restart nginx service !"
 	/etc/kpanel/menu/tienich/kpanel-restart-service
 		fi
