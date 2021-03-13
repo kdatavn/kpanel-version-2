@@ -472,7 +472,7 @@ yes | cp -rf /opt/kdata_kpanel/script/kpanel/conf-webserver/kpanel.demo.txt /etc
 # config
 cat > "/tmp/kpanelSetConfigFile" <<END
 #!/bin/bash 
-sed -i 's/tmp_listen_svport/listen $svport/g' /etc/nginx/conf.d/kpanel.demo.conf
+sed -i 's/tmp_listen_svport/listen   $svport/g' /etc/nginx/conf.d/kpanel.demo.conf
 END
 chmod +x /tmp/kpanelSetConfigFile
 sh /tmp/kpanelSetConfigFile

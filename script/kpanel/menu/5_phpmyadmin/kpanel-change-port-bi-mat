@@ -1,5 +1,6 @@
 #!/bin/sh
 . /home/kpanel.conf
+port=$(grep -w "listen   ${portbimat}" /etc/nginx/conf.d/kpanel.demo.conf | sed 's/[^0-9]*//g')
 
 echo "========================================================================= "
 echo "Su dung chuc nang nay de thay doi port bi mat (Phpmyadmin port)"
@@ -22,7 +23,7 @@ exit
 fi
 
 
-if [ "$(grep "listen ${portbimat}" /etc/nginx/conf.d/$mainsite.conf)" == "" ]; then
+if [ $port != $portbimat ]; then
 clear
 echo "========================================================================= "
 echo "Port bi mat ban nhap khong chinh xac"
