@@ -3,7 +3,7 @@
 . /home/kpanel.conf
 echo "========================================================================="
 echo "Please wait ..."; sleep 3
-/root/.acme.sh/acme.sh --list | awk '{print $1}' FPAT='"[^"]+"'  | sed 's/Main_Domain//' > /etc/kpanel/.tmp/list_domain_SSL
+/root/.acme.sh/acme.sh --list | awk '{print $1}' | sed 's/Main_Domain//' > /etc/kpanel/.tmp/list_domain_SSL
 domainlist=$(cat /etc/kpanel/.tmp/list_domain_SSL)
 rm -rf /etc/kpanel/.tmp/thanh_cong_SSL
 curTime=$(date +%s)
