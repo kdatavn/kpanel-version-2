@@ -64,7 +64,7 @@ read -r -p "Ban muon TAT Redis Cache cho $website ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY])
 echo "-------------------------------------------------------------------------"
-echo "kpanel se vo hieu hoa Redis Cache cho $website"
+echo "KPANEL se vo hieu hoa Redis Cache cho $website"
 echo "-------------------------------------------------------------------------"
 echo "Cac Plugins se duoc xoa: Nginx-Hepler, Redis Object Cache"
 echo "-------------------------------------------------------------------------"

@@ -1,8 +1,8 @@
 #!/bin/bash
 . /home/kpanel.conf
-rm -rf /tmp/*hostingaz*
-mkdir -p /tmp/danhsachdatabasebackuphostingaz
-listdatabases=$(ls -l /var/lib/mysql | grep "^d" | awk -F" " '{print $9}' | grep -Ev "(Database|information_schema|mysql|performance_schema|vpssimCheckDB)")
+rm -rf /tmp/*kdatavn*
+mkdir -p /tmp/danhsachdatabasebackupkdatavn
+listdatabases=$(ls -l /var/lib/mysql | grep "^d" | awk -F" " '{print $9}' | grep -Ev "(Database|information_schema|mysql|performance_schema|kpanelCheckDB)")
 code=`date |md5sum |cut -c '1-12'`
 rm -rf /tmp/checksite-list
 for dataname in $listdatabases 
@@ -45,7 +45,7 @@ echo "--------------------------------------------------------------------------
 echo "$showinfo"  >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "------------------------------------------------------------------------------------------------------------------------" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "http://$serverip:$priport/backup/$dataname/$filename" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
-touch /tmp/danhsachdatabasebackuphostingaz/$dataname
+touch /tmp/danhsachdatabasebackupkdatavn/$dataname
 #####################
 
 if [ "$(cat /tmp/linkbackupall | wc -l)" -gt 1 ]; then
@@ -72,7 +72,7 @@ echo "Please wait ..."
 sleep 2
 rm -rf /home/$mainsite/private_html/Listbackupall*.txt
 echo "========================================================================================================================" > /home/$mainsite/private_html/Listbackupall-DB-$code.txt
-echo "                                Link Download All Backup Files - Created by kpanel" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
+echo "                                Link Download All Backup Files - Created by KPANEL" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "========================================================================================================================" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
@@ -86,7 +86,7 @@ clear
 echo "========================================================================="
 echo "Database co backup:"
 echo "-------------------------------------------------------------------------"
-ls /tmp/danhsachdatabasebackuphostingaz | pr -2 -t
+ls /tmp/danhsachdatabasebackupkdatavn | pr -2 -t
 echo "-------------------------------------------------------------------------"
 echo "Link download tat ca backup:"
 echo "-------------------------------------------------------------------------"
@@ -94,7 +94,7 @@ echo "http://$serverip:$priport/Listbackupall-DB-$code.txt"
 echo "" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "===================================================The End==============================================================" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 /etc/kpanel/menu/4_database/kpanel-them-xoa-database
-rm -rf /tmp/*hostingaz*
+rm -rf /tmp/*kdatavn*
    ;;
     *)
     clear

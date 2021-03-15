@@ -222,7 +222,7 @@ clear
   echo "========================================================================="
   echo "Thiet lap thoi gian auto Sync data thanh cong !"
   echo "-------------------------------------------------------------------------"
-  echo "Cu $phut phut 1 lan, kpanel auto sync data toi VPS backup."
+  echo "Cu $phut phut 1 lan, KPANEL auto sync data toi VPS backup."
   echo "-------------------------------------------------------------------------"
   echo "Thu muc luu tru backup tren VPS backup: /home/VPS-$serverip"
   /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu

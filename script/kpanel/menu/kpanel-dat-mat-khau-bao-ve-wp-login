@@ -8,7 +8,7 @@ clear
 echo "========================================================================="
 echo "Ban phai tao User va Mat khau truoc khi chay chuc nang nay. Tao User va "
 echo "-------------------------------------------------------------------------"
-echo "Mat Khau mac dinh: kpanel Menu => User & Password Mac Dinh."
+echo "Mat Khau mac dinh: KPANEL Menu => User & Password Mac Dinh."
 /etc/kpanel/menu/kpanel-wordpress-tools-menu
 exit
 fi
@@ -117,7 +117,7 @@ echo "Thong tin ban nhap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se thay thong tin dang nhap cu theo thong tin moi nay "
+echo "KPANEL se thay thong tin dang nhap cu theo thong tin moi nay "
 echo "-------------------------------------------------------------------------"
 echo "please wait ...."
 sleep 1
@@ -285,7 +285,7 @@ echo "Thong tin ban nhap: "
 echo "-------------------------------------------------------------------------"
 echo "Username: $username | Password: $matkhau"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se thay thong tin dang nhap cu theo thong tin moi nay "
+echo "KPANEL se thay thong tin dang nhap cu theo thong tin moi nay "
 echo "-------------------------------------------------------------------------"
 echo "please wait ...."
 sleep 1

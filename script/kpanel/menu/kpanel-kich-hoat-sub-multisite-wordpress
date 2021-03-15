@@ -82,7 +82,7 @@ echo "Ban phai cai dat Multisite truoc !"
 exit
 fi
 echo "-------------------------------------------------------------------------"
-echo "kpanel dang check ... "
+echo "KPANEL dang check ... "
 sleep 1;
 echo "========================================================================="
 echo "Tim thay $website tren he thong"
@@ -127,7 +127,7 @@ exit
 fi
 websiteto=`echo $website | tr '[A-Z]' '[a-z]'`
 echo "========================================================================="
-echo "kpanel se cau hinh Vhost tuy thuoc vao loai cache $website su dung"
+echo "KPANEL se cau hinh Vhost tuy thuoc vao loai cache $website su dung"
 echo "-------------------------------------------------------------------------"
 echo "Ban phai lua chon dung, neu khong Subdomain se hoat dong khong chinh xac"
 echo "========================================================================="

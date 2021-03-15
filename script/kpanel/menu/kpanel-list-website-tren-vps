@@ -9,7 +9,7 @@ echo "========================================================================="
 echo "Website Co Du Lieu:"
 echo "-------------------------------------------------------------------------"
 echo "=================================================================================================================" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
-echo "List Website - Created by kpanel" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
+echo "List Website - Created by KPANEL" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
 echo "=================================================================================================================" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
 echo "" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
 echo "-----------------------------------------------------------------------------------------------------------------" >> /home/$mainsite/private_html/ListWebsite$randomcode.txt
@@ -35,9 +35,9 @@ fi
  if [ -f /tmp/checksite-list ]; then
 cat /tmp/checksite-list | pr -2 -t
 
-vpssim_check_size=`cat /tmp/checksite-list`
+kpanel_check_size=`cat /tmp/checksite-list`
 rm -rf /tmp/checksiztungsite
-for website123 in $vpssim_check_size 
+for website123 in $kpanel_check_size 
 do
 sizetungsize=`du -sh /home/$website123 | awk 'NR==1 {print $1}'`
 echo "$website123 (Size: $sizetungsize)" >> /tmp/checksiztungsite

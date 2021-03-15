@@ -3,5 +3,5 @@
 . /home/kpanel.conf
 clear
 echo "========================================================================="
-echo "Cai dat kpanel phien ban tieng ANH tai kpanel.COM"
+echo "Cai dat KPANEL phien ban tieng ANH tai https://github.com/kdatavn/kpanel-version-2"
 kpanel

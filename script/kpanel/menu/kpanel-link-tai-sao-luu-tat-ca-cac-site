@@ -13,12 +13,12 @@ echo "-------------------------------------------------------------------------"
 echo "Link download backup: "
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/home/$filename"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 rm -rf /etc/kpanel/linkbackup
 else
 clear
 echo "========================================================================="
 echo "Ban chua tao file backup code folder Home !"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 exit
 fi

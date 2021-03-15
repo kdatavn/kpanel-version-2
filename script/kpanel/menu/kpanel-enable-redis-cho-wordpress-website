@@ -66,7 +66,7 @@ read -r -p "Ban muon BAT Redis Cache cho $website ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY])
 echo "-------------------------------------------------------------------------"
-echo "kpanel se cai dat Redis Cache cho $website"
+echo "KPANEL se cai dat Redis Cache cho $website"
 echo "-------------------------------------------------------------------------"
 echo "Cac Plugins se duoc cai dat: Nginx-Hepler, Redis Object Cache"
 echo "-------------------------------------------------------------------------"

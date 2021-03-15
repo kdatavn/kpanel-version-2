@@ -44,7 +44,7 @@ find /home/$mainsite/private_html/backup/$databasename/ -type f -exec basename {
 backupall=$(cat /tmp/linkbackupall)
 if [ "$(cat /tmp/linkbackupall | wc -l)" -gt 1 ]; then
 echo "========================================================================================================================" > /home/$mainsite/private_html/ListBackup-$databasename$code.txt
-echo "                            Link Download Backup Files For $databasename - Created by kpanel"  >> /home/$mainsite/private_html/ListBackup-$databasename$code.txt
+echo "                            Link Download Backup Files For $databasename - Created by KPANEL"  >> /home/$mainsite/private_html/ListBackup-$databasename$code.txt
 echo "========================================================================================================================" >> /home/$mainsite/private_html/ListBackup-$databasename$code.txt
 echo ""  >> /home/$mainsite/private_html/ListBackup-$databasename$code.txt
 echo "------------------------------------------------------------------------------------------------------------------------" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
