@@ -15,7 +15,7 @@ firstSetup=$1
 #fi
 
 #
-chkconfig yum-updatesd off
+# chkconfig yum-updatesd off
 yum -y install yum-cron
 
 #
