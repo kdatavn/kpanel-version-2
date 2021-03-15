@@ -32,7 +32,7 @@ chmod +x /tmp/knownhost_sedit
 /tmp/knownhost_sedit
 rm -rf /tmp/knownhost_sedit
 rm -rf /etc/kpanel/vps_backup_rsync.info
-rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync 
+rm -rf /etc/kpanel/kpanel_backup_VPS_by_rsync 
 rm -rf /etc/cron.d/kpanel.rsync.cron  
 service crond restart
 clear

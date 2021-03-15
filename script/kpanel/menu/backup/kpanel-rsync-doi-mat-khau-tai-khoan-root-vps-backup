@@ -24,7 +24,7 @@ clear
 echo "========================================================================="
 echo "Ket noi toi VPS Backup that bai"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien chuc nang nay"
+echo "KPANEL khong the thuc hien chuc nang nay"
 /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
@@ -89,7 +89,7 @@ clear
 echo "========================================================================="
 echo "Ket noi toi VPS Backup that bai"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien chuc nang nay"
+echo "KPANEL khong the thuc hien chuc nang nay"
 /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi

@@ -1,11 +1,11 @@
 #!/bin/bash
-if [ -f /etc/kpanel/vpssim_backup_VPS_by_rsync ]; then
+if [ -f /etc/kpanel/kpanel_backup_VPS_by_rsync ]; then
 	if [ ! -f /etc/cron.d/kpanel.rsync.cron ]; then
-	rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync
+	rm -rf /etc/kpanel/kpanel_backup_VPS_by_rsync
 	fi
 fi
 if [ -f /etc/cron.d/kpanel.rsync.cron ]; then
-	if [ ! -f /etc/kpanel/vpssim_backup_VPS_by_rsync ]; then
+	if [ ! -f /etc/kpanel/kpanel_backup_VPS_by_rsync ]; then
 	rm -rf /etc/cron.d/kpanel.rsync.cron
 	fi
 fi

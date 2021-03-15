@@ -1,9 +1,9 @@
 #!/bin/bash
 . /home/kpanel.conf
-rm -rf /tmp/*hostingaz*
+rm -rf /tmp/*kdatavn*
 code=`date |md5sum |cut -c '1-19'`
-echo "$(mysql --user=root --password=$mariadbpass -e "SHOW DATABASES;" | grep -Ev "(Database|information_schema|mysql|performance_schema)")" > /tmp/listdabasehostingaz
-checksize=$(du -sb /tmp/listdabasehostingaz | awk 'NR==1 {print $1}')
+echo "$(mysql --user=root --password=$mariadbpass -e "SHOW DATABASES;" | grep -Ev "(Database|information_schema|mysql|performance_schema)")" > /tmp/listdabasekdatavn
+checksize=$(du -sb /tmp/listdabasekdatavn | awk 'NR==1 {print $1}')
    if [ "$checksize" == "0" ]; then
    clear
    echo "========================================================================="
@@ -11,10 +11,10 @@ checksize=$(du -sb /tmp/listdabasehostingaz | awk 'NR==1 {print $1}')
    /etc/kpanel/menu/4_database/kpanel-them-xoa-database
    exit
    fi
-sodatabasetrenserver=$(cat /tmp/listdabasehostingaz | wc -l)
-listdatabasetrenserver=$(cat /tmp/listdabasehostingaz)
-mkdir -p /tmp/saoluudatabasethanhconghostingaz
-mkdir -p /tmp/saoluudatabasethatbaihostingaz
+sodatabasetrenserver=$(cat /tmp/listdabasekdatavn | wc -l)
+listdatabasetrenserver=$(cat /tmp/listdabasekdatavn)
+mkdir -p /tmp/saoluudatabasethanhcongkdatavn
+mkdir -p /tmp/saoluudatabasethatbaikdatavn
 rm -rf /tmp/*check*
 for database in $listdatabasetrenserver 
 do
@@ -24,7 +24,7 @@ fi
  done
 
 if [ ! -f /tmp/checkdatabase-list ]; then
-rm -rf /tmp/*hostingaz*
+rm -rf /tmp/*kdatavn*
 rm -rf /tmp/*list*
 clear
 echo "========================================================================="
@@ -78,7 +78,7 @@ echo "==========================================================================
 echo "Database $dataname (Dang duoc BAT Auto Backup) :" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt 
 echo "------------------------------------------------------------------------------------------------------------------------" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "http://$serverip:$priport/backup/$dataname/$filename" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
-touch /tmp/saoluudatabasethanhconghostingaz/$dataname
+touch /tmp/saoluudatabasethanhcongkdatavn/$dataname
 else
 echo "=========================================================================" 
 echo "Sao luu Database $dataname that bai !"
@@ -127,13 +127,13 @@ echo "==========================================================================
 echo "Database $dataname :" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt 
 echo "------------------------------------------------------------------------------------------------------------------------" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "http://$serverip:$priport/backup/$dataname/$dataname$randomcode.sql.gz" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
-touch /tmp/saoluudatabasethanhconghostingaz/$dataname
+touch /tmp/saoluudatabasethanhcongkdatavn/$dataname
 else
 echo "=========================================================================" 
 echo "Sao luu Database $dataname that bai !"
 echo "========================================================================================================================" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
 echo "Sao luu Database $dataname that bai !" >> /home/$mainsite/private_html/Listbackupall-DB-$code.txt
-touch /tmp/saoluudatabasethatbaihostingaz/$dataname
+touch /tmp/saoluudatabasethatbaikdatavn/$dataname
 fi
 fi
 }
@@ -147,13 +147,13 @@ echo "Tuy thuoc vao so luong database va dung luong tung database ma thoi gian"
 echo "-------------------------------------------------------------------------"
 echo "hoan thanh sao luu tat ca database co the nhanh hay cham."
 echo "=========================================================================" 
-read -r -p "Ban muon kpanel lan luot sao luu tat ca database ? [y/N] " response
+read -r -p "Ban muon KPANEL lan luot sao luu tat ca database ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
 echo "========================================================================="
 echo "Tong Database tren server: $sodatabasetrenserver | Database co du lieu: $sodatabase"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se sao luu $sodatabase database co du lieu tren server"
+echo "KPANEL se sao luu $sodatabase database co du lieu tren server"
 echo "========================================================================="
 echo "PLEASE DO NOT TURNOFF THIS CREEEN !"
 echo "========================================================================="
@@ -174,27 +174,27 @@ clear
 echo "========================================================================="
 echo "Co $sodatabase Database co du lieu tren server"
 echo "-------------------------------------------------------------------------"
-if [ "$(ls -1 /tmp/saoluudatabasethanhconghostingaz | wc -l)" == "$sodatabase" ]; then
+if [ "$(ls -1 /tmp/saoluudatabasethanhcongkdatavn | wc -l)" == "$sodatabase" ]; then
 echo "Backup tat ca database thanh cong"
 else
-echo "Backup that bai $(ls -1 /tmp/saoluudatabasethatbaihostingaz | wc -l) database"
+echo "Backup that bai $(ls -1 /tmp/saoluudatabasethatbaikdatavn | wc -l) database"
 echo "-------------------------------------------------------------------------"
 echo "Database sao luu that bai:"
 echo "-------------------------------------------------------------------------"
-ls /tmp/saoluudatabasethatbaihostingaz
+ls /tmp/saoluudatabasethatbaikdatavn
 fi
-if [ ! "$(ls -1 /tmp/saoluudatabasethatbaihostingaz | wc -l)" == "$sodatabase" ]; then
+if [ ! "$(ls -1 /tmp/saoluudatabasethatbaikdatavn | wc -l)" == "$sodatabase" ]; then
 echo "-------------------------------------------------------------------------"
 echo "List Backup Files:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/Listbackupall-DB-$code.txt"
 fi
-rm -rf /tmp/*hostingaz*
+rm -rf /tmp/*kdatavn*
 /etc/kpanel/menu/4_database/kpanel-them-xoa-database
    ;;
     *)
     clear
-    rm -rf /tmp/*hostingaz*
+    rm -rf /tmp/*kdatavn*
         echo "========================================================================= "
         echo "Huy bo lan luot sao luu tat ca database"
         /etc/kpanel/menu/4_database/kpanel-them-xoa-database

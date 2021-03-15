@@ -45,7 +45,7 @@ if [ -f /bin/kpanel-backupdb-$dataname ]; then
 echo "-------------------------------------------------------------------------"
 echo "Phat hien $dataname trong danh sach tu dong sao luu"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se remove $datanase khoi danh sach tu dong sao luu"
+echo "KPANEL se remove $dataname khoi danh sach tu dong sao luu"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 3

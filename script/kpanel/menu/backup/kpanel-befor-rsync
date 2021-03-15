@@ -17,7 +17,7 @@ fi
 if [ ! -f /etc/kpanel/menu/backup/kpanel-rsync-have-read ]; then
 clear
 printf "=========================================================================\n"
-printf "               kpanel - Quan Ly VPS/Server by HostingAZ.VN \n"
+printf "               KPANEL - Quan Ly VPS/Server by KDATA.VN \n"
 printf "=========================================================================\n"
 printf "                          Quan Ly VPS Backup \n"
 printf "=========================================================================\n"
@@ -35,9 +35,9 @@ echo "ngay ca khi server dang su dung gap su co die hay khong cuu duoc du lieu."
 echo "-------------------------------------------------------------------------"
 echo "He dieu hanh VPS backup ho tro: Centos 6, Centos 7, Ubuntu, Debian. "
 echo "-------------------------------------------------------------------------"
-echo "kpanel khuyen dung Centos 6 de nhan ho tro nhieu nhat tu kpanel."
+echo "KPANEL khuyen dung Centos 6 de nhan ho tro nhieu nhat tu kpanel."
 echo "-------------------------------------------------------------------------"
-echo "Luu y: Ban co the su dung 1 VPS backup de sao luu nhieu VPS chay kpanel"
+echo "Luu y: Ban co the su dung 1 VPS backup de sao luu nhieu VPS chay KPANEL"
 echo "-------------------------------------------------------------------------"
 touch /etc/kpanel/menu/backup/kpanel-rsync-have-read
 read -p "Nhan [Enter] de tiep tuc ..."

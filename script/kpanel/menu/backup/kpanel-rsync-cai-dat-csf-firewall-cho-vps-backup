@@ -32,7 +32,7 @@ clear
 echo "========================================================================="
 echo "Ket noi toi VPS Backup that bai"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien chuc nang nay"
+echo "KPANEL khong the thuc hien chuc nang nay"
 /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
@@ -84,7 +84,7 @@ echo "Cai dat va cau hinh CSF Firewall Cho VPS Backup thanh cong "
 ;;
 *)
 rm -rf /etc/cron.d/kpanel.rsync.cron
-rm -rf /etc/kpanel/vpssim_backup_VPS_by_rsync
+rm -rf /etc/kpanel/kpanel_backup_VPS_by_rsync
 clear
 echo "========================================================================="
 echo "Ban huy cai dat CSF Firewall cho VPS backup !"

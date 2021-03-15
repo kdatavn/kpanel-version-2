@@ -9,12 +9,12 @@ echo "Ban vui long ket noi voi VPS backup truoc khi thuc hien thao tac nay."
 /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
-if [ ! -f /etc/kpanel/vpssim_backup_VPS_by_rsync ]; then
+if [ ! -f /etc/kpanel/kpanel_backup_VPS_by_rsync ]; then
 clear
 echo "========================================================================="
 echo "Ban phai chay chuc nang [ Cau Hinh Thoi Gian Dong Bo] truoc khi su dung "
 echo "-------------------------------------------------------------------------"
-echo "chuc nang nay."
+echo "Chuc nang nay."
 /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
@@ -33,14 +33,14 @@ clear
 echo "========================================================================="
 echo "Ket noi toi VPS Backup that bai"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien chuc nang nay"
+echo "KPANEL khong the thuc hien chuc nang nay"
 /etc/kpanel/menu/backup/kpanel-rsync-backup-vps-menu
 exit
 fi
 echo "-------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 1
-/etc/kpanel/vpssim_backup_VPS_by_rsync
+/etc/kpanel/kpanel_backup_VPS_by_rsync
 
 clear
 echo "========================================================================="

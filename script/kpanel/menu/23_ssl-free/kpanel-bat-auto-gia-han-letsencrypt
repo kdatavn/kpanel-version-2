@@ -33,7 +33,7 @@ clear
 echo "========================================================================="
 echo "Hoan thanh cai dat tu dong gia han chung chi SSL Let's Encrypt."
 echo "-------------------------------------------------------------------------"
-echo "kpanel se auto renew SSL 10 ngay truoc khi SSL het han."
+echo "KPANEL se auto renew SSL 10 ngay truoc khi SSL het han."
 /etc/kpanel/menu/23_ssl-free/kpanel-letsencrypt-menu
 ;;
     *)
