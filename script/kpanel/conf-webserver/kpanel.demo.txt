@@ -55,6 +55,10 @@ fastcgi_intercept_errors on;
 fastcgi_param SCRIPT_FILENAME /home/kpanel.demo/public_html$fastcgi_script_name;
 }
 
+location ~ /\.ht {
+deny  all;
+}
+
 include /etc/nginx/conf/staticfiles.conf;
 #include /etc/nginx/conf/phpstatus.conf;
 include /etc/nginx/conf/drop.conf;

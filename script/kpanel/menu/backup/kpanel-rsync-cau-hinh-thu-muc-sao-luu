@@ -121,7 +121,7 @@ chmod +x /etc/kpanel/kpanel_backup_VPS_by_rsync
 if [ "$chooseaction" = "backuptatca" ]; then
 make_script_backup
 echo "-------------------------------------------------------------------------"
-echo "kpanel se backup tat ca website bao gom ca $mainsite"
+echo "KPANEL se backup tat ca website bao gom ca $mainsite"
 echo "-------------------------------------------------------------------------"
 echo "($mainsite chua toan bo backup cac website va database)"
 ###################################
@@ -130,7 +130,7 @@ echo "($mainsite chua toan bo backup cac website va database)"
 elif [ "$chooseaction" = "khongbackupmainsite" ]; then
 make_script_backup_no_sim_domain_com
 echo "-------------------------------------------------------------------------"
-echo "kpanel se backup tat ca website tru $mainsite"
+echo "KPANEL se backup tat ca website tru $mainsite"
 echo "-------------------------------------------------------------------------"
 echo "($mainsite chua toan bo backup cac website va database)"
 ###################################
@@ -210,7 +210,7 @@ exit
 fi
 
 echo "-------------------------------------------------------------------------"
-read -r -p "Ban muon kpanel auto Sync Data toi VPS Backup $phut phut 1 lan ? [y/N] " response
+read -r -p "Ban muon KPANEL auto Sync Data toi VPS Backup $phut phut 1 lan ? [y/N] " response
 #read -r -p "You want kpanel sync data to vps backup every $phut minutes  ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 

@@ -17,10 +17,10 @@ exit
 fi
 
 if [ "$(cat /etc/php.ini | grep display_errors | awk '{print $3}')" == "Off" ]; then
-/etc/kpanel/menu/config-php/kpanel-dang-tat-display_errors
+/etc/kpanel/menu/kpanel-dang-tat-display_errors
 fi
 if [ "$(cat /etc/php.ini | grep display_errors | awk '{print $3}')" == "On" ]; then
-/etc/kpanel/menu/config-php/kpanel-dang-bat-display_errors
+/etc/kpanel/menu/kpanel-dang-bat-display_errors
 fi
 }
 

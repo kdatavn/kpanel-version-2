@@ -66,7 +66,7 @@ fi
 fi
 
 rm -rf /tmp/*kpanel*
-rm -rf /tmp/*hostingaz*
+rm -rf /tmp/*kdatavn*
 rm -rf /tmp/*check*
 echo "$(ls /etc/nginx/conf.d | sed 's/.conf//' | sed 's/^www.//')" > /tmp/check123
 sowebsitetrenserver=$(cat /tmp/check123)

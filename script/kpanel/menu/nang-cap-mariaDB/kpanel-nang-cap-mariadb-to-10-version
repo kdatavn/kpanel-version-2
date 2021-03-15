@@ -23,7 +23,7 @@ rpm -qa|grep  -i mariadb > /tmp/checkmariadb
 abc456=`date |md5sum |cut -c '1-12'` 
 if [ "$(service mysql status | awk 'NR==1 {print $3}')" == "running" ]; then   
 echo "--------------------------------------------------------------------------"
-echo "kpanel se sao luu tat ca Database truoc khi nang cap MariaDB"
+echo "KPANEL se sao luu tat ca Database truoc khi nang cap MariaDB"
 echo "--------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 3

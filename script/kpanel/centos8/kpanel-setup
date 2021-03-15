@@ -466,7 +466,7 @@ service mysql start
 #systemctl start redis.service
 mkdir -p /home/kpanel.demo/public_html
 cd /home/kpanel.demo/public_html
-#wget http://kdata.vn/script/kpanel/robots.txt
+#wget https://kdata.vn/script/kpanel/robots.txt
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/html/install/vietnam/index.html
 yes | cp -rf /opt/kdata_kpanel/script/kpanel/html/install/vietnam/index.html index.html
 cd

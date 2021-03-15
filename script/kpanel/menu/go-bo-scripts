@@ -108,7 +108,7 @@ cd /etc/csf
 sh uninstall.sh
 cd
 fi
-sed -i '/vpssimcheck/d' /root/.bash_profile
+sed -i '/kpanelcheck/d' /root/.bash_profile
 yum clean all
 yum -y update
 clear

@@ -461,7 +461,7 @@ service mysql start
 #systemctl start redis.service
 mkdir -p /home/kpanel.demo/public_html
 cd /home/kpanel.demo/public_html
-#wget http://kdata.vn/script/kpanel/robots.txt
+#wget https://kdata.vn/script/kpanel/robots.txt
 #wget --no-check-certificate -q https://kpanel.com/script/kpanel/html/install/vietnam/index.html
 yes | cp -rf /opt/kdata_kpanel/script/kpanel/html/install/vietnam/index.html index.html
 cd
@@ -1209,7 +1209,7 @@ Luu Y:
 + De bao mat, moi khi co dang nhap SSH va Server, KPANEL se gui email thong bao toi dia chi email $kpanelemail .
   Thay email hoac tat chuc nang nay bang [ BAT/TAT Email Thong Bao Login ] trong [ Tien ich - Addons ].  
   
-KPANEL -- YOUR SUCCESS IS OUR SUCCESS - http://kdata.vn' | exim  $kpanelemail
+KPANEL -- YOUR SUCCESS IS OUR SUCCESS - https://kdata.vn' | exim  $kpanelemail
 END
 chmod +x /tmp/finishedemail.sh
 /tmp/finishedemail.sh
