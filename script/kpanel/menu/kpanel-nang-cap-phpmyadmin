@@ -59,7 +59,7 @@ echo "Current phpmyadmin version: "$(cat /etc/kpanel/phpmyadmin.version)
 echo "-------------------------------------------------------------------------"
 fi
 
-echo "Xem list cac phien ban phpMyAdmin tai: http://phpmyadmin.net/files/"
+echo "Xem list cac phien ban phpMyAdmin tai: https://phpmyadmin.net/files/"
 echo "-------------------------------------------------------------------------"
 
 if [ ! "$new_phpmyadmin_version" = "" ]; then

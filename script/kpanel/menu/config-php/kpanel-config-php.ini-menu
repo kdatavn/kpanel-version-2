@@ -542,7 +542,7 @@ elif [ "$luachon" = "phpinimacdinh" ]; then
 echo "========================================================================="
 echo "Sau khi su dung chuc nang nay, tat ca config cua ban se bi mat."
 echo "-------------------------------------------------------------------------"
-     read -r -p "Ban muon config PHP theo cau hinh mac dinh cua kpanel ? [y/N] " response
+     read -r -p "Ban muon config PHP theo cau hinh mac dinh cua KPANEL ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "-------------------------------------------------------------------------"
@@ -768,13 +768,13 @@ service php-fpm restart
 fi
 clear
 echo "========================================================================="
-echo "Cau hinh PHP theo mac dinh cua kpanel thanh cong"
+echo "Cau hinh PHP theo mac dinh cua KPANEL thanh cong"
 /etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 ;;
     *)
 clear 
 echo "========================================================================="
-echo "Huy bo thay doi cau hinh PHP theo mac dinh cua kpanel."
+echo "Huy bo thay doi cau hinh PHP theo mac dinh cua KPANEL."
 /etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
         ;;
 esac
