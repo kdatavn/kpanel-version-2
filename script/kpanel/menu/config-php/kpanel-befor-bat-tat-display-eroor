@@ -3,7 +3,7 @@
 if [ ! -f /etc/php.ini ]; then
 clear
 echo "========================================================================="
-echo "kpanel khong tim thay php.ini tren server"
+echo "KPANEL khong tim thay php.ini tren server"
 /etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi
@@ -11,7 +11,7 @@ fi
 if [ "$(cat /etc/php.ini | grep display_errors | awk '{print $3}')" == "" ]; then
 clear
 echo "========================================================================="
-echo "kpanel khong the thuc hien chuc nang nay"
+echo "KPANEL khong the thuc hien chuc nang nay"
 /etc/kpanel/menu/config-php/kpanel-config-php.ini-menu
 exit
 fi

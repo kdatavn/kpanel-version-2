@@ -627,7 +627,7 @@ rm -rf /etc/php-fpm.conf
 yes | cp -rf /opt/kdata_kpanel/script/kpanel/conf-webserver/php-fpm.txt /etc/php-fpm.conf
 # cleanup
 kpanel_setup_cleanup_config_file "/etc/php-fpm.conf"
-
+sudo dnf -y install php-fpm #fix php installed on centos 8
 
 if [[ $svram -ge 32 && $svram -le 449  ]] ; then 
 heso1=1
