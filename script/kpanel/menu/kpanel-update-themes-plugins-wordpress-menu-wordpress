@@ -15,7 +15,7 @@ select opt in "${options[@]}"; do
     case "$REPLY" in
     1) luachonupdate="update1site"; break;;
     2) luachonupdate="updateall"; break;;
-    3) luachonupdate="cancle"; break;;
+    3) luachonupdate="cancel"; break;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;
     #*) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;
     esac  

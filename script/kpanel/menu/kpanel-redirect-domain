@@ -66,7 +66,7 @@ fi
 
 if [ -f /etc/nginx/conf.d/$website.conf ]; then
 echo "-------------------------------------------------------------------------"
-echo "kpanel se them $domain vao server"
+echo "KPANEL se them $domain vao server"
 echo "-------------------------------------------------------------------------"
 read -r -p "Va redirect $domain toi $website. Is it Ok  ? [y/N] " response
 case $response in

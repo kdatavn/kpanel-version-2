@@ -74,7 +74,7 @@ read uremail
 if [ "$uremail" = "" ]; then
 clear
 echo "========================================================================="
-echo "Ban phaitype in the your email."
+echo "Ban phai type in the your email."
 /etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
@@ -236,7 +236,7 @@ echo "" >> /home/DBinfo.txt
 cp -r /etc/kpanel/menu/database-example/database-example-opencart2020.tar.gz  /tmp/database-example-opencart2020.sql
 rm -rf /tmp/opencartinstall
 cat > "/tmp/opencartinstall" <<END
-sed -i 's/adminvpssim/$adminopencart/g' /tmp/database-example-opencart2020.sql
+sed -i 's/adminkpanel/$adminopencart/g' /tmp/database-example-opencart2020.sql
 sed -i 's/emailadmin/$uremail/g' /tmp/database-example-opencart2020.sql
 sed -i 's/domainexample/$website/g' /tmp/database-example-opencart2020.sql
 END

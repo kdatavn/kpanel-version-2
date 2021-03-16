@@ -246,7 +246,7 @@ echo "" >> /home/DBinfo.txt
 rm -rf /tmp/database-example-smf.sql
 cp -r /etc/kpanel/menu/database-example/database-example-smf.tar.gz  /tmp/database-example-smf.sql
 cat > "/tmp/smfinstall" <<END
-sed -i 's/adminvpssim/$adminsmf/g' /tmp/database-example-smf.sql
+sed -i 's/adminkpanel/$adminsmf/g' /tmp/database-example-smf.sql
 sed -i 's/admin@google.com/$uremail/g' /tmp/database-example-smf.sql
 sed -i 's/domainexample.com/$website/g' /tmp/database-example-smf.sql
 END

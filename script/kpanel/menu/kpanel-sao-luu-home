@@ -24,7 +24,7 @@ echo "========================================================================="
 echo "Link file backup:"
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/backup/home/$serverip-$website$backuphomename.zip"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 exit
 
  ;;
@@ -35,5 +35,5 @@ esac
 clear
 echo "========================================================================="
 echo "Huy backup thu muc Home"
-/etc/kpanel/menu/kpanel-sao-luu
+/etc/kpanel/menu/3_backup-restore/kpanel-sao-luu
 

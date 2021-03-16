@@ -49,7 +49,7 @@ echo "Tim thay $website tren he thong"
 echo "-------------------------------------------------------------------------"
 echo "$website dang su dung wordpress code"
 echo "-------------------------------------------------------------------------"
-echo "kpanel dang chuan bi lay thong tin comments"
+echo "KPANEL dang chuan bi lay thong tin comments"
 echo "-------------------------------------------------------------------------"
 echo "Please wait ...."
 sleep 1

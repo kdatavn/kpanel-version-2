@@ -59,7 +59,7 @@ echo "========================================================================="
 echo "Installing  WP-CLI" ; sleep 2
 #wget -q --no-check-certificate https://kpanel.com/script/kpanel/Softwear/wp-cli.phar
 #wget -q --no-check-certificate https://github.com/itvn9online/kpanel-free/raw/master/script/kpanel/Softwear/wp-cli.phar
-wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/master/wp-cli.phar
+wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/main/wp-cli.phar
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 wp --version --allow-root > /etc/kpanel/wpcli.version 
@@ -109,7 +109,7 @@ clear
 echo "========================================================================"
 echo "MySQL service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear
@@ -163,7 +163,7 @@ clear
 echo "========================================================================"
 echo "PHP-FPM service is not running"
 echo "------------------------------------------------------------------------"
-echo "kpanel trying to start it"
+echo "KPANEL trying to start it"
 echo "------------------------------------------------------------------------"
 echo "Please wait ..."
 sleep 5 ; clear

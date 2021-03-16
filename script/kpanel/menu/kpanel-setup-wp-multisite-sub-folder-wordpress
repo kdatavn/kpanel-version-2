@@ -78,7 +78,7 @@ select opt in "${options[@]}"; do
     case "$REPLY" in
     1) luachoncaidat="caingay"; break;;
     2) luachoncaidat="sauluuroicai"; break;;
-    3) luachoncaidat="cancle"; break;;
+    3) luachoncaidat="cancel"; break;;
     *) echo "Ban nhap sai, Vui long nhap theo danh sach trong list";continue;;
     #*) echo "You typed wrong, Please type in the ordinal number on the list";continue;;
     esac  

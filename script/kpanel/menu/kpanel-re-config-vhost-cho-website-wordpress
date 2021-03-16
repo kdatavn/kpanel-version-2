@@ -52,7 +52,7 @@ clear
 echo "========================================================================="
 echo "Ban da xoa 1 trong 3 dong: AAA, CCC, DDD trong Vhost cua $website"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien yeu cau cua ban"
+echo "KPANEL khong the thuc hien yeu cau cua ban"
 /etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
@@ -61,7 +61,7 @@ clear
 echo "========================================================================="
 echo "Ban da xoa 1 trong 3 dong: AAA, CCC, DDD trong Vhost cua $website"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien yeu cau cua ban"
+echo "KPANEL khong the thuc hien yeu cau cua ban"
 /etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
@@ -70,7 +70,7 @@ clear
 echo "========================================================================="
 echo "Ban da xoa 1 trong 3 dong: AAA, CCC, DDD trong Vhost cua $website"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien yeu cau cua ban"
+echo "KPANEL khong the thuc hien yeu cau cua ban"
 /etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
@@ -111,9 +111,9 @@ echo "$website dang duoc config su dung Redis Cache"
   if [ "$(grep "include /etc/nginx/conf/all.conf;" /etc/nginx/conf.d/$website.conf)" == "" ]; then
 clear
 echo "========================================================================="
-echo "Ban da thay doi file cau hinh Vhost cua kpanel"
+echo "Ban da thay doi file cau hinh Vhost cua KPANEL"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien chuc nang nay"
+echo "KPANEL khong the thuc hien chuc nang nay"
 /etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
@@ -154,7 +154,7 @@ clear
 echo "========================================================================="
 echo "Ban da thay doi file cau hinh Vhost cua kpanel"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien chuc nang nay"
+echo "KPANEL khong the thuc hien chuc nang nay"
 /etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
@@ -197,7 +197,7 @@ clear
 echo "========================================================================="
 echo "Ban da thay doi file cau hinh Vhost cua kpanel"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien chuc nang nay"
+echo "KPANEL khong the thuc hien chuc nang nay"
 /etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi

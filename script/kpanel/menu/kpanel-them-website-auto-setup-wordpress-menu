@@ -7,7 +7,7 @@ echo "========================================================================="
 echo "Installing  WP-CLI" ; sleep 2
 #wget -q --no-check-certificate https://kpanel.com/script/kpanel/Softwear/wp-cli.phar
 #wget -q --no-check-certificate https://github.com/itvn9online/kpanel-free/raw/master/script/kpanel/Softwear/wp-cli.phar
-wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/master/wp-cli.phar
+wget -q --no-check-certificate https://github.com/kdatavn/kdata-vps-software/raw/main/wp-cli.phar
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 wp --version --allow-root > /etc/kpanel/wpcli.version 
@@ -40,7 +40,7 @@ fi
 prompt="Nhap lua chon cua ban: "
 options=( "Redis Cache" "WP Super cache" "W3 Total Cache" "Huy bo")
 printf "=========================================================================\n"
-printf "Tuy thuoc vao loai cache ban su dung ma kpanel config Vhost cho phu hop  \n"
+printf "Tuy thuoc vao loai cache ban su dung ma KPANEL config Vhost cho phu hop  \n"
 printf "=========================================================================\n"
 PS3="$prompt"
 select opt in "${options[@]}"; do 

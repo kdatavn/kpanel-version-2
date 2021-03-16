@@ -47,7 +47,7 @@ exit
 fi
 
 prompt="Nhap lua chon cua ban: "
-options=( "Drupal 8" "Drupal 7" "Cancle")
+options=( "Drupal 8" "Drupal 7" "Cancel")
 printf "=========================================================================\n"
 printf "LUA CHON PHIEN BAN DRUPAL  \n"
 printf "=========================================================================\n"
@@ -57,7 +57,7 @@ select opt in "${options[@]}"; do
     case "$REPLY" in
     1) phienban="drupal8"; break;;
     2) phienban="drupal7"; break;;
-    3) phienban="cancle"; break;;
+    3) phienban="cancel"; break;;
     *) echo "Ban nhap sai ! Ban vui long chon so trong danh sach";continue;;
     esac  
 done
@@ -275,7 +275,7 @@ find /home/$website/public_html/ -type d -exec chmod g+s {} \;
 #######################################################################
 echo "========================================================================="
 echo "========================================================================="
-read -r -p "Ban co muon kpanel tao Database moi cho $website ? [y/N] " response
+read -r -p "Ban co muon KPANEL tao Database moi cho $website ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "Please wait....";sleep 1

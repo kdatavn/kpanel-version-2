@@ -16,7 +16,7 @@ fi
  if [ ! -f /tmp/wordpresslist ]; then
 clear
 echo "========================================================================="
- echo "kpanel khong tim thay website chay Wordpress Code tren Server"
+ echo "KPANEL khong tim thay website chay Wordpress Code tren Server"
  /etc/kpanel/menu/kpanel-wordpress-tools-menu
  exit
  fi
@@ -25,12 +25,12 @@ sositewp=$(cat /tmp/wordpresslist | wc -l)
 echo "========================================================================="
 echo "Hien tai co $sositewp website dang su dung code wordpress tren he thong" 
 echo "-------------------------------------------------------------------------"
-echo "kpanel se check va update tat ca website co the update."
+echo "KPANEL se check va update tat ca website co the update."
 echo "========================================================================="
 sleep 1
 file="/tmp/wordpresslist"
 
-rm -rf /tmp/*hostingaz*
+rm -rf /tmp/*kdatavn*
 rm -rf /home/$mainsite/private_html/Listbackupwpdata*
 
 echo "=========================================================================" > /home/$mainsite/private_html/Listbackupwpdata$randomcode.txt
@@ -40,11 +40,11 @@ echo "" >> /home/$mainsite/private_html/Listbackupwpdata$randomcode.txt
 echo "" >> /home/$mainsite/private_html/Listbackupwpdata$randomcode.txt
 echo "" >> /home/$mainsite/private_html/Listbackupwpdata$randomcode.txt
 
-mkdir -p /tmp/sowebsitecanupdatehostingaz
-mkdir -p /tmp/updatethanhconghostingaz
-mkdir -p /tmp/saoluudatabasethanhconghostingaz
-mkdir -p /tmp/updatethatbaihostingaz
-mkdir -p /tmp/saoluudatathatbaihostingaz
+mkdir -p /tmp/sowebsitecanupdatekdatavn
+mkdir -p /tmp/updatethanhcongkdatavn
+mkdir -p /tmp/saoluudatabasethanhcongkdatavn
+mkdir -p /tmp/updatethatbaikdatavn
+mkdir -p /tmp/saoluudatathatbaikdatavn
 while read -r wpwebsite
     do
 if [ -f /home/$wpwebsite/public_html/wp-config.php ]; then
@@ -70,7 +70,7 @@ mkdir -p /home/$wpwebsite/public_html/0-kpanel
 echo "kpanel se update $wpwebsite tu $(wp core version --allow-root) len $vpssimcheckversion"
 echo "-------------------------------------------------------------------------"
 check1=$(date +"%H%m%s")
-touch /tmp/sowebsitecanupdatehostingaz/$check1
+touch /tmp/sowebsitecanupdatekdatavn/$check1
 if [ "$(grep "default_storage_engine = MyISAM" /etc/my.cnf.d/server.cnf | awk 'NR==1 {print $3}')" = "MyISAM" ]; then
 mysqldump -u root -p$mariadbpass $tendatabase --lock-tables=false | gzip -9 > /home/$wpwebsite/public_html/0-kpanel/$tendatabase-$random-$tenmo.sql.gz
 else
@@ -86,7 +86,7 @@ vpssimcheckversion2=$(wp core check-update --allow-root | tail -n1 | awk 'NR==1 
      echo "Update Wordpress code cho $wpwebsite thanh cong"
      echo "-------------------------------------------------------------------------"
 check2=$(date +"%H%m%s")
-touch /tmp/updatethanhconghostingaz/$check2  
+touch /tmp/updatethanhcongkdatavn/$check2  
 		if [ -f /home/$wpwebsite/public_html/0-kpanel/$tendatabase-$random-$tenmo.sql.gz ]; then
 echo "Backup database $tendatabase thanh cong. Link Backup:"
 echo "-------------------------------------------------------------------------"
@@ -107,7 +107,7 @@ echo "========================================================================="
      else
 echo "Update wordpress code that bai"
   echo "-------------------------------------------------------------------------"
-  echo "abc" > /tmp/updatethatbaihostingaz/$wpwebsite
+  echo "abc" > /tmp/updatethatbaikdatavn/$wpwebsite
   rm -rf /home/$wpwebsite/public_html/0-kpanel/$tendatabase-$random-$tenmo.sql.gz
      fi
 cd
@@ -116,7 +116,7 @@ cd
 fi
 done < "$file"
 /etc/kpanel/menu/kpanel-re-config-cac-ham-php-disable-php.ini
-if [ "$(ls -1 /tmp/sowebsitecanupdatehostingaz | wc -l)" == "0" ]; then
+if [ "$(ls -1 /tmp/sowebsitecanupdatekdatavn | wc -l)" == "0" ]; then
 clear
 echo "========================================================================="
 echo "Co $sositewp wordpress website trong he thong"
@@ -133,21 +133,21 @@ else
 echo "========================================================================="
 echo "Co $sositewp wordpress website trong he thong"
 echo "-------------------------------------------------------------------------"
-echo "Website can update: $(ls -1 /tmp/sowebsitecanupdatehostingaz | wc -l) | Website update thanh cong: $(ls -1 /tmp/updatethanhconghostingaz | wc -l)"
+echo "Website can update: $(ls -1 /tmp/sowebsitecanupdatekdatavn | wc -l) | Website update thanh cong: $(ls -1 /tmp/updatethanhcongkdatavn | wc -l)"
 echo "-------------------------------------------------------------------------"
-if [ "$(ls -A /tmp/updatethatbaihostingaz)" ]; then
+if [ "$(ls -A /tmp/updatethatbaikdatavn)" ]; then
 echo "Website update that bai: "
 echo "-------------------------------------------------------------------------"
-ls /tmp/updatethatbaihostingaz
+ls /tmp/updatethatbaikdatavn
 echo "-------------------------------------------------------------------------"
 fi
-echo "Database sao luu thanh cong: $(ls -1 /tmp/saoluudatabasethanhconghostingaz | wc -l)"
-if [ ! "$(ls -1 /tmp/saoluudatabasethanhconghostingaz | wc -l)" == "0" ]; then
+echo "Database sao luu thanh cong: $(ls -1 /tmp/saoluudatabasethanhcongkdatavn | wc -l)"
+if [ ! "$(ls -1 /tmp/saoluudatabasethanhcongkdatavn | wc -l)" == "0" ]; then
 echo "-------------------------------------------------------------------------"
 echo "List file backup database: "
 echo "-------------------------------------------------------------------------"
 echo "http://$serverip:$priport/Listbackupwpdata$randomcode.txt "
 fi
 /etc/kpanel/menu/kpanel-wordpress-tools-menu
-rm -rf /tmp/*hostingaz*
+rm -rf /tmp/*kdatavn*
 fi

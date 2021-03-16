@@ -14,7 +14,7 @@ website=`echo $website | tr '[A-Z]' '[a-z]'`
 if [ "$website" = "" ]; then
 clear
 echo "========================================================================="
-echo "Ban phaiNhap ten domain."
+echo "Ban phai nhap ten domain."
 /etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi

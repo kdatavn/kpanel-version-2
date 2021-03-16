@@ -45,7 +45,7 @@ fi
 echo "-------------------------------------------------------------------------"
 echo "Tim thay $website dang su dung wordpress code tren he thong"
 echo "-------------------------------------------------------------------------"
-echo "kpanel dang kiem tra Wordpress version"
+echo "KPANEL dang kiem tra Wordpress version"
 echo "-------------------------------------------------------------------------"
 sleep 3
 date |md5sum |cut -c '1-8' > /tmp/abcd
@@ -72,7 +72,7 @@ echo "Phien ban wordpress hien tai cua $website: $(wp core version --allow-root)
 echo "-------------------------------------------------------------------------"
 echo "Phien ban wordpress moi nhat: $vpssimcheckversion"
 echo "-------------------------------------------------------------------------"
-echo "kpanel se update wordpress code cua $website len $vpssimcheckversion"
+echo "KPANEL se update wordpress code cua $website len $vpssimcheckversion"
 echo "-------------------------------------------------------------------------"
 echo "Truoc khi update, kpanel se sao luu database"
 echo "-------------------------------------------------------------------------"

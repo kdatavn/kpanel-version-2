@@ -139,7 +139,7 @@ find /home/$website/public_html/ -type d -exec chmod g+s {} \;
 #######################################################################
 echo "========================================================================="
 echo "========================================================================="
-read -r -p "Ban co muon kpanel tao Database moi cho $website ? [y/N] " response
+read -r -p "Ban co muon KPANEL tao Database moi cho $website ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "Please wait....";sleep 1

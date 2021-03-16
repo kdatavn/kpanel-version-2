@@ -5,7 +5,7 @@
 echo "========================================================================="
 echo "Su dung chuc nang nay de update Wordpress code len phien ban moi nhat"  
 echo "-------------------------------------------------------------------------"
-echo "Truoc khi update, kpanel tien hanh sao luu database cho website"
+echo "Truoc khi update, KPANEL tien hanh sao luu database cho website"
 echo "========================================================================="
 #prompt="Nhap lua chon cua ban: "
 prompt="Lua chon cua ban: "
@@ -18,7 +18,7 @@ select opt in "${options[@]}"; do
     case "$REPLY" in
     1) luachonupdate="update1site"; break;;
     2) luachonupdate="updateall"; break;;
-    3) chonphpversion="cancle"; break;;
+    3) chonphpversion="cancel"; break;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;
     #*) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;
     esac  

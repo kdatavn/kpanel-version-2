@@ -12,7 +12,7 @@ select opt in "${options[@]}"; do
     1) vhostconfig="phpbb"; break;;
     2) vhostconfig="smf"; break;;
     3) vhostconfig="mybb"; break;;
-    4) vhostconfig="cancle"; break;;
+    4) vhostconfig="cancel"; break;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu !";continue;;
     esac  
 done

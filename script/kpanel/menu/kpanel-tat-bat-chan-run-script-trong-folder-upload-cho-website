@@ -52,7 +52,7 @@ clear
 echo "========================================================================="
 echo "Ban da thay doi config Vhost mac dinh cua $website"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien yeu cau cua ban"
+echo "KPANEL khong the thuc hien yeu cau cua ban"
 /etc/kpanel/menu/kpanel-block-exploits-sql-injections-menu
 exit
 fi
@@ -63,7 +63,7 @@ clear
 echo "========================================================================="
 echo "Ban da thay doi config Vhost mac dinh cua $website"
 echo "-------------------------------------------------------------------------"
-echo "kpanel khong the thuc hien yeu cau cua ban"
+echo "KPANEL khong the thuc hien yeu cau cua ban"
 /etc/kpanel/menu/kpanel-block-exploits-sql-injections-menu
 exit
 fi

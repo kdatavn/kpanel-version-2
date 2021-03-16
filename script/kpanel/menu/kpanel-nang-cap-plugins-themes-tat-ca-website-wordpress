@@ -15,7 +15,7 @@ fi
  if [ ! -f /tmp/wordpresslist ]; then
 clear
 echo "========================================================================="
- echo "kpanel khong tim thay website chay Wordpress Code tren Server"
+ echo "KPANEL khong tim thay website chay Wordpress Code tren Server"
  /etc/kpanel/menu/kpanel-wordpress-tools-menu
  exit
  fi
@@ -31,7 +31,7 @@ select opt in "${options[@]}"; do
     case "$REPLY" in
     1) luachonupdate="updateplugin"; break;;
     2) luachonupdate="updatethemes"; break;;
-    3) luachonupdate="cancle"; break;;
+    3) luachonupdate="cancel"; break;;
     *) echo "Ban nhap sai, vui long nhap theo so thu tu tren menu";continue;;
     
     esac  
@@ -45,7 +45,7 @@ sositewp=$(cat /tmp/wordpresslist | wc -l)
 echo "========================================================================="
 echo "Hien tai co $sositewp website dang su dung wordpress code tren server" 
 echo "-------------------------------------------------------------------------"
-echo "kpanel se check va update tat ca plugins cua $sositewp website nay"
+echo "KPANEL se check va update tat ca plugins cua $sositewp website nay"
 sleep 1
 acction2="/tmp/wordpresslist"
 while read -r wpwebsite
@@ -87,7 +87,7 @@ sositewp=$(cat /tmp/wordpresslist | wc -l)
 echo "========================================================================="
 echo "Hien tai co $sositewp website dang su dung wordpress code tren server" 
 echo "-------------------------------------------------------------------------"
-echo "kpanel su check va update tat ca Themes cua $sositewp website nay"
+echo "KPANEL su check va update tat ca Themes cua $sositewp website nay"
 sleep 1
 acction2="/tmp/wordpresslist"
 while read -r wpwebsite

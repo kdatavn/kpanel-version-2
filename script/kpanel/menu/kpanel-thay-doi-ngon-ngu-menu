@@ -2,15 +2,15 @@
 . /home/kpanel.conf
 rm -rf /tmp/kpanel.newversion*
 cd /tmp
-timeout 3 wget -q https://hostingaz.vn/script/kpanel/kpanel.newversion
+timeout 3 wget -q https://kdata.vn/script/kpanel/kpanel.newversion
 cd
 LOCALVER=`cat /etc/kpanel/kpanel.version`
  if [ ! -f /tmp/kpanel.newversion ]; then 
  clear
 printf "=========================================================================\n"
-echo "kpanel Khong the kiem tra phien ban kpanel hien tai"
+echo "KPANEL Khong the kiem tra phien ban KPANEL hien tai"
 echo "-------------------------------------------------------------------------"
-echo "(kpanel cant not check current version)"
+echo "(KPANEL cant not check current version)"
 /etc/kpanel/menu/kpanel-update-upgrade-service-menu
  exit
  fi
