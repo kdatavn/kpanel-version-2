@@ -55,7 +55,7 @@ case "$REPLY" in
 7) chonphpversion="55"; break;;
 8) chonphpversion="54"; break;;
 #9) chonphpversion="cancle"; break;;
-0) chonphpversion="cancle"; break;;
+0) chonphpversion="cancel"; break;;
 *) echo "Ban nhap sai, vui long nhap theo so thu tu trong danh sach";continue;;
 
 esac  

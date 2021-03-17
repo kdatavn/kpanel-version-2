@@ -399,10 +399,10 @@ sudo yum search mariadb
 sudo yum info mariadb
 #sudo dnf -y install MariaDB-client MariaDB-common MariaDB-compat MariaDB-devel MariaDB-server MariaDB-shared perl-DBD-MySQL
 sudo dnf -y install perl-DBI libaio libsepol lsof boost-program-options
-if [ "$phienbanmariadb" = "10.3" ]; then
-sudo dnf -y install --repo="mariadb" MariaDB-server
-else
+if [ "$phienbanmariadb" = "10.6" ]; then
 sudo dnf -y install --repo="mariadb-main" MariaDB-server
+else
+sudo dnf -y install --repo="mariadb" MariaDB-server
 fi
 
 sudo dnf -y install exim syslog-ng cronie cronie-anacron
@@ -627,7 +627,7 @@ rm -rf /etc/php-fpm.conf
 yes | cp -rf /opt/kdata_kpanel/script/kpanel/conf-webserver/php-fpm.txt /etc/php-fpm.conf
 # cleanup
 kpanel_setup_cleanup_config_file "/etc/php-fpm.conf"
-sudo dnf -y install php-fpm #fix php installed on centos 8
+
 
 if [[ $svram -ge 32 && $svram -le 449  ]] ; then 
 heso1=1
