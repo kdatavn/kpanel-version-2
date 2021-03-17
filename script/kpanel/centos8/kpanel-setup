@@ -108,12 +108,12 @@ case "$REPLY" in
 esac  
 done
 
-if [ "$mariadbversion" = "10.4" ]; then
-phienbanmariadb=10.4
+if [ "$mariadbversion" = "10.5" ]; then
+phienbanmariadb=10.5
 #elif [ "$mariadbversion" = "10.3" ]; then
 #phienbanmariadb=10.3
-elif [ "$mariadbversion" = "10.5" ]; then
-phienbanmariadb=10.5
+elif [ "$mariadbversion" = "10.4" ]; then
+phienbanmariadb=10.4
 else 
 phienbanmariadb=10.3
 fi
@@ -399,7 +399,7 @@ sudo yum search mariadb
 sudo yum info mariadb
 #sudo dnf -y install MariaDB-client MariaDB-common MariaDB-compat MariaDB-devel MariaDB-server MariaDB-shared perl-DBD-MySQL
 sudo dnf -y install perl-DBI libaio libsepol lsof boost-program-options
-if [ "$phienbanmariadb" = "10.6" ]; then
+if [ "$phienbanmariadb" = "10.3" ]; then
 sudo dnf -y install --repo="mariadb-main" MariaDB-server
 else
 sudo dnf -y install --repo="mariadb" MariaDB-server
@@ -410,8 +410,8 @@ sudo dnf -y install exim syslog-ng cronie cronie-anacron
 yum-config-manager --enable remi-php$numPHPmacdinh
 #sudo dnf -y install php php-curl php-soap php-cli php-snmp php-pspell redis php-pecl-redis php-gmp php-ldap php-bcmath php-intl php-imap perl-libwww-perl perl-LWP-Protocol-https php-pear-Net-SMTP php-enchant php-common php-fpm php-gd php-devel php-mysql php-pear php-pecl-memcached php-pecl-memcache php-opcache php-pdo php-zlib php-xml php-mbstring php-mcrypt php-xmlrpc php-tidy
 #sudo dnf -y install php php-curl php-soap php-cli php-snmp php-pspell php-pecl-redis php-gmp php-ldap php-bcmath php-intl php-imap perl-libwww-perl perl-LWP-Protocol-https php-pear-Net-SMTP php-enchant php-common php-fpm php-gd php-devel php-mysql php-pear php-pecl-memcached php-pecl-memcache php-opcache php-pdo php-zlib php-xml php-mbstring php-mcrypt php-xmlrpc php-tidy
-if [ -f /etc/kpanel/menu/nangcap-php/install-php ]; then
-/etc/kpanel/menu/nangcap-php/install-php
+if [ -f /etc/kpanel/menu/nangcap-php/install-php8 ]; then
+/etc/kpanel/menu/nangcap-php/install-php8
 else
 echo "Install php module..."
 sudo dnf -y install php php-curl php-pecl-zip php-zip php-soap php-cli php-snmp php-gmp php-ldap php-bcmath php-intl perl-libwww-perl perl-LWP-Protocol-https php-pear-Net-SMTP php-enchant php-common php-fpm php-gd php-devel php-pear php-opcache php-pdo php-zlib php-xml php-mbstring php-xmlrpc
