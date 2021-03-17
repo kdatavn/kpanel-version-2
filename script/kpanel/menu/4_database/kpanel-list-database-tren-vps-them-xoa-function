@@ -5,7 +5,7 @@ randomcode=-`date |md5sum |cut -c '1-12'`
 clear
 echo "========================================================================="
 echo "==================================================================================================================" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
-echo "                                        Database Information Created by kpanel" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
+echo "                                        Database Information Created by KPANEL" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
 echo "==================================================================================================================" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt
 
 echo "" >> /home/$mainsite/private_html/ListDatabase$randomcode.txt

@@ -53,7 +53,7 @@ rm -f /tmp/config.temp
 	if [ ! -f /var/lib/mysql/kpanelCheckDB/db.opt ]; then
 	clear
 	echo "========================================================================="
-	echo "Sorry, MySQL service dang stopped. kpanel khong the bat MySQL len duoc!"
+	echo "Sorry, MySQL service dang stopped. KPANEL khong the bat MySQL len duoc!"
 	kpanel
 	else
 	rm -rf /var/lib/mysql/kpanelCheckDB
