@@ -401,10 +401,10 @@ sudo yum search mariadb
 sudo yum info mariadb
 #sudo dnf -y install MariaDB-client MariaDB-common MariaDB-compat MariaDB-devel MariaDB-server MariaDB-shared perl-DBD-MySQL
 sudo dnf -y install perl-DBI libaio libsepol lsof boost-program-options
-if [ "$phienbanmariadb" = "10.6" ]; then
-	sudo dnf -y install --repo="mariadb-main" MariaDB-server
-else
+if [ "$phienbanmariadb" = "10.3" ]; then
 	sudo dnf -y install --repo="mariadb" MariaDB-server
+else
+	sudo dnf -y install --repo="mariadb-main" MariaDB-server
 fi
 
 sudo dnf -y install exim syslog-ng cronie cronie-anacron

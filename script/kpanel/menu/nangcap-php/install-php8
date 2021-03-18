@@ -37,10 +37,11 @@ fi
 # Step 2: Install PHP 8 on CentOS/RHEL
 
 # Right at the bottom, be sure to notice the remi-8.0 php module.
-sudo dnf module list PHP
+sudo dnf module list php
 
 # We need to enable this module before installing PHP 8.0. To enable php:remi-8.0, execute:
-sudo dnf module enable php:remi-8.0 -y
+#sudo dnf module enable php:remi-8.0 -y
+sudo dnf module enable php:remi-$new_php_version -y
 
 # Install PHP 8.0 for Nginx
 sudo dnf -y install php php-cli php-common php-fpm
@@ -65,5 +66,21 @@ php -m | grep mysql
 #php -m | grep mysqlnd
 
 
+#add more
+if [ -f /etc/redis/redis.conf ]; then
+echo "Install php redis..."
+#sudo yum search php-pecl-redis5
+#phppeclredis=php-pecl-redis
+#sudo yum -y install php-pecl-redis
+sudo dnf -y install php-pecl-redis5
+fi
 
-#clear
+if [ -f /etc/sysconfig/memcached ]; then
+echo "Install php memcache..."
+#sudo yum search php-pecl-memcached
+#sudo yum search php-pecl-memcache
+#memcachedinstall=$(echo "php-pecl-memcached php-pecl-memcache")
+sudo dnf -y install php-pecl-memcached php-pecl-memcache
+fi
+
+clear
