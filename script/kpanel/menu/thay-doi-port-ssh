@@ -140,6 +140,6 @@ echo "Host: sftp://$serverip, User & Pass: Root's info, Port: $sshport"
 esac
 clear
 echo "========================================================================="
-echo "Ban da cancle thay doi SSH Port !"
+echo "Ban da cancel thay doi SSH Port !"
 /etc/kpanel/menu/tienich/kpanel-tien-ich
 
