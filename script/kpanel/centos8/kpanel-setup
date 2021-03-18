@@ -270,9 +270,9 @@ fi
 
 /opt/kdata_kpanel/script/kpanel/menu/yum-first-install
 
-#rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-8.rpm
-sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-8.rpm
+#sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+#sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 if [ -f /etc/yum.repos.d/epel.repo ]; then
 sudo sed -i "s/mirrorlist=https/mirrorlist=http/" /etc/yum.repos.d/epel.repo
 fi
