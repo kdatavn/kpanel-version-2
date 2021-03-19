@@ -278,8 +278,8 @@ sudo sed -i "s/mirrorlist=https/mirrorlist=http/" /etc/yum.repos.d/epel.repo
 fi
 
 # https://mariadb.com/resources/blog/how-to-install-mariadb-on-rhel8-centos8/
-#if [ "$phienbanmariadb" = "10.4" ] || [ "$phienbanmariadb" = "10.5" ]; then
-if [ "$phienbanmariadb" = "10.6" ]; then
+if [ "$phienbanmariadb" = "10.4" ] || [ "$phienbanmariadb" = "10.5" ]; then
+#if [ "$phienbanmariadb" = "10.6" ]; then
 cat > "/etc/yum.repos.d/mariadb.repo" <<END
 [mariadb-main]
 name = MariaDB Server
@@ -401,13 +401,13 @@ sudo yum search mariadb
 sudo yum info mariadb
 #sudo dnf -y install MariaDB-client MariaDB-common MariaDB-compat MariaDB-devel MariaDB-server MariaDB-shared perl-DBD-MySQL
 sudo dnf -y install perl-DBI libaio libsepol lsof boost-program-options
-#if [ "$phienbanmariadb" = "10.3" ]; then
-#	sudo dnf -y install --repo="mariadb" mariadb-server
-#else
-#	sudo dnf -y install --repo="mariadb-main" mariadb-server
-#fi
+if [ "$phienbanmariadb" = "10.3" ]; then
+	sudo dnf -y install --repo="mariadb" mariadb-server
+else
+	sudo dnf -y install --repo="mariadb-main" mariadb-server
+fi
 
-sudo dnf -y install mariadb-server
+#sudo dnf -y install mariadb-server
 
 sudo dnf -y install exim syslog-ng cronie cronie-anacron
 
