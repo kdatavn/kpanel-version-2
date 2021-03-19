@@ -67,20 +67,20 @@ php -m | grep mysql
 
 
 #add more
-if [ -f /etc/redis/redis.conf ]; then
-echo "Install php redis..."
+#if [ -f /etc/redis/redis.conf ]; then
+#echo "Install php redis..."
 #sudo yum search php-pecl-redis5
 #phppeclredis=php-pecl-redis
 #sudo yum -y install php-pecl-redis
-sudo dnf -y install php-pecl-redis5
-fi
+#sudo dnf -y install php-pecl-redis5
+#fi
 
-if [ -f /etc/sysconfig/memcached ]; then
-echo "Install php memcache..."
+#if [ -f /etc/sysconfig/memcached ]; then
+#echo "Install php memcache..."
 #sudo yum search php-pecl-memcached
 #sudo yum search php-pecl-memcache
 #memcachedinstall=$(echo "php-pecl-memcached php-pecl-memcache")
-sudo dnf -y install php-pecl-memcached php-pecl-memcache
-fi
+#sudo dnf -y install php-pecl-memcached php-pecl-memcache
+#fi
 
 clear
