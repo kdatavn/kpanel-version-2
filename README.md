@@ -1,6 +1,6 @@
 ### Lệnh Cài Đặt KPANEL Trên Centos 6 & 7 & 8:
 ```
-bash <( curl -k https://raw.githubusercontent.com/kdatavn/kpanel-version-2/main/install )
+bash <( curl -k https://kdata.vn/install )
 ```
 test
 ----------------------------------------------
