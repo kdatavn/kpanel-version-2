@@ -52,8 +52,8 @@ download_main_menu () {
 wget -q --no-check-certificate https://github.com/kdatavn/kpanel-version-2/raw/main/script/kpanel/kpanel -O /bin/kpanel && chmod +x /bin/kpanel
 }
 download_main_menu
-checkvpssim_mainmenu=`cat /bin/kpanel`
-if [ -z "$checkvpssim_mainmenu" ]; then
+checkkpanel_mainmenu=`cat /bin/kpanel`
+if [ -z "$checkkpanel_mainmenu" ]; then
 download_main_menu
 fi
 find /etc/kpanel/menu -type f -exec chmod 755 {} \;

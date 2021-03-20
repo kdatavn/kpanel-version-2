@@ -57,8 +57,8 @@ tendatabase=`cat /home/$wpwebsite/public_html/wp-config.php | grep DB_NAME | cut
 echo "`date '+%d%m'`" > /tmp/datetime
 tenmo=$(cat /tmp/datetime)
 cd /home/$wpwebsite/public_html/
-vpssimcheckversion=$(wp core check-update --allow-root | tail -n1 | awk 'NR==1 {print $1}')
-  if [ "$vpssimcheckversion" == "Success:" ]; then
+kpanelcheckversion=$(wp core check-update --allow-root | tail -n1 | awk 'NR==1 {print $1}')
+  if [ "$kpanelcheckversion" == "Success:" ]; then
   echo "Update $wpwebsite Status:"
   echo "Website $wpwebsite dang chay phien ban wordpress moi nhat "
   echo "========================================================================="
@@ -67,7 +67,7 @@ vpssimcheckversion=$(wp core check-update --allow-root | tail -n1 | awk 'NR==1 {
 mkdir -p /home/$wpwebsite/public_html/0-kpanel
       fi
  echo "Update $wpwebsite Status:"
-echo "kpanel se update $wpwebsite tu $(wp core version --allow-root) len $vpssimcheckversion"
+echo "KPANEL se update $wpwebsite tu $(wp core version --allow-root) len $kpanelcheckversion"
 echo "-------------------------------------------------------------------------"
 check1=$(date +"%H%m%s")
 touch /tmp/sowebsitecanupdatekdatavn/$check1
@@ -81,8 +81,8 @@ wp core update --allow-root > /tmp/abc.txt
 wp core update-db --allow-root > /tmp/abc.txt
 chown -R nginx:nginx /home/$wpwebsite/public_html
 cd /home/$wpwebsite/public_html
-vpssimcheckversion2=$(wp core check-update --allow-root | tail -n1 | awk 'NR==1 {print $1}')
-     if [ "$vpssimcheckversion2" == "Success:" ]; then   
+kpanelcheckversion2=$(wp core check-update --allow-root | tail -n1 | awk 'NR==1 {print $1}')
+     if [ "$kpanelcheckversion2" == "Success:" ]; then   
      echo "Update Wordpress code cho $wpwebsite thanh cong"
      echo "-------------------------------------------------------------------------"
 check2=$(date +"%H%m%s")
