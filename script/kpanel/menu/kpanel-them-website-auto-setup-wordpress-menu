@@ -49,7 +49,7 @@ select opt in "${options[@]}"; do
     1) vhostconfig="redis"; break;;
     2) vhostconfig="supercache"; break;;
     3) vhostconfig="w3total"; break;;
-    4) vhostconfig="cancle"; break;;
+    4) vhostconfig="cancel"; break;;
     *) echo "Ban nhap sai ! Ban vui long chon so trong danh sach";continue;;
     esac  
 done

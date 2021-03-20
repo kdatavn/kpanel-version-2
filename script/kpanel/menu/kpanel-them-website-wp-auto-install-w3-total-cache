@@ -107,14 +107,14 @@ include /etc/nginx/conf/ddos2.conf;
 	index index.php index.html index.htm;
     	server_name $website;
 
-#///////////////////////////////////////////////////////
-# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
+#////////////////////////////////////////////////////////////////
+# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC, DDD hoac EEE
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua KPANEL
 # Thuat ngu:
 # Comment - Them dau # vao dau cau
 # Uncomment - Bo dau # o truoc cau.
-#///////////////////////////////////////////////////////
+#////////////////////////////////////////////////////////////////
 
 
 #Chay tat ca cac website (Wordpress, Xenforo, Joomla, Phpbb .... ). Neu ban su dung rule cua ban,comment dong duoi (them dau # vao truoc) (AAA)
@@ -129,13 +129,16 @@ include /etc/nginx/conf/ddos2.conf;
 #include /etc/nginx/conf/supercache.conf;  
 
 # Rule cho wordpress + Plugin W3 Total Cache. Neu ban su dung wordpress va W3 Total, uncomment dong duoi va comment dong AAA phia tren. (DDD)
-include /etc/nginx/conf/w3total.conf;  
+include /etc/nginx/conf/w3total.conf;
+
+# Rule cho wordpress + Plugin wp rocket Cache. Neu ban su dung wordpress va wp rocket, uncomment dong duoi va comment hoac xoa dong AAA phia tren. (EEE)
+#include /etc/nginx/conf/wprocket.conf;  
 
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;
 
 #Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
-#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
+#Khong duoc xoa dong duoi, neu xoa KPANEL se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
 # Error Page

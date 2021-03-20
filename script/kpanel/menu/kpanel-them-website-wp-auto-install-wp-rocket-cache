@@ -1,8 +1,8 @@
 #!/bin/bash 
-roc_VERSION=1.2.3
+
 . /home/kpanel.conf
 echo "========================================================================="
-echo "Them Domain + Tu dong cai dat Wordpress + Config Vhost cho Redis Cache"
+echo "Them Domain + Tu dong cai dat Wordpress + Config Vhost cho WP Rocket Cache"
 echo "-------------------------------------------------------------------------"
 echo "Sau khi them Domain vao VPS, Website cua ban san sang hoat dong ngay"
 echo "-------------------------------------------------------------------------"
@@ -10,7 +10,7 @@ echo "Ban khong can cai dat thu cong Wordpress nua."
 echo "-------------------------------------------------------------------------"
 echo "Cac Plugins duoc tu dong cai dat trong qua trinh cai Wordpress: "
 echo "-------------------------------------------------------------------------"
-echo "Redis Object Cache, Nginx Helper, WP Limit Attemps, No Category Base"
+echo "WP Rocket Cache, WP Limit Attemps, No Category Base"
 echo "========================================================================="
 echo -n "Nhap domain ban muon them [ENTER]: " 
 read website
@@ -22,6 +22,7 @@ echo "Ban phai nhap ten domain"
 /etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
+
 kiemtradomain3="^([[:alnum:]]([[:alnum:]\-]{0,61}[[:alnum:]])?\.)+[[:alpha:]]{2,14}$";
 if [[ ! "$website" =~ $kiemtradomain3 ]]; then
 	website=`echo $website | tr '[A-Z]' '[a-z]'`
@@ -42,6 +43,7 @@ echo "Ban vui long thu lai !"
 /etc/kpanel/menu/kpanel-them-website-menu
 exit
 fi
+
 echo "-------------------------------------------------------------------------"
 echo -n "Nhap tai khoan wordpress admin [ENTER]: " 
 read adminwp
@@ -92,8 +94,9 @@ server {
     	}
 server {
 	    listen   80;
-    	access_log off;
-    	# access_log   /home/$website/logs/access_log; 
+
+    	access_log off; # 
+        # access_log   /home/$website/logs/access_log; #
     	error_log off;
     	# error_log /home/$website/logs/error.log;
     	add_header X-Frame-Options SAMEORIGIN;
@@ -103,19 +106,19 @@ server {
 include /etc/nginx/conf/ddos2.conf;
 	index index.php index.html index.htm;
     	server_name $website;
-    	
-#///////////////////////////////////////////////////////////////
+
+#////////////////////////////////////////////////////////////////
 # Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC, DDD hoac EEE
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
 # Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua KPANEL
 # Thuat ngu:
-# Comment - Them dau # vao truoc
+# Comment - Them dau # vao dau cau
 # Uncomment - Bo dau # o truoc cau.
-#///////////////////////////////////////////////////////////////
+#////////////////////////////////////////////////////////////////
 
 
 #Chay tat ca cac website (Wordpress, Xenforo, Joomla, Phpbb .... ). Neu ban su dung rule cua ban,comment dong duoi (them dau # vao truoc) (AAA)
-include /etc/nginx/conf/all.conf;
+#include /etc/nginx/conf/all.conf;
 
 #Neu ban su dung rule cua minh, comment rule o tren. Sau do uncoment (bo dau # ba dong duoi) sau do them rule vao giua. (BBB)
 #location / {
@@ -126,10 +129,10 @@ include /etc/nginx/conf/all.conf;
 #include /etc/nginx/conf/supercache.conf;  
 
 # Rule cho wordpress + Plugin W3 Total Cache. Neu ban su dung wordpress va W3 Total, uncomment dong duoi va comment dong AAA phia tren. (DDD)
-#include /etc/nginx/conf/w3total.conf;  
+#include /etc/nginx/conf/w3total.conf;
 
 # Rule cho wordpress + Plugin wp rocket Cache. Neu ban su dung wordpress va wp rocket, uncomment dong duoi va comment hoac xoa dong AAA phia tren. (EEE)
-#include /etc/nginx/conf/wprocket.conf;
+include /etc/nginx/conf/wprocket.conf;  
 
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;
@@ -149,7 +152,7 @@ include /etc/nginx/conf/staticfiles.conf;
 #   internal;
 #    root /home/$website;
 #    access_log              off;
-#}
+#} 
     	location ~ \.php$ {
 		fastcgi_split_path_info ^(.+\.php)(/.+)$;
         include /etc/nginx/fastcgi_params;
@@ -174,7 +177,7 @@ include /etc/nginx/conf/drop.conf;
 END
 mkdir -p /home/$website/errorpage_html && cp -r /etc/kpanel/errorpage_html/*.html /home/$website/errorpage_html
 echo "$website" > /tmp/databasename.txt
-#echo $website | sed "s/\./_/" | sed "s/\-/_/" | cut -c1-14  > /tmp/databasename.txt  
+#echo $website | sed "s/\./_/" | sed "s/\-/_/" | cut -c1-10  > /tmp/databasename.txt  
 sed -i 's/\./_/g' /tmp/databasename.txt
 sed -i 's/\-/_/g' /tmp/databasename.txt
 random=`date |md5sum |cut -c '1-4'`
@@ -238,32 +241,16 @@ find /home/$website/public_html/ -type d -exec chmod g+s {} \;
 wp core config --dbname=$dataname --dbuser=$username --dbpass=$password --allow-root
 perl -pi -e "s/= 'wp_';/= 'wp_${randomwp}_';/g" wp-config.php
 wp core install --url="http://$website" --title="$website" --admin_user="$adminwp" --admin_password="$passwp" --admin_email="admin@$website" --allow-root
-sed -i "/.*DB_COLLATE*./a\//* Authentication Unique Keys and Salts." /home/$website/public_html/wp-config.php
-#echo "define('FS_METHOD','direct');" >> /home/$website/public_html/wp-config.php
-sed -i "/.*Authentication*./adefine('WP_CACHE_KEY_SALT', '$website');" /home/$website/public_html/wp-config.php
-sed -i "/define('WP_CACHE_KEY_SALT', '$website');/adefine('WP_CACHE', true);" /home/$website/public_html/wp-config.php
-
-wp plugin install nginx-helper --activate --allow-root
+#install plugin rocket cache for free
+#wp plugin install w3-total-cache --activate --allow-root
 wp plugin install wp-limit-login-attempts ---allow-root
 wp plugin install no-category-base-wpml --activate --allow-root
-wp plugin install redis-cache --activate --allow-root
-#cd /home/$website/public_html/wp-content/plugins/
-#wget https://downloads.wordpress.org/plugin/redis-cache.${roc_VERSION}.zip
-#unzip redis-cache.${roc_VERSION}.zip
-#rm -rf redis-cache.${roc_VERSION}.zip
-yes | cp -rf /home/$website/public_html/wp-content/plugins/redis-cache/includes/object-cache.php /home/$website/public_html/wp-content/object-cache.php
-chown -R nginx:nginx /home/$website/public_html/wp-content
+sed -i "/.*DB_COLLATE*./a\//* Authentication Unique Keys and Salts." /home/$website/public_html/wp-config.php
+#echo "define('FS_METHOD','direct');" >> /home/$website/public_html/wp-config.php
 cd
 chown -R nginx:nginx /home/$website/public_html/
 find /home/$website/public_html/ -type d -exec chmod g+s {} \;
 /etc/kpanel/menu/kpanel-re-config-cac-ham-php-disable-php.ini
-if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
-service php-fpm restart
-service redis restart
-else
-systemctl restart php-fpm.service
-systemctl restart redis.service
-fi
 if [ "$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides redhat-release))" == "6" ]; then 
 service nginx reload
 else 

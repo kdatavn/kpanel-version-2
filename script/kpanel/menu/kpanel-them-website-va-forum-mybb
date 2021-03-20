@@ -126,14 +126,14 @@ include /etc/nginx/conf/ddos2.conf;
 	index index.php index.html index.htm;
     	server_name $website;
     	
-#///////////////////////////////////////////////////////
-# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
+#////////////////////////////////////////////////////////////////
+# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC, DDD hoac EEE
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua KPANEL
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
-#///////////////////////////////////////////////////////
+#////////////////////////////////////////////////////////////////
 
 
 #Chay tat ca cac website (Wordpress, Xenforo, Joomla, Phpbb .... ). Neu ban su dung rule cua ban,comment dong duoi (them dau # vao truoc) (AAA)
@@ -148,7 +148,10 @@ include /etc/nginx/conf/all.conf;
 #include /etc/nginx/conf/supercache.conf;  
 
 # Rule cho wordpress + Plugin W3 Total Cache. Neu ban su dung wordpress va W3 Total, uncomment dong duoi va comment dong AAA phia tren. (DDD)
-#include /etc/nginx/conf/w3total.conf; 
+#include /etc/nginx/conf/w3total.conf;
+
+# Rule cho wordpress + Plugin wp rocket Cache. Neu ban su dung wordpress va wp rocket, uncomment dong duoi va comment hoac xoa dong AAA phia tren. (EEE)
+#include /etc/nginx/conf/wprocket.conf; 
 
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf; 
@@ -237,7 +240,7 @@ echo "" >> /home/DBinfo.txt
 unzip /etc/kpanel/menu/database-example/mybb-config-themes.tar.gz -d /home/$website/public_html/cache/themes/
 cp -r /etc/kpanel/menu/database-example/database-example-mybb.tar.gz  /tmp/database-example-mybb.sql
 cat > "/tmp/mybbinstall" <<END
-sed -i 's/adminvpssim/$adminmybb/g' /tmp/database-example-mybb.sql
+sed -i 's/adminkpanel/$adminmybb/g' /tmp/database-example-mybb.sql
 sed -i 's/emailadmin/$uremail/g' /tmp/database-example-mybb.sql
 sed -i 's/domainexample/$website/g' /tmp/database-example-mybb.sql
 END

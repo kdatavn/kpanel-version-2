@@ -39,7 +39,7 @@ exit
 fi
 
 prompt="Nhap lua chon cua ban: "
-options=( "WP Super Cache" "Redis Cache" "W3 Total Cache" "Others")
+options=( "WP Super Cache" "Redis Cache" "W3 Total Cache" "WP Rocket Cache" "Others")
 printf "=========================================================================\n"
 printf "Lua chon cau hinh VHost cho $website  \n"
 printf "=========================================================================\n"
@@ -52,7 +52,8 @@ select opt in "${options[@]}"; do
     1) vhostconfig="supercache"; break;;
     2) vhostconfig="redis"; break;;
     3) vhostconfig="wptotalcache"; break;;
-    4) vhostconfig="normal"; break;;  
+	4) vhostconfig="rocket"; break;;
+    5) vhostconfig="normal"; break;;  
     *) echo "Ban nhap sai ! Ban vui long chon so trong danh sach";continue;;
     esac  
 done
@@ -62,7 +63,7 @@ done
 if [ "$vhostconfig" = "redis" ]; then
 clear
 printf "=========================================================================\n"
-echo "kpanel se download Wordpress Code vao /home/$website/public_html"
+echo "KPANEL se download Wordpress Code vao /home/$website/public_html"
 echo "-------------------------------------------------------------------------"
 echo "Va cau hinh Vhost su dung Redis Cache"
 sleep 7
@@ -86,14 +87,14 @@ include /etc/nginx/conf/ddos2.conf;
 	index index.php index.html index.htm;
     	server_name $website;
 
-#///////////////////////////////////////////////////////
-# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
+#/////////////////////////////////////////////////////////////
+# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC, DDD va EEE
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua KPANEL
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
-#///////////////////////////////////////////////////////
+#////////////////////////////////////////////////////////////
 
 #Chay tat ca cac website (Wordpress, Xenforo, Joomla, Phpbb .... ). Neu ban su dung rule cua ban,comment dong duoi (them dau # vao truoc) (AAA)
 include /etc/nginx/conf/all.conf;
@@ -109,11 +110,11 @@ include /etc/nginx/conf/all.conf;
 # Rule cho wordpress + Plugin W3 Total Cache. Neu ban su dung wordpress va W3 Total, uncomment dong duoi va comment dong AAA phia tren. (DDD)
 #include /etc/nginx/conf/w3total.conf;  
 
-
-
+# Rule cho wordpress + Plugin wp rocket Cache. Neu ban su dung wordpress va wp rocket, uncomment dong duoi va comment hoac xoa dong AAA phia tren. (EEE)
+#include /etc/nginx/conf/wprocket.conf;
 
 #Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
-#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
+#Khong duoc xoa dong duoi, neu xoa KPANEL se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
 
 # Error Page
@@ -183,9 +184,9 @@ include /etc/nginx/conf/ddos2.conf;
     	server_name $website;
 
 #///////////////////////////////////////////////////////
-# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
+# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC, DDD va EEE
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua KPANEL
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
@@ -203,13 +204,16 @@ include /etc/nginx/conf/ddos2.conf;
 include /etc/nginx/conf/supercache.conf;  
 
 # Rule cho wordpress + Plugin W3 Total Cache. Neu ban su dung wordpress va W3 Total, uncomment dong duoi va comment dong AAA phia tren. (DDD)
-#include /etc/nginx/conf/w3total.conf;  
+#include /etc/nginx/conf/w3total.conf;
+
+# Rule cho wordpress + Plugin wp rocket Cache. Neu ban su dung wordpress va wp rocket, uncomment dong duoi va comment hoac xoa dong AAA phia tren. (EEE)
+#include /etc/nginx/conf/wprocket.conf;  
 
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;
 
 #Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
-#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
+#Khong duoc xoa dong duoi, neu xoa KPANEL se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
 # Error Page
@@ -277,9 +281,9 @@ include /etc/nginx/conf/ddos2.conf;
     	server_name $website;
 
 #///////////////////////////////////////////////////////
-# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
+# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC, DDD va EEE
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua KPANEL
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
@@ -300,11 +304,112 @@ include /etc/nginx/conf/ddos2.conf;
 # Rule cho wordpress + Plugin W3 Total Cache. Neu ban su dung wordpress va W3 Total, uncomment dong duoi va comment dong AAA phia tren. (DDD)
 include /etc/nginx/conf/w3total.conf; 
 
+# Rule cho wordpress + Plugin wp rocket Cache. Neu ban su dung wordpress va wp rocket, uncomment dong duoi va comment hoac xoa dong AAA phia tren. (EEE)
+#include /etc/nginx/conf/wprocket.conf;
+
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf; 
 
 #Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
-#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
+#Khong duoc xoa dong duoi, neu xoa KPANEL se khong hoat dong !
+#include /etc/nginx/conf/block.conf;
+ 
+# Error Page
+#error_page 403 /errorpage_html/403.html;
+#error_page 404 /errorpage_html/404.html;
+#error_page 405 /errorpage_html/405.html;
+#error_page 502 /errorpage_html/502.html;
+#error_page 503 /errorpage_html/503.html;
+#error_page 504 /errorpage_html/504.html;
+#location ^~ /errorpage_html/ {
+#   internal;
+#    root /home/$website;
+#    access_log              off;
+#} 
+    	location ~ \.php$ {
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        include /etc/nginx/fastcgi_params;
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+		fastcgi_connect_timeout 250;
+		fastcgi_send_timeout 250;
+		fastcgi_read_timeout 250;
+		fastcgi_buffer_size 256k;
+		fastcgi_buffers 4 256k;
+		fastcgi_busy_buffers_size 256k;
+		fastcgi_temp_file_write_size 256k;
+		fastcgi_intercept_errors on;
+        fastcgi_param SCRIPT_FILENAME /home/$website/public_html\$fastcgi_script_name;
+    	}
+    	
+
+#include /etc/nginx/conf/phpstatus.conf;
+include /etc/nginx/conf/drop.conf;
+
+    }
+END
+###################################
+#WP Rocket cache
+###################################
+elif [ "$vhostconfig" = "rocket" ]; then
+clear
+printf "=========================================================================\n"
+echo "KPANEL se download Wordpress Code vao /home/$website/public_html"
+echo "-------------------------------------------------------------------------"
+echo "Va cau hinh Vhost su dung WP Rocket Cache"
+sleep 7
+	cat > "/etc/nginx/conf.d/$website.conf" <<END
+server {
+	    server_name www.$website;
+	    rewrite ^(.*) http://$website\$1 permanent;
+    	}
+server {
+	    listen   80;
+
+    	access_log off;
+    	# access_log   /home/$website/logs/access_log;
+    	error_log off;
+    	# error_log /home/$website/logs/error.log;
+    	add_header X-Frame-Options SAMEORIGIN;
+		add_header X-Content-Type-Options nosniff;
+		add_header X-XSS-Protection "1; mode=block";
+		root /home/$website/public_html;
+include /etc/nginx/conf/ddos2.conf;
+	index index.php index.html index.htm;
+    	server_name $website;
+
+#///////////////////////////////////////////////////////
+# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC, DDD va EEE
+# Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua KPANEL
+# Thuat ngu:
+# Comment - Them dau # vao truoc
+# Uncomment - Bo dau # o truoc cau.
+#///////////////////////////////////////////////////////
+
+
+#Chay tat ca cac website (Wordpress, Xenforo, Joomla, Phpbb .... ). Neu ban su dung rule cua ban,comment dong duoi (them dau # vao truoc) (AAA)
+#include /etc/nginx/conf/all.conf;
+
+#Neu ban su dung rule cua minh, comment rule o tren. Sau do uncoment (bo dau # ba dong duoi) sau do them rule vao giua. (BBB)
+#location / {
+#Uncomment 3 lines and set your rules here!
+#}
+
+# Rule cho wordpress + Plugin wp super cache. Neu ban su dung wordpress va wp super cache, uncomment dong duoi va comment dong AAA phia tren (CCC)
+#include /etc/nginx/conf/supercache.conf;  
+
+# Rule cho wordpress + Plugin W3 Total Cache. Neu ban su dung wordpress va W3 Total, uncomment dong duoi va comment dong AAA phia tren. (DDD)
+#include /etc/nginx/conf/w3total.conf; 
+
+# Rule cho wordpress + Plugin wp rocket Cache. Neu ban su dung wordpress va wp rocket, uncomment dong duoi va comment hoac xoa dong AAA phia tren. (EEE)
+include /etc/nginx/conf/wprocket.conf;
+
+# Confif Cache Static Files
+include /etc/nginx/conf/staticfiles.conf; 
+
+#Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
+#Khong duoc xoa dong duoi, neu xoa KPANEL se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
 # Error Page
@@ -370,9 +475,9 @@ include /etc/nginx/conf/ddos2.conf;
     	server_name $website;
 
 #///////////////////////////////////////////////////////
-# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC hoac DDD
+# Ban chi co the chon 1 trong 4 rule AAA, BBB, CCC, DDD va EEE
 # Ban nen comment cac rule khong su dung thay vi xoa chung vi neu ban su dung wordpress blog 
-# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua kpanel
+# Cac dong nay can thiet cho cac chuc nang trong Wordpress Blog Tools cua KPANEL
 # Thuat ngu:
 # Comment - Them dau # vao truoc
 # Uncomment - Bo dau # o truoc cau.
@@ -391,13 +496,16 @@ include /etc/nginx/conf/all.conf;
 #include /etc/nginx/conf/supercache.conf;  
 
 # Rule cho wordpress + Plugin W3 Total Cache. Neu ban su dung wordpress va W3 Total, uncomment dong duoi va comment dong AAA phia tren. (DDD)
-#include /etc/nginx/conf/w3total.conf;  
+#include /etc/nginx/conf/w3total.conf;
+
+# Rule cho wordpress + Plugin wp rocket Cache. Neu ban su dung wordpress va wp rocket, uncomment dong duoi va comment hoac xoa dong AAA phia tren. (EEE)
+#include /etc/nginx/conf/wprocket.conf;  
 
 # Confif Cache Static Files
 include /etc/nginx/conf/staticfiles.conf;
 
 #Tang bao mat security, chong sql injection  ....(uncoment neu ban muon su dung). Boi vi mot so code website khong su dung duoc voi rule nay, nen mac dinh kpanel de tat.
-#Khong duoc xoa dong duoi, neu xoa kpanel se khong hoat dong !
+#Khong duoc xoa dong duoi, neu xoa KPANEL se khong hoat dong !
 #include /etc/nginx/conf/block.conf;
  
 # Error Page
@@ -459,7 +567,7 @@ mkdir -p /home/$website/errorpage_html && cp -r /etc/kpanel/errorpage_html/*.htm
 #######################################################################
 echo "========================================================================="
 echo "========================================================================="
-read -r -p "Ban co muon kpanel tao Database moi cho $website ? [y/N] " response
+read -r -p "Ban co muon KPANEL tao Database moi cho $website ? [y/N] " response
 case $response in
     [yY][eE][sS]|[yY]) 
     echo "Please wait....";sleep 1
