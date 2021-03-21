@@ -137,7 +137,7 @@ include /etc/nginx/conf/all.conf;
 #include /etc/nginx/conf/supercache.conf; 
 
 # Rule cho wordpress + Plugin W3 Total Cache. Neu ban su dung wordpress va W3 Total, uncomment dong duoi va comment dong AAA phia tren. (DDD)
-#include /etc/nginx/conf/w3totalcache.conf;
+#include /etc/nginx/conf/w3total.conf;
 
 # Rule cho wordpress + Plugin wp rocket Cache. Neu ban su dung wordpress va wp rocket, uncomment dong duoi va comment hoac xoa dong AAA phia tren. (EEE)
 #include /etc/nginx/conf/wprocket.conf; 

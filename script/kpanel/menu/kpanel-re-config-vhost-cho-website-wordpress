@@ -65,7 +65,7 @@ echo "KPANEL khong the thuc hien yeu cau cua ban"
 /etc/kpanel/menu/kpanel-wordpress-tools-menu
   exit
   fi
-   if [ "$(grep "include /etc/nginx/conf/supercache.conf;" /etc/nginx/conf.d/$website.conf)" == "" ]; then
+    if [ "$(grep "include /etc/nginx/conf/supercache.conf;" /etc/nginx/conf.d/$website.conf)" == "" ]; then
 clear
 echo "========================================================================="
 echo "Ban da xoa 1 trong 3 dong: AAA, CCC, DDD, EEE trong Vhost cua $website"
