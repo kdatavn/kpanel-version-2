@@ -67,7 +67,7 @@ exit
 fi
 
 if [ -f /etc/nginx/conf.d/$website.conf ]; then
-echo "kpanel se them $domain vao he thong "
+echo "KPANEL se them $domain vao he thong "
 echo "-------------------------------------------------------------------------"
 read -r -p "va cho $domain chay song song voi $website. Is it Ok  ? [y/N] " response
 case $response in

@@ -143,7 +143,7 @@ select opt in "${options[@]}"; do
     case "$REPLY" in
     1) luachonphuchoi="phuchoitufilebackup"; break;;
     2) luachonphuchoi="uploadsaudophuchoi"; break;;
-    3) luachonphuchoi="cancle"; break;;
+    3) luachonphuchoi="cancel"; break;;
     *) echo "Ban nhap sai, vui long nhap theo danh sach";continue;;
     esac  
 done
@@ -154,7 +154,7 @@ if [ "$luachonphuchoi" = "phuchoitufilebackup" ]; then
 echo "--------------------------------------------------------------------------"
 echo "Please wait ...."
 echo "--------------------------------------------------------------------------"
-echo "kpanel dang Restore $dataname.........."
+echo "KPANEL dang Restore $dataname.........."
 sleep 3
 gunzip < /home/$mainsite/private_html/backup/$dataname/$filename | mysql -u root -p$mariadbpass $dataname
 date -r /var/lib/mysql/$dataname +%H%M%S> /tmp/kpanel2
