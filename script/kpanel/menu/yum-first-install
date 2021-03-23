@@ -9,6 +9,7 @@ if [ "$current_os_version" == "6" ] || [ "$current_os_version" == "7" ]; then
 else
 	sudo dnf -y install psmisc bc gawk gcc
 	sudo dnf -y -q install virt-what unzip sudo net-tools iproute iproute2 curl deltarpm dnf-utils tar
+	yum config-manager --set-enabled powertools
 	sudo dnf -y install epel-release
 fi
 
