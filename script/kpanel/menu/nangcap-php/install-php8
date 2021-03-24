@@ -9,7 +9,7 @@ echo "current_os_version="$(rpm -q --qf "%{VERSION}" $(rpm -q --whatprovides red
 
 
 #
-#echo "Uninstall php..."
+echo "Uninstall php..."
 yum -y remove php\* > /dev/null 2>&1
 
 sudo yum -y module reset php
