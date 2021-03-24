@@ -271,6 +271,10 @@ fi
 clear
 echo "========================================================================="
 echo "Cau hinh Vhost cua $website cho WP Rocket Cache thanh cong"
+echo "-------------------------------------------------------------------------"
+echo "*LUU Y: de kich hoat hoan toan cache nay, ban phai cai them plugin cua"
+echo "-------------------------------------------------------------------------"
+echo "Rocket tren website wordpress va nap file cau hinh *.json vao !!!"
 /etc/kpanel/menu/kpanel-wordpress-tools-menu
 ###################################
 #Huy bo 
