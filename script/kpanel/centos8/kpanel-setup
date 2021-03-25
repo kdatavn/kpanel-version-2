@@ -3,8 +3,8 @@ checktruenumber='^[0-9]+$'
 
 kiemtraemail3="^(([-a-zA-Z0-9\!#\$%\&\'*+/=?^_\`{\|}~])+\.)*[-a-zA-Z0-9\!#\$%\&\'*+/=?^_\`{\|}~]+@\w((-|\w)*\w)*\.(\w((-|\w)*\w)*\.)*\w{2,24}$";
 svip=$(wget http://ipecho.net/plain -O - -q ; echo)
-phpmacdinh="7.2"
-numPHPmacdinh="72"
+phpmacdinh="7.4"
+numPHPmacdinh="74"
 echo "=========================================================================="
 echo "Mac dinh server se duoc cai dat PHP "$phpmacdinh". Neu muon su dung phien ban PHP "
 echo "--------------------------------------------------------------------------"
