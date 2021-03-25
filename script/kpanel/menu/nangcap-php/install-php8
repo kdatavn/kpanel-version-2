@@ -41,7 +41,7 @@ sudo dnf module list php
 
 # We need to enable this module before installing PHP 8.0. To enable php:remi-8.0, execute:
 #sudo dnf module enable php:remi-8.0 -y
-sudo dnf module enable php:remi-$new_php_version -y
+sudo dnf module install php:remi-$new_php_version -y
 
 # Install PHP 8.0 for Nginx
 sudo dnf -y install php php-cli php-common php-fpm
