@@ -4,7 +4,7 @@ sshPortdefault=$((grep "Port" /etc/ssh/sshd_config) | head -n 1)
 portcu=$(cat /etc/ssh/sshd_config | grep Port | awk 'END {print $2}')
 if [ ! "$sshPortdefault" == "#Port 22" ]; then
 clear
-echo "Ban da thay doi port SSH ma khong su dung kpanel"
+echo "Ban da thay doi port SSH ma khong su dung KPANEL"
 echo "-------------------------------------------------------------------------"
 echo "Chuc nang nay khong the hoat dong duoc !"
 /etc/kpanel/menu/tienich/kpanel-tien-ich
