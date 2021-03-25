@@ -9,6 +9,11 @@ test
 - [x] **`CentOS 7 x64` Khuyên dùng để cho hiệu suất tốt nhất. Mã nguồn KPANEL hiện tại đang phát triển chính trên CentOS 7 x64.**
 - [ ] `CentOS 8 x64` MỚI và đang thử nghiệm. Tương lai gần KPANEL cũng sẽ phát triển song song cả trên CentOS 8 x64, hiện tại mới đang thử nghiệm.
 - [ ] `CentOS 6 x64` KPANEL được phát triển trên phiên bản CentOS 6 x64, do KPANEL kế thừa mã nguồn của kpanel nên KPANEL cũng hoạt động tốt trên CentOS 6 x64, nên nếu có yêu cầu bắt buộc phải dùng CentOS 6 thì bạn có thể hoàn toàn yên tâm sử dụng, chỉ là về lâu dài thì các phiên bản cũ sẽ trờ nên lỗi thời, nên KPANEL chỉ phát triển từ CentOS 7 & 8.
+----------------------------------------------
+
+> 2021/03/25
+- Hệ điều hành `CentOS 8 x64` chỉ hỗ trợ các phiên bản PHP (7.2, 7.3, 7.4 và mới nhất là 8.0), nên khi chọn phiên bản thấp hơn các phiên bản này trong tính năng chuyển phiên bản PHP, KPANEL sẽ mặc định cài lại PHP phiên bản 7.2.
+- PHP phiên bản 8.0 đang được thử nghiệm và sẽ sớm được cập nhật cho KPANEL.
 
 ----------------------------------------------
 
@@ -59,7 +64,7 @@ Lâu không dùng 2 bản cũ kia, mà nọ có việc nên xem lại câu lện
 > 2020/09/11
 #### Thêm chức năng cài đặt Varnish Cache: https://packagecloud.io/varnishcache/
 #### Ngoài việc sử dụng KPANEL làm VPS chạy website thông thường, giờ đây bạn cũng có thể sử dụng để làm VPS chạy Varnish Cache rất tiện dụng. Hiện tại mình đang chạy thành công trên Varnish 4.1, bản 6.xx mới hơn chút xíu nhưng mình chưa thử nghiệm ngon lành, nên khuyên dùng vẫn là Varnish 4.1
-#### Mã thực thi: https://github.com/kdatavn/kpanel-version-2/tree/master/script/kpanel/menu/varnish
+#### Mã thực thi: https://github.com/kdatavn/kpanel-version-2/tree/main/script/kpanel/menu/varnish
 > Cách sử dụng: Trong KPANEL menu -> 25) Tien ich - Addons -> 23) Varnish Cache -> Chọn phiên bản Varnish mà bạn muốn cài đặt
 #### Không nên sử dụng VPS vừa làm VPS cache vừa làm VPS chạy web để tránh các xung đột không cần thiết.
 
